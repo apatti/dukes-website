@@ -13,10 +13,10 @@ var playerId = getParameterByName('pid');
 		 //Batting stats
 		 
 		 var battingStats ='';
-		 battingStats = battingStats + "<table border='1'>";
-		  battingStats = battingStats +'<tr><th>Matchs</th><th>NOT</th><th>R</th><th>B</th><th>MoM</th><th>HS</th><th>NotScored</th>';
-		 battingStats = battingStats + '<th>50s</th><th>100s</th><th>6s</th><th>4s</th><th>Avg</th><th>SR</th><th>BestScore</th><th>DNB</th></tr>';
-		 battingStats = battingStats +'<tr>';
+		 battingStats = battingStats + "<table  class='dukes-datagrid' >";
+		  battingStats = battingStats +' <thead><tr><th>Matchs</th><th>NOT</th><th>R</th><th>B</th><th>MoM</th><th>HS</th><th>NotScored</th>';
+		 battingStats = battingStats + '<th>50s</th><th>100s</th><th>6s</th><th>4s</th><th>Avg</th><th>SR</th><th>BestScore</th><th>DNB</th></tr> </thead>';
+		 battingStats = battingStats +' <tbody><tr>';
 		 battingStats = battingStats +'<td>' + pData['BattingStats']['matches_played']+'</td>';
 		 battingStats = battingStats + '<td>'+ pData['BattingStats']['notout'] + '</td>';
 		 battingStats = battingStats +'<td>' + pData['BattingStats']['runs_scored'] + '</td>';
@@ -32,11 +32,11 @@ var playerId = getParameterByName('pid');
 		 battingStats = battingStats +'<td>' + pData['BattingStats']['batsman_strike_rate'] + '</td>';
 		 battingStats = battingStats +'<td>' + pData['BattingStats']['best_score'] + '</td>';
 		 battingStats = battingStats +'<td>' + pData['BattingStats']['donot_bat'] + '</td>';
-		 battingStats = battingStats +'</tr></table>';
+		 battingStats = battingStats +'</tr> </tbody></table>';
 		$('#battingStatsDiv').html(battingStats);
 		
 		var bowlingStats ='';
-		 bowlingStats = bowlingStats + "<table border='1'>";
+		 bowlingStats = bowlingStats + "<table class='dukes-datagrid'>";
 		  bowlingStats = bowlingStats +'<tr><th>Overs</th><th>Maided</th><th>R</th><th>W</th><th>5w</th><th>wide</th><th>NB</th>';
 		 bowlingStats = bowlingStats + '<th>Ext</th><th>Econ</th><th>Avg</th><th>SR</th><th>BFig</th><th>BEST</th></tr>';
 		 bowlingStats = bowlingStats +'<tr>';
@@ -57,7 +57,7 @@ var playerId = getParameterByName('pid');
 		$('#bowlingStatsDiv').html(bowlingStats);
 		
 		var fieldStats ='';
-		 fieldStats = fieldStats + "<table border='1'>";
+		 fieldStats = fieldStats + "<table class='dukes-datagrid'>";
 		 fieldStats = fieldStats +'<tr><th>Catches</th><th>Run Outs</th><th>Stumps</th></tr>';
 		 fieldStats = fieldStats +'<tr>';
 		 fieldStats = fieldStats +'<td>' + pData['FieldStats']['catches']+'</td>';
