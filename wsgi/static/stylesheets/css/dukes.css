@@ -1,0 +1,13 @@
+table.dukes-datagrid{
+border: 1px solid #000000;
+
+}
+table, td, th
+{
+border:1px solid green;
+}
+th
+{
+background-color:#6666FF;
+color:white;
+}
