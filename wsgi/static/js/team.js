@@ -9,7 +9,7 @@ $(document).ready(function(){
               dataInTable = dataInTable + "<tr><td>"+ this['fname'] +" "+ this['lname'] +"</td><tr>";
               dataInTable = dataInTable + "</table></div>";
           });	
-		  alert(dataInTable);
+	  //alert(dataInTable);
          $("#teamDiv").html(dataInTable);         
     });  
 
