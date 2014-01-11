@@ -2,6 +2,7 @@
 import os
 
 virtenv = os.environ['OPENSHIFT_PYTHON_DIR'] + '/virtenv/'
+os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv,'lib/python2.7/site-packages')
 virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
 try:
     execfile(virtualenv, dict(__file__=virtualenv))
@@ -12,4 +13,4 @@ except IOError:
 # line, it's possible required libraries won't be in your searchable path
 # 
 
-from service.py import app as application
+from service import app as application
