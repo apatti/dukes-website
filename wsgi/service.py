@@ -1,15 +1,10 @@
 from flask import Flask
-from flask import render_template
 
 app = Flask(__name__,static_url_path='')
 
-@app.route('/')
+@app.route('/api/')
 def index():
-    return render_template('index.html')
-
-@app.route('/player.html')
-def playerIndex():
-    return render_template('player.html')
+    return 'Hello World'
 
 if __name__ == '__main__':
     app.run(debug=True)
