@@ -10,7 +10,7 @@
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <script src="js/player.js"></script> 
-  
+  <script type="text/javascript" src="js/login.js"></script>
 	<title>Dukes 11</title>
 	
 	<script>
@@ -37,8 +37,8 @@
 		<div class="header">
 			<div class="top_info">
 				<div class="top_info_right">
-					<p><b>You are not Logged in!</b> <a href="#">Log in</a> to check your messages.<br />
-					Do you want to <a href="#">Log in</a> or <a href="#">register</a>?</p>
+					<div id="fb-root"></div>
+					<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 				</div>		
 				<div class="top_info_left">
 					<p><b>....comments ...</b>
