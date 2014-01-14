@@ -2,7 +2,7 @@ from flask import Flask
 
 app = Flask(__name__,static_url_path='')
 
-@app.route('/')
+@app.route('/api/')
 def index():
     return 'Hello World'
 
