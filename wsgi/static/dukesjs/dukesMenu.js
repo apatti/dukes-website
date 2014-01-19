@@ -11,7 +11,7 @@
  $("#navigation").html(dukesMenu);  
   $('#mb1').puimenubar();
     FB.api('/me', function(response) {
-      alert("Logged In');
+      alert("Logged In");
 	  //localStorage['fb_'+response.username]= $.parseJSON(response);
 		$('ul#mb1 li#profileTab').css('display','true');
     });
