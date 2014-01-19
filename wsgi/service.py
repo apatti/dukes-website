@@ -15,17 +15,16 @@ def insertUser():
         abort(400)
     print("Good")
     reqObj = request.get_json(force=True)
-    print(reqObj)
     userObj ={}
     userObj["username"]=reqObj.get("username")
-    #userObj.id = reqObj.id
-    #userObj.link = reqObj.link
-    #userObj.name = reqObj.name
-    #userObj.first_name=reqObj.first_name
-    #userObj.last_name = reqObj.last_name
+    userObj["id"] = reqObj.get("id")
+    userObj["link"] = reqObj.get("link")
+    userObj["name"] = reqObj.get("name")
+    userObj["first_name"]=reqObj.get("first_name")
+    userObj["last_name"] = reqObj.get("last_name")
 
     print(userObj)
-    #connection.request('POST','/1/classes/user',userObj,{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.request('POST','/1/classes/user',userObj,{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     #result = json.loads(connection.getresponse().read())
     return jsonify({'result':'result'}),200
 
