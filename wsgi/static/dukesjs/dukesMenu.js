@@ -7,13 +7,8 @@
 		dukesMenu = dukesMenu +"<li> <a data-icon='ui-icon-document'>Cricket</a></li>";
 		dukesMenu = dukesMenu +"<li> <a data-icon='ui-icon-document'>News</a></li>";
 		dukesMenu = dukesMenu +"<li id='profileTab'> <a data-icon='ui-icon-document'>Profile</a></li>";
-		dukesMenu = dukesMenu +"</ul>";		
-	
+		dukesMenu = dukesMenu +"</ul>";				 
  $("#navigation").html(dukesMenu);  
   $('#mb1').puimenubar();
-                
-                $('#mb2').puimenubar({
-                    autoDisplay: false
-                }); 
-
+      $('#navigation ul#mb1 li#profileTab').css('display','none');
  });
