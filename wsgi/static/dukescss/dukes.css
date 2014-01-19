@@ -1,0 +1,37 @@
+
+	.player_img{
+		float:left;
+		height:130px;		
+		margin:5px;
+		background: #FFF;
+	}
+		
+	.player_info{
+		float:left;
+		height:200px;
+		width:780px;
+		background: #FFF;
+	}
+	.player_stats{
+		float:left;		
+		margin:5px;
+		background: #FFF;
+	}
+	.palyer_more_info{
+		float:left;		
+		background: #FFF;
+	}
+
+
+	.right_articles {
+		background: #f5f5f5;
+		color: #414141;
+		padding: 8px;	
+		margin: 0 0 3px 0;
+	}
+	
+.image {
+	float: left;
+	margin: 0 9px 3px 0;
+}
+
