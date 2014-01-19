@@ -56,6 +56,6 @@ window.fbAsyncInit = function() {
       console.log('Good to see you, ' + response.name + '.');
 	  
 	  localStorage.fb_userInfo= $.parseJSON(response);
-		//$('ul#mb1 li#profileTab').css('display','true');
+	$('ul#mb1 li#profileTab').css('display','true');
     });
   }
