@@ -55,7 +55,7 @@ window.fbAsyncInit = function() {
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
 	  
-	  localStorage.setItem('fb_userInfo', $.parseJSON(response));
+	  localStorage.setItem('fb_userInfo', response);
 	$('ul#mb1 li#profileTab').css('display','true');
     });
   }
