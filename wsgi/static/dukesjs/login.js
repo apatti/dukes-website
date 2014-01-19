@@ -1,3 +1,7 @@
+window.onbeforeunload = function() {
+  localStorage.removeItem('USER_FB_INFO');
+  return '';
+};
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
