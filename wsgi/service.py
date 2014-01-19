@@ -15,13 +15,13 @@ def insertUser():
         abort(400)
     print("Good")
     reqObj = request.get_json(force=True)
-    userObj =[]
-    userObj.username=reqObj.username
-    userObj.id = reqObj.id
-    userObj.link = reqObj.link
-    userObj.name = reqObj.name
-    userObj.first_name=reqObj.first_name
-    userObj.last_name = reqObj.last_name
+    userObj ={}
+    #userObj.username=reqObj.username
+    #userObj.id = reqObj.id
+    #userObj.link = reqObj.link
+    #userObj.name = reqObj.name
+    #userObj.first_name=reqObj.first_name
+    #userObj.last_name = reqObj.last_name
 
     print(userObj)
     #connection.request('POST','/1/classes/user',userObj,{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
