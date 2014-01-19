@@ -17,7 +17,7 @@ def insertUser():
     reqObj = request.get_json(force=True)
     print(reqObj)
     userObj ={}
-    userObj["username"]="test"
+    userObj["username"]=reqObj.get("username")
     #userObj.id = reqObj.id
     #userObj.link = reqObj.link
     #userObj.name = reqObj.name
