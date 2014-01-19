@@ -16,7 +16,8 @@ def insertUser():
 
     userObj = request.get_json(force=True)
     connection.request('POST','/1/classes/user',json.dumps({"name":"AShhwin"}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    return jsonify({'result':'good'}),200
+    result = json.loads(connection.getresponse().read())
+    return jsonify({'result':result}),200
 
 @app.errorhandler(400)
 def invalid_data_format(error):
