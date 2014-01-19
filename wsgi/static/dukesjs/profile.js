@@ -1,6 +1,4 @@
-$(document).ready(function
-	
- $(function() {
+$(document).ready(function() {
  
 		 FB.getLoginStatus(function(response) {
 		  if (response.status === 'connected') {
@@ -34,8 +32,6 @@ $('#default').puipanel();
 		});
 $('#associateBtn').puibutton();
 		
-		
-		
-	});
+	
 });
 
