@@ -25,6 +25,7 @@ window.fbAsyncInit = function() {
       // (1) JavaScript created popup windows are blocked by most browsers unless they 
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
+	  $('ul#mb1 li#profileTab').css('display','none');
       FB.login();
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
@@ -32,6 +33,7 @@ window.fbAsyncInit = function() {
       // of whether they are logged into the app. If they aren't then they'll see the Login
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
+	  $('ul#mb1 li#profileTab').css('display','none');
       FB.login();
     }
   });
@@ -52,7 +54,8 @@ window.fbAsyncInit = function() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
-	  localStorage['fb_'+response.username]=$.parseJSON(response);
-	 
+	  
+	  localStorage.fb_userInfo= $.parseJSON(response);
+	$('ul#mb1 li#profileTab').css('display','true');
     });
   }
