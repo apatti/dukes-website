@@ -1,5 +1,11 @@
 $(document).ready(function() {
- 
+ window.fbAsyncInit = function() {
+	  FB.init({
+		appId      : '627120887325860',
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true  // parse XFBML
+	  });
 		 FB.getLoginStatus(function(response) {
 		  if (response.status === 'connected') {
 			// the user is logged in and has authenticated your
@@ -25,7 +31,7 @@ $(document).ready(function() {
 			localStorage.removeItem('USER_FB_INFO');
 		  }
 		 });
-       
+       };
 $('#default').puipanel();
 		$('#basic').puidropdown({
 			icon: 'ui-icon-check'
