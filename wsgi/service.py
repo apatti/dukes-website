@@ -2,7 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import httplib
 
 app = Flask(__name__,static_url_path='')
-connection = httplib.HTTPSConnection('api.parse.com',443)
+#connection = httplib.HTTPSConnection('api.parse.com',443)
 #connection.connect()
 
 @app.route('/')
