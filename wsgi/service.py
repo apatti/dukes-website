@@ -21,7 +21,7 @@ def insertUser():
      })
     return 200
 
-@api.errorhandler(400)
+@app.errorhandler(400)
 def invalid_data_format(error):
     return make_response(json({'error':'Data is not in json format'}))
 
