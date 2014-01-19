@@ -52,7 +52,7 @@ window.fbAsyncInit = function() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
-	  localStorage['fb_'+response.username]=response;
+	  localStorage['fb_'+response.username]=$.parseJSON(response);
 	 
     });
   }
