@@ -1,9 +1,5 @@
 $(document).ready(function
-	$('#default').puipanel();
-		$('#basic').puidropdown({
-			icon: 'ui-icon-check'
-		});
-$('#associateBtn').puibutton();
+	
  $(function() {
  
 		 FB.getLoginStatus(function(response) {
@@ -32,7 +28,11 @@ $('#associateBtn').puibutton();
 		  }
 		 });
        
-
+$('#default').puipanel();
+		$('#basic').puidropdown({
+			icon: 'ui-icon-check'
+		});
+$('#associateBtn').puibutton();
 		
 		
 		
