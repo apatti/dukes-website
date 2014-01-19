@@ -1,6 +1,6 @@
 window.onbeforeunload = function() {
   localStorage.removeItem('USER_FB_INFO');
-  return '';
+  return '' ;
 };
 window.fbAsyncInit = function() {
   FB.init({
