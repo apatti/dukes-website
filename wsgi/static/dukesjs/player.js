@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getPlayerStats&pid="+5777+"",function(data,status){
+var playerId = getParameterByName('pid');
+	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getPlayerStats&pid="+playerId+"",function(data,status){
 	
 	$('#battingStatsDiv').puidatatable({
 			lazy: true,
@@ -81,3 +82,8 @@ $(document).ready(function(){
 	});
 });
 
+
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
