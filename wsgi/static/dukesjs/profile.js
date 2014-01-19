@@ -15,7 +15,7 @@ $(document).ready(function() {
 			// and signed request each expire
 			var uid = response.authResponse.userID;
 			var accessToken = response.authResponse.accessToken;
-			alert(response);
+			
 			var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
 			$('#nameDiv').html("<h3>Name : </h>"+userData['name']);
 			$('#locationDiv').html("<h3>Location : </h>"+userData['location']['name']);
@@ -23,11 +23,11 @@ $(document).ready(function() {
 		  } else if (response.status === 'not_authorized') {
 			// the user is logged in to Facebook, 
 			// but has not authenticated your app
-			alert("not_authorized");
+			
 			localStorage.removeItem('USER_FB_INFO');
 		  } else {
 			// the user isn't logged in to Facebook.
-			alert("Not Login ");
+			
 			localStorage.removeItem('USER_FB_INFO');
 		  }
 		 });
