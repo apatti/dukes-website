@@ -1,9 +1,10 @@
 from flask import Flask,jsonify,make_response,request,abort
-import httplib
+import json,httplib
 
 app = Flask(__name__,static_url_path='')
-#connection = httplib.HTTPSConnection('api.parse.com',443)
-#connection.connect()
+app.config['PROPAGATE_EXCEPTIONS']=True
+connection = httplib.HTTPSConnection('api.parse.com',443)
+connection.connect()
 
 @app.route('/')
 def index():
@@ -13,10 +14,20 @@ def index():
 def insertUser():
     if not request.get_json:
         abort(400)
+    print("Good")
+    reqObj = request.get_json(force=True)
+    userObj ={}
+    userObj["username"]=reqObj.get("username")
+    userObj["fb_id"] = reqObj.get("id")
+    userObj["link"] = reqObj.get("link")
+    userObj["name"] = reqObj.get("name")
+    userObj["first_name"]=reqObj.get("first_name")
+    userObj["last_name"] = reqObj.get("last_name")
 
-    #userObj = request.get_json(force=True)
-    #connection.request('POST','/1/classes/user',json.dumps({"name":"AShhwin"}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    return jsonify({'result':'good'}),200
+    print(json.dumps(userObj))
+    connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    return jsonify({'result':result}),201
 
 @app.errorhandler(400)
 def invalid_data_format(error):
