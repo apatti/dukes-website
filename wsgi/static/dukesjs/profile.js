@@ -2,7 +2,9 @@ $(document).ready(function(){
  $(function() {
         $('#default').puipanel();
 		var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
-		$('#userPrfile').html("<h3> UserName : "+userData['name']+"</h3>");
+		$('#nameDiv').html("<h3>Name : </h>"+userData['name']);
+		$('#locationDiv').html("<h3>Location : </h>"+userData['location']['name']);
+		
 	});
 });
 
