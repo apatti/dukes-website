@@ -58,7 +58,7 @@ window.fbAsyncInit = function() {
   // This testAPI() function is only called in those cases. 
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
+    FB.api('/me?scope=email', function(response) {
       console.log('Good to see you, ' + response.name + '.');	  
 	  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
 	  
