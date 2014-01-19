@@ -10,5 +10,5 @@
 		dukesMenu = dukesMenu +"</ul>";				 
  $("#navigation").html(dukesMenu);  
   $('#mb1').puimenubar();
-      $('#navigation ul#mb1 li#profileTab').css('display','none');
+      
  });
