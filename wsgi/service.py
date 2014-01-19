@@ -2,6 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import json,httplib
 
 app = Flask(__name__,static_url_path='')
+app.config['PROPAGATE_EXCEPTIONS']=True
 connection = httplib.HTTPSConnection('api.parse.com',443)
 connection.connect()
 
