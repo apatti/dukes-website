@@ -35,8 +35,7 @@ window.fbAsyncInit = function() {
       // of whether they are logged into the app. If they aren't then they'll see the Login
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
-	   localStorage.setItem('USER_FB_INFO',false);
-	  $('ul#mb1 li#profileTab').css('display','none');
+	   localStorage.setItem('USER_FB_INFO',false);	  
       FB.login();
     }
   });
