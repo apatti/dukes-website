@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	//Adding Player Image
-	
+	alert(fbUserName);
 	     $.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
          var pData = $.parseJSON(data);
          var dataInTable ='';
