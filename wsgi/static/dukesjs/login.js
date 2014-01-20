@@ -60,7 +60,10 @@ window.fbAsyncInit = function() {
 	  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
 	  
 	//$('ul#mb1 li#profileTab').css('display','true');
-	
-	$('ul#mb1 li:last').after("<li id='profileTab'><a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>");
+	if($('ul#mb1 li:last').html() ==='Profile'){
+		alert($('ul#mb1 li:last').html());
+	}else{
+	$('ul#mb1 li:last').after("<li id='profileTab' class ='pui-menuitem ui-widget ui-corner-all'><a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>");
+	}
     });
   }
