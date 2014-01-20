@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 function getImageURL(username){
 var imgURL ='';
-  if(username.toLowerCase().indexOf("gottiganti"){
+  if(username.toLowerCase().indexOf("gottiganti")){
 		imgURL =  "<img src='https://graph.facebook.com/"+username+"/picture?type=normal'  class='image' width='100px' height='100px'/>"
 	  }
 	  return imgURL;
