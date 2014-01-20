@@ -26,7 +26,7 @@ window.fbAsyncInit = function() {
       // (1) JavaScript created popup windows are blocked by most browsers unless they 
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
-	  $('ul#mb1 li#profileTab').remove();
+	  
 	  localStorage.setItem('USER_FB_INFO',false);
       FB.login();
     } else {
@@ -35,7 +35,7 @@ window.fbAsyncInit = function() {
       // of whether they are logged into the app. If they aren't then they'll see the Login
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
-	  $('ul#mb1 li#profileTab').remove();
+	
 	   localStorage.setItem('USER_FB_INFO',false);	  
       FB.login();
     }
@@ -59,11 +59,12 @@ window.fbAsyncInit = function() {
       console.log('Good to see you, ' + response.name + '.');	  
 	  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
 	  
-	//$('ul#mb1 li#profileTab').css('display','true');
+	/*
 	if($('ul#mb1 li:last').attr('id') ==='profileTab'){
 		alert($('ul#mb1 li:last').attr('id'));
 	}else{
 	$('ul#mb1 li:last').after("<li id='profileTab' class ='pui-menuitem ui-widget ui-corner-all'><a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>");
 	}
+	*/
     });
   }

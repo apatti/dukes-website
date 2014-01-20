@@ -20,11 +20,9 @@ $(document).ready(function() {
 		  } else if (response.status === 'not_authorized') {
 			// the user is logged in to Facebook, 
 			// but has not authenticated your app
-			$('ul#mb1 li#profileTab').remove();
 			localStorage.removeItem('USER_FB_INFO');
 		  } else {
 			// the user isn't logged in to Facebook.
-			$('ul#mb1 li#profileTab').css('display','none');
 			localStorage.removeItem('USER_FB_INFO');
 		  }
 		 });
