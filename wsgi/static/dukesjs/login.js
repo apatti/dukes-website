@@ -60,8 +60,8 @@ window.fbAsyncInit = function() {
 	  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
 	  
 	//$('ul#mb1 li#profileTab').css('display','true');
-	if($('ul#mb1 li:last').html() ==='Profile'){
-		alert($('ul#mb1 li:last').html());
+	if($('ul#mb1 li:last').attr('id') ==='profileTab'){
+		alert($('ul#mb1 li:last').attr('id'));
 	}else{
 	$('ul#mb1 li:last').after("<li id='profileTab' class ='pui-menuitem ui-widget ui-corner-all'><a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>");
 	}
