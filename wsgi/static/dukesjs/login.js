@@ -58,8 +58,9 @@ window.fbAsyncInit = function() {
     FB.api('/me?scope=email', function(response) {
       console.log('Good to see you, ' + response.name + '.');	  
 	  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
-	   fbUserName = response.username;
 	
+	   fbUserName = response.username;
+	  alert(fbUserName);
 	/*
 	if($('ul#mb1 li:last').attr('id') ==='profileTab'){
 		alert($('ul#mb1 li:last').attr('id'));
