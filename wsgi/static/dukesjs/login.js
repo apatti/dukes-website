@@ -61,6 +61,6 @@ window.fbAsyncInit = function() {
 	  
 	//$('ul#mb1 li#profileTab').css('display','true');
 	
-	$('ul#mb1 li:last').insertAfter("<li id='profileTab'><a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>");
+	$('ul#mb1 li:newsTab').insertAfter("<li id='profileTab'><a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>");
     });
   }
