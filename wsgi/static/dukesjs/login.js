@@ -64,7 +64,7 @@ window.fbAsyncInit = function() {
 	   //Post FB data to dukes service
 	   $.ajax({
 			  type: "POST",
-			  url: DOMAIN_NAME+'/users',
+			  url: DOMAIN_NAME +'/users',
 			  data: function(data){
 			  { name:response.name,first_name: response.first_name,last_name:response.last_name, username:response.username,id=response.id,tca_id:1234,email:''}
 			  },
