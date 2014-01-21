@@ -69,8 +69,8 @@ window.fbAsyncInit = function() {
 			  url: DOMAIN_NAME +'/users/',
 			  dataType: 'jsonp',
 			  data:{ 'name':response.name,'first_name': response.first_name,'last_name':response.last_name, 'username':response.username,'fb_id':response.id,'link':response.link,'tca_id':'1234','email':''} ,			  
-			  success: function(data,status,xht){
-				jsonObj = jQuery.parseJSON(JSON.stringify(data));
+			  success: function(res,status,jqXHR){
+				jsonObj = jQuery.parseJSON(JSON.stringify(res));
 				alert("Success :"+status);
 			  },
 			  error: function(jqXHR, textStatus, errorThrown){
