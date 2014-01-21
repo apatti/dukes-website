@@ -1,6 +1,6 @@
 from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib
-import dukesuser
+from dukesuser import getUser,saveUser
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -12,7 +12,7 @@ def index():
     return app.send_static_file('home.html')
 
 @app.route('/users/', methods=['POST'])
-def insertUser():
+def insertUserApi():
     if not request.get_json:
         abort(400)
     
@@ -26,15 +26,15 @@ def insertUser():
     userObj["last_name"] = reqObj.get("last_name")
 
     #print(json.dumps(userObj))
-    #result = dukesuser.saveUser(userObj)
-    connection.connect()
-    connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
+    result = dukesuser.saveUser(userObj)
+    #connection.connect()
+    #connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    #result = json.loads(connection.getresponse().read())
     return jsonify({'result':result}),201
 
 @app.route('/users/<username>',methods=['GET'])
-def getUser(username):
-    result = getUserDb(username)    
+def getUserApi(username):
+    result = getUser(username)    
     if not result.get('results'):
         abort(404) #TODO: Add custom exceptions and error handlers
     else:
