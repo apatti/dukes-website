@@ -29,6 +29,8 @@ $(document).ready(function() {
 		  }
 		 });
        };
+	   
+	   updateTeamDropdown();
 $('#default').puipanel();
 		$('#basic').puidropdown({
 			icon: 'ui-icon-check'
@@ -37,4 +39,15 @@ $('#associateBtn').puibutton();
 		
 	
 });
-
+function updateTeamDropdown(){
+	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
+         var pData = $.parseJSON(data);
+		 
+         var dropdownList ="<select id='basic' name='basic'>";
+          $.each(pData, function() {			 
+              dropdownList = dropdownList + "<option value='"+this['pid']+"'>"+this['fname'] +" "+ this['lname']+"</option>";              
+          });	
+		  dropdownList = dropdownList + "</select>";
+	      $("#teamDropdown").html(dropdownList);         
+    });
+}
