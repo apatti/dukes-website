@@ -39,7 +39,7 @@ def getUser(username):
     print(params)
     connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
-    if not result:
+    if len(result) == 0:
         abort(404)
     else:
         return jsonify({'user':result}),200
