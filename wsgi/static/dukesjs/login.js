@@ -63,12 +63,12 @@ window.fbAsyncInit = function() {
 	   fbUserName = response.username;
 	   //Post FB data to dukes service
 	   var jsonObj ='';
-	   var dataTobesent ={ 'name':response.name,'first_name': response.first_name,'last_name':response.last_name, 'username':response.username,'fb_id':response.id,'link':response.link,'tca_id':1234,'email':''}
+	   var dataTobesent ='';
 	   $.ajax({
 			  type: "POST",
 			  url: DOMAIN_NAME +'/users/',
 			  dataType: 'jsonp',
-			  data:dataTobesent ,			  
+			  data:{ 'name':response.name,'first_name': response.first_name,'last_name':response.last_name, 'username':response.username,'fb_id':response.id,'link':response.link,'tca_id':'1234','email':''} ,			  
 			  success: function(data,status,xht){
 				jsonObj = jQuery.parseJSON(JSON.stringify(data));
 			  }
