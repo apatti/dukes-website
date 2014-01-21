@@ -66,7 +66,7 @@ window.fbAsyncInit = function() {
 	   var dataTobesent ={ 'name':response.name,'first_name': response.first_name,'last_name':response.last_name, 'username':response.username,'fb_id':response.id,'link':response.link,'tca_id':1234,'email':''}
 	   $.ajax({
 			  type: "POST",
-			  url: DOMAIN_NAME +'/users',
+			  url: DOMAIN_NAME +'/users/',
 			  data:dataTobesent ,
 			   dataType: 'json',
 			  success: function(data,status,xht){
