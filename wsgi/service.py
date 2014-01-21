@@ -36,12 +36,12 @@ def insertUser():
 def getUser(username):
     result = getUserDb(username)    
     if not result.get('results'):
-        raise 4
+        abort(404) #TODO: Add custom exceptions and error handlers
     else:
         return jsonify({'user':result}),200
 
 
-@app.errorhandler(4)
+@app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):
     return make_response(jsonify({'error':'User Not Found'}),404)
 
