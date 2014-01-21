@@ -33,8 +33,8 @@ def insertUser():
 
 @app.route('/users/<username>',methods=['GET'])
 def getUser(username):
-    #result = dukesuser.getUser(username)
-    return username
+    result = dukesuser.getUser(username)
+    return result
 
 
 @app.errorhandler(400)
