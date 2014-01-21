@@ -5,7 +5,7 @@ import dukesuser
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
 connection = httplib.HTTPSConnection('api.parse.com',443)
-connection.connect()
+#connection.connect()
 
 @app.route('/')
 def index():
@@ -25,7 +25,7 @@ def insertUser():
     userObj["first_name"]=reqObj.get("first_name")
     userObj["last_name"] = reqObj.get("last_name")
 
-    print(json.dumps(userObj))
+    #print(json.dumps(userObj))
     #result = dukesuser.saveUser(userObj)
     connection.connect()
     connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
@@ -37,11 +37,10 @@ def getUser(username):
     #result = getUserDb(username)
     connection.connect()
     params = urllib.urlencode({"where":json.dumps({"username":username})})
-    print(params)
     connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = connection.getresponse().read()
-    print(result)
-    if len(result) == 0:
+    result = json.loads(connection.getresponse().read())
+    
+    if not result.get('results'):
         abort(404)
     else:
         return jsonify({'user':json.loads(result)}),200

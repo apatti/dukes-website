@@ -12,5 +12,11 @@ def getUser(userName):
     params = urllib.urlencode({"where":json.dumps({"username":userName})})
     connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Cont\
 ent-Type": "application/json"})
-    return json.loads(connection.getresponse().read())
+    result = json.loads(connection.getresponse().read())
+    #print result.results
+    if not result.get('results'):
+        print 'GOOD'
+    else:
+        print 'BAD'
+    print result.get('results')
     
