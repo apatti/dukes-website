@@ -47,7 +47,7 @@ def getUser(username):
 
 @app.errorhandler(404)
 def no_data(error):
-    return make_response(json('error':'Data not found'})
+    return make_response(json({'error':'Data not found'})
 
 @app.errorhandler(400)
 def invalid_data_format(error):
