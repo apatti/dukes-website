@@ -34,25 +34,20 @@ def insertUser():
 
 @app.route('/users/<username>',methods=['GET'])
 def getUser(username):
-    result = getUserDb(username)
-    #connection.connect()
-    #params = urllib.urlencode({"where":json.dumps({"username":username})})
-    #connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    #result = json.loads(connection.getresponse().read())
-    
+    result = getUserDb(username)    
     if not result.get('results'):
-        abort(404)
+        raise 4
     else:
         return jsonify({'user':result}),200
 
 
-@app.errorhandler(404)
+@app.errorhandler(4)
 def no_data(error):
-    return make_response(json({'error':'Not Found'}),404)
+    return make_response(jsonify({'error':'User Not Found'}),404)
 
 @app.errorhandler(400)
 def invalid_data_format(error):
-    return make_response(json({'error':'Data is not in json format'}),400)
+    return make_response(jsonify({'error':'Data is not in json format'}),400)
 
 if __name__ == '__main__':
     app.run(debug=True)
