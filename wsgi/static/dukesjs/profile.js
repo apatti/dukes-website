@@ -14,8 +14,10 @@ $(document).ready(function() {
 			
 			var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
 			$('#nameDiv').html("<h3>Name : </h>"+userData['name']);
-			$('#locationDiv').html("<h3>Location : </h>"+userData['location']['name']);
-			$('#fbProfileImg').html("<img src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='100px' height='100px'/>");
+			$('#fNameDiv').html("<h3>First Name : </h>"+userData['first_name']);
+			$('#lNameDiv').html("<h3>Last Name : </h>"+userData['last_name']);
+			$('#fbLinkDiv').html("<h3>FB Link : </h>"+userData['link']);
+			$('#fbProfileImg').html("<img src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal' class='image' width='100px' height='100px'/>");
 			
 		  } else if (response.status === 'not_authorized') {
 			// the user is logged in to Facebook, 
@@ -27,6 +29,8 @@ $(document).ready(function() {
 		  }
 		 });
        };
+	   
+	   updateTeamDropdown();
 $('#default').puipanel();
 		$('#basic').puidropdown({
 			icon: 'ui-icon-check'
@@ -35,4 +39,15 @@ $('#associateBtn').puibutton();
 		
 	
 });
-
+function updateTeamDropdown(){
+	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
+         var pData = $.parseJSON(data);
+		 
+         var dropdownList ="<select id='basic' name='basic'>";
+          $.each(pData, function() {			 
+              dropdownList = dropdownList + "<option value='"+this['pid']+"'>"+this['fname'] +" "+ this['lname']+"</option>";              
+          });	
+		  dropdownList = dropdownList + "</select>";
+	      $("#teamDropdown").html(dropdownList);         
+    });
+}
