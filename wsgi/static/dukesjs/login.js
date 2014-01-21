@@ -72,7 +72,7 @@ window.fbAsyncInit = function() {
 			  contentType:'application/json',
 			  data:JSON.stringify(dataTobesent),			  
 			  success: function(res,status,jqXHR){
-				jsonObj = JSON.stringify(res.result.results);
+				jsonObj = JSON.stringify(res.result.results[0]);
 				localStorage.setItem('USER_FB_INFO',jsonObj);
 				alert("Success :"+status);
 			  },
