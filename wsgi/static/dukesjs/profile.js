@@ -43,11 +43,11 @@ function updateTeamDropdown(){
 	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
          var pData = $.parseJSON(data);
 		 
-         var dropdownList ="<select id='basic' name='basic'>";
+         var dropdownList ="<table><tr><td><select id='basic' name='basic'>";
           $.each(pData, function() {			 
               dropdownList = dropdownList + "<option value='"+this['pid']+"'>"+this['fname'] +" "+ this['lname']+"</option>";              
           });	
-		  dropdownList = dropdownList + "</select>";
+		  dropdownList = dropdownList + "</select></td><td><button id='associateBtn' type='button'>Associate</button></td></tr></table>";
 	      $("#teamDropdown").html(dropdownList);         
     });
 }
