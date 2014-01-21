@@ -1,4 +1,5 @@
 var fbUserName='';
+var DOMAIN_NAME = 'http://www.dukesxi.co';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -60,13 +61,18 @@ window.fbAsyncInit = function() {
 	  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
 	
 	   fbUserName = response.username;
-	  alert(fbUserName);
-	/*
-	if($('ul#mb1 li:last').attr('id') ==='profileTab'){
-		alert($('ul#mb1 li:last').attr('id'));
-	}else{
-	$('ul#mb1 li:last').after("<li id='profileTab' class ='pui-menuitem ui-widget ui-corner-all'><a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>");
-	}
-	*/
+	   //Post FB data to dukes service
+	   $.ajax({
+			  type: "POST",
+			  url: DOMAIN_NAME +'/users',
+			  data: function(data){
+			  { name:response.name,first_name: response.first_name,last_name:response.last_name, username:response.username,id=response.id,tca_id:1234,email:''}
+			  },
+			  success: success,
+			  dataType: dataType
+			});
+	   
+});
+	
     });
   }
