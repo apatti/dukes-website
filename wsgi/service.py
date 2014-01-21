@@ -33,7 +33,7 @@ def insertUser():
 
 @app.route('/users/<username>',methods=['GET'])
 def getUser(username):
-    result = dukesuser.getUserDb(username)
+    result = getUserDb(username)
     return result
 
 
