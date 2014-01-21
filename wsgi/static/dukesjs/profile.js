@@ -17,6 +17,8 @@ $(document).ready(function() {
 			$('#fNameDiv').html("<h3>First Name : </h>"+userData['first_name']);
 			$('#lNameDiv').html("<h3>Last Name : </h>"+userData['last_name']);
 			$('#fbLinkDiv').html("<h3>FB Link : </h>"+userData['link']);
+			Email : 
+			$('#fbLinkDiv').html("<h3>Email : </h><input id='emailTxt' type='text' />");
 			$('#fbProfileImg').html("<img src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal' class='image' width='100px' height='100px'/>");
 			
 		  } else if (response.status === 'not_authorized') {
