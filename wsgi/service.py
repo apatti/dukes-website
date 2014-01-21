@@ -34,16 +34,16 @@ def insertUser():
 
 @app.route('/users/<username>',methods=['GET'])
 def getUser(username):
-    #result = getUserDb(username)
-    connection.connect()
-    params = urllib.urlencode({"where":json.dumps({"username":username})})
-    connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
+    result = getUserDb(username)
+    #connection.connect()
+    #params = urllib.urlencode({"where":json.dumps({"username":username})})
+    #connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    #result = json.loads(connection.getresponse().read())
     
     if not result.get('results'):
         abort(404)
     else:
-        return jsonify({'user':json.loads(result)}),200
+        return jsonify({'user':result}),200
 
 
 @app.errorhandler(404)
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 def getUserDb(userName):
-    #connection.connect()
+    connection.connect()
     params = urllib.urlencode({"where":json.dumps({"username":userName})})
     connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
