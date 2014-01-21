@@ -40,7 +40,7 @@ function updateTeamDropdown(){
 	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
          var pData = $.parseJSON(data);
 		 
-         var dropdownList ="<table><tr><td><select id='basic' name='basic'>";
+         var dropdownList ="<table><tr><td><select id='basic' name='basic'><option value='0'>Select Player</option>";
           $.each(pData, function() {			 
               dropdownList = dropdownList + "<option value='"+this['pid']+"'>"+this['fname'] +" "+ this['lname']+"</option>";              
           });	
