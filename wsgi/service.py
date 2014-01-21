@@ -1,5 +1,6 @@
 from flask import Flask,jsonify,make_response,request,abort
 import json,httplib
+import user
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -14,7 +15,7 @@ def index():
 def insertUser():
     if not request.get_json:
         abort(400)
-    print("Good")
+    
     reqObj = request.get_json(force=True)
     userObj ={}
     userObj["username"]=reqObj.get("username")
@@ -25,9 +26,16 @@ def insertUser():
     userObj["last_name"] = reqObj.get("last_name")
 
     print(json.dumps(userObj))
-    connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
+    result = user.saveUser(userObj)
+    #connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    #result = json.loads(connection.getresponse().read())
     return jsonify({'result':result}),201
+
+@app.route('/user/<username>',methods=['GET'])
+def getUser(username):
+    result = user.getUser(username)
+    return result
+
 
 @app.errorhandler(400)
 def invalid_data_format(error):
@@ -35,3 +43,4 @@ def invalid_data_format(error):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
