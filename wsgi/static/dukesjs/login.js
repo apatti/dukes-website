@@ -71,6 +71,5 @@ window.fbAsyncInit = function() {
 			});
 	   
 });
-	
-    });
+    
   }
