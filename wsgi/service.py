@@ -31,7 +31,7 @@ def insertUser():
     #result = json.loads(connection.getresponse().read())
     return jsonify({'result':result}),201
 
-@app.route('/user/<username>',methods=['GET'])
+@app.route('/users/<username>',methods=['GET'])
 def getUser(username):
     result = user.getUser(username)
     return result
