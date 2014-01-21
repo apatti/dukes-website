@@ -33,7 +33,7 @@ def insertUser():
 
 @app.route('/users/<username>',methods=['GET'])
 def getUser(username):
-    result = dukesuser.getUser(username)
+    result = dukesuser.getUserDb(username)
     return result
 
 
@@ -44,3 +44,8 @@ def invalid_data_format(error):
 if __name__ == '__main__':
     app.run(debug=True)
 
+def getUserDb(userName):
+    connection.connect()
+    params = urllib.urlencode({"where":json.dumps({"username":userName})})
+    connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    return json.loads(connection.getresponse().read())
