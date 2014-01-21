@@ -1,6 +1,6 @@
 from flask import Flask,jsonify,make_response,request,abort
 import json,httplib
-import user
+import dukesuser
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -26,14 +26,14 @@ def insertUser():
     userObj["last_name"] = reqObj.get("last_name")
 
     print(json.dumps(userObj))
-    result = user.saveUser(userObj)
+    result = dukesuser.saveUser(userObj)
     #connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     #result = json.loads(connection.getresponse().read())
     return jsonify({'result':result}),201
 
 @app.route('/users/<username>',methods=['GET'])
 def getUser(username):
-    result = user.getUser(username)
+    result = dukesuser.getUser(username)
     return result
 
 
