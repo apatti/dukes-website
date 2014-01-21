@@ -31,12 +31,7 @@ $(document).ready(function() {
        };
 	   
 	   updateTeamDropdown();
-$('#default').puipanel();
-		$('#basic').puidropdown({
-			icon: 'ui-icon-check'
-		});
-$('#associateBtn').puibutton();
-		
+	   applyCSSToPageComponents()
 	
 });
 function updateTeamDropdown(){
@@ -50,4 +45,12 @@ function updateTeamDropdown(){
 		  dropdownList = dropdownList + "</select></td><td><button id='associateBtn' type='button'>Associate</button></td></tr></table>";
 	      $("#teamDropdown").html(dropdownList);         
     });
+}
+function applyCSSToPageComponents(){
+	$('#default').puipanel();
+	$('#basic').puidropdown({
+			icon: 'ui-icon-check'
+		});
+	$('#associateBtn').puibutton();
+	$('#emailTxt').puiinputtext(); 
 }
