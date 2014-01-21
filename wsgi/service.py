@@ -5,7 +5,7 @@ import dukesuser
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
 connection = httplib.HTTPSConnection('api.parse.com',443)
-#connection.connect()
+connection.connect()
 
 @app.route('/')
 def index():
@@ -36,10 +36,11 @@ def getUser(username):
     #result = getUserDb(username)
     connection.connect()
     params = urllib.urlencode({"where":json.dumps({"username":username})})
+    print(params)
     connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    return json.loads(connection.getresponse().read())
+    result = json.loads(connection.getresponse().read())
 
-    #return result
+    return jsonsify({'user':result})
 
 
 @app.errorhandler(400)
@@ -50,7 +51,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 def getUserDb(userName):
-    connection.connect()
+    #connection.connect()
     params = urllib.urlencode({"where":json.dumps({"username":userName})})
     connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
