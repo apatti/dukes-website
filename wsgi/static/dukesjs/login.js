@@ -18,7 +18,7 @@ window.fbAsyncInit = function() {
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-      testAPI();
+      loginSuccessAPI();
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
       // FB.login() to prompt them to do so. 
@@ -54,11 +54,11 @@ window.fbAsyncInit = function() {
 
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
-  function testAPI() {
+  function loginSuccessAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me?scope=email', function(response) {
+    FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');	  
-	  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
+      localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
 	
 	   fbUserName = response.username;
 	   //Post FB data to dukes service
@@ -73,6 +73,7 @@ window.fbAsyncInit = function() {
 			  data:JSON.stringify(dataTobesent),			  
 			  success: function(res,status,jqXHR){
 				jsonObj = JSON.stringify(res);
+				localStorage.setItem('USER_FB_INFO',jsonObj);
 				alert("Success :"+status);
 			  },
 			  error: function(jqXHR, textStatus, errorThrown){
