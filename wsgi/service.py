@@ -48,11 +48,11 @@ def getUser(username):
 
 @app.errorhandler(404)
 def no_data(error):
-    return make_response(json({'error':'Data not found'}))
+    return make_response(json({'error':'Not Found'}),404)
 
 @app.errorhandler(400)
 def invalid_data_format(error):
-    return make_response(json({'error':'Data is not in json format'}))
+    return make_response(json({'error':'Data is not in json format'}),400)
 
 if __name__ == '__main__':
     app.run(debug=True)
