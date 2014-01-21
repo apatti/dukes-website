@@ -68,7 +68,7 @@ window.fbAsyncInit = function() {
 	   $.ajax({
 			  type: 'POST',
 			  url: DOMAIN_NAME +'/users/',
-			  dataType: 'jsonp',
+			  dataType: 'json',
 			  contentType:'application/json',
 			  data:JSON.stringify(dataTobesent),			  
 			  success: function(res,status,jqXHR){
