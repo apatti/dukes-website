@@ -34,4 +34,5 @@ def updateUser(userName,userObj,associate):
     return result
                       
 def send_mail(message,to,cc,subject):
+    print "Sending mail to %s" % to
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>","to":to,"cc":cc,"subject":subject,"text":message})
