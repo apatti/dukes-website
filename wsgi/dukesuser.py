@@ -1,5 +1,5 @@
 import json,httplib,urllib
-import requests
+import urllib2
 
 connection = httplib.HTTPSConnection('api.parse.com',443)
 def saveUser(userObj):
