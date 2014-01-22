@@ -52,7 +52,8 @@ function updateTeamDropdown(username){
 		*/
 
 		if(userData['tca_id']){
-				alert(tt['tca_id']);
+				//alert(userData['tca_id']);
+				$('#emailTxt').val(userData['email']);
 		}else{
 			// User is not yet associated with TCA user
 			$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
