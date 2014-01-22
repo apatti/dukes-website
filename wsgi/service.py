@@ -28,8 +28,9 @@ def insertUserApi():
     result = getUser(userObj["username"])
     if not result.get("results"):
         result = saveUser(userObj)
-        
-    return jsonify({'result':result}),201
+        return jsonify({'result':userObj}),201
+
+    return jsonify({'result':result}),200
 
 @app.route('/users/<username>',methods=['GET'])
 def getUserApi(username):
