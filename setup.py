@@ -6,5 +6,5 @@ setup(name='Dukes11',
       author='Ashwin Patti',
       author_email='ashwin.pattie@gmail.com',
       url='http://www.python.org/sigs/distutils-sig/',
-      install_requires=['Flask>=0.7.2'],
+      install_requires=['Flask>=0.7.2,requests'],
      )
