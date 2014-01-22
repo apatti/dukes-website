@@ -1,6 +1,6 @@
 from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib
-from dukesuser import getUser,saveUser
+from dukesuser import getUser,saveUser,updateUser
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -39,6 +39,13 @@ def getUserApi(username):
     else:
         return jsonify({'user':result}),200
 
+
+@app.route('/users/<username>',methods=['PUT'])
+def updateUserApi(username):
+    reqObj = request.get_json(force=True)
+    result = updateUser(username,reqObj)
+    
+    return jsonify({'user':result}),201
 
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):
