@@ -69,11 +69,11 @@ function updateTeamDropdown(username){
 						var tca_id = $("#dukesTeamSelect").val();
 						var email = $('#emailTxt').val();
 						alert(tca_id);
-						alert()
+						alert(email);
 						$.ajax({
-								  type: "POST",
+								  type: "PUT",
 								  url: DOMAIN_NAME +'/users/'+username,
-								  data: { _method:'PUT', page : {'tca_id':tca_id,'email':email} },
+								  data: JSON.stringify({'tca_id':tca_id,'email':email} ),
 								  dataType: 'json',
 								  success: function(msg) {
 									alert( "Data Saved: " + msg );
