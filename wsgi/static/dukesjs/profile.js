@@ -40,8 +40,8 @@ $(document).ready(function() {
 function updateTeamDropdown(username){
 	var userAssociated = 'no';
 	$.get(DOMAIN_NAME +'/users/'+username,function(data,status){
-         var pData = $.parseJSON(data);
-		 alert(pData['user']);
+		alert(data);
+         
 	});
 	
 	/*
