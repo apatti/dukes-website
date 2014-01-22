@@ -58,12 +58,28 @@ function updateTeamDropdown(username){
 			$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
 				 var pData = $.parseJSON(data);
 				 
-				 var dropdownList ="<table><tr><td><select id='basic' name='basic'><option value='0'>Select Player</option>";
+				 var dropdownList ="<table><tr><td><select id='dukesTeamSelect' name='dukesTeamSelect'><option value='0'>Select Player</option>";
 				  $.each(pData, function() {			 
 					  dropdownList = dropdownList + "<option value='"+this['pid']+"'>"+this['fname'] +" "+ this['lname']+"</option>";              
 				  });	
 				  dropdownList = dropdownList + "</select></td><td><button id='associateBtn' type='button'>Associate</button></td></tr></table>";
-				  $("#teamDropdown").html(dropdownList);         
+				  $("#teamDropdown").html(dropdownList);  
+				  //assign Event listener
+					$('#associateBtn').click( function(){
+						var tca_id = $("#dukesTeamSelect").val();
+						var email = $('#emailTxt').val();
+						alert(tca_id);
+						alert()
+						$.ajax({
+								  type: "POST",
+								  url: DOMAIN_NAME +'/users/'+username,
+								  data: { _method:'PUT', page : {'tca_id':tca_id,'email':email} },
+								  dataType: 'json',
+								  success: function(msg) {
+									alert( "Data Saved: " + msg );
+								 }
+						});
+					});
 			});
 		}
 		
@@ -73,9 +89,7 @@ function updateTeamDropdown(username){
 }
 function applyCSSToPageComponents(){
 	$('#default').puipanel();
-	$('#basic').puidropdown({
-			icon: 'ui-icon-check'
-		});
+	$('#dukesTeamSelect').puidropdown();
 	$('#associateBtn').puibutton();
 	$('#emailTxt').puiinputtext(); 
 }
