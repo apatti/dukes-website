@@ -19,7 +19,7 @@ function upcomingMatch(){
 function setHomePageCSS(){
 	$('#default').puipanel();
 	$('#playerOfTheWeekDiv').puipanel();
-	4('#upcomingMatchDiv').puipanel();
+	$('#upcomingMatchDiv').puipanel();
 
 	$('#options').puipanel({
 		toggleable: true
