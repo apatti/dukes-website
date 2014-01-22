@@ -45,7 +45,7 @@ function updateTeamDropdown(username){
 		alert(rr['user']['results']);
 		var tt = JSON.stringify(rr['user']['results']);
 		alert(tt);
-		alert(tt[last_name']);
+		alert(tt['last_name']);
 	});
 	
 	/*
