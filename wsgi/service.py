@@ -24,7 +24,7 @@ def insertUserApi():
     userObj["name"] = reqObj.get("name")
     userObj["first_name"]=reqObj.get("first_name")
     userObj["last_name"] = reqObj.get("last_name")
-
+    userObj["associated"]=0
     result = getUser(userObj["username"])
     if not result.get("results"):
         result = saveUser(userObj)
