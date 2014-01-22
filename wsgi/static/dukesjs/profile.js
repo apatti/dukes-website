@@ -42,7 +42,7 @@ function updateTeamDropdown(username){
 	$.get(DOMAIN_NAME +'/users/'+username,function(data,status){
 		var rr = JSON.stringify(data);
 		alert(rr);
-		var tt = JSON.stringify(rr['user']);
+		var tt = JSON.stringify(rr['user']['results']);
 		alert(tt);
 		alert(tt['last_name']);
 	});
