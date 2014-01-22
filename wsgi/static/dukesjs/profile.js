@@ -20,7 +20,7 @@ $(document).ready(function() {
 			Email : 
 			$('#fbLinkDiv').html("<h3>Email : </h><input id='emailTxt' type='text' />");
 			$('#fbProfileImg').html("<img src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal' class='image' width='100px' height='100px'/>");
-			
+			updateTeamDropdown(userData.username);
 		  } else if (response.status === 'not_authorized') {
 			// the user is logged in to Facebook, 
 			// but has not authenticated your app
@@ -32,11 +32,17 @@ $(document).ready(function() {
 		 });
        };
 	   
-	   updateTeamDropdown();
+	   
 	   applyCSSToPageComponents()
 	
 });
-function updateTeamDropdown(){
+function updateTeamDropdown(username){
+	var userAssociated = 'no';
+	$.get("http://www.dukesxi.co/users/"+username,function(data,status){
+         var pData = $.parseJSON(data);
+		 alert(pData['user']['results']);
+	});
+		 
 	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
          var pData = $.parseJSON(data);
 		 
