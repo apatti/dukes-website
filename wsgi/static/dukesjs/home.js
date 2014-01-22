@@ -12,14 +12,14 @@ setHomePageCSS();
 	upcomingMatch();
 });
 
-fucntion upcomingMatch(){
+function upcomingMatch(){
 	$('#upcomingMatchDiv').append('Upcoming Match is on Sunday');
 }
 
 function setHomePageCSS(){
 	$('#default').puipanel();
 	$('#playerOfTheWeekDiv').puipanel();
-	
+	4('#upcomingMatchDiv').puipanel();
 
 	$('#options').puipanel({
 		toggleable: true
