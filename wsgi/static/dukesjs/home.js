@@ -9,7 +9,12 @@ setHomePageCSS();
 	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 		
 	$("#playerOfTheWeekDiv").append(playerOfTheWeek);
+	upcomingMatch();
 });
+
+fucntion upcomingMatch(){
+	$('#upcomingMatchDiv').append('Upcoming Match is on Sunday');
+}
 
 function setHomePageCSS(){
 	$('#default').puipanel();
