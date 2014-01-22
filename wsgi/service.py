@@ -43,7 +43,8 @@ def getUserApi(username):
 @app.route('/users/<username>',methods=['PUT'])
 def updateUserApi(username):
     reqObj = request.get_json(force=True)
-    result = updateUser(username,reqObj)
+    associate = request.args.get('associate')
+    result = updateUser(username,reqObj,associate)
     
     return jsonify({'user':result}),201
 
