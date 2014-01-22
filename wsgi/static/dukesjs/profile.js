@@ -40,37 +40,36 @@ $(document).ready(function() {
 function updateTeamDropdown(username){
 	var userAssociated = 'no';
 	$.get(DOMAIN_NAME +'/users/'+username,function(data,status){
-		var rr = JSON.stringify(data.user.results[0]);	
-		alert(rr);
-		alert(rr['last_name']);
+		var results = JSON.stringify(data.user.results[0]);	
+		
+		var userData = $.parseJSON(results);
+		/*
+		if(userData['last_name']){
+				alert(userData['last_name']);
+		}else{
+			alert('test');
+		}
+		*/
+
+		if(userData['tca_id']){
+				alert(tt['tca_id']);
+		}else{
+			// User is not yet associated with TCA user
+			$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
+				 var pData = $.parseJSON(data);
+				 
+				 var dropdownList ="<table><tr><td><select id='basic' name='basic'><option value='0'>Select Player</option>";
+				  $.each(pData, function() {			 
+					  dropdownList = dropdownList + "<option value='"+this['pid']+"'>"+this['fname'] +" "+ this['lname']+"</option>";              
+				  });	
+				  dropdownList = dropdownList + "</select></td><td><button id='associateBtn' type='button'>Associate</button></td></tr></table>";
+				  $("#teamDropdown").html(dropdownList);         
+			});
+		}
+		
 	});
 	
-	/*
-	$.ajax({
-			  type: 'GET',
-			  url: DOMAIN_NAME +'/users/'+username,
-			  dataType: 'json',
-			  success: function(res,status,jqXHR){
-				jsonObj = JSON.stringify(res.result.results[0]);
-				localStorage.setItem('USER_FB_INFO',jsonObj);
-				alert("Success :"+status);
-			  },
-			  error: function(jqXHR, textStatus, errorThrown){
-                    alert(textStatus, errorThrown);
-                }
-			 
-			});
-		 */
-	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
-         var pData = $.parseJSON(data);
-		 
-         var dropdownList ="<table><tr><td><select id='basic' name='basic'><option value='0'>Select Player</option>";
-          $.each(pData, function() {			 
-              dropdownList = dropdownList + "<option value='"+this['pid']+"'>"+this['fname'] +" "+ this['lname']+"</option>";              
-          });	
-		  dropdownList = dropdownList + "</select></td><td><button id='associateBtn' type='button'>Associate</button></td></tr></table>";
-	      $("#teamDropdown").html(dropdownList);         
-    });
+	
 }
 function applyCSSToPageComponents(){
 	$('#default').puipanel();
