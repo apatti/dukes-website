@@ -1,3 +1,4 @@
+var DOMAIN_NAME = 'http://www.dukesxi.co';
 $(document).ready(function() {
  window.fbAsyncInit = function() {
 	  FB.init({
@@ -38,11 +39,27 @@ $(document).ready(function() {
 });
 function updateTeamDropdown(username){
 	var userAssociated = 'no';
-	$.get("http://www.dukesxi.co/users/"+username,function(data,status){
+	$.get(DOMAIN_NAME +'/users/'+username,function(data,status){
          var pData = $.parseJSON(data);
-		 alert(pData['user']['results']);
+		 alert(pData['user']);
 	});
-		 
+	
+	/*
+	$.ajax({
+			  type: 'GET',
+			  url: DOMAIN_NAME +'/users/'+username,
+			  dataType: 'json',
+			  success: function(res,status,jqXHR){
+				jsonObj = JSON.stringify(res.result.results[0]);
+				localStorage.setItem('USER_FB_INFO',jsonObj);
+				alert("Success :"+status);
+			  },
+			  error: function(jqXHR, textStatus, errorThrown){
+                    alert(textStatus, errorThrown);
+                }
+			 
+			});
+		 */
 	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184",function(data,status){
          var pData = $.parseJSON(data);
 		 
