@@ -72,6 +72,7 @@ function updateTeamDropdown(username){
 						alert(email);
 						$.ajax({
 								  type: "PUT",
+								  contentType:'application/json',
 								  url: DOMAIN_NAME +'/users/'+username,
 								  data: JSON.stringify({'tca_id':tca_id,'email':email} ),
 								  dataType: 'json',
