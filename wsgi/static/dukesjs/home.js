@@ -8,7 +8,7 @@ setHomePageCSS();
 	playerOfTheWeek = playerOfTheWeek + "<td>"+ ss +"</td>";
 	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 		
-	$("#playerOfTheWeekDiv").html(playerOfTheWeek);
+	$("#playerOfTheWeekDiv").append(playerOfTheWeek);
 });
 
 function setHomePageCSS(){
