@@ -34,7 +34,7 @@ function payerOfTheWeek(fbUser){
 	alert(tca_id);
 	tca_id = 7217;
 	var playerOfTheWeek = '';
-	var mom;
+	var mom ='';
 	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(data,status){
 		mom =  user.results[0].username;		
 	});
