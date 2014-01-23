@@ -37,7 +37,7 @@ var tca_id ='';
 	
 	//var username ="pram.gottiganti";
 	playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-	playerOfTheWeek = playerOfTheWeek + "<td><img id='momImage' src=''  class='image' width='100px' height='100px'/></td>";
+	playerOfTheWeek = playerOfTheWeek + "<td><img id='momImageId' src=''  class='image' width='100px' height='100px'/></td>";
 	playerOfTheWeek = playerOfTheWeek + "<td>"+ pData.name +"</td>";
 	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 		
@@ -50,7 +50,7 @@ var tca_id ='';
 		var results = JSON.stringify(momData.user.results[0]);		
 		var userData = $.parseJSON(results);
 		
-		$('#momImage').src("https://graph.facebook.com/"+userData['username']+"/picture?type=normal");
+		jQuery("#momImageId").attr('src',"https://graph.facebook.com/"+userData['username']+"/picture?type=normal");
 	});
 	upcomingMatch();
 }
