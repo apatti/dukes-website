@@ -1,6 +1,6 @@
 from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib
-from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID
+from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -31,6 +31,11 @@ def insertUserApi():
         return jsonify({'result':userObj}),201
 
     return jsonify({'result':result}),200
+
+@app.route('/users/',methods=['GET'])
+def getUsersApi():
+    result = getUsers()
+    return jsonify({'users':result}),200
 
 @app.route('/users/<username>',methods=['GET'])
 def getUserApi(username):

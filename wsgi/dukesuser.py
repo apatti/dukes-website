@@ -13,6 +13,15 @@ def getUser(userName):
     result = queryUser("username",userName)
     return result
 
+def getUsers():
+    r = requests.get('http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184')
+    return r.json
+    #connection.connect()
+    #params = urllib.urlencode({"where":json.dumps({key:value})})
+    #connection.request('GET','/1/classes/user','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    #result = json.loads(connection.getresponse().read())
+    #return result
+
 def getUserUsingTCAID(tca_id):
     result = queryUser("tca_id",tca_id)
     return result
