@@ -16,7 +16,7 @@ def getUser(userName):
 def getUsers():
     r = requests.get('http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184')
     print r
-    print r.json
+    print r.text
     return r.json
     #connection.connect()
     #params = urllib.urlencode({"where":json.dumps({key:value})})
