@@ -1,5 +1,5 @@
 var DOMAIN_NAME = 'http://www.dukesxi.co';
-$(document).ready(function() {
+
  window.fbAsyncInit = function() {
 	  FB.init({
 		appId      : '627120887325860',
@@ -31,12 +31,12 @@ $(document).ready(function() {
 			localStorage.removeItem('USER_FB_INFO');
 		  }
 		 });
+		 applyCSSToPageComponents();
        };
 	   
 	   
-	   applyCSSToPageComponents()
-	
-});
+	   
+
 function updateTeamDropdown(username){
 	var userAssociated = 'no';
 	$.get(DOMAIN_NAME +'/users/'+username,function(data,status){
