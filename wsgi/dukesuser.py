@@ -10,11 +10,11 @@ def saveUser(userObj):
     return result
 
 def getUser(userName):
-    connection.connect()
-    params = urllib.urlencode({"where":json.dumps({"username":userName})})
-    connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Cont\
-ent-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
+    result = queryUser("username",userName)
+    return result
+
+def getUserUsingTCAID(tca_id):
+    result = queryUser("tca_id",tca_id)
     return result
 
 def updateUser(userName,userObj,associate):
@@ -31,7 +31,14 @@ def updateUser(userName,userObj,associate):
         send_mail("%s is requesting to associate TCA ID %s with his user id %s" % (name,tca_id,userName),"cricketadmin@dukesxi.co",userObj.get("email"),"Permission to assoicate TCA ID with user id")
 
     return result
-                      
+
+def queryUser(key,value):
+    connection.connect()
+    params = urllib.urlencode({"where":json.dumps({key:value})})
+    connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    return result
+                  
 def send_mail(message,to,cc,subject):
     print "Sending mail to %s" % to
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>","to":to,"cc":cc,"subject":subject,"text":message})

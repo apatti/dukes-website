@@ -1,6 +1,6 @@
 from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib
-from dukesuser import getUser,saveUser,updateUser
+from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -37,6 +37,14 @@ def getUserApi(username):
     result = getUser(username)    
     if not result.get('results'):
         abort(404) #TODO: Add custom exceptions and error handlers
+    else:
+        return jsonify({'user':result}),200
+
+@app.route('/users/tca/<int:tca_id>',methods=['GET'])
+def getUserTcaId(tca_id):
+    result = getUserUsingTCAID(tca_id)
+    if not result.get('results'):
+        abort(404)
     else:
         return jsonify({'user':result}),200
 
