@@ -1,12 +1,13 @@
 $(document).ready(function(){
+duckesLogin();
 setHomePageCSS();
  $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
          var pData = $.parseJSON(data);
       
 	var playerOfTheWeek = '';	
-	var username ="pram.gottiganti";
+	//var username ="pram.gottiganti";
 	playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-	playerOfTheWeek = playerOfTheWeek + "<td><img src='https://graph.facebook.com/"+username+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
+	playerOfTheWeek = playerOfTheWeek + "<td><img src='https://graph.facebook.com/"+fbUserName+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
 	playerOfTheWeek = playerOfTheWeek + "<td>"+ pData.name +"</td>";
 	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 		
