@@ -7,11 +7,11 @@ window.fbAsyncInit = function() {
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
- FB.getLoginStatus(function(response) {
-	if (response.status === 'connected') {
-	loggedIn();
-	}
-});
+	 FB.getLoginStatus(function(response) {
+		if (response.status === 'connected') {
+		loggedIn();
+		}
+	});
 };
 		  
   function loggedIn() {
