@@ -28,22 +28,26 @@ window.fbAsyncInit = function() {
  
 function payerOfTheWeek(fbUser){
 var tca_id ='';
- $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
-    var pData = $.parseJSON(data);
-    tca_id = pData.man_of_match;
-	alert(tca_id);
-	
-	
-	$("#momNameDiv").append(pData.name);
-	
-	
+	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
+		var pData = $.parseJSON(data);
+		tca_id = pData.man_of_match;
+		
 	});
 	
 	$.get("http://www.dukesxi.co/users/tca/"+7217,function(momData,status){
 		var results = JSON.stringify(momData.user.results[0]);		
 		var userData = $.parseJSON(results);
 		
-		$("#momImageId").append("<img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='100px' height='100px'/>");
+		var playerOfTheWeek = '';
+	
+		//var username ="pram.gottiganti";
+		playerOfTheWeek = playerOfTheWeek + "<table><tr>";
+		playerOfTheWeek = playerOfTheWeek + "<td><img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
+		playerOfTheWeek = playerOfTheWeek + "<td>"+ userData.name +"</td>";
+		playerOfTheWeek = playerOfTheWeek + "</tr></table>";
+		
+	$("#playerOfTheWeekDiv").append(playerOfTheWeek);
+		
 	});
 	upcomingMatch();
 }
