@@ -32,7 +32,7 @@ window.fbAsyncInit = function() {
       // (2) it is a bad experience to be continually prompted to login upon page load.
 	  
 	  localStorage.setItem('USER_FB_INFO',false);
-      FBLogin();
+      FB.login();
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -41,15 +41,11 @@ window.fbAsyncInit = function() {
       // The same caveats as above apply to the FB.login() call here.
 	
 	   localStorage.setItem('USER_FB_INFO',false);	  
-      FBLogin();
+      FB.login();
     }
   });
   };
   
-  function FBLogin(){
-	 FB.login();
-	location.reload();
-  }
 
   // Load the SDK asynchronously
   (function(d){
@@ -71,7 +67,7 @@ window.fbAsyncInit = function() {
 	   fbUserName = response.username;
 	   //Post FB data to dukes service
 	   var jsonObj ='';
-	   var dataTobesent ={ 'name':response.name,'first_name': response.first_name,'last_name':response.last_name, 'username':response.username,'fb_id':response.id,'link':response.link,'tca_id':'1234','email':''} ;
+	   var dataTobesent ={ 'name':response.name,'first_name': response.first_name,'last_name':response.last_name, 'username':response.username,'fb_id':response.id,'link':response.link,'tca_id':'','email':''} ;
 	   //alert(JSON.stringify(dataTobesent));
 	   $.ajax({
 			  type: 'POST',
