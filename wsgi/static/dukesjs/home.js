@@ -43,15 +43,16 @@ function payerOfTheWeek(fbUser){
 		
 	$("#playerOfTheWeekDiv").append(playerOfTheWeek);
 	
+	
+	});
+	
 	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
 		var results = JSON.stringify(momData.user.results[0]);		
 		var userData = $.parseJSON(results);
 		
 		$('#momImage').src("https://graph.facebook.com/"+userData['username']+"/picture?type=normal");
 	});
-	
 	upcomingMatch();
-	});
 }
 
 function upcomingMatch(){
