@@ -12,7 +12,7 @@ setHomePageCSS();
 		
 	$("#playerOfTheWeekDiv").append(playerOfTheWeek);
 	upcomingMatch();
-	);
+	});
 });
 
 function upcomingMatch(){
