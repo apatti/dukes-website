@@ -31,10 +31,11 @@ function payerOfTheWeek(fbUser){
  $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
     var pData = $.parseJSON(data);
     var tca_id = pData.man_of_match;
+	alert(tca_id);
+	tca_id = 7217;
 	var playerOfTheWeek = '';
 	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(data,status){
-		playerOfTheWeek =  user.results[0].username;
-		
+		playerOfTheWeek =  user.results[0].username;		
 	});
 	var playerOfTheWeek = '';	
 	//var username ="pram.gottiganti";
