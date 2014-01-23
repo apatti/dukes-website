@@ -34,20 +34,22 @@ function payerOfTheWeek(fbUser){
 	alert(tca_id);
 	tca_id = 7217;
 	var playerOfTheWeek = '';
-	var mom ='';
-	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
-		var results = JSON.stringify(momData.user.results[0]);		
-		var userData = $.parseJSON(results);
-		
-		mom =  userData['username'];		
-	});
+	
 	//var username ="pram.gottiganti";
 	playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-	playerOfTheWeek = playerOfTheWeek + "<td><img src='https://graph.facebook.com/"+mom+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
+	playerOfTheWeek = playerOfTheWeek + "<td><img id='momImage' src=''  class='image' width='100px' height='100px'/></td>";
 	playerOfTheWeek = playerOfTheWeek + "<td>"+ pData.name +"</td>";
 	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 		
 	$("#playerOfTheWeekDiv").append(playerOfTheWeek);
+	
+	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
+		var results = JSON.stringify(momData.user.results[0]);		
+		var userData = $.parseJSON(results);
+		
+		$('#momImage').src("https://graph.facebook.com/"+userData['username']+"/picture?type=normal");
+	});
+	
 	upcomingMatch();
 	});
 }
