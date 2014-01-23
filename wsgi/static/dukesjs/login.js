@@ -85,5 +85,5 @@ window.fbAsyncInit = function() {
 			 
 			});
 });
-    
+    location.reload();
   }

@@ -1,5 +1,9 @@
 var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
+ $(document).ready(function(){
+	setHomePageCSS();
+});
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -29,7 +33,7 @@ window.fbAsyncInit = function() {
   }
  
 function payerOfTheWeek(fbUser){
-setHomePageCSS();
+
  $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
     var pData = $.parseJSON(data);
       
