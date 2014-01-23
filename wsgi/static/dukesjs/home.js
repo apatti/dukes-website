@@ -35,8 +35,8 @@ function payerOfTheWeek(fbUser){
 	tca_id = 7217;
 	var playerOfTheWeek = '';
 	var mom ='';
-	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(data,status){
-		var results = JSON.stringify(data.user.results[0]);		
+	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
+		var results = JSON.stringify(momData.user.results[0]);		
 		var userData = $.parseJSON(results);
 		
 		mom =  userData['username'];		
