@@ -10,11 +10,11 @@ window.fbAsyncInit = function() {
 
   FB.Event.subscribe('auth.logout', function(response) {
    logout();
-});
-	
-	FB.logout(function() {
-		window.location.reload();
 	});
+	FB.Event.subscribe('auth.login', function() {
+	  location.reload();
+	});
+	
   // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
   // for any authentication related change, such as login, logout or session refresh. This means that
   // whenever someone who was previously logged out tries to log in again, the correct case below 
@@ -36,9 +36,7 @@ window.fbAsyncInit = function() {
       // (2) it is a bad experience to be continually prompted to login upon page load.
 	  
 	  localStorage.setItem('USER_FB_INFO',false);
-      FB.login(function() {
-			window.location.reload();
-		});
+      //FB.login();
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -47,9 +45,7 @@ window.fbAsyncInit = function() {
       // The same caveats as above apply to the FB.login() call here.
 	
 	   localStorage.setItem('USER_FB_INFO',false);	  
-      FB.login(function() {
-		window.location.reload();
-	});
+		  //FB.login();
     }
   });
   };
