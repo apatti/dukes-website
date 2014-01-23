@@ -30,11 +30,16 @@ function payerOfTheWeek(fbUser){
 
  $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
     var pData = $.parseJSON(data);
-      
+    var tca_id = pData.man_of_match;
+	var playerOfTheWeek = '';
+	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(data,status){
+		playerOfTheWeek =  user.results[0].username;
+		
+	});
 	var playerOfTheWeek = '';	
 	//var username ="pram.gottiganti";
 	playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-	playerOfTheWeek = playerOfTheWeek + "<td><img src='https://graph.facebook.com/"+fbUser+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
+	playerOfTheWeek = playerOfTheWeek + "<td><img src='https://graph.facebook.com/"+playerOfTheWeek+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
 	playerOfTheWeek = playerOfTheWeek + "<td>"+ pData.name +"</td>";
 	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 		
