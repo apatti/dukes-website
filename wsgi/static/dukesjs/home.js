@@ -1,5 +1,4 @@
 $(document).ready(function(){
-duckesLogin();
 setHomePageCSS();
  $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
          var pData = $.parseJSON(data);
