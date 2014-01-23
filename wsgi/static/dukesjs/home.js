@@ -33,15 +33,8 @@ var tca_id ='';
     tca_id = pData.man_of_match;
 	alert(tca_id);
 	
-	var playerOfTheWeek = '';
 	
-	//var username ="pram.gottiganti";
-	playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-	playerOfTheWeek = playerOfTheWeek + "<td><div id='momImageId'></div></td>";
-	playerOfTheWeek = playerOfTheWeek + "<td>"+ pData.name +"</td>";
-	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
-		
-	$("#playerOfTheWeekDiv").append(playerOfTheWeek);
+	$("#momNameDiv").append(pData.name);
 	
 	
 	});
