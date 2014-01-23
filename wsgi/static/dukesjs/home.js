@@ -36,7 +36,10 @@ function payerOfTheWeek(fbUser){
 	var playerOfTheWeek = '';
 	var mom ='';
 	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(data,status){
-		mom =  user.results[0].username;		
+		var results = JSON.stringify(data.user.results[0]);		
+		var userData = $.parseJSON(results);
+		
+		mom =  userData['username'];		
 	});
 	//var username ="pram.gottiganti";
 	playerOfTheWeek = playerOfTheWeek + "<table><tr>";
