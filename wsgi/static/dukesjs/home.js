@@ -34,13 +34,13 @@ function payerOfTheWeek(fbUser){
 	alert(tca_id);
 	tca_id = 7217;
 	var playerOfTheWeek = '';
+	var mom;
 	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(data,status){
-		playerOfTheWeek =  user.results[0].username;		
+		mom =  user.results[0].username;		
 	});
-	var playerOfTheWeek = '';	
 	//var username ="pram.gottiganti";
 	playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-	playerOfTheWeek = playerOfTheWeek + "<td><img src='https://graph.facebook.com/"+playerOfTheWeek+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
+	playerOfTheWeek = playerOfTheWeek + "<td><img src='https://graph.facebook.com/"+mom+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
 	playerOfTheWeek = playerOfTheWeek + "<td>"+ pData.name +"</td>";
 	playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 		
