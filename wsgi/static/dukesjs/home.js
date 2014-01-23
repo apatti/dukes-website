@@ -3,6 +3,7 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
  FB.getLoginStatus(function(response) {
 	if (response.status === 'connected') {
 	loggedIn();
+	}
 });
 		  
   function loggedIn() {
