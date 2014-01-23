@@ -12,7 +12,7 @@ window.fbAsyncInit = function() {
    logout();
 	});
 	FB.Event.subscribe('auth.login', function() {
-	  window.location.reload();
+	  location.reload();
 	});
 	
   // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
