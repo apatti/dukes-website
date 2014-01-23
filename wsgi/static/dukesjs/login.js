@@ -48,6 +48,7 @@ window.fbAsyncInit = function() {
   
   function login(){
   FB.login();
+  alert("REloding");
   location.reload();
   }
 
