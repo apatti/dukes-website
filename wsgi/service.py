@@ -40,7 +40,7 @@ def getUserApi(username):
     else:
         return jsonify({'user':result}),200
 
-@app.route('/users/tca/<int:tca_id>',methods=['GET'])
+@app.route('/users/tca/<tca_id>',methods=['GET'])
 def getUserTcaId(tca_id):
     result = getUserUsingTCAID(tca_id)
     if not result.get('results'):
