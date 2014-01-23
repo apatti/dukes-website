@@ -4,23 +4,13 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
 	setHomePageCSS();
 });
 
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '627120887325860',
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-  });
 
-  
-  };
-
-  FB.getLoginStatus(function(response) {
+ FB.getLoginStatus(function(response) {
 	if (response.status === 'connected') {
-	loginSuccessAPI();
+	loggedIn();
 });
 		  
-  function loginSuccessAPI() {
+  function loggedIn() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');	  
