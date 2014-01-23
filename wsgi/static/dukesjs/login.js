@@ -37,6 +37,7 @@ window.fbAsyncInit = function() {
 	  
 	  localStorage.setItem('USER_FB_INFO',false);
       FB.login(function() {
+			alert("logingin");
 			window.location.reload();
 		});
     } else {
@@ -47,9 +48,10 @@ window.fbAsyncInit = function() {
       // The same caveats as above apply to the FB.login() call here.
 	
 	   localStorage.setItem('USER_FB_INFO',false);	  
-      FB.login(function() {
-		window.location.reload();
-	});
+		  FB.login(function() {
+		  alert("logingin2");
+			window.location.reload();
+		});
     }
   });
   };
