@@ -27,12 +27,12 @@ window.fbAsyncInit = function() {
   }
  
 function payerOfTheWeek(fbUser){
-
+var tca_id ='';
  $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
     var pData = $.parseJSON(data);
-    var tca_id = pData.man_of_match;
+    tca_id = pData.man_of_match;
 	alert(tca_id);
-	tca_id = 7217;
+	
 	var playerOfTheWeek = '';
 	
 	//var username ="pram.gottiganti";
@@ -46,7 +46,7 @@ function payerOfTheWeek(fbUser){
 	
 	});
 	
-	$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
+	$.get("http://www.dukesxi.co/users/tca/"+7217,function(momData,status){
 		var results = JSON.stringify(momData.user.results[0]);		
 		var userData = $.parseJSON(results);
 		
