@@ -32,7 +32,7 @@ window.fbAsyncInit = function() {
       // (2) it is a bad experience to be continually prompted to login upon page load.
 	  
 	  localStorage.setItem('USER_FB_INFO',false);
-      FB.login();
+      login();
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -41,11 +41,15 @@ window.fbAsyncInit = function() {
       // The same caveats as above apply to the FB.login() call here.
 	
 	   localStorage.setItem('USER_FB_INFO',false);	  
-      FB.login();
+      login();
     }
   });
   };
   
+  function login(){
+  FB.login();
+  location.reload();
+  }
 
   // Load the SDK asynchronously
   (function(d){
@@ -85,5 +89,5 @@ window.fbAsyncInit = function() {
 			 
 			});
 });
-    location.reload();
+    
   }

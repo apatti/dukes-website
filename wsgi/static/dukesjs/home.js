@@ -1,10 +1,5 @@
 var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
- $(document).ready(function(){
-	setHomePageCSS();
-});
-
-
  FB.getLoginStatus(function(response) {
 	if (response.status === 'connected') {
 	loggedIn();
@@ -44,18 +39,6 @@ function upcomingMatch(){
 }
 
 function setHomePageCSS(){
-	$('#default').puipanel();
-	$('#playerOfTheWeekDiv').puipanel();
-	$('#upcomingMatchDiv').puipanel();
-
-	$('#options').puipanel({
-		toggleable: true
-		,closable: true
-	});
-
-	$('#horiztoggle').puipanel({
-		toggleable: true
-		,toggleOrientation: 'horizontal'
-	});
+	
 }
 
