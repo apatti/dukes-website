@@ -50,6 +50,7 @@ function payerOfTheWeek(fbUser){
 			playerOfTheWeek = playerOfTheWeek + "<td><h3>"+ mom +"</h3></td>";
 			playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 			
+			
 			$("#playerOfTheWeekDiv").append(playerOfTheWeek);
 			
 		});
@@ -67,6 +68,11 @@ function upcomingMatch(){
 			var umpiresFrom = "Umpires From : "+ucMatch[0].umpireteam1name +" & " + ucMatch[0].umpireteam2name;
 			var upcomingMatchStr = '';	
 				upcomingMatchStr = upcomingMatchStr + "<h5>"+ match +"</br>"+ ground +" </br>"+ umpiresFrom +"</h5>";
+				
+			$("#matchDiv").append(match);
+			$("#groundAddressDiv").append(ground);
+			$("#umpiresFromDiv").append(umpiresFrom);
+			
 			/*
 			upcomingMatchStr = upcomingMatchStr + "<table><tr>";
 			upcomingMatchStr = upcomingMatchStr + "<td>"+ match +"</td>";
@@ -75,7 +81,7 @@ function upcomingMatch(){
 			
 			upcomingMatchStr = upcomingMatchStr + "</tr></table>";
 			*/
-			$('#upcomingMatchDiv').append(upcomingMatchStr);
+			//$('#upcomingMatchDiv').append(upcomingMatchStr);
 			
 		});
 }
