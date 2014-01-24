@@ -28,9 +28,7 @@ window.fbAsyncInit = function() {
  
 $(document).ready(function(){
 
-	function payerOfTheWeek(fbUser){
-
-		$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
+	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
 			var tca_id ='';
 			var mom='';
 			var pData = $.parseJSON(data);
@@ -59,7 +57,7 @@ $(document).ready(function(){
 		};
 		upcomingMatch();
 		upcomingUmpireTask();
-	}
+	});
 
 	function upcomingMatch(){
 		$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamNextGame&tid=184",function(data,status){
@@ -93,4 +91,4 @@ $(document).ready(function(){
 			});
 	}
 
-});
+
