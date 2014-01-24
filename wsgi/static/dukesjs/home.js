@@ -65,13 +65,16 @@ function upcomingMatch(){
 	var match = ucMatch[0].team1name + " VS " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
 	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " +  ucMatch[0].ground_zip;
 			var umpiresFrom = "Team1 : "+ucMatch[0].umpireteam1name +" , Team2 : " + ucMatch[0].umpireteam2name;
-			var upcomingMatchStr = '';			
+			var upcomingMatchStr = '';	
+				upcomingMatchStr = upcomingMatchStr + "<h2>"+ match +"</br>"+ ground+" </br>"+ ground +" </br>"+ umpiresFrom +"</h2>";
+			/*
 			upcomingMatchStr = upcomingMatchStr + "<table><tr>";
 			upcomingMatchStr = upcomingMatchStr + "<td>"+ match +"</td>";
 			upcomingMatchStr = upcomingMatchStr + "<td>"+ ground +"</td>";
 			upcomingMatchStr = upcomingMatchStr + "<td>"+ umpiresFrom +"</td>";
 			
 			upcomingMatchStr = upcomingMatchStr + "</tr></table>";
+			*/
 			$('#upcomingMatchDiv').append(upcomingMatchStr);
 			
 		});
