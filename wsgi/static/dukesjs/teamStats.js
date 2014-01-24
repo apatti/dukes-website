@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$.get("http://www.dukes.co/teams/stats",function(data,status){
+$.get("/teams/stats",function(data,status){
 	
 	$('#teamStatsDiv').puidatatable({
 			lazy: true,
