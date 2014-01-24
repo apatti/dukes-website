@@ -18,7 +18,7 @@ $.get("/team/stats",function(data,status){
 					callback.call(this, $.makeArray(pData));
 				}         
 	    });
-	google.load("visualization","1",{packages:["corechart"]});
+	/*google.load("visualization","1",{packages:["corechart"]});
 	google.setOnLoadCallback(drawChart);
 	function drawChart(){
 	    statsdata = new google.visualization.DataTable();
@@ -33,7 +33,7 @@ $.get("/team/stats",function(data,status){
 	    var options={ title:'W/L Ratio'};
 	    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 	    chart.draw(statsdata,options);
-	}
+	    }*/
 	});
 /*
 google.load("visualization","1",{packages:["corechart"]});
