@@ -28,9 +28,9 @@ $.get("/team/stats",function(data,status){
 		{
 		    var date = data.Games[i].match_date;
 		    var ratio = data.Games[i].ratio;
-		    statsdata.addRows([[date,parseInt(ratio)]]);
+		    statsdata.addRows([[date,parseFloat(ratio)]]);
 		}
-	    var options={ title:'W/L Ratio','width':400,'height':300};
+	    var options={ title:'W/L Ratio','width':400,'height':300,vAxis:{maxValue: 1}};
 	    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 	    chart.draw(statsdata,options);
 	    }
