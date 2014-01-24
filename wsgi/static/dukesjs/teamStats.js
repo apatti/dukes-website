@@ -18,10 +18,10 @@ $.get("/team/stats",function(data,status){
 					callback.call(this, $.makeArray(pData));
 				}         
 	    });
-	/*google.load("visualization","1",{packages:["corechart"]});
+	google.load('visualization','1.0',{'packages':['corechart']});
 	google.setOnLoadCallback(drawChart);
 	function drawChart(){
-	    statsdata = new google.visualization.DataTable();
+	    var statsdata = new google.visualization.DataTable();
 	    statsdata.addColumn('string','Date');
 	    statsdata.addColumn('number','W/L Ratio');
 	    for (var i=0;i<96;i++)
@@ -30,10 +30,10 @@ $.get("/team/stats",function(data,status){
 		    var ratio = data.Games[i].ratio;
 		    statsdata.addRows([[date,parseInt(ratio)]]);
 		}
-	    var options={ title:'W/L Ratio'};
+	    var options={ title:'W/L Ratio','width':400,'height':300};
 	    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 	    chart.draw(statsdata,options);
-	    }*/
+	    }
 	});
 /*
 google.load("visualization","1",{packages:["corechart"]});
