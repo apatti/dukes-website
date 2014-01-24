@@ -5,7 +5,7 @@ $(document).ready(function(){
          var pData = $.parseJSON(data);
          var dataInTable ='';
           $.each(pData, function() {			 
-              dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['pid']+"' >"+getImageURL(fbUserName)+"</a></td></tr>"
+              dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['pid']+"' >"+getImageURL( this['pid'],fbUserName)+"</a></td></tr>"
               dataInTable = dataInTable + "<tr><td>"+ this['fname'] +" "+ this['lname'] +"</td><tr>";
               dataInTable = dataInTable + "</table></div>";
           });	
@@ -15,10 +15,16 @@ $(document).ready(function(){
 	
 });
 
-function getImageURL(username){
-var imgURL ='';
-  if(username.toLowerCase().indexOf("gottiganti")){
-		imgURL =  "<img src='https://graph.facebook.com/"+username+"/picture?type=normal'  class='image' width='100px' height='100px'/>"
-	  }
-	  return imgURL;
+function getImageURL(pid,username){
+
+	$.get("http://www.dukesxi.co/users/tca/"+pid,function(momData,status){
+				var results = JSON.stringify(momData.user.results[0]);		
+				var userData = $.parseJSON(results);
+				var imgURL ='';
+				  if(username.toLowerCase().indexOf("gottiganti")){
+						imgURL =  "<img src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='100px' height='100px'/>"
+					  }
+					  return imgURL;
+			});
+
 }
