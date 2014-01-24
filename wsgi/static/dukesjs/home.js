@@ -58,7 +58,16 @@ function payerOfTheWeek(fbUser){
 }
 
 function upcomingMatch(){
-	$('#upcomingMatchDiv').append('Upcoming Match is on Sunday');
+	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamNextGame&tid=184",function(data,status){
+			var results = JSON.stringify(data[0]);		
+			var upComingMatchFromTCA = $.parseJSON(results);
+			alert(upComingMatchFromTCA);
+			var upcomingMatchDiv = '';
+			
+			
+			$('#upcomingMatchDiv').append(playerOfTheWeek);
+			
+		});
 }
 
 function setHomePageCSS(){
