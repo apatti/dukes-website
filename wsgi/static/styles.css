@@ -38,6 +38,15 @@ body {
  float: left;
  /*background:#CCC8B3; */
 }
+#centerContent { 
+ color: #333;
+ border: 1px solid #ccc;
+ margin: 0px 0px 0px 0px;
+ padding: 10px;
+ width: 878px;
+ float: left;
+ /*background:#CCC8B3; */
+}
 #rightcolumn { 
  float: right;
  color: #333;
