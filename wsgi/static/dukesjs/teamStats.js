@@ -22,9 +22,9 @@ $.get("/team/stats",function(data,status){
 	//google.setOnLoadCallback(drawChart);
 	function drawChart(){
 	    var statsdata = new google.visualization.DataTable();
-	    statsdata.addColumn('string','Date');
+	    statsdata.addColumn('string','Match Date');
 	    statsdata.addColumn('number','W/L Ratio');
-	    for (var i=0;i<94;i++)
+	    for (var i=0;i<data.Games.length;i++)
 		{
 		    var date = data.Games[i].match_date;
 		    var ratio = data.Games[i].ratio;
