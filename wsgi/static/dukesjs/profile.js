@@ -69,17 +69,20 @@ function updateTeamDropdown(username){
 					$('#associateBtn').click( function(){
 						var tca_id = $("#dukesTeamSelect").val();
 						var email = $('#emailTxt').val();
-						alert(tca_id);
-						alert(email);
-						$.ajax({
-								  type: "PUT",
-								  contentType:'application/json',
-								  url: DOMAIN_NAME +'/users/'+username+'?associate=1',
-								  data: JSON.stringify({'tca_id':tca_id,'email':email} ),
-								  dataType: 'json',
-								  success: function(msg) {
-									alert( "Data Saved: " + msg );
-								 }
+						//alert(tca_id);
+						//alert(email);
+						$.ajax(
+						       {
+							type: "PUT",
+							contentType:'application/json',
+							url: DOMAIN_NAME +'/users/'+username+'?associate=1',
+							data: JSON.stringify({'tca_id':tca_id,'email':email} ),
+							dataType: 'json',
+							success: function(msg) 
+							       {
+								   alert("Successfully associated");
+								   location.href="/";
+							       }
 						});
 					});
 			});
