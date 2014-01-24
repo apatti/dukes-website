@@ -59,7 +59,7 @@ function payerOfTheWeek(fbUser){
 
 function upcomingMatch(){
 	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamNextGame&tid=184",function(data,status){
-			var results = JSON.stringify(data[0]);		
+			var results = JSON.stringify(data);		
 			var upComingMatchFromTCA = $.parseJSON(results);
 			alert(upComingMatchFromTCA);
 			var upcomingMatchDiv = '';
