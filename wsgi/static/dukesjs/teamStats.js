@@ -18,7 +18,7 @@ $.get("/team/stats",function(data,status){
 					callback.call(this, $.makeArray(pData));
 				}         
 	    });
-	google.load('visualization','1.0',{'packages':['corechart'],callback:drawChar});
+	google.load('visualization','1.0',{'packages':['corechart'],callback:drawChart});
 	//google.setOnLoadCallback(drawChart);
 	function drawChart(){
 	    var statsdata = new google.visualization.DataTable();
