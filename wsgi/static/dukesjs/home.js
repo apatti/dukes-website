@@ -65,7 +65,7 @@ function upcomingMatch(){
 	var ucMatch = $.parseJSON(data);
 			
 	var match = ucMatch[0].team1name + " vs " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
-	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " + groundcity + " " +  ucMatch[0].ground_zip;
+	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " +  ucMatch[0].ground_zip;
 			var umpiresFrom = "Umpires From : "+ucMatch[0].umpireteam1name +" & " + ucMatch[0].umpireteam2name;
 			
 			$("#matchDiv").append(match);
