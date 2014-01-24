@@ -24,7 +24,7 @@ $.get("/team/stats",function(data,status){
 	    var statsdata = new google.visualization.DataTable();
 	    statsdata.addColumn('string','Date');
 	    statsdata.addColumn('number','W/L Ratio');
-	    for (var i=0;i<96;i++)
+	    for (var i=0;i<94;i++)
 		{
 		    var date = data.Games[i].match_date;
 		    var ratio = data.Games[i].ratio;
@@ -35,24 +35,6 @@ $.get("/team/stats",function(data,status){
 	    chart.draw(statsdata,options);
 	    }
 	});
-/*
-google.load("visualization","1",{packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
-function drawChart(){
-    statsdata = new google.visualization.DataTable();
-    statsdata.addColumn('string','Date');
-    statsdata.addColumn('number','W/L Ratio');
-    for (var i=0;i<96;i++)
-	{
-	    var date = data.Games[i].match_date;
-	    var ratio = data.Games[i].ratio;
-	    statsdata.addRows([[date,parseInt(ratio)]]);
-	}
-    var options={ title:'W/L Ratio'};
-    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-    chart.draw(statsdata,options);
-}*/
-
 });
 
 
