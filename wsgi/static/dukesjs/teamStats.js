@@ -7,8 +7,8 @@ $.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=get
             columns: [
                 {field:'matches_played', headerText: 'Mat', sortable:false},
                 {field:'wMatches', headerText: 'Wins', sortable:false},
-                {field:'lMatches', headerText: 'Lost', sortable:true},
-				{field:'tMatches', headerText: 'Match Draw', sortable:true}				
+                {field:'lMatches', headerText: 'Lost', sortable:false},
+				{field:'tMatches', headerText: 'Match Draw', sortable:false}				
                ],
 			   datasource: function(callback, ui) {  
 					
