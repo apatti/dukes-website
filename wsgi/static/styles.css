@@ -17,9 +17,11 @@ body {
  border: 1px solid #ccc;
  height: 50px;
  margin: 10px 0px 0px 0px;
- background-color:#F3F2ED;
- background:#F6F0E0;
- background-image:url('images/Dukes+logo+tan.jpg');
+ 
+background: #F7E0A2;
+background-image: url('images/Dukes+logo+tan.jpg');
+background-repeat: no-repeat;
+background-size: 500px 70px;
 }
 #navigation {
  float: left;
