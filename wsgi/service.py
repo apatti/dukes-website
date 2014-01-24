@@ -65,7 +65,7 @@ def updateUserApi(username):
 
 @app.route('/team/stats',methods=['GET'])
 def getTeamStats():
-    return jsonify({'stats':getTeamWL()}),200
+    return jsonify(getTeamWL()),200
 
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):

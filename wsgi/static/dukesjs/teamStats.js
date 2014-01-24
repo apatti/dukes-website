@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamStatDetails&tid=184",function(data,status){
+$.get("http://www.dukes.co/teams/stats",function(data,status){
 	
 	$('#teamStatsDiv').puidatatable({
 			lazy: true,
