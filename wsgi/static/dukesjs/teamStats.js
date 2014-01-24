@@ -12,7 +12,7 @@ $.get("/team/stats",function(data,status){
                ],
 			   datasource: function(callback, ui) {  
 					
-					var pData = $.parseJSON(data);							
+					var pData = data;							
 					callback.call(this, $.makeArray(pData));
 				}         
         });
