@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$.get("/teams/stats",function(data,status){
+$.get("/team/stats",function(data,status){
 	
 	$('#teamStatsDiv').puidatatable({
 			lazy: true,
