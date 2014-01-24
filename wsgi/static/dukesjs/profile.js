@@ -80,7 +80,7 @@ function updateTeamDropdown(username){
 							dataType: 'json',
 							success: function(msg) 
 							       {
-								   alert("Successfully associated");
+								   alert("Thank you for association, we would process it and confirm you through the email address provided");
 								   location.href="/";
 							       }
 						});
