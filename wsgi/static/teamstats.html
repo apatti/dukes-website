@@ -21,7 +21,15 @@
 	<script type="text/javascript" src="dukesjs/dukesMenu.js"></script>
 	<script type="text/javascript" src="dukesjs/teamStats.js"></script>
 	<script type="text/javascript" src="dukesjs/footer.js"></script>
-    
+    <script type="text/javascript">  
+		$(function() { 
+			$('#bestScoredDiv').puipanel();
+			$('#battingStatsDiv').puipanel();
+			$('#bestBowlingDiv').puipanel();
+			$('#bowlingStatsDiv').puipanel();
+
+	}); 
+</script>	
                                       
 </head>
 <body>
@@ -40,11 +48,10 @@
   <div id="centerContent"> 
 	<div id="bestScoredDiv"></div>
 	<div id="battingStatsDiv"></div>
-	</br>
+	
 	<div id ="bestBowlingDiv"></div>
 	<div id="bowlingStatsDiv"></div>
-	</br>	
-	<div id="fieldStatsDiv"></div>                          
+	                      
   </div>
   <!-- End Left Column -->
   
