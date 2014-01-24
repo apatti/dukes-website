@@ -65,14 +65,14 @@ function upcomingMatch(){
 	var match = ucMatch[0].team1name + " VS " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
 	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " +  ucMatch[0].ground_zip;
 			var umpiresFrom = "Team1 : "+ucMatch[0].umpireteam1name +" , Team2 : " + ucMatch[0].umpireteam2name;
-			var upcomingMatchDiv = '';			
-			upcomingMatchDiv = upcomingMatchDiv + "<table><tr>";
-			upcomingMatchDiv = upcomingMatchDiv + "<td>"+ match +"</td>";
-			upcomingMatchDiv = upcomingMatchDiv + "<td>"+ ground +"</td>";
-			upcomingMatchDiv = upcomingMatchDiv + "<td>"+ umpiresFrom +"</td>";
+			var upcomingMatchStr = '';			
+			upcomingMatchStr = upcomingMatchStr + "<table><tr>";
+			upcomingMatchStr = upcomingMatchStr + "<td>"+ match +"</td>";
+			upcomingMatchStr = upcomingMatchStr + "<td>"+ ground +"</td>";
+			upcomingMatchStr = upcomingMatchStr + "<td>"+ umpiresFrom +"</td>";
 			
-			upcomingMatchDiv = upcomingMatchDiv + "</tr></table>";
-			$('#upcomingMatchDiv').append(upcomingMatchDiv);
+			upcomingMatchStr = upcomingMatchStr + "</tr></table>";
+			$('#upcomingMatchDiv').append(upcomingMatchStr);
 			
 		});
 }
