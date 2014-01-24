@@ -46,8 +46,8 @@ function payerOfTheWeek(fbUser){
 			
 			//var username ="pram.gottiganti";
 			playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-			playerOfTheWeek = playerOfTheWeek + "<td><img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='100px' height='100px'/></td>";
-			playerOfTheWeek = playerOfTheWeek + "<td>"+ mom +"</td>";
+			playerOfTheWeek = playerOfTheWeek + "<td><img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='75px' height='75px'/></td>";
+			playerOfTheWeek = playerOfTheWeek + "<td><h3>"+ mom +"</h3></td>";
 			playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 			
 			$("#playerOfTheWeekDiv").append(playerOfTheWeek);
