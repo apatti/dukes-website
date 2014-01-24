@@ -61,8 +61,8 @@ function upcomingMatch(){
 	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamNextGame&tid=184",function(data,status){
 			var results = JSON.stringify(data);		
 	var ucMatch = $.parseJSON(results);
-			
-	var match = ucMatch[0].team1name + " VS " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
+			alert(ucMatch[0].team1name);
+	/*var match = ucMatch[0].team1name + " VS " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
 	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " +  ucMatch[0].ground_zip;
 			var umpiresFrom = "Team1 : "+ucMatch[0].umpireteam1name +" , Team2 : " + ucMatch[0].umpireteam2name;
 			var upcomingMatchStr = '';			
@@ -74,7 +74,7 @@ function upcomingMatch(){
 			upcomingMatchStr = upcomingMatchStr + "</tr></table>";
 			$('#upcomingMatchDiv').append(upcomingMatchStr);
 			
-		});
+		});*/
 }
 
 function setHomePageCSS(){
