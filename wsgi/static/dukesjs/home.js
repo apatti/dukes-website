@@ -59,14 +59,20 @@ function payerOfTheWeek(fbUser){
 
 function upcomingMatch(){
 	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamNextGame&tid=184",function(data,status){
-			var results = JSON.stringify(data);
-alert(results.team2name);			
-			var upComingMatchFromTCA = $.parseJSON(results[0]);
-			alert(upComingMatchFromTCA.umpireteam1name);
+			var results = JSON.stringify(data);		
+			var ucMatch = $.parseJSON(results);
+			alert(ucMatch[0].umpireteam1name);
 			
-			var upcomingMatchDiv = '';
+			var match = ucMatch[0].team1name + " VS " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
+			var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " +  ucMatch[0].ground_zip;
+			var umpiresFrom = "Team1 : "+ucMatch[0].umpireteam1name +" , Team2 : " + ucMatch[0].umpireteam2name;
+			var upcomingMatchDiv = '';			
+			upcomingMatchDiv = upcomingMatchDiv + "<table><tr>";
+			upcomingMatchDiv = upcomingMatchDiv + "<td>"+ match +"</td>";
+			upcomingMatchDiv = upcomingMatchDiv + "<td>"+ ground +"</td>";
+			upcomingMatchDiv = upcomingMatchDiv + "<td>"+ umpiresFrom +"</td>";
 			
-			
+			upcomingMatchDiv = upcomingMatchDiv + "</tr>"+ +"</table>";
 			$('#upcomingMatchDiv').append(upcomingMatchDiv);
 			
 		});
