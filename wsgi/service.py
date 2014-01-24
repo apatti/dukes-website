@@ -1,6 +1,7 @@
 from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
+from teamstats import getTeamWL
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -61,6 +62,10 @@ def updateUserApi(username):
     result = updateUser(username,reqObj,associate)
     
     return jsonify({'user':result}),201
+
+@app.route('/team/stats',methods=['GET'])
+def getTeamStats():
+    return jsonify({'stats':getTeamWL()}),200
 
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):
