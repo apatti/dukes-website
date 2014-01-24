@@ -2,8 +2,10 @@ import json,requests
 
 def getTeamWL():
     statsResponse = requests.get('http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamStatDetails&tid=184')
-    games = json.loads(statsResponse.content).get("Games")
-    return calculateWLRatio(games)
+    stats = json.loads(statsResponse.content)
+    games = calculateWLRatio(stats.get("Games"))
+    stats["Games"]=games
+    return stats
 
 def calculateWLRatio(games):
     w = 0.0
