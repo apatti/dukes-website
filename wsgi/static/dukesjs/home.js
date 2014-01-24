@@ -56,6 +56,7 @@ function payerOfTheWeek(fbUser){
 		});
 	};
 	upcomingMatch();
+	upcomingUmpireTask();
 }
 
 function upcomingMatch(){
@@ -64,25 +65,29 @@ function upcomingMatch(){
 	var ucMatch = $.parseJSON(data);
 			
 	var match = ucMatch[0].team1name + " vs " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
-	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " +  ucMatch[0].ground_zip;
+	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " + groundcity + " " +  ucMatch[0].ground_zip;
+			var umpiresFrom = "Umpires From : "+ucMatch[0].umpireteam1name +" & " + ucMatch[0].umpireteam2name;
+			
+			$("#matchDiv").append(match);
+			$("#groundAddressDiv").append(ground);
+			$("#umpiresFromDiv").append(umpiresFrom);
+		});
+}
+
+function upcomingUmpireTask(){
+	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamUmpireGamesDetails&tid=184",function(data,status){
+			
+	var ucMatch = $.parseJSON(data);
+			
+	var match = ucMatch[0].team1name + " vs " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
+	var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " + groundcity + " "+  ucMatch[0].ground_zip;
 			var umpiresFrom = "Umpires From : "+ucMatch[0].umpireteam1name +" & " + ucMatch[0].umpireteam2name;
 			var upcomingMatchStr = '';	
 				upcomingMatchStr = upcomingMatchStr + "<h5>"+ match +"</br>"+ ground +" </br>"+ umpiresFrom +"</h5>";
 				
-			$("#matchDiv").append(match);
-			$("#groundAddressDiv").append(ground);
-			$("#umpiresFromDiv").append(umpiresFrom);
-			
-			/*
-			upcomingMatchStr = upcomingMatchStr + "<table><tr>";
-			upcomingMatchStr = upcomingMatchStr + "<td>"+ match +"</td>";
-			upcomingMatchStr = upcomingMatchStr + "<td>"+ ground +"</td>";
-			upcomingMatchStr = upcomingMatchStr + "<td>"+ umpiresFrom +"</td>";
-			
-			upcomingMatchStr = upcomingMatchStr + "</tr></table>";
-			*/
-			//$('#upcomingMatchDiv').append(upcomingMatchStr);
-			
+			$("#umpiringForDiv").append(match);
+			$("#teamsForUmpringDiv").append(ground);
+			$("#umpiringAddressDiv").append(umpiresFrom);
 		});
 }
 
