@@ -38,9 +38,22 @@ $.get("/team/stats",function(data,status){
 	    capStatsdata.addColumn('number','wins');
 	    capStatsdata.addColumn('number','loss');
 	    capStatsdata.addColumn('number','tie');
+	    for(var i=0;i<data.Captains.length;i++)
+		{
+		    var captain = data.Captains[i];
+		    var wins = data.CaptainWins[captain];
+		    var loss = data.CaptainLoss[captain];
+		    var tie = data.CaptainTies[captain];
+		    capStatsdata.addRows([[captain,wins,loss,tie]])
+		}
 	    //capStatsdata.addRows([[data.CaptainLosses
-	    
+	    var capoptions = {title:'Dukes XI Captains','height':300,
+			      hAxis: {title:'Captain'}};
+	    var capchart = new google.visualization.ColumnChart(document.getElemenetById('cap_chart_div'));
+
+
 	    wlchart.draw(wlStatsdata,wloptions);
+	    capchart.draw(capStatsdata,capoptions);
 	    }
 	});
 });
