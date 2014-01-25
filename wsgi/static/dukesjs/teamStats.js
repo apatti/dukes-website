@@ -42,9 +42,9 @@ $.get("/team/stats",function(data,status){
 	    for(var i=0;i<captains.length;i++)
 		{
 		    var captain = captains[i];
-		    var wins = data.CaptainWins[captain];
-		    var loss = data.CaptainLoss[captain];
-		    var tie = data.CaptainTies[captain];
+		    var wins = data.CaptainWins[captain]?data.CaptainWins[captain]:0;
+		    var loss = data.CaptainLoss[captain]?data.CaptainLoss[captain]:0;
+		    var tie = data.CaptainTies[captain]?data.CaptainTies[captain]:0;
 		    capStatsdata.addRows([[captain,wins,loss,tie]])
 		}
 	    //capStatsdata.addRows([[data.CaptainLosses
