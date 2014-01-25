@@ -43,7 +43,7 @@ $.get("/team/stats",function(data,status){
 		{
 		    var captain = captains[i];
 		    var wins = data.CaptainWins[captain]?data.CaptainWins[captain]:0;
-		    var loss = data.CaptainLoss[captain]?data.CaptainLoss[captain]:0;
+		    var loss = data.CaptainLosses[captain]?data.CaptainLosses[captain]:0;
 		    var tie = data.CaptainTies[captain]?data.CaptainTies[captain]:0;
 		    capStatsdata.addRows([[captain,wins,loss,tie]])
 		}
