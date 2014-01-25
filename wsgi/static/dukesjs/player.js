@@ -86,8 +86,7 @@ var playerId = getParameterByName('pid');
 				}         
         });
 	google.load('visualization','1.0',{'packages':['corechart'],callback:drawChart});
-        //google.setOnLoadCallback(drawChart);                                                                                                                                                                     
-	function drawChart()
+        function drawChart()
 	{
 	    var batting=JSON.parse(data).Batting;
 
@@ -112,9 +111,9 @@ var playerId = getParameterByName('pid');
 	    
             for (var i=0;i<batting.positions.length;i++)
 		{
-		    var position = data.positions[i].batsman_position;
-                    var posruns = data.positions[i].runs;
-                    var posgames = data.positions[i].games;
+		    var position = batting.positions[i].batsman_position;
+                    var posruns = batting.positions[i].runs;
+                    var posgames = batting.positions[i].games;
                     batposStatsdata.addRows([[position,parseInt(posgames),parseInt(runs)]]);
                 }
             var batposoptions={ title:'Runs scored per position','height':300,vAxis:{title:'Runs'}};
