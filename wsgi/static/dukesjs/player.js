@@ -93,11 +93,11 @@ var playerId = getParameterByName('pid');
 	    var batrStatsdata = new google.visualization.DataTable();
             batrStatsdata.addColumn('string','Match Date');
             batrStatsdata.addColumn('number','Runs');
-	    
+	    var runs=0;
 	    for (var i=0;i<batting.games.length;i++)
                 {
                     var date = batting.games[i].date;
-                    var runs = batting.games[i].runs_scored;
+                    runs = runs + parseInt(batting.games[i].runs_scored);
 		    batrStatsdata.addRows([[date,parseInt(runs)]]);
                  }
             var batroptions={ title:'Runs scored','height':300,vAxis:{title:'Runs'}};
@@ -114,7 +114,7 @@ var playerId = getParameterByName('pid');
 		    var position = batting.positions[i].batsman_position;
                     var posruns = batting.positions[i].runs;
                     var posgames = batting.positions[i].games;
-                    batposStatsdata.addRows([[position,parseInt(posgames),parseInt(runs)]]);
+                    batposStatsdata.addRows([[parseInt(position),parseInt(posgames),parseInt(runs)]]);
                 }
             var batposoptions={ title:'Runs scored per position','height':300,vAxis:{title:'Runs'}};
             var batposchart = new google.visualization.ColumnChart(document.getElementById('bat_pos_chart_div'));
