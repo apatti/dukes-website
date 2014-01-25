@@ -50,13 +50,13 @@ function updateTeamDropdown(username){
 		var results = JSON.stringify(data.user.results[0]);	
 		
 		var userData = $.parseJSON(results);
-		/*
+		
 		if(userData['last_name']){
 				alert(userData['last_name']);
 		}else{
 			alert('test');
 		}
-		*/
+		
 
 		if(userData['tca_associated'] === '1'){
 				//alert(userData['tca_id']);
