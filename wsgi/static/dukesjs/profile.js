@@ -7,6 +7,12 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
 		cookie     : true, // enable cookies to allow the server to access the session
 		xfbml      : true  // parse XFBML
 	  });
+	  FB.Event.subscribe('auth.logout', function(response) {
+	   logout();
+		});
+		FB.Event.subscribe('auth.login', function() {
+		  location.reload();
+		});
 		 FB.getLoginStatus(function(response) {
 		  if (response.status === 'connected') {
 			
