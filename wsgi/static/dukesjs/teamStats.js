@@ -30,7 +30,7 @@ $.get("/team/stats",function(data,status){
 		    var ratio = data.Games[i].ratio;
 		    wlStatsdata.addRows([[date,parseFloat(ratio)]]);
 		}
-	    var wloptions={ title:'W/L Ratio','height':300,hAxis:{title:'Date'},vAxis:{maxValue: 1,title:'Ratio'}};
+	    var wloptions={ title:'W/L Ratio','height':300,vAxis:{maxValue: 1,title:'Ratio'}};
 	    var wlchart = new google.visualization.LineChart(document.getElementById('wl_chart_div'));
 	    
 	    var capStatsdata = new google.visualization.DataTable();
