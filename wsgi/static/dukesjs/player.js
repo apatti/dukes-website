@@ -89,23 +89,26 @@ var playerId = getParameterByName('pid');
         function drawChart()
 	{
 	    var howOut = new Array();
-	    howOut[1]="Caught";
-	    howOut[2]="Caught behind";
-	    howOut[3]="Bowled";
-	    howOut[4]="Run out";
-	    howOut[5]="Stumped";
-	    howOut[6]="Caught and bowled";
-	    howOut[7]="Hit wicket";
-	    howOut[8]="Not out";
-	    howOut[9]="Did not bat";
-	    howOut[10]="Handled the ball";
-	    howOut[11]="Obstructed field";
-	    howOut[12]="Hit ball twice";
-	    howOut[13]="Timed out";
-	    howOut[14]="Retired out";
-	    howOut[15]="Retired hurt";
-	    howOut[16]="Absent";
-	    howOut[19]="Double hit";
+	    howOut[14]="Caught";
+	    howOut[15]="Caught Wicket-Keeper";
+	    howOut[10]="Bowled";
+	    howOut[13]="Run Out";
+	    howOut[16]="Stumped";
+	    howOut[11]="Caught and Bowled";
+	    howOut[12]="Hit wicket";
+	    howOut[2]="Not Out";
+	    howOut[1]="Did Not Bat";
+	    howOut[3]="Handled the Ball";
+	    howOut[4]="Obstructed Field";
+	    howOut[5]="Hit ball twice";
+	    howOut[6]="Timed Out";
+	    howOut[7]="Retired Out";
+	    howOut[8]="Retired Hurt";
+	    howOut[9]="Absent";
+	    howOut[17]="Run Out Substitute";
+	    howOut[18]="Caught Subtitute";
+	    howOut[19]="Double Hit";
+
 
 	    var batting=JSON.parse(data).Batting;
 
