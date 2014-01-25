@@ -19,15 +19,16 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
 			var uid = response.authResponse.userID;
 			var accessToken = response.authResponse.accessToken;
 			
-			var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
-			$('#nameDiv').html("<h3>Name : </h>"+userData['name']);
-			$('#fNameDiv').html("<h3>First Name : </h>"+userData['first_name']);
-			$('#lNameDiv').html("<h3>Last Name : </h>"+userData['last_name']);
-			$('#fbLinkDiv').html("<h3>FB Link : </h>"+userData['link']);
+			//var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
+			$('#nameDiv').html("<h3>Name : </h>"+response['name']);
+			$('#fNameDiv').html("<h3>First Name : </h>"+response['first_name']);
+			$('#lNameDiv').html("<h3>Last Name : </h>"+response['last_name']);
+			$('#fbLinkDiv').html("<h3>FB Link : </h>"+response['link']);
 			Email : 
 			$('#fbLinkDiv').html("<h3>Email : </h><input id='emailTxt' type='text' />");
-			$('#fbProfileImg').html("<img src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal' class='image' width='100px' height='100px'/>");
-			updateTeamDropdown(userData.username);
+			$('#fbProfileImg').html("<img src='https://graph.facebook.com/"+response['username']+"/picture?type=normal' class='image' width='100px' height='100px'/>");
+			
+			updateTeamDropdown(response.username);
 		  } else if (response.status === 'not_authorized') {
 			// the user is logged in to Facebook, 
 			// but has not authenticated your app
@@ -57,7 +58,7 @@ function updateTeamDropdown(username){
 		}
 		*/
 
-		if(userData['tca_id']){
+		if(userData['tca_associated'] === '1'){
 				//alert(userData['tca_id']);
 				$('#emailTxt').val(userData['email']);
 		}else{
