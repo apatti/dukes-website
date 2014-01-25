@@ -92,16 +92,16 @@ var playerId = getParameterByName('pid');
 	    var batrStatsdata = new google.visualization.DataTable();
             batrStatsdata.addColumn('string','Match Date');
             batrStatsdata.addColumn('number','Runs');
-
+	    var batting=JSON.parse(data).Batting;
             /*var wlStatsdata = new google.visualization.DataTable();
             wlStatsdata.addColumn('string','Match Date');
             wlStatsdata.addColumn('number','Wins');
             wlStatsdata.addColumn('number','Loss');
 	    */
-            for (var i=0;i<data.Games.Batting.games;i++)
+            for (var i=0;i<batting.games;i++)
 		{
-                    var date = data.Games.Batting.games[i].date;
-                    var runs = data.Games.Batting.games[i].runs_scored;
+                    var date = batting.games[i].date;
+                    var runs = batting.games[i].runs_scored;
                     //var wins = data.Games[i].win;
                     //var loss = data.Games[i].loss;
                     batrStatsdata.addRows([[date,parseInt(runs)]]);
