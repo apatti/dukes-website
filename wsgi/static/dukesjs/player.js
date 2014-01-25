@@ -93,22 +93,24 @@ var playerId = getParameterByName('pid');
             batrStatsdata.addColumn('string','Match Date');
             batrStatsdata.addColumn('number','Runs');
 	    var batting=JSON.parse(data).Batting;
-            /*var wlStatsdata = new google.visualization.DataTable();
-            wlStatsdata.addColumn('string','Match Date');
-            wlStatsdata.addColumn('number','Wins');
-            wlStatsdata.addColumn('number','Loss');
-	    */
+            
+	    //var batposStatsdata = new google.visualization.DataTable();
+            //batposStatsdata.addColumn('number','Position');
+            //batposStatsdata.addColumn('number','Runs');
+            //batposStatsdata.addColumn('number','Games');
+	    
             for (var i=0;i<batting.games;i++)
 		{
                     var date = batting.games[i].date;
-                    var runs = batting.games[i].runs_scored;
-                    //var wins = data.Games[i].win;
-                    //var loss = data.Games[i].loss;
+                    var batruns = batting.games[i].runs_scored;
+		    
+                    //var posruns = data.Games[i].win;
+                    //var posgames = data.Games[i].loss;
                     batrStatsdata.addRows([[date,parseInt(runs)]]);
-                    //wlStatsdata.addRows([[date,parseInt(wins),parseInt(loss)]]);
+                    //batposStatsdata.addRows([[,parseInt(wins),parseInt(loss)]]);
                 }
             var batroptions={ title:'Runs scored','height':300,vAxis:{title:'Runs'}};
-            var batrchart = new google.visualization.LineChart(document.getElementById('bat_runs_chart_div'));
+            var batrchart = new google.visualization.LineChart(document.getElementById('bat_run_chart_div'));
 	}
 	    });
 });
