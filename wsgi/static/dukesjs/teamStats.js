@@ -30,7 +30,7 @@ $.get("/team/stats",function(data,status){
 		    var ratio = data.Games[i].ratio;
 		    wlStatsdata.addRows([[date,parseFloat(ratio)]]);
 		}
-	    var wloptions={ title:'W/L Ratio','height':300,vAxis:{maxValue: 1}};
+	    var wloptions={ title:'W/L Ratio','height':300,hAxis:{title:'Date'},vAxis:{maxValue: 1,title:'Ratio'}};
 	    var wlchart = new google.visualization.LineChart(document.getElementById('wl_chart_div'));
 	    
 	    var capStatsdata = new google.visualization.DataTable();
@@ -42,14 +42,15 @@ $.get("/team/stats",function(data,status){
 	    for(var i=0;i<captains.length;i++)
 		{
 		    var captain = data.TeamPlayers.filter(function(team){return team.pid==captains[i];})[0];
+		    var wins = data.CaptainWins[captain.pid]?data.CaptainWins[captain.pid]:0;
+		    var loss = data.CaptainLosses[captain.pid]?data.CaptainLosses[captain.pid]:0;
+		    var tie = data.CaptainTies[captain.pid]?data.CaptainTies[captain.pid]:0;
 		    captain = captain.fname;
-		    var wins = data.CaptainWins[captain]?data.CaptainWins[captain]:0;
-		    var loss = data.CaptainLosses[captain]?data.CaptainLosses[captain]:0;
-		    var tie = data.CaptainTies[captain]?data.CaptainTies[captain]:0;
 		    capStatsdata.addRows([[captain,wins,loss,tie]])
 		}
 	    //capStatsdata.addRows([[data.CaptainLosses
 	    var capoptions = {title:'Dukes XI Captains','height':300,
+			      vAxis: {title:'Count'},
 			      hAxis: {title:'Captain'}};
 	    var capchart = new google.visualization.ColumnChart(document.getElementById('cap_chart_div'));
 	    
