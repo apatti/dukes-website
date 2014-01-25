@@ -5,9 +5,12 @@ $(document).ready(function(){
          var pData = $.parseJSON(data);
          var dataInTable ='';
           $.each(pData, function() {			 
-              dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['pid']+"' >"+getImageURL(fbUserName)+"</a></td></tr>"
+             
+			 dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['pid']+"' ><div id='"+ this['pid'] +"'></div></td></tr>"
               dataInTable = dataInTable + "<tr><td>"+ this['fname'] +" "+ this['lname'] +"</td><tr>";
               dataInTable = dataInTable + "</table></div>";
+			  
+			  
           });	
 	  //alert(dataInTable);
          $("#teamDiv").html(dataInTable);         
