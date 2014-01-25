@@ -5,7 +5,7 @@ def getTeamWL():
     stats = json.loads(statsResponse.content)
     (games,captains,captainwins,captainties,captainlosses) = calculateWLRatio(stats.get("Games"))
     stats["Games"]=games
-    stats["Captains"]=captains
+    stats["Captains"]=json.dumps(captains)
     stats["CaptainWins"]=captainwins
     stats["CaptainTies"]=captainties
     stats["CaptainLosses"]=captainlosses
@@ -16,7 +16,8 @@ def calculateWLRatio(games):
     l = 0.0
     t = 0.0
     gamesRatio = []
-    captains=set([game.get('captain') for game in games])
+    captains={}
+    captains=list(set([game.get('captain') for game in games]))
     captainwins = {}
     captainties ={}
     captainlosses={}
