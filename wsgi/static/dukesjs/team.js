@@ -21,7 +21,8 @@ $(document).ready(function(){
 				var rr = JSON.stringify(data.users.results);
 				var aa = $.parseJSON(rr);
 				$.each(aa, function() {	
-					$('#'+$(this.tca_id)).html("<img src='https://graph.facebook.com/"+this.username+"/picture?type=normal'  class='image' width='100px' height='100px'/>"); 
+					var divId = this.tca_id;
+					$('#'+divId).html("<img src='https://graph.facebook.com/"+this.username+"/picture?type=normal'  class='image' width='100px' height='100px'/>"); 
 				});
 				/*var userData = $.parseJSON(results);
 				
