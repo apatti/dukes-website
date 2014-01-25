@@ -98,13 +98,9 @@ var playerId = getParameterByName('pid');
 	    for (var i=0;i<batting.games.length;i++)
                 {
                     var date = batting.games[i].date;
-                    var batruns = batting.games[i].runs_scored;
-
-                    //var posruns = data.Games[i].win;                                                                                                                                                             
-                    //var posgames = data.Games[i].loss;                                                                                                                                                           
-                    batrStatsdata.addRows([[date,parseInt(runs)]]);
-                    //batposStatsdata.addRows([[,parseInt(wins),parseInt(loss)]]);                                                                                                                                 
-                }
+                    var runs = batting.games[i].runs_scored;
+		    batrStatsdata.addRows([[date,parseInt(runs)]]);
+                 }
             var batroptions={ title:'Runs scored','height':300,vAxis:{title:'Runs'}};
             var batrchart = new google.visualization.LineChart(document.getElementById('bat_run_chart_div'));
 	    batrchart.draw(batrStatsdata,batroptions);
