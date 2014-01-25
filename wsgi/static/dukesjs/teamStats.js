@@ -38,9 +38,10 @@ $.get("/team/stats",function(data,status){
 	    capStatsdata.addColumn('number','wins');
 	    capStatsdata.addColumn('number','loss');
 	    capStatsdata.addColumn('number','tie');
-	    for(var i=0;i<data.Captains.length;i++)
+	    captains = JSON.parse(data.Captains);
+	    for(var i=0;i<captains.length;i++)
 		{
-		    var captain = data.Captains[i];
+		    var captain = captains[i];
 		    var wins = data.CaptainWins[captain];
 		    var loss = data.CaptainLoss[captain];
 		    var tie = data.CaptainTies[captain];
