@@ -9,6 +9,7 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
 	  });
 	  FB.Event.subscribe('auth.logout', function(response) {
 	   logout();
+	   $('#loggedUserDiv').html("");
 		});
 		FB.Event.subscribe('auth.login', function() {
 		  location.reload();
@@ -36,6 +37,7 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
 function loggedIn(){
  FB.api('/me', function(response) {
 	//var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
+	$('#loggedUserDiv').html(response.username);
 			$('#nameDiv').html("<h3>Name : </h>"+response.name);
 			$('#fNameDiv').html("<h3>First Name : </h>"+response.first_name);
 			$('#lNameDiv').html("<h3>Last Name : </h>"+response.last_name);
