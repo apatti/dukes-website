@@ -88,6 +88,25 @@ var playerId = getParameterByName('pid');
 	google.load('visualization','1.0',{'packages':['corechart'],callback:drawChart});
         function drawChart()
 	{
+	    var howOut = new Array();
+	    howOut[1]="Caught";
+	    howOut[2]="Caught behind";
+	    howOut[3]="Bowled";
+	    howOut[4]="Run out";
+	    howOut[5]="Stumped";
+	    howOut[6]="Caught and bowled";
+	    howOut[7]="Hit wicket";
+	    howOut[8]="Not out";
+	    howOut[9]="Did not bat";
+	    howOut[10]="Handled the ball";
+	    howOut[11]="Obstructed field";
+	    howOut[12]="Hit ball twice";
+	    howOut[13]="Timed out";
+	    howOut[14]="Retired out";
+	    howOut[15]="Retired hurt";
+	    howOut[16]="Absent";
+	    howOut[19]="Double hit";
+
 	    var batting=JSON.parse(data).Batting;
 
 	    var batrStatsdata = new google.visualization.DataTable();
@@ -118,7 +137,22 @@ var playerId = getParameterByName('pid');
                 }
             var batposoptions={ title:'Runs scored per position','height':300,vAxis:{title:'Runs'}};
             var batposchart = new google.visualization.ColumnChart(document.getElementById('bat_pos_chart_div'));
-	    batrchart.draw(batrStatsdata,batroptions);
+	    batposchart.draw(batposStatsdata,batposoptions);
+	    
+	    var batoutStatsdata = new google.visualization.DataTable();
+            batoutStatsdata.addColumn('string','HowOut');
+            batoutStatsdata.addColumn('number','Games');
+
+            for (var i=0;i<batting.outs.length;i++)
+                {
+                    var out = howOut[batting.outs[i].how_out];
+                    var games = batting.outs[i].count;
+                    batposStatsdata.addRows([[out,parseInt(games)]]);
+                }
+            var batoutoptions={ title:'How out frequency','height':300,vAxis:{title:'Count'}};
+            var batoutchart = new google.visualization.ColumnChart(document.getElementById('bat_out_chart_div'));
+            batoutchart.draw(batoutStatsdata,batoutoptions);
+
 	}
 	    });
 });
