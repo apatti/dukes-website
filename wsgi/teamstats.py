@@ -3,8 +3,9 @@ import json,requests
 def getTeamWL():
     statsResponse = requests.get('http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamStatDetails&tid=184')
     stats = json.loads(statsResponse.content)
-    (games,captainwins,captainties,captainlosses) = calculateWLRatio(stats.get("Games"))
+    (games,captains,captainwins,captainties,captainlosses) = calculateWLRatio(stats.get("Games"))
     stats["Games"]=games
+    stats["Captains"]=captains
     stats["CaptainWins"]=captainwins
     stats["CaptainTies"]=captainties
     stats["CaptainLosses"]=captainlosses
@@ -15,7 +16,7 @@ def calculateWLRatio(games):
     l = 0.0
     t = 0.0
     gamesRatio = []
-    captains=[]
+    captains=set([game.get('captain') for game in games])
     captainwins = {}
     captainties ={}
     captainlosses={}
@@ -38,7 +39,7 @@ def calculateWLRatio(games):
         game["match_date"]=game["match_date"].split(' ')[0]
         gamesRatio.append(game)
     
-        
-    print captainwins,captainties,captainlosses
+       
+    #print captainwins,captainties,captainlosses
     #gamesRatio['Captains']= captains
-    return gamesRatio,captainwins,captainties,captainlosses
+    return gamesRatio,captains,captainwins,captainties,captainlosses
