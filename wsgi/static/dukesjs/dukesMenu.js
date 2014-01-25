@@ -1,6 +1,4 @@
  $(document).ready(function(){
-              
-				
 	var dukesMenu = "<ul id='mb1'>";
 		dukesMenu = dukesMenu +"<li id='homeTab'> <a href='home.html' data-icon='ui-icon-document'>Home</a></li>";
 		dukesMenu = dukesMenu +"<li id='teamTab'> <a href='team.html' data-icon='ui-icon-document'>Team</a></li>";
