@@ -39,7 +39,6 @@ $.get("/team/stats",function(data,status){
 		    wlrStatsdata.addRows([[date,parseFloat(ratio)]]);
 		    wlStatsdata.addRows([[date,parseInt(wins),parseInt(loss)]]);
 		}
-
 	    var wlroptions={ title:'W/L Ratio','height':300,vAxis:{maxValue: 1,title:'Ratio'}};
 	    var wlrchart = new google.visualization.LineChart(document.getElementById('wlr_chart_div'));
 	    
