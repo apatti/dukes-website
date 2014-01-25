@@ -17,7 +17,7 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
 		  if (response.status === 'connected') {
 			
 			var uid = response.authResponse.userID;
-			alert(response);
+			alert(JSON.stringify(response));
 			var accessToken = response.authResponse.accessToken;
 			
 			//var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
