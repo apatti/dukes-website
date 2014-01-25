@@ -26,9 +26,18 @@
 		$(function() { 
 			$('#dukeksPanelStyle').puipanel();			
 			$('#winLoseRationDiv').puipanel();
-			$('#winStatsDiv').puipanel();
-			$('#captainDiv').puipanel();
-			$('#allGraphDiv').puipanel();
+			$('#winStatsDiv').puipanel({
+				toggleable: true
+				,closable: true
+			});
+			$('#captainDiv').puipanel({
+				toggleable: true
+				,closable: true
+			});
+			$('#allGraphDiv').puipanel({
+				toggleable: true
+				,closable: true
+			});
 			
 	}); 
 </script>	
