@@ -133,7 +133,7 @@ var playerId = getParameterByName('pid');
 		    var position = batting.positions[i].batsman_position;
                     var posruns = batting.positions[i].runs;
                     var posgames = batting.positions[i].games;
-                    batposStatsdata.addRows([[parseInt(position),parseInt(posgames),parseInt(runs)]]);
+                    batposStatsdata.addRows([[parseInt(position),parseInt(posgames),parseInt(posruns)]]);
                 }
             var batposoptions={ title:'Runs scored per position','height':300,vAxis:{title:'Runs'}};
             var batposchart = new google.visualization.ColumnChart(document.getElementById('bat_pos_chart_div'));
@@ -147,7 +147,7 @@ var playerId = getParameterByName('pid');
                 {
                     var out = howOut[batting.outs[i].how_out];
                     var games = batting.outs[i].count;
-                    batposStatsdata.addRows([[out,parseInt(games)]]);
+                    batoutStatsdata.addRows([[out,parseInt(games)]]);
                 }
             var batoutoptions={ title:'How out frequency','height':300,vAxis:{title:'Count'}};
             var batoutchart = new google.visualization.ColumnChart(document.getElementById('bat_out_chart_div'));
