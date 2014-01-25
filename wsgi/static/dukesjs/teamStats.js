@@ -41,7 +41,8 @@ $.get("/team/stats",function(data,status){
 	    captains = JSON.parse(data.Captains);
 	    for(var i=0;i<captains.length;i++)
 		{
-		    var captain = captains[i];
+		    var captain = data.TeamPlayers.filter(function(team){return team.pid==captains[i];})[0];
+		    captain = captain.fname;
 		    var wins = data.CaptainWins[captain]?data.CaptainWins[captain]:0;
 		    var loss = data.CaptainLosses[captain]?data.CaptainLosses[captain]:0;
 		    var tie = data.CaptainTies[captain]?data.CaptainTies[captain]:0;
