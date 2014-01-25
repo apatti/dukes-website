@@ -54,7 +54,7 @@ $.get("/team/stats",function(data,status){
 	    
 
 	    wlchart.draw(wlStatsdata,wloptions);
-	    //capchart.draw(capStatsdata,capoptions);
+	    capchart.draw(capStatsdata,capoptions);
 	    }
 	});
 });
