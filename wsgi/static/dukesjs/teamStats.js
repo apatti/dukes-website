@@ -31,7 +31,7 @@ $.get("/team/stats",function(data,status){
 		    wlStatsdata.addRows([[date,parseFloat(ratio)]]);
 		}
 	    var wloptions={ title:'W/L Ratio','height':300,vAxis:{maxValue: 1,title:'Ratio'}};
-	    var wlchart = new google.visualization.LineChart(document.getElementById('wl_chart_div'));
+	    var wlchart = new google.visualization.LineChart(document.getElementById('wlr_chart_div'));
 	    
 	    var capStatsdata = new google.visualization.DataTable();
 	    capStatsdata.addColumn('string','captain');
