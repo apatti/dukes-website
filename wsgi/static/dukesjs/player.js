@@ -89,15 +89,15 @@ var playerId = getParameterByName('pid');
         function drawChart()
 	{
 	    var howOut = new Array();
-	    howOut[14]="Caught";
-	    howOut[15]="Caught Wicket-Keeper";
+	    howOut[14]="Ct";
+	    howOut[15]="Ct-WK";
 	    howOut[10]="Bowled";
 	    howOut[13]="Run Out";
 	    howOut[16]="Stumped";
-	    howOut[11]="Caught and Bowled";
+	    howOut[11]="C&B";
 	    howOut[12]="Hit wicket";
 	    howOut[2]="Not Out";
-	    howOut[1]="Did Not Bat";
+	    howOut[1]="DNB";
 	    howOut[3]="Handled the Ball";
 	    howOut[4]="Obstructed Field";
 	    howOut[5]="Hit ball twice";
