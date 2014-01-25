@@ -61,8 +61,6 @@ function updateTeamDropdown(username){
 			alert('test');
 		}
 		*/
-		alert(userData['tca_associated']);
-
 		if(userData['tca_associated'] === '1'){
 				//alert(userData['tca_id']);
 				$('#emailTxt').val(userData['email']);
