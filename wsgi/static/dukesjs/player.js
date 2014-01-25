@@ -138,7 +138,7 @@ var playerId = getParameterByName('pid');
                     var posgames = batting.positions[i].games;
                     batposStatsdata.addRows([[parseInt(position),parseInt(posgames),parseInt(posruns)]]);
                 }
-            var batposoptions={ title:'Runs scored per position','height':300,vAxis:{title:'Runs'}};
+            var batposoptions={ title:'Runs scored per position','height':300,vAxis:{title:'Runs'},isStacked:true,};
             var batposchart = new google.visualization.ColumnChart(document.getElementById('bat_pos_chart_div'));
 	    batposchart.draw(batposStatsdata,batposoptions);
 	    
