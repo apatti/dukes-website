@@ -21,18 +21,26 @@ $.get("/team/stats",function(data,status){
 	google.load('visualization','1.0',{'packages':['corechart'],callback:drawChart});
 	//google.setOnLoadCallback(drawChart);
 	function drawChart(){
-	    var statsdata = new google.visualization.DataTable();
-	    statsdata.addColumn('string','Match Date');
-	    statsdata.addColumn('number','W/L Ratio');
+	    var wlStatsdata = new google.visualization.DataTable();
+	    wlStatsdata.addColumn('string','Match Date');
+	    wlStatsdata.addColumn('number','W/L Ratio');
 	    for (var i=0;i<data.Games.length;i++)
 		{
 		    var date = data.Games[i].match_date;
 		    var ratio = data.Games[i].ratio;
-		    statsdata.addRows([[date,parseFloat(ratio)]]);
+		    wlStatsdata.addRows([[date,parseFloat(ratio)]]);
 		}
-	    var options={ title:'W/L Ratio','height':300,vAxis:{maxValue: 1}};
-	    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-	    chart.draw(statsdata,options);
+	    var wloptions={ title:'W/L Ratio','height':300,vAxis:{maxValue: 1}};
+	    var wlchart = new google.visualization.LineChart(document.getElementById('wl_chart_div'));
+	    
+	    var capStatsdata = new google.visualization.DataTable();
+	    capStatsdata.addColumn('string','captain');
+	    capStatsdata.addColumn('number','wins');
+	    capStatsdata.addColumn('number','loss');
+	    capStatsdata.addColumn('number','tie');
+	    //capStatsdata.addRows([[data.CaptainLosses
+	    
+	    wlchart.draw(wlStatsdata,wloptions);
 	    }
 	});
 });
