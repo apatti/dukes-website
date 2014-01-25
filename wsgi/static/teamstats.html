@@ -25,7 +25,10 @@
     <script type="text/javascript">  
 		$(function() { 
 			$('#dukeksPanelStyle').puipanel();			
-			$('#winLoseRationDiv').puipanel();
+			$('#winLoseRationDiv').puipanel({
+				toggleable: true
+				,closable: true
+			});
 			$('#winStatsDiv').puipanel({
 				toggleable: true
 				,closable: true
@@ -34,10 +37,7 @@
 				toggleable: true
 				,closable: true
 			});
-			$('#allGraphDiv').puipanel({
-				toggleable: true
-				,closable: true
-			});
+			$('#allGraphDiv').puipanel();
 			
 	}); 
 </script>	
