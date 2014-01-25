@@ -32,7 +32,7 @@ $.get("/team/stats",function(data,status){
 		}
 	    var wloptions={ title:'W/L Ratio','height':300,vAxis:{maxValue: 1}};
 	    var wlchart = new google.visualization.LineChart(document.getElementById('wl_chart_div'));
-	    
+	    /*
 	    var capStatsdata = new google.visualization.DataTable();
 	    capStatsdata.addColumn('string','captain');
 	    capStatsdata.addColumn('number','wins');
@@ -50,10 +50,10 @@ $.get("/team/stats",function(data,status){
 	    var capoptions = {title:'Dukes XI Captains','height':300,
 			      hAxis: {title:'Captain'}};
 	    var capchart = new google.visualization.ColumnChart(document.getElemenetById('cap_chart_div'));
-
+	    */
 
 	    wlchart.draw(wlStatsdata,wloptions);
-	    capchart.draw(capStatsdata,capoptions);
+	    //capchart.draw(capStatsdata,capoptions);
 	    }
 	});
 });
