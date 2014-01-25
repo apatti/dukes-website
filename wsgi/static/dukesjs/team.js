@@ -6,7 +6,7 @@ $(document).ready(function(){
          var dataInTable ='';
           $.each(pData, function() {			 
              
-			 dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['pid']+"' ><div id='"+ this['pid'] +"'></div></td></tr>"
+			 dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['pid']+"' ><div id='"+ this['pid'] +"'><img src='images/morne_morkel2-101x116.jpg'  class='image' width='100px' height='100px'/></div></td></tr>"
               dataInTable = dataInTable + "<tr><td>"+ this['fname'] +" "+ this['lname'] +"</td><tr>";
               dataInTable = dataInTable + "</table></div>";
 			  
