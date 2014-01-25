@@ -23,14 +23,20 @@ var playerId = getParameterByName('pid');
 			   datasource: function(callback, ui) {  
 					
 					var pData = $.parseJSON(data);
-					$('#bestScoredDiv').html("<h3>Best Scored:</h3>"+pData['BattingStats']['best_score']);						
+					$('#bestScoredDiv').html("<div id='userImgDiv'></div><h3>Best Scored:</h3>"+pData['BattingStats']['best_score']);						
 					//dataArray = pData['FieldStats'];
 					//dataArray = [{'catches':'30','runouts': 2012, 'stumps':'23'}];						
 					callback.call(this, $.makeArray(pData['BattingStats']));
 				}         
         });
 		
-	
+	$.get("http://www.dukesxi.co/users/tca/"+playerId,function(data,status){
+				var results = JSON.stringify(data.user.results[0]);		
+				var userData = $.parseJSON(results);
+				
+				$("#userImgDiv").html("<img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='75px' height='75px'/>");
+				
+	});
 	$('#bowlingStatsDiv').puidatatable({
 			lazy: true,
             caption: 'Bowling Stats',           
