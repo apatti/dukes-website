@@ -33,7 +33,7 @@ var playerId = getParameterByName('pid');
 	$.get("http://www.dukesxi.co/users/tca/"+playerId,function(data,status){
 				var results = JSON.stringify(data.user.results[0]);		
 				var userData = $.parseJSON(results);
-				$("#userNameDiv").html("<h3>Name :"+userData['username']+"</br> </h3>");
+				$("#userNameDiv").html("<h3>"+userData['name']+"</br> </h3>");
 				$("#userImgDiv").html("<img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='75px' height='75px'/>");
 				
 	});
