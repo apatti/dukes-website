@@ -53,12 +53,14 @@ $.get("/team/stats",function(data,status){
 	    captains = JSON.parse(data.Captains);
 	    for(var i=0;i<captains.length;i++)
 		{
+			if(captains[i]){
 		    var captain = data.TeamPlayers.filter(function(team){return team.pid==captains[i];})[0];
 		    var wins = data.CaptainWins[captain.pid]?data.CaptainWins[captain.pid]:0;
 		    var loss = data.CaptainLosses[captain.pid]?data.CaptainLosses[captain.pid]:0;
 		    var tie = data.CaptainTies[captain.pid]?data.CaptainTies[captain.pid]:0;
 		    captain = captain.fname;
 		    capStatsdata.addRows([[captain,wins,loss,tie]])
+			}
 		}
 	    //capStatsdata.addRows([[data.CaptainLosses
 	    var capoptions = {title:'Dukes XI Captains','height':300,
