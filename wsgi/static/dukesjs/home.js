@@ -103,12 +103,10 @@ $(document).ready(function(){
 		var match = ucMatch[0].team1name + " vs " + ucMatch[0].team2name + " On " + formatedDate(ucMatch[0].match_date);	
 		var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " + ucMatch[0].groundcity + " "+  ucMatch[0].ground_zip;
 				var umpiresFrom = "Umpires From : "+ucMatch[0].umpireteam1name +" & " + ucMatch[0].umpireteam2name;
-				var upcomingMatchStr = '';	
-					upcomingMatchStr = upcomingMatchStr + "<h5>"+ match +"</br>"+ ground +" </br>"+ umpiresFrom +"</h5>";
-					
-				$("#umpiringForDiv").append(match);
-				$("#teamsForUmpringDiv").append(ground);
-				$("#umpiringAddressDiv").append(umpiresFrom);
+				
+				$("#umpiringForDiv").append("<h5>"+match+"</h5>");
+				$("#teamsForUmpringDiv").append("<h5>"+ground+"</h5>");
+				$("#umpiringAddressDiv").append("<h5>"+umpiresFrom+"</h5>");
 			});
 	}
 
@@ -117,5 +115,5 @@ function formatedDate(dd){
   var day = date.getDate();
   var month = date.getMonth();
   var year = date.getFullYear();
-	return year + '-' + month + '-' + day;
+	return  month + '/' + day + '/'+ year ;
  }
