@@ -40,7 +40,7 @@ def getUsersApi():
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
 	script_dir = sys.path[0]
-	path = os.path.join(script_dir, 'static/images')
+	path = os.path.join(script_dir, './wsgi/static/images')
 	listing = os.listdir(path)
 	return jsonify(list),200
 @app.route('/users/<username>',methods=['GET'])
