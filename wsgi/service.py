@@ -41,7 +41,8 @@ def getUsersApi():
 def getGalleryApi():
 	path = app.root_path+'/static/images'
 	listing = os.listdir(path)
-	print listing
+	for infile in listing:
+	print infile
 	return listing,200
 @app.route('/users/<username>',methods=['GET'])
 def getUserApi(username):
