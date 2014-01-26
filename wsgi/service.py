@@ -1,5 +1,5 @@
 from flask import Flask,jsonify,make_response,request,abort
-import json,httplib,urllib,sys,os
+import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
 
@@ -39,8 +39,7 @@ def getUsersApi():
     return jsonify({'users':result}),200
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
-	script_dir = sys.path[0]
-	path = 'static/images'
+	path = app.root_path+'/static/images'
 	listing = os.listdir(path)
 	return jsonify(listing),200
 @app.route('/users/<username>',methods=['GET'])
