@@ -42,7 +42,7 @@ def getGalleryApi():
 	path = app.root_path+'/static/images'
 	listing = os.listdir(path)
 	for infile in listing:
-	print infile
+		print infile
 	return listing,200
 @app.route('/users/<username>',methods=['GET'])
 def getUserApi(username):
