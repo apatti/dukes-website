@@ -41,6 +41,7 @@ def getUsersApi():
 def getGalleryApi():
 	path = app.root_path+'/static/images'
 	listing = os.listdir(path)
+	lst = []
 	for pn in listing:
 		d = {}
 		d['img']=pn
