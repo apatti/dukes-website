@@ -39,4 +39,7 @@
 		font-family: initial;
 		color: azure;
 	}
+.dukesMenuActive{
+	background-color: gainsboro;
+}
 
