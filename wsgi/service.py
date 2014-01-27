@@ -37,6 +37,7 @@ def insertUserApi():
 def getUsersApi():
     result = getUsers()
     return jsonify({'users':result}),200
+
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
 	path = app.root_path+'/static/images'
@@ -47,6 +48,7 @@ def getGalleryApi():
 		d['img']=pn
 		lst.append(d)
     return json.dumps(lst),200
+
 @app.route('/users/<username>',methods=['GET'])
 def getUserApi(username):
     result = getUser(username)    
