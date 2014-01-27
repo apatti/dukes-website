@@ -12,7 +12,7 @@ $(document).ready(function(){
 		galleryDiv = galleryDiv + '<img src="images/morne_morkel2-101x116.jpg" alt="Sopranos 3"/>';
 		galleryDiv = galleryDiv + '</a>';
 		
-		$('#teamGalleryDiv').http(galleryDiv);
+		$('#teamGalleryDiv').html(galleryDiv);
 	
 });
 
