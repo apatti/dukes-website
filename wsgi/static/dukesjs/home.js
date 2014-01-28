@@ -10,6 +10,7 @@ window.fbAsyncInit = function() {
    FB.Event.subscribe('auth.logout', function(response) {
 	   logout();
 	   $('#pollingDiv').append('Please Login To See Poll');
+	   location.reload();
 		});
 	FB.Event.subscribe('auth.login', function() {
 		  location.reload();
