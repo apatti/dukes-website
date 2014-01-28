@@ -85,6 +85,10 @@ def createPollApi():
     result = createPoll(pollObj)
     return jsonify({'result':result.get("objectId")}),201
 
+@app.route('/polls/<poll_id>',methods=['GET'])
+def getPollApi(poll_id):
+    return jsonsify(getPoll(poll_id)),200
+
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):
     return make_response(jsonify({'error':'User Not Found'}),404)
