@@ -10,10 +10,13 @@ window.fbAsyncInit = function() {
 	 FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
 		loggedIn();
+		polling();
 		}
 	});
 };
-		  
+	function polling(){
+		$('#pollingDiv').append('Testing');
+	}
   function loggedIn() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
