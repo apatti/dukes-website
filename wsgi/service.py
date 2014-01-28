@@ -69,7 +69,7 @@ def getTeamStats():
     return jsonify(getTeamWL()),200
 
 
-@app.route('/polls/',methods=['POST'])
+@app.route('/polls',methods=['POST'])
 def createPollApi():
     if not request.get_json:
         abort(400)
@@ -82,7 +82,7 @@ def createPollApi():
     pollObj["endDate"] = reqObj.get("endDate")
     pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]='false'
-    
+    print pollObj
     result = createPoll(pollObj)
     jsonify({'result':result}),201
 
