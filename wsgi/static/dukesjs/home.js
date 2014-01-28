@@ -16,8 +16,10 @@ window.fbAsyncInit = function() {
 	});
 	 FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
-		loggedIn();
-		polling();
+			loggedIn();
+			polling();
+		}else{
+			$('#pollingDiv').append('Please Login To See Poll');
 		}
 	});
 	
