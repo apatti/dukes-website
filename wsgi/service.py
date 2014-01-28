@@ -83,7 +83,7 @@ def createPollApi():
     pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]='false'
     result = createPoll(pollObj)
-    return jsonify({'result':result.objectId}),201
+    return jsonify({'result':result.get("objectId")}),201
 
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):
