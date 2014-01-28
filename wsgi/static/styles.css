@@ -28,24 +28,24 @@ background-size: 300px 70px;
  width: 900px;
  color: #333;
  padding: 10px;
- border: 1px solid #ccc;
+ border: 0px solid #ccc;
  margin: 0px 0px 0px 0px;
  background-color:#F3F2ED;
 }
 #leftcolumn { 
  color: #333;
- border: 1px solid #ccc;
+ border: 0px solid #ccc;
  margin: 0px 0px 0px 0px;
- padding: 10px;
- width: 600px;
+ padding: 5px;
+ width: 620px;
  float: left;
  /*background:#CCC8B3; */
 }
 #centerContent { 
  color: #333;
- border: 1px solid #ccc;
+ border: 0px solid #ccc;
  margin: 0px 0px 0px 0px;
- padding: 10px;
+ padding: 5px;
  width: 900px;
  float: left;
  /*background:#CCC8B3; */
@@ -53,18 +53,18 @@ background-size: 300px 70px;
 #rightcolumn { 
  float: right;
  color: #333;
- border: 1px solid #ccc;
+ border: 0px solid #ccc;
  margin: 0px 0px 0px 0px;
- padding: 10px;
- width: 278px;
+ padding: 5px;
+ width: 280px;
  display: inline;
- background:#F6F0E0;
+ /*background:#F6F0E0;*/
 }
 #footer { 
  width: 900px;
  clear: both;
  color: #333;
- border: 1px solid #ccc;
+ border: 0px solid #ccc;
  background-color:#F3F2ED;
  margin: 0px 0px 10px 0px;
  padding: 10px;
