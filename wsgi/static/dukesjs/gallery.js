@@ -4,13 +4,14 @@ $(document).ready(function(){
 		//var results = JSON.stringify(data.user.results[0]);	
 		
 		var pData = $.parseJSON(data);
-		var galleryDiv = '';		 
+		var galleryDiv = '';		
+		galleryDiv = galleryDiv + '<ul>';		
 		$.each(pData, function() {			 
-			galleryDiv = galleryDiv + '<a href="/images/gallery/'+this['img']+'">';
-			galleryDiv = galleryDiv + '<img src="images/gallery/'+this['img']+'" alt="Sopranos 1"/>';
-			galleryDiv = galleryDiv + '</a>';			
+			
+			galleryDiv = galleryDiv + '<li><img src="images/gallery/'+this['img']+'" alt="Sopranos 1"/></li>';
+					
 		});
-		
+		galleryDiv = galleryDiv + '</ul>';	
 		$('#teamGalleryDiv').html(galleryDiv);
 	});
 	
