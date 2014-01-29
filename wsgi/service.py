@@ -110,13 +110,13 @@ def takePollApi(poll_id):
 
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
-	path = app.root_path+'/static/images'
-	listing = os.listdir(path)
-	lst = []
-	for pn in listing:
-		d = {}
-		d['img']=pn
-		lst.append(d)
+    path = app.root_path+'/static/images'
+    listing = os.listdir(path)
+    lst = []
+    for pn in listing:
+        d = {}
+        d['img']=pn
+        lst.append(d)
     return json.dumps(lst),200
 	
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
