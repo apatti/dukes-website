@@ -34,7 +34,7 @@ window.fbAsyncInit = function() {
 			pollTableStr = pollTableStr + '<td><label for="rd1">Option '+i+'</label></td>';
 			pollTableStr = pollTableStr + '</tr>';
 		}
-}
+
 		pollTableStr = pollTableStr + '</table>';
 		$('#pollingDiv').append(pollTableStr);
 	}
