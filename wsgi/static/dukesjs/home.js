@@ -26,7 +26,17 @@ window.fbAsyncInit = function() {
 	
 };
 	function polling(){
-		$('#pollingDiv').append('Testing');
+		var pollTableStr = '<table>';
+		
+		for ( var i = 0; i < 10; i++ ) {
+			pollTableStr = pollTableStr + '<tr>'; 
+			pollTableStr = pollTableStr + '<td><input type="radio" name="'+i+'" id="rd1" value="'+i+'"/></td>';		
+			pollTableStr = pollTableStr + '<td><label for="rd1">Option '+i+'</label></td>';
+			pollTableStr = pollTableStr + '</tr>';
+		}
+}
+		pollTableStr = pollTableStr + '</table>';
+		$('#pollingDiv').append(pollTableStr);
 	}
   function loggedIn() {
     console.log('Welcome!  Fetching your information.... ');
