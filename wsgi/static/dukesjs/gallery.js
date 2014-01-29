@@ -13,6 +13,11 @@ $(document).ready(function(){
 		});
 		galleryDiv = galleryDiv + '</ul>';	
 		$('#teamGalleryDiv').html(galleryDiv);
+		
+		$('#teamGalleryDiv').puigalleria({
+				panelWidth: 900,
+				panelHeight: 313
+		});
 	});
 	
 	
