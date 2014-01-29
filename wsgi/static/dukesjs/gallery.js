@@ -1,18 +1,19 @@
 $(document).ready(function(){
-	
-	var galleryDiv = '';
+	$.get(DOMAIN_NAME +'/users/'+username,function(data,status){
+		//var results = JSON.stringify(data.user.results[0]);	
 		
-		galleryDiv = galleryDiv + '<a href="/images/morne_morkel2-101x116.jpg">';
-		galleryDiv = galleryDiv + '<img src="images/morne_morkel2-101x116.jpg" alt="Sopranos 1"/>';
-		galleryDiv = galleryDiv + '</a>';
-		galleryDiv = galleryDiv + '<a href="/images/morne_morkel2-101x116.jpg">';
-		galleryDiv = galleryDiv + '<img src="images/morne_morkel2-101x116.jpg" alt="Sopranos 2"/>';
-		galleryDiv = galleryDiv + '</a>';
-		galleryDiv = galleryDiv + '<a href="/images/morne_morkel2-101x116.jpg">';
-		galleryDiv = galleryDiv + '<img src="images/morne_morkel2-101x116.jpg" alt="Sopranos 3"/>';
-		galleryDiv = galleryDiv + '</a>';
+		var pData = $.parseJSON(data);
+		var galleryDiv = '';		 
+		$.each(pData, function() {			 
+			this['img+"'>  
+			galleryDiv = galleryDiv + '<a href="/images/gallery/'+this['img']+'">';
+			galleryDiv = galleryDiv + '<img src="images/gallery/'+this['img']+'" alt="Sopranos 1"/>';
+			galleryDiv = galleryDiv + '</a>';			
+		});
 		
 		$('#teamGalleryDiv').html(galleryDiv);
+	});
+	
 	
 });
 
