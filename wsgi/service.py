@@ -110,7 +110,7 @@ def takePollApi(poll_id):
 
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
-    path = app.root_path+'/static/images'
+    path = app.root_path+'/static/images/gallery'
     listing = os.listdir(path)
     lst = []
     for pn in listing:
