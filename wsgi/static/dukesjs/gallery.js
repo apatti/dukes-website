@@ -16,7 +16,7 @@ $(document).ready(function(){
 		
 		$('#teamGalleryDiv').puigalleria({
 				panelWidth: 900,
-				panelHeight: 313
+				panelHeight: 400
 		});
 	});
 	
