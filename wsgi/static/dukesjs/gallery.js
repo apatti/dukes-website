@@ -5,7 +5,6 @@ $(document).ready(function(){
 		var pData = $.parseJSON(data);
 		var galleryDiv = '';		 
 		$.each(pData, function() {			 
-			this['img+"'>  
 			galleryDiv = galleryDiv + '<a href="/images/gallery/'+this['img']+'">';
 			galleryDiv = galleryDiv + '<img src="images/gallery/'+this['img']+'" alt="Sopranos 1"/>';
 			galleryDiv = galleryDiv + '</a>';			
