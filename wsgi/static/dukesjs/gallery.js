@@ -8,7 +8,7 @@ $(document).ready(function(){
 		galleryDiv = galleryDiv + '<ul>';		
 		$.each(pData, function() {			 
 			
-			galleryDiv = galleryDiv + '<li><img src="images/gallery/'+this['img']+'" alt="Sopranos 1"/></li>';
+			galleryDiv = galleryDiv + '<li><img src="images/gallery/'+this['img']+'" alt="" title=""/></li>';
 					
 		});
 		galleryDiv = galleryDiv + '</ul>';	
