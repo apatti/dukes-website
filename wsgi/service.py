@@ -108,7 +108,17 @@ def takePollApi(poll_id):
     result = takePoll(poll_id,result,optObj)
     return jsonify({'result':result}),201
 
-
+@app.route('/gallery/',methods=['GET'])
+def getGalleryApi():
+	path = app.root_path+'/static/images'
+	listing = os.listdir(path)
+	lst = []
+	for pn in listing:
+		d = {}
+		d['img']=pn
+		lst.append(d)
+    return json.dumps(lst),200
+	
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):
     return make_response(jsonify({'error':'Not Found'}),404)
