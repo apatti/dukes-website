@@ -2,7 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
-from polls import createPoll,getPoll
+from polls import createPoll,getPoll,takePoll
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -89,9 +89,25 @@ def createPollApi():
 def getPollApi(poll_id):
     return jsonify(getPoll(poll_id)),200
 
+@app.route('/polls/<poll_id>/takePoll',methods=['POST'])
+def takePollApi(poll_id):
+    if not request.get_json:
+        abort(400)
+
+    result = getPoll(poll_id)
+    if not result.get('results'):
+        abort(404)
+    reqObj = request.get_json(force=True)
+    optObj ={}
+    optObj["username"]=reqObj.get("username")
+    optObj["optionId"]=reqObj.get("optionId")
+    result = takePoll(poll_id,result.get('results')[0],optObj)
+    return jsonify({'result':result}),201
+
+
 @app.errorhandler(404) #TODO: Add custom exceptions and error handlers
 def no_data(error):
-    return make_response(jsonify({'error':'User Not Found'}),404)
+    return make_response(jsonify({'error':'Not Found'}),404)
 
 @app.errorhandler(400)
 def invalid_data_format(error):
