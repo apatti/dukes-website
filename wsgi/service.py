@@ -101,7 +101,7 @@ def takePollApi(poll_id):
     optObj ={}
     optObj["username"]=reqObj.get("username")
     optObj["optionId"]=reqObj.get("optionId")
-    result = takePoll(poll_id,result.get('results')[0],optObj)
+    result = takePoll(poll_id,result,optObj)
     return jsonify({'result':result}),201
 
 
