@@ -17,7 +17,7 @@ tent-Type": "application/json"})
     return json.loads(connection.getresponse().read())
 
 def takePoll(poll_id,pollObj,optObj):
-    for opt in pollObj.options:
+    for opt in pollObj.get('options'):
         if opt.get("id")==optObj.get("id"):
             opt["users"].append(optObt.get('username'));
             connection.request('PUT','/1/classes/polls/%s'%poll_id,json.dumps(opt),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
