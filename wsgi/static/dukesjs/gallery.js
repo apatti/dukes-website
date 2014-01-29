@@ -1,11 +1,11 @@
+var DOMAIN_NAME = 'http://www.dukesxi.co';
 $(document).ready(function(){
-	$.get(DOMAIN_NAME +'/users/'+username,function(data,status){
+	$.get(DOMAIN_NAME +'/gallery/',function(data,status){
 		//var results = JSON.stringify(data.user.results[0]);	
 		
 		var pData = $.parseJSON(data);
 		var galleryDiv = '';		 
 		$.each(pData, function() {			 
-			this['img+"'>  
 			galleryDiv = galleryDiv + '<a href="/images/gallery/'+this['img']+'">';
 			galleryDiv = galleryDiv + '<img src="images/gallery/'+this['img']+'" alt="Sopranos 1"/>';
 			galleryDiv = galleryDiv + '</a>';			
