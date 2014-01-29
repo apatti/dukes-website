@@ -95,6 +95,7 @@ def takePollApi(poll_id):
         abort(400)
 
     result = getPoll(poll_id)
+    print result
     if not result.get('results'):
         abort(404)
     reqObj = request.get_json(force=True)
