@@ -52,7 +52,7 @@ window.fbAsyncInit = function() {
 					noOfPolls ++;
 				});
 			$('#pollsDiv').append(pollDivStr);
-			
-		}
+		});
+	}
 	
  
