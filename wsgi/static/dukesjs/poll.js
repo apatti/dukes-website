@@ -35,8 +35,8 @@ window.fbAsyncInit = function() {
 					var op = JSON.stringify(this['options']);
 					var opData = $.parseJSON(op);
 					
-					var localPollStr = "<div id="+noOfPolls+">";
-					localPollStr = localPollStr + "<div id="+noOfPolls+">";
+					var localPollStr = "";
+					localPollStr = localPollStr + "<div id="+noOfPolls+" class='pollDivCSS'>";
 					localPollStr = localPollStr + "<table><tr>";
 					localPollStr = localPollStr + "<td>"+ this['question'] +" Ends"+ this['endDate'] +"</td>";					
 					localPollStr = localPollStr + "<td><ul>";
