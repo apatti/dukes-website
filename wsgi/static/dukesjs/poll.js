@@ -42,16 +42,16 @@ window.fbAsyncInit = function() {
 					localPollStr = localPollStr + "</tr>";
 					$.each(opData, function() {
 						 localPollStr = localPollStr + "<tr>";
-						 localPollStr = localPollStr + "<td><input type='radio' name='"+this['id']+"' id='"+this['id']+"' value='"+this['id']+"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
+						 localPollStr = localPollStr + "<td><input type='radio' name='rd' id='"+this['id']+"' value='"+this['id']+"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
 						 localPollStr = localPollStr + "</tr>";
 					});				
 					localPollStr = localPollStr + "</tr></table>";
-					localPollStr = localPollStr + "</div>";
-					alert(localPollStr);
+					localPollStr = localPollStr + "</div>";					
 					pollDivStr = pollDivStr + localPollStr;
 					noOfPolls ++;
 				});
 			$('#pollsDiv').append(pollDivStr);
+			$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
 				,closable: true
