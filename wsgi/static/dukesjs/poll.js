@@ -51,7 +51,7 @@ window.fbAsyncInit = function() {
 					pollDivStr = pollDivStr + localPollStr;
 					noOfPolls ++;
 				});
-			$('#pollsDiv').append(pollDivStr);
+			$('#pollsDiv').append(pollDivStr); 
 			$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
