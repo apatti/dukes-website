@@ -16,17 +16,27 @@ window.fbAsyncInit = function() {
 		  location.reload();
 	});
 	 FB.getLoginStatus(function(response) {
-		if (response.status === 'connected') {			
-			polling();
+		if (response.status === 'connected') {		
+			loggedIn();					
 		}else{
 			$('#pollsDiv').append('Please Login To See Poll');
 		}
 	});
 	
 };
+ function loggedIn(){
+	 FB.api('/me', function(response) {
+		  console.log('Good to see you, ' + response.name + '.');	  
+		  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
+		
+		   fbUserName = response.username;
+		   $('#loggedUserDiv').html(response.username);	 
+		   polling();
+		});
+ }
 	function polling(){
 		var pollDivStr ='';
-		$.get("http://www.dukesxi.co/polls",function(data,status){
+		$.get(DOMAIN_NAME+"/polls",function(data,status){
 				
 				var rr = JSON.stringify(data.results);	
 				var pData = $.parseJSON(rr);
