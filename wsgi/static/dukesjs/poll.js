@@ -67,6 +67,10 @@ window.fbAsyncInit = function() {
 				toggleable: true
 				,closable: true
 			});
+			
+			$('input[type=radio]').on('change', function(){
+					alert($(this).val() + " : FB NAME : "+fbUserName);
+			});
 		});
 		
 	}
