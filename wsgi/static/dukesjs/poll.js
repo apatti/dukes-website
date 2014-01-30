@@ -38,13 +38,13 @@ window.fbAsyncInit = function() {
 					var localPollStr = "";
 					localPollStr = localPollStr + "<div id="+noOfPolls+" class='pollDivCSS'>";
 					localPollStr = localPollStr + "<table><tr>";
-					localPollStr = localPollStr + "<td>"+ this['question'] +" Ends"+ this['endDate'] +"</td>";					
-					localPollStr = localPollStr + "<td><ul>";
+					localPollStr = localPollStr + "<td colspan='2'>"+ this['question'] +" Ends"+ this['endDate'] +"</td>";					
+					localPollStr = localPollStr + "</tr>";
 					$.each(opData, function() {
-						 
-						 localPollStr = localPollStr + "<li><input type='radio' name='"+this['id']+"' id='"+this['id']+"' value='"+this['text']+"'/><li>";						
-					});
-					localPollStr = localPollStr + "</ul></td>";
+						 localPollStr = localPollStr + "<tr>";
+						 localPollStr = localPollStr + "<td><input type='radio' name='"+this['id']+"' id='"+this['id']+"' value='"+this['id']+"'/></td>";	localPollStr = localPollStr +"<td><label for='rd1'>"+this['text']+"</label></td>";
+						 localPollStr = localPollStr + "</tr>";
+					});				
 					localPollStr = localPollStr + "</tr></table>";
 					localPollStr = localPollStr + "</div>";
 					alert(localPollStr);
@@ -52,7 +52,9 @@ window.fbAsyncInit = function() {
 					noOfPolls ++;
 				});
 			$('#pollsDiv').append(pollDivStr);
+			
 		});
+		$('.pollDivCSS').addClass('dukesMenuActive');
 	}
 	
  
