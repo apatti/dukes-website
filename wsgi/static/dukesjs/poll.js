@@ -42,7 +42,7 @@ window.fbAsyncInit = function() {
 					localPollStr = localPollStr + "</tr>";
 					$.each(opData, function() {
 						 localPollStr = localPollStr + "<tr>";
-						 localPollStr = localPollStr + "<td><input type='radio' name='"+this['id']+"' id='"+this['id']+"' value='"+this['id']+"'/></td>";	localPollStr = localPollStr +"<td><label for='rd1'>"+this['text']+"</label></td>";
+						 localPollStr = localPollStr + "<td><input type='radio' name='"+this['id']+"' id='"+this['id']+"' value='"+this['id']+"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
 						 localPollStr = localPollStr + "</tr>";
 					});				
 					localPollStr = localPollStr + "</tr></table>";
@@ -52,9 +52,12 @@ window.fbAsyncInit = function() {
 					noOfPolls ++;
 				});
 			$('#pollsDiv').append(pollDivStr);
-			
+			$('.pollDivCSS').puipanel({
+				toggleable: true
+				,closable: true
+			});
 		});
-		$('.pollDivCSS').addClass('dukesMenuActive');
+		
 	}
 	
  
