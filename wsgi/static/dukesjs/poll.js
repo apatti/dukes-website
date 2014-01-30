@@ -53,7 +53,7 @@ window.fbAsyncInit = function() {
 					var objId = this['objectId'] ;
 					$.each(opData, function() {
 						 localPollStr = localPollStr + "<tr>";
-						 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&'+ objId +"' value='"+this['id']+"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
+						 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&'+ objId +"' value='"+this['id']+'&'+ objId +"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
 						 localPollStr = localPollStr + "</tr>";
 					});				
 					localPollStr = localPollStr + "</tr></table>";
