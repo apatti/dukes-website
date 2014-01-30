@@ -6,6 +6,7 @@
 		dukesMenu = dukesMenu +"<li id='newsTab'> <a data-icon='ui-icon-document'>News</a></li>";
 		dukesMenu = dukesMenu +"<li id='profileTab'> <a href='profile.html' data-icon='ui-icon-document'>Profile</a></li>";
 		dukesMenu = dukesMenu +"<li id='galleryTab'> <a href='gallery.html' data-icon='ui-icon-document'>Gallery</a></li>";
+		dukesMenu = dukesMenu +"<li id='pollTab'> <a href='poll.html' data-icon='ui-icon-document'>Poll</a></li>";
 		dukesMenu = dukesMenu +"</ul>";				 
  $("#navigation").html(dukesMenu);  
   $('#mb1').puimenubar();

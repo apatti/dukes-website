@@ -25,21 +25,34 @@ window.fbAsyncInit = function() {
 	
 };
 	function polling(){
-		var pollTableStr = '<table>';
-		
+		var pollDivStr ='';
 		$.get("http://www.dukesxi.co/polls",function(data,status){
-				var rr = JSON.stringify(data.results);	
-				alert(rr);
-				 var pData = $.parseJSON(rr);
-				$.each(pData, function() {	
-					alert(this['closeMethod']);
-					});
-			});
-		}
-
-				$("#userNameDiv").html("<h3>"+userData['name']+"</br> </h3>");
-				$("#userImgDiv").html("<img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='75px' height='75px'/>");
 				
-	});
-	}
+				var rr = JSON.stringify(data.results);	
+				var pData = $.parseJSON(rr);
+				var noOfPolls = 1;
+				$.each(pData, function() {	
+					var op = JSON.stringify(this['options']);
+					var opData = $.parseJSON(op);
+					
+					var localPollStr = "<div id="+noOfPolls+">";
+					localPollStr = localPollStr + "<div id="+noOfPolls+">";
+					localPollStr = localPollStr + "<table><tr>";
+					localPollStr = localPollStr + "<td>"+ this['question'] +" Ends"+ this['endDate'] +"</td>";					
+					localPollStr = localPollStr + "<td><ul>";
+					$.each(opData, function() {
+						 
+						 localPollStr = localPollStr + "<li><input type='radio' name='"+this['id']+"' id='"+this['id']+"' value='"+this['text']+"'/><li>";						
+					});
+					localPollStr = localPollStr + "</ul></td>";
+					localPollStr = localPollStr + "</tr></table>";
+					localPollStr = localPollStr + "</div>";
+					alert(localPollStr);
+					pollDivStr = pollDivStr + localPollStr;
+					noOfPolls ++;
+				});
+			$('#pollsDiv').append(pollDivStr);
+			
+		}
+	
  
