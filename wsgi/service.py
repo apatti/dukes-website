@@ -83,7 +83,7 @@ def createPollApi():
     #pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]=0
     result = createPoll(pollObj,reqObj.get("options"))
-    return jsonify(result),201
+    return jsonify({'id':result}),201
 
 @app.route('/polls/<poll_id>',methods=['GET'])
 def getPollApi(poll_id):
