@@ -25,7 +25,15 @@ def getPoll(poll_id):
     connection.connect()
     connection.request('GET','/1/classes/polls/%s'%poll_id,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
 tent-Type": "application/json"})
-    return json.loads(connection.getresponse().read())
+    pollObj = json.loads(connection.getresponse().read())
+    
+    params = urllib.urlencode({"where":json.dumps({"pollid":poll_id})})
+    connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    options = json.loads(connection.getresponse().read())
+    pollObj["options"]=options
+
+    return pollObj
+
 
 def takePoll(poll_id,pollObj,optObj):
     for opt in pollObj.get('options'):
