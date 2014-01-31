@@ -80,10 +80,10 @@ def createPollApi():
     pollObj["question"] = reqObj.get("question")
     pollObj["closeMethod"] = reqObj.get("closeMethod")
     pollObj["endDate"] = reqObj.get("endDate")
-    pollObj["options"]=reqObj.get("options")
+    #pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]=0
-    result = createPoll(pollObj)
-    return jsonify({'result':result.get("objectId")}),201
+    result = createPoll(pollObj,reqObj.get("options"))
+    return jsonify(result),201
 
 @app.route('/polls/<poll_id>',methods=['GET'])
 def getPollApi(poll_id):
