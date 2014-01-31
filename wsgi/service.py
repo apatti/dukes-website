@@ -91,7 +91,7 @@ def getPollApi(poll_id):
 
 @app.route('/polls',methods=['GET'])
 def getAllPolls():
-    return jsonify(getPolls()),200
+    return getPolls(),200
 
 @app.route('/polls/<poll_id>/takePoll',methods=['POST'])
 def takePollApi(poll_id):
