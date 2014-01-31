@@ -39,9 +39,8 @@ def takePoll(poll_id,username,optid):
                     })})
     connection.request('PUT','/1/classes/polloptions/%s'%params,json.dumps({"options":{"__op":"Add","objects":username}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
+    print result
     return result
-    
-    return pollObj
 
 
 def getPolls():
