@@ -5,15 +5,12 @@ import requests
 connection = httplib.HTTPSConnection('api.parse.com',443)
 
 def createPoll(pollObj,optObj):
-    print pollObj
-    print optObj
     connection.connect()
     connection.request('POST','/1/classes/polls',json.dumps(pollObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     pollId = result.get("objectId")
     if not pollId:
         abort(400)
-    print pollId
     #poll is created, populate the options table.
     for option in optObj:
         option["pollid"]=pollId
@@ -53,11 +50,9 @@ def takePoll(poll_id,pollObj,optObj):
 def getPolls():
     connection.connect()
     connection.request('GET','/1/classes/polls','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    pollsObj = json.loads(connection.getresponse().read())
+    pollsObj = json.loads(connection.getresponse().read()).get("results");
     print pollsObj
     for pollObj in pollsObj:
-        print pollObj
-        #print json.loads(pollObj)
         params = urllib.urlencode({"where":json.dumps({"pollid":pollObj.get("objectId")})})
         connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         options = json.loads(connection.getresponse().read())
