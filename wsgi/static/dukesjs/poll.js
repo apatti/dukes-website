@@ -44,22 +44,29 @@ window.fbAsyncInit = function() {
 				$.each(pData, function() {	
 					var op = JSON.stringify(this['options']);
 					var opData = $.parseJSON(op);
-					
-					var localPollStr = "";
-					localPollStr = localPollStr + "<div id="+noOfPolls+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
-					localPollStr = localPollStr + "<table><tr>";
-					localPollStr = localPollStr + "<td colspan='2'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
-					localPollStr = localPollStr + "</tr>";
-					var objId = this['objectId'] ;
-					$.each(opData, function() {
-						 localPollStr = localPollStr + "<tr>";
-						 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&'+ objId +"' value='"+this['id']+'&'+ objId +"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
-						 localPollStr = localPollStr + "</tr>";
-					});				
-					localPollStr = localPollStr + "</tr></table>";
-					localPollStr = localPollStr + "</div>";					
-					pollDivStr = pollDivStr + localPollStr;
-					noOfPolls ++;
+					//Open Polls
+					if(this['question'] == 0 ){
+						if(this['username'] === fbUserName ){
+						}else{
+						}
+						var localPollStr = "";
+						localPollStr = localPollStr + "<div id="+noOfPolls+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
+						localPollStr = localPollStr + "<table><tr>";
+						localPollStr = localPollStr + "<td colspan='2'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
+						localPollStr = localPollStr + "</tr>";
+						var objId = this['objectId'] ;
+						$.each(opData, function() {
+							 localPollStr = localPollStr + "<tr>";
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&'+ objId +"' value='"+this['id']+'&'+ objId +"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
+							 localPollStr = localPollStr + "</tr>";
+						});				
+						localPollStr = localPollStr + "</tr></table>";
+						localPollStr = localPollStr + "</div>";					
+						pollDivStr = pollDivStr + localPollStr;
+						noOfPolls ++;
+					}else{
+						// Closed Polls
+					}
 				});
 			$('#pollsDiv').append(pollDivStr); 
 			$(':radio').puiradiobutton();   
