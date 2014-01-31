@@ -102,10 +102,7 @@ def takePollApi(poll_id):
     if result.get('code'):
         abort(404)
     reqObj = request.get_json(force=True)
-    optObj ={}
-    optObj["username"]=reqObj.get("username")
-    optObj["id"]=reqObj.get("id")
-    result = takePoll(poll_id,result,optObj)
+    result = takePoll(poll_id,reqObj.get("username"),reqObj.get("id"))
     return jsonify({'result':result}),201
 
 @app.route('/gallery/',methods=['GET'])
