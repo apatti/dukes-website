@@ -37,17 +37,14 @@ window.fbAsyncInit = function() {
 	function polling(){
 		var pollDivStr ='';
 		$.get("http://www.dukesxi.co/polls",function(data,status){
-				alert(data);
-				//var cc = JSON.stringify(data);
 				var dd = $.parseJSON(data);
 				var noOfPolls = 1;
 				$.each(dd, function() {	
 					var rr = JSON.stringify(this);	
 					var pData = $.parseJSON(rr);
-					alert(pData);
 					var op = JSON.stringify(pData['options']);
 					var opData = $.parseJSON(op);
-					alert(opData);
+					
 					//Open Polls
 					if(this['isClosed'] == 0 ){
 						if(this['username'] === fbUserName ){
