@@ -87,7 +87,7 @@ window.fbAsyncInit = function() {
 						type: "PUT",
 						contentType:'application/json',
 						url: DOMAIN_NAME +'/polls/'+pollid+'/takepoll',
-						data: JSON.stringify({'id':optionId,'username':fbUserName} ),
+						    data: JSON.stringify({'id':parseInt(optionId),'username':fbUserName} ),
 						dataType: 'json',
 						success: function(msg) 
 							   {
