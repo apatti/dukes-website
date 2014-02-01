@@ -43,7 +43,9 @@ def takePoll(poll_id,username,optid):
     result = json.loads(connection.getresponse().read())
     
     #now get the option id.
+    print result
     optionid=result.get("results")[0].get("objectId")
+    print optionid
     connection.request('PUT','/1/classes/polloptions/%s'%optionid,json.dumps({"options":{"__op":"Add","objects":username}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"}) 
     result = json.loads(connection.getresponse().read())
     
