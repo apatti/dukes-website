@@ -43,8 +43,10 @@ window.fbAsyncInit = function() {
 				$.each(data, function() {	
 					var rr = JSON.stringify(this);	
 					var pData = $.parseJSON(rr);
+					alert(pData);
 					var op = JSON.stringify(pData['options']);
 					var opData = $.parseJSON(op);
+					alert(opData);
 					//Open Polls
 					if(this['isClosed'] == 0 ){
 						if(this['username'] === fbUserName ){
