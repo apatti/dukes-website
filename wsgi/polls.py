@@ -33,14 +33,20 @@ tent-Type": "application/json"})
 
 
 def takePoll(poll_id,username,optid):
+    #get the poll option.
     params = urllib.urlencode({"where":json.dumps({
                     "pollid":poll_id,
                     "id":optid
                     })})
-    connection.request('PUT','/1/classes/polloptions/%s'%params,json.dumps({"options":{"__op":"Add","objects":username}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    print connection.getresponse().read()
+
+    connection.request('GET','/1/classes/polloptions/%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
-    print result
+    
+    #now get the option id.
+    optionid=result.get("results")[0].get("objectId")
+    connection.request('PUT','/1/classes/polloptions/%s'%optionid,json.dumps({"options":{"__op":"Add","objects":username}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"}) 
+    result = json.loads(connection.getresponse().read())
+    
     return result
 
 
