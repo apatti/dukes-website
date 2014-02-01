@@ -93,7 +93,7 @@ def getPollApi(poll_id):
 def getAllPolls():
     return json.dumps(getPolls()),200
 
-@app.route('/polls/<poll_id>/takePoll',methods=['PUT'])
+@app.route('/polls/<poll_id>/takePoll',methods=['POST'])
 def takePollApi(poll_id):
     if not request.get_json:
         abort(400)
