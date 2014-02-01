@@ -84,22 +84,20 @@ window.fbAsyncInit = function() {
 					var optionId = str[0];
 					var pollid = (str[2].split('='))[1];
 					$.ajax({
-						type: "POST",
-						dataType: 'json',
+						type: "PUT",
 						contentType:'application/json',
 						url: '/polls/'+pollid,
-						data: JSON.stringify({'id':parseInt(optionId),'username':fbUserName} ),						
+						data: JSON.stringify({'id':parseInt(optionId),'username':fbUserName} ),
+						dataType: 'json',
 						success: function(msg) 
 							   {
 							   alert("Thank you for Taking Poll.");
 							   location.href="/";
-							   },
-						error: function(jqXHR, textStatus, errorThrown){
-							alert(textStatus, errorThrown);
-						}
+							   }
 					});
 			});
 		});
 		
 	}
 	
+ 
