@@ -37,9 +37,9 @@ window.fbAsyncInit = function() {
 	function polling(){
 		var pollDivStr ='';
 		$.get("http://www.dukesxi.co/polls",function(data,status){
-				
-				var cc = JSON.stringify(data);
-				var dd = $.parseJSON(dd);
+				alert(data);
+				//var cc = JSON.stringify(data);
+				var dd = $.parseJSON(data);
 				var noOfPolls = 1;
 				$.each(dd, function() {	
 					var rr = JSON.stringify(this);	
