@@ -58,8 +58,9 @@ window.fbAsyncInit = function() {
 						var objId = this['objectId'] ;
 						$.each(opData, function() {
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"'/></td>";	localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
-							 localPollStr +"<td>(<div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'></div>)</td>";
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"'/></td>";	
+							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
+							 localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'>(0)</div></td>";
 							 localPollStr = localPollStr + "</tr>";
 						});				
 						localPollStr = localPollStr + "</tr></table>";
