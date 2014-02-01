@@ -38,11 +38,12 @@ window.fbAsyncInit = function() {
 		var pollDivStr ='';
 		$.get("http://www.dukesxi.co/polls",function(data,status){
 				
-				var rr = JSON.stringify(data);	
-				var pData = $.parseJSON(rr);
+				
 				var noOfPolls = 1;
-				$.each(pData, function() {	
-					var op = JSON.stringify(this['options']);
+				$.each(data, function() {	
+					var rr = JSON.stringify(this);	
+					var pData = $.parseJSON(rr);
+					var op = JSON.stringify(pData['options']);
 					var opData = $.parseJSON(op);
 					//Open Polls
 					if(this['isClosed'] == 0 ){
