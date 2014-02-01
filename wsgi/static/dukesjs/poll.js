@@ -79,7 +79,22 @@ window.fbAsyncInit = function() {
 			});
 			
 			$('input[type=radio]').on('change', function(){
-					alert($(this).val() + " : FB NAME : "+fbUserName);
+					//alert($(this).val() + " : FB NAME : "+fbUserName);
+					var str = $(this).val().split('&');
+					var optionId = str[0];
+					var pollid = (str[2].split('='))[1];
+					$.ajax({
+						type: "PUT",
+						contentType:'application/json',
+						url: DOMAIN_NAME +'/polls/'+pollid+'/takepoll',
+						data: JSON.stringify({'id':optionId,'username':fbUserName} ),
+						dataType: 'json',
+						success: function(msg) 
+							   {
+							   alert("Thank you for Taking Poll.");
+							   location.href="/";
+							   }
+					});
 			});
 		});
 		
