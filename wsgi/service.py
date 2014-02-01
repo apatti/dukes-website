@@ -83,7 +83,7 @@ def createPollApi():
     #pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]=0
     result = createPoll(pollObj,reqObj.get("options"))
-    return jsonify(result),201
+    return jsonify({'id':result}),201
 
 @app.route('/polls/<poll_id>',methods=['GET'])
 def getPollApi(poll_id):
@@ -91,7 +91,7 @@ def getPollApi(poll_id):
 
 @app.route('/polls',methods=['GET'])
 def getAllPolls():
-    return jsonify(getPolls()),200
+    return json.dumps(getPolls()),200
 
 @app.route('/polls/<poll_id>/takePoll',methods=['POST'])
 def takePollApi(poll_id):
@@ -102,10 +102,7 @@ def takePollApi(poll_id):
     if result.get('code'):
         abort(404)
     reqObj = request.get_json(force=True)
-    optObj ={}
-    optObj["username"]=reqObj.get("username")
-    optObj["id"]=reqObj.get("id")
-    result = takePoll(poll_id,result,optObj)
+    result = takePoll(poll_id,reqObj.get("username"),reqObj.get("id"))
     return jsonify({'result':result}),201
 
 @app.route('/gallery/',methods=['GET'])
