@@ -67,5 +67,70 @@ $(document).ready(function(){
 				callback.call(this,$.makeArray(pData));
 			    }
 		    });
+		$('#firstquarterspreaddiv').puidatatable({
+			lazy: true,
+			    caption: 'Bets',
+			    columns: [
+				      {field:'firstquarterspreadbroncos', headerText: 'Broncos',sortable:false},
+				      {field:'firstquarterspreadseahawks', headerText: 'Seahawks',sortable:false},
+				      ],
+			    datasource: function(callback,ui)
+			    {
+				var pData=data;
+				callback.call(this,$.makeArray(pData));
+			    }
+		    });
+		$('#secondquarterspreaddiv').puidatatable({
+			lazy: true,
+			    caption: 'Bets',
+			    columns: [
+				      {field:'secondquarterspreadbroncos', headerText: 'Broncos',sortable:false},
+				      {field:'secondquarterspreadseahawks', headerText: 'Seahawks',sortable:false},
+				      ],
+			    datasource: function(callback,ui)
+			    {
+				var pData=data;
+				callback.call(this,$.makeArray(pData));
+			    }
+		    });
+		$('#thirdquarterspreaddiv').puidatatable({
+			lazy: true,
+			    caption: 'Bets',
+			    columns: [
+				      {field:'thirdquarterspreadbroncos', headerText: 'Broncos',sortable:false},
+				      {field:'thirdquarterspreadseahawks', headerText: 'Seahawks',sortable:false},
+				      ],
+			    datasource: function(callback,ui)
+			    {
+				var pData=data;
+				callback.call(this,$.makeArray(pData));
+			    }
+		    });
+		$('#fourthquarterspreaddiv').puidatatable({
+			lazy: true,
+			    caption: 'Bets',
+			    columns: [
+				      {field:'fourthquarterspreadbroncos', headerText: 'Broncos',sortable:false},
+				      {field:'fourthquarterspreadseahawks', headerText: 'Seahawks',sortable:false},
+				      ],
+			    datasource: function(callback,ui)
+			    {
+				var pData=data;
+				callback.call(this,$.makeArray(pData));
+			    }
+		    });
+		$('#finalquarterspreaddiv').puidatatable({
+			lazy: true,
+			    caption: 'Bets',
+			    columns: [
+				      {field:'finalquarterspreadbroncos', headerText: 'Broncos',sortable:false},
+				      {field:'finalquarterspreadseahawks', headerText: 'Seahawks',sortable:false},
+				      ],
+			    datasource: function(callback,ui)
+			    {
+				var pData=data;
+				callback.call(this,$.makeArray(pData));
+			    }
+		    });
 	    });
     });
