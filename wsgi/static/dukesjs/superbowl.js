@@ -197,20 +197,21 @@ $(document).ready(function(){
 		var secondquarterspread=$('[name=secondquarterspreadpoll]:checked').val();
 		var thirdquarterspread=$('[name=thirdquarterspreadpoll]:checked').val();
 		var fourthquarterspread=$('[name=fourthquarterspreadpoll]:checked').val();
-		var finaltotal=$('[name=finalspreadpoll]:checked').val();
-		alert(firstquartertotal);
-		alert(secondquartertotal);
-		alert(thirdquartertotal);
-		alert(fourthquartertotal);
-		alert(firstquarterspread);
-		alert(secondquarterspread);
-		alert(thirdquarterspread);
-		alert(fourthquarterspread);
-		alert(finalspread);
-		alert(finalspread);
+		var finalspread=$('[name=finalspreadpoll]:checked').val();
+				
 		
-		
-		var superbowldata=JSON.stringify({'username':username,'firstquartertotal':firstquartertotal,'secondquartertotal':secondquartertotal,'thirdquartertotal':thirdquartertotal,'fourthquartertotal':fourthquartertotal,'finaltotal':finaltotal,'firstquarterspread':firstquarterspread,'secondquarterspread':secondquarterspread,'thirdquarterspread':thirdquarterspread,'fourthquarterspread':fourthquarterspread,'finaltotal':finalspread});
-		alert(superbowldata);
+		var superbowldata=JSON.stringify({'username':username,'firstquartertotal':firstquartertotal,'secondquartertotal':secondquartertotal,'thirdquartertotal':thirdquartertotal,'fourthquartertotal':fourthquartertotal,'finaltotal':finaltotal,'firstquarterspread':firstquarterspread,'secondquarterspread':secondquarterspread,'thirdquarterspread':thirdquarterspread,'fourthquarterspread':fourthquarterspread,'finalspread':finalspread});
+		$.ajax({
+			type:"POST",
+			    contentType:'application/json',
+			    url:'/superbowl',
+			    data:superbowldata,
+			    dataType:'json',
+			    success:function(msg)
+			    {
+				alert("Thanks for the betting entry!!");
+				location.href="/superbowl.html";
+			    }
+		    });
 	    });
     });
