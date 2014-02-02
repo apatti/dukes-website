@@ -44,7 +44,7 @@ window.fbAsyncInit = function() {
 					var pData = $.parseJSON(rr);
 					var op = JSON.stringify(pData['options']);
 					var opData = $.parseJSON(op);
-					
+				
 					//Open Polls
 					if(this['isClosed'] == 0 ){
 						if(this['username'] === fbUserName ){
@@ -53,17 +53,40 @@ window.fbAsyncInit = function() {
 						var localPollStr = "";
 						localPollStr = localPollStr + "<div id="+noOfPolls+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
 						localPollStr = localPollStr + "<table><tr>";
-						localPollStr = localPollStr + "<td colspan='3'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
+						localPollStr = localPollStr + "<td colspan='4'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
 						localPollStr = localPollStr + "</tr>";
 						var objId = this['objectId'] ;
 						$.each(opData, function() {
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"'/></td>";	
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"' class='"+this['pollid']+"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
-							 localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'>(0)</div></td>";
+							 
+							 localPollStr = localPollStr + "<td>";
+							 localPollStr = localPollStr + "<select id='basic' name='basic'>";
+							 
+							//get the list of users who took poll fot this option
+							 if(this['users']){
+								var u = JSON.stringify(this['users']);
+								var uData = $.parseJSON(u);	
+								var userCount = 0;
+								$.each( uData,function () {
+									localPollStr = localPollStr + "<option value='"+userCount+"'>"+this+"</option>";
+									userCount ++;
+								});
+								localPollStr = localPollStr +"</select>";
+								localPollStr = localPollStr + "</td>";
+								localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'>("+userCount+")</div></td>";
+							 }
+							 localPollStr = localPollStr + "</td>";
 							 localPollStr = localPollStr + "</tr>";
 						});				
-						localPollStr = localPollStr + "</tr></table>";
+						localPollStr = localPollStr + "</tr>";
+						localPollStr = localPollStr + "<td>";
+						localPollStr = localPollStr + "<div>";
+						localPollStr = localPollStr + "<button id='"+this['pollid']+"' type='button' class='"+this['pollid']+"'>Submit You Poll</button>";						
+						localPollStr = localPollStr + "</div>";
+						localPollStr = localPollStr + "</td>";
+						localPollStr = localPollStr + "</table>";
 						localPollStr = localPollStr + "</div>";					
 						pollDivStr = pollDivStr + localPollStr;
 						noOfPolls ++;
@@ -77,7 +100,7 @@ window.fbAsyncInit = function() {
 				toggleable: true
 				,closable: true
 			});
-			
+			/*
 			$('input[type=radio]').on('change', function(){
 					//alert($(this).val() + " : FB NAME : "+fbUserName);
 					var str = $(this).val().split('&');
@@ -96,7 +119,12 @@ window.fbAsyncInit = function() {
 							   }
 					});
 			});
+			*/
+			$('input[type=button] ').click(function() {
+				  alert( this.id );
+				});
 		});
+		
 		
 	}
 	
