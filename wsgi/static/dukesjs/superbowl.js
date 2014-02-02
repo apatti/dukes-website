@@ -119,7 +119,7 @@ $(document).ready(function(){
 				callback.call(this,$.makeArray(pData));
 			    }
 		    });
-		$('#finalquarterspreaddiv').puidatatable({
+		$('#finalspreaddiv').puidatatable({
 			lazy: true,
 			    caption: 'Bets',
 			    columns: [
@@ -132,5 +132,20 @@ $(document).ready(function(){
 				callback.call(this,$.makeArray(pData));
 			    }
 		    });
+	    });
+	$('input[type=button]').click(function(){
+		var firstquartertotal=$('[name=firstquartertotalpoll]:checked').val();
+		var secondquartertotal=$('[name=secondquartertotalpoll]:checked').val();
+		var thirdquartertotal=$('[name=thirdquartertotalpoll]:checked').val();
+		var fourthquartertotal=$('[name=fourthquartertotalpoll]:checked').val();
+		var finaltotal=$('[name=finaltotalpoll]:checked').val();
+		var firstquarterspread=$('[name=firstquarterspreadpoll]:checked').val();
+		var secondquarterspread=$('[name=secondquarterspreadpoll]:checked').val();
+		var thirdquarterspread=$('[name=thirdquarterspreadpoll]:checked').val();
+		var fourthquarterspread=$('[name=fourthquarterspreadpoll]:checked').val();
+		var finaltotal=$('[name=finalspreadpoll]:checked').val();
+
+		var superbowldata=JSON.stringify({'username':username,'firstquartertotal':firstquartertotal,'secondquartertotal':secondquartertotal,'thirdquartertotal':thirdquartertotal,'fourthquartertotal':fourthquartertotal,'finaltotal':finaltotal,'firstquarterspread':firstquarterspread,'secondquarterspread':secondquarterspread,'thirdquarterspread':thirdquarterspread,'fourthquarterspread':fourthquarterspread,'finaltotal':finalspread});
+		alert(superbowldata);
 	    });
     });
