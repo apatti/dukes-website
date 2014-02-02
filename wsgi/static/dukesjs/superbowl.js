@@ -198,7 +198,18 @@ $(document).ready(function(){
 		var thirdquarterspread=$('[name=thirdquarterspreadpoll]:checked').val();
 		var fourthquarterspread=$('[name=fourthquarterspreadpoll]:checked').val();
 		var finaltotal=$('[name=finalspreadpoll]:checked').val();
-
+		alert(firstquartertotal);
+		alert(secondquartertotal);
+		alert(thirdquartertotal);
+		alert(fourthquartertotal);
+		alert(firstquarterspread);
+		alert(secondquarterspread);
+		alert(thirdquarterspread);
+		alert(fourthquarterspread);
+		alert(finalspread);
+		alert(finalspread);
+		
+		
 		var superbowldata=JSON.stringify({'username':username,'firstquartertotal':firstquartertotal,'secondquartertotal':secondquartertotal,'thirdquartertotal':thirdquartertotal,'fourthquartertotal':fourthquartertotal,'finaltotal':finaltotal,'firstquarterspread':firstquarterspread,'secondquarterspread':secondquarterspread,'thirdquarterspread':thirdquarterspread,'fourthquarterspread':fourthquarterspread,'finaltotal':finalspread});
 		alert(superbowldata);
 	    });
