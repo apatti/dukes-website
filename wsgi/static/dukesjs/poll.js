@@ -44,7 +44,7 @@ window.fbAsyncInit = function() {
 					var pData = $.parseJSON(rr);
 					var op = JSON.stringify(pData['options']);
 					var opData = $.parseJSON(op);
-					
+					var pollClass = 
 					//Open Polls
 					if(this['isClosed'] == 0 ){
 						if(this['username'] === fbUserName ){
@@ -80,7 +80,13 @@ window.fbAsyncInit = function() {
 							 localPollStr = localPollStr + "</td>";
 							 localPollStr = localPollStr + "</tr>";
 						});				
-						localPollStr = localPollStr + "</tr></table>";
+						localPollStr = localPollStr + "</tr>";
+						localPollStr = localPollStr + "<td>";
+						localPollStr = localPollStr + "<div>";
+						localPollStr = localPollStr + "<button id='"+this['pollid']+"' type='button' class='"+this['pollid']+"'>Submit You Poll</button>";						
+						localPollStr = localPollStr + "</div>";
+						localPollStr = localPollStr + "</td>";
+						localPollStr = localPollStr + "</table>";
 						localPollStr = localPollStr + "</div>";					
 						pollDivStr = pollDivStr + localPollStr;
 						noOfPolls ++;
@@ -94,7 +100,7 @@ window.fbAsyncInit = function() {
 				toggleable: true
 				,closable: true
 			});
-			
+			/*
 			$('input[type=radio]').on('change', function(){
 					//alert($(this).val() + " : FB NAME : "+fbUserName);
 					var str = $(this).val().split('&');
@@ -113,7 +119,12 @@ window.fbAsyncInit = function() {
 							   }
 					});
 			});
+			*/
+			$('input[type=button] ').click(function() {
+				  alert( this.id );
+				});
 		});
+		
 		
 	}
 	
