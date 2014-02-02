@@ -60,7 +60,7 @@ window.fbAsyncInit = function() {
 							 localPollStr = localPollStr + "<tr>";
 							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
-							 localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'>(0)</div></td>";
+							 
 							 localPollStr = localPollStr + "<td>";
 							 localPollStr = localPollStr + "<select id='basic' name='basic'>";
 							 
@@ -75,6 +75,7 @@ window.fbAsyncInit = function() {
 								});
 								localPollStr = localPollStr +"</select>";
 								localPollStr = localPollStr + "</td>";
+								localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'>("+userCount+")</div></td>";
 							 }
 							 localPollStr = localPollStr + "</td>";
 							 localPollStr = localPollStr + "</tr>";
