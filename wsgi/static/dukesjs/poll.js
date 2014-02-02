@@ -68,7 +68,7 @@ window.fbAsyncInit = function() {
 							 if(this['users']){
 								var u = JSON.stringify(this['users']);
 								var uData = $.parseJSON(u);	
-								var userCount = 1;
+								var userCount = 0;
 								$.each( uData,function () {
 									localPollStr = localPollStr + "<option value='"+userCount+"'>"+this+"</option>";
 									userCount ++;
