@@ -44,7 +44,7 @@ window.fbAsyncInit = function() {
 					var pData = $.parseJSON(rr);
 					var op = JSON.stringify(pData['options']);
 					var opData = $.parseJSON(op);
-					var pollClass = 
+				
 					//Open Polls
 					if(this['isClosed'] == 0 ){
 						if(this['username'] === fbUserName ){
@@ -58,7 +58,7 @@ window.fbAsyncInit = function() {
 						var objId = this['objectId'] ;
 						$.each(opData, function() {
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"'/></td>";	
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"' class='"+this['pollid']+"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>";
