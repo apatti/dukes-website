@@ -83,7 +83,7 @@ window.fbAsyncInit = function() {
 						localPollStr = localPollStr + "</tr>";
 						localPollStr = localPollStr + "<td>";
 						localPollStr = localPollStr + "<div>";
-						localPollStr = localPollStr + "<button id='"+this['pollid']+"' type='button' class='"+this['pollid']+"'>Submit You Poll</button>";						
+						localPollStr = localPollStr + "<button id='"+objId+"' type='button' class='pollButton'>Submit You Poll</button>";						
 						localPollStr = localPollStr + "</div>";
 						localPollStr = localPollStr + "</td>";
 						localPollStr = localPollStr + "</table>";
@@ -120,7 +120,7 @@ window.fbAsyncInit = function() {
 					});
 			});
 			*/
-			$('input[type=button] ').click(function() {
+			$('[class=pollButton] ').click(function() {
 				  alert( this.id );
 				});
 		});
