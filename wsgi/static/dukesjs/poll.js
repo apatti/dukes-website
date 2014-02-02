@@ -65,10 +65,9 @@ window.fbAsyncInit = function() {
 							//get the list of users who took poll fot this option
 							 if(this['users']){
 								var u = JSON.stringify(this['users']);
-								var uData = $.parseJSON(u);
-								var userCount = 0;
+								var uData = $.parseJSON(u);								
 								$.each( uData,function () {
-									localPollStr = localPollStr + " user : " + this[userCount++] ;
+									localPollStr = localPollStr + " user : " + this ;
 								});
 								localPollStr = localPollStr + "</td>";
 							 }
