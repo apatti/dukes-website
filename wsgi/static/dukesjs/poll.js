@@ -62,13 +62,18 @@ window.fbAsyncInit = function() {
 							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
 							 localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'>(0)</div></td>";
 							 localPollStr = localPollStr + "<td>";
+							 localPollStr = localPollStr + "<select id='basic' name='basic'>";
+							 
 							//get the list of users who took poll fot this option
 							 if(this['users']){
 								var u = JSON.stringify(this['users']);
-								var uData = $.parseJSON(u);								
+								var uData = $.parseJSON(u);	
+								var userCount = 1;
 								$.each( uData,function () {
-									localPollStr = localPollStr + " user : " + this ;
+									localPollStr = localPollStr + "<option value='"+userCount+"'>"+this+"</option>";
+									userCount ++;
 								});
+								localPollStr = localPollStr +"</select>";
 								localPollStr = localPollStr + "</td>";
 							 }
 							 localPollStr = localPollStr + "</td>";
