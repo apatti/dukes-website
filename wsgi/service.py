@@ -3,6 +3,7 @@ import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
 from polls import createPoll,getPoll,takePoll,getPolls
+from superbowl import getSuperBowl,insertSuperBowl
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -104,6 +105,17 @@ def takePollApi(poll_id):
     reqObj = request.get_json(force=True)
     result = takePoll(poll_id,reqObj.get("username"),reqObj.get("id"))
     return jsonify({'result':result}),201
+
+@app.route('superbowl',methods=['POST'])
+def insertSuperBowlApi():
+    reqObj=request.get_json(force=True)
+    result = insertSuperBowl(reqObj)
+    
+    return jsonify({'result':result}),201
+
+@app.route('/superbowl',methods=['GET'])
+def getSuperBowlApi():
+    return jsonify(getSuperBowl()),200
 
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Superbowl</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="themes/flick/theme.css" />
+    <link rel="stylesheet" href="primeui.css" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<link rel="stylesheet" type="text/css" href="css/menu/menu.css" />
+	
+	<link rel="stylesheet" type="text/css" href="dukescss/dukes.css" />
+	
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script type="text/javascript" src="dukesjs/login.js"></script>
+	<script type="text/javascript" src="dukesjs/header.js"></script>
+	<script type="text/javascript" src="primeui.js"></script>
+	<script type="text/javascript" src="dukesjs/dukesMenu.js"></script>
+	<script type="text/javascript" src="dukesjs/superbowl.js"></script>
+	<script type="text/javascript" src="dukesjs/footer.js"></script>
+	<script type="text/javascript">
+	  $(function()
+	  {
+	      $('#allGraphDiv').puipanel();
+	      $('#squaresheaderdiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	       });
+	      $('#totalheaderdiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#firstquartertotaldiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#secondquartertotaldiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#thirdquartertotaldiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#fourthquartertotaldiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#finaltotaldiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#spreadheaderdiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#firstquarterspreaddiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#secondquarterspreaddiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#thirdquarterspreaddiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#fourthquarterspreaddiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	      $('#finalspreaddiv').puipanel({
+	              toggleable: true,
+	              closeable: true
+	      });
+	  });
+	</script>
+</head>
+<body>
+  <!-- Begin Wrapper -->
+  <div id="wrapper">
+    <!-- Begin Header -->
+    <div id="header">
+      <div id="headerTitleDiv" style="float: left;"><h1></h1></div>
+      <div id="dukesLoginDiv" class="dukesLogin"></div>
+      <div id="loggedUserDiv" class="dukesLogin"></div>
+    </div>
+    <!-- End Header -->
+    <!-- Begin Center Column -->
+    <div id="centercontent">
+      <div id="allGraphDiv" style="margin-bottom:20px" title="Categories">
+	<div id="squaresheaderdiv" style="margin-bottom:20px" title="Squares">
+	  <div id="squares_chart_div"></div>
+	</div>
+	<div id="totalheaderdiv" style="margin-bottom:20px" title="Total - Over Under">
+	  <div id="firstquartertotaldiv" style="margin-bottom:20px" title="First Quarter - 10"></div>
+	  <div id="secondquartertotaldiv" style="margin-bottom:20px" title="Second Quarter - 14"></div>
+	  <div id="thirdquartertotaldiv" style="margin-bottom:20px" title="Third Quarter - 9"></div>
+	  <div id="fourthquartertotaldiv" style="margin-bottom:20px" title="Fourth Quarter - 13"></div>
+	  <div id="finaltotaldiv" style="margin-bottom:20px" title="Final - 47"></div>
+	</div>
+	<div id="spreadheaderdiv" style="margin-bottom:20px" title="Spread">
+	  <div id="firstquarterspreaddiv" style="margin-bottom:20px" title="First Quarter - Broncos: -3 Seahwaks: +3"></div>
+	  <div id="secondquarterspreaddiv" style="margin-bottom:20px" title="Second Quarter - Broncos: -1 Seahwaks: +1"></div>
+	  <div id="thirdquarterspreaddiv" style="margin-bottom:20px" title="Third Quarter - Broncos: -0.5 Seahwaks: +0.5"></div>
+	  <div id="fourthquarterspreaddiv" style="margin-bottom:20px" title="Fourth Quarter - Broncos: -3 Seahwaks: +3"></div>
+	  <div id="finalspreaddiv" style="margin-bottom:20px" title="Final - Broncos: -7 Seahwaks: +7"></div>
+	</div>
+      </div>
+    </div>
+    <!-- End center Column -->
+    <!-- Begin Footer -->
+    <div id="footer"></div>
+    <!-- End Footer -->
+  </div>
+  <!-- End Wrapper -->
+</body>
+</html>
