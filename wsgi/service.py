@@ -106,7 +106,7 @@ def takePollApi(poll_id):
     result = takePoll(poll_id,reqObj.get("username"),reqObj.get("id"))
     return jsonify({'result':result}),201
 
-@app.route('superbowl',methods=['POST'])
+@app.route('/superbowl',methods=['POST'])
 def insertSuperBowlApi():
     reqObj=request.get_json(force=True)
     result = insertSuperBowl(reqObj)
