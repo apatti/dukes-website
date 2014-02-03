@@ -62,14 +62,14 @@ $(document).ready(function(){
 		    var datarow = new google.visualization.DataTable();
 		    datarow.addColumn('string','User');
 		    datarow.addColumn('string','FirstQuarter Total');
-		    datarow.addColumn('string','SecondQuarter Total');
-		    datarow.addColumn('string','ThirdQuarter Total');
-		    datarow.addColumn('string','FourQuarter Total');
-		    datarow.addColumn('string','Final Total');
 		    datarow.addColumn('string','FirstQuarter Spread');
+		    datarow.addColumn('string','SecondQuarter Total');
 		    datarow.addColumn('string','SecondQuarter Spread');
+		    datarow.addColumn('string','ThirdQuarter Total');
 		    datarow.addColumn('string','ThirdQuarter Spread');
+		    datarow.addColumn('string','FourQuarter Total');
 		    datarow.addColumn('string','FourQuarter Spread');
+		    datarow.addColumn('string','Final Total');
 		    datarow.addColumn('string','Final Spread');
 		    for (var i=0;i<data.results.length;i++)
 			{
