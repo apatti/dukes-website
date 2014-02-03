@@ -32,7 +32,7 @@ var username="none";
 			localStorage.removeItem('USER_FB_INFO');
 		  }
 		 });
-		 applyCSSToPageComponents();
+	  // applyCSSToPageComponents();
  };
 	   
 function loggedIn(){
