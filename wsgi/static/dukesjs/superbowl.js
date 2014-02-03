@@ -61,16 +61,16 @@ $(document).ready(function(){
 		{
 		    var datarow = new google.visualization.DataTable();
 		    datarow.addColumn('string','User');
-		    datarow.addColumn('string','FirstQuarter Total');
-		    datarow.addColumn('string','FirstQuarter Spread');
-		    datarow.addColumn('string','SecondQuarter Total');
-		    datarow.addColumn('string','SecondQuarter Spread');
-		    datarow.addColumn('string','ThirdQuarter Total');
-		    datarow.addColumn('string','ThirdQuarter Spread');
-		    datarow.addColumn('string','FourQuarter Total');
-		    datarow.addColumn('string','FourQuarter Spread');
-		    datarow.addColumn('string','Final Total');
-		    datarow.addColumn('string','Final Spread');
+		    datarow.addColumn('string','1Q Total 10-8');
+		    datarow.addColumn('string','1Q Spread S8');
+		    datarow.addColumn('string','2Q Total 14-14');
+		    datarow.addColumn('string','2Q Spread S14');
+		    datarow.addColumn('string','3Q Total 9-22');
+		    datarow.addColumn('string','3Q Spread S6');
+		    datarow.addColumn('string','4Q Total 7-13');
+		    datarow.addColumn('string','4Q Spread S7');
+		    datarow.addColumn('string','F Total 47-51');
+		    datarow.addColumn('string','F Spread S35');
 		    for (var i=0;i<data.results.length;i++)
 			{
 			    var username = data.results[i].username;
