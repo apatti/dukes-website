@@ -1,6 +1,6 @@
 var DOMAIN_NAME = 'http://www.dukesxi.co';
 var username="none";
-
+/*
  window.fbAsyncInit = function() {
 	  FB.init({
 		appId      : '627120887325860',
@@ -32,7 +32,7 @@ var username="none";
 			localStorage.removeItem('USER_FB_INFO');
 		  }
 		 });
-	  // applyCSSToPageComponents();
+	  applyCSSToPageComponents();
  };
 	   
 function loggedIn(){
@@ -50,23 +50,33 @@ function loggedIn(){
 			username=response.username;
  });
 }   
-
+*/
 
 $(document).ready(function(){
 	var superbowlObj ='';
 	$.get("/superbowl",function(data,status){
 		superbowlobj=data;
+	       
 		$('#firstquartertotaldiv').puidatatable({
 			lazy: true,
 			    caption: 'Bets',
 			    columns: [
-				      {field:'firstquartertotalover', headerText: 'Over',sortable:false},
-				      {field:'firstquartertotalunder', headerText: 'Under',sortable:false},
+				      {field:'username', headerText: 'User',sortable:false},
+				      {field:'firstquartertotal', headerText: 'FirstQuarterTotal',sortable:false},
+				      {field:'secondquartertotal', headerText: 'SecondQuarterTotal',sortable:false},
+				      {field:'thirdquartertotal', headerText: 'ThirdQuarterTotal',sortable:false},
+				      {field:'fourthquartertotal', headerText: 'FourthQuarterTotal',sortable:false},
+				      {field:'finalquartertotal', headerText: 'FinalTotal',sortable:false},
 				      ],
 			    datasource: function(callback,ui)
 			    {
-				var pData=data;
-				callback.call(this,$.makeArray(pData));
+				for(i=0;i<data.results.length;i++)
+				    {
+					var pData = data.results[i];
+					callback.call(this.$.makeArray(pData));
+				    }
+				//var pData=data;
+				//callback.call(this,$.makeArray(pData));
 			    }
 		    });
 		$('#secondquartertotaldiv').puidatatable({
