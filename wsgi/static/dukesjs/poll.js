@@ -58,6 +58,7 @@ window.fbAsyncInit = function() {
 						var objId = this['objectId'] ;
 						$.each(opData, function() {
 							var dropDownStr ='';
+							var hasPollTaken=0;
 							/* create Users DropDown*/
 							dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
@@ -68,13 +69,16 @@ window.fbAsyncInit = function() {
 								var userCount = 0;
 								$.each( uData,function () {
 									dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
+									if(this === fbUserName){
+										hasPollTaken = 1;
+									}
 									userCount ++;
 								});
 								dropDownStr = dropDownStr +"</select> <div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+userCount+")</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"' class='"+this['pollid']+"'/></td>";	
+							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid']  +"' class='"+this['pollid']+"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
