@@ -122,10 +122,29 @@ window.fbAsyncInit = function() {
 			*/
 			$('[class=pollButton]').click(function() {
 				 // alert( this.id );
-				  $('input[type=radio][class='+this.id+']').each(function (){
+				 var selectedRadio = $('input:radio[name='+this.id+']:checked').val();
+				 
+				 var str = $('input:radio[name='+this.id+']:checked').val().split('&');
+					var optionId = str[0];
+					var pollid = (str[2].split('='))[1];
+					$.ajax({
+						type: "PUT",
+						contentType:'application/json',
+						url: '/polls/'+pollid,
+						data: JSON.stringify({'id':parseInt(optionId),'username':fbUserName} ),
+						dataType: 'json',
+						success: function(msg) 
+							   {
+							   alert("Thank you for Taking Poll.");
+							   location.href="/";
+							   }
+					});
+				 
+				/*
+				$('input[type=radio][class='+this.id+']').each(function (){
 					alert($(this).val() );
 				  });
-				 
+				 */
 				});
 		});
 		
