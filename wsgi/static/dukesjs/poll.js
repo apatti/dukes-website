@@ -120,7 +120,7 @@ window.fbAsyncInit = function() {
 					});
 			});
 			*/
-			$('[class=pollButton] ').click(function() {
+			$('[class=pollButton]').click(function() {
 				  alert( this.id );
 				});
 		});
