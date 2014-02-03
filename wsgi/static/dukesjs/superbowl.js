@@ -187,7 +187,7 @@ $(document).ready(function(){
 			    }
 		    });
 	    });
-	$('input[type=button]').click(function(){
+	/*	$('input[type=button]').click(function(){
 		var firstquartertotal=$('[name=firstquartertotalpoll]:checked').val();
 		var secondquartertotal=$('[name=secondquartertotalpoll]:checked').val();
 		var thirdquartertotal=$('[name=thirdquartertotalpoll]:checked').val();
@@ -213,5 +213,5 @@ $(document).ready(function(){
 				location.href="/superbowl.html";
 			    }
 		    });
-	    });
+		    });*/
     });
