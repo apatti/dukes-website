@@ -56,7 +56,7 @@ $(document).ready(function(){
 	var superbowlObj ='';
 	$.get("/superbowl",function(data,status){
 		superbowlobj=data;
-	        google.load('visualization','1.0',{'packages':['corechart'],callback:drawChart});
+	        google.load('visualization','1.0',{'packages':['table'],callback:drawChart});
 		function drawChart()
 		{
 		    var datarow = new google.visualization.DataTable();
@@ -112,7 +112,7 @@ $(document).ready(function(){
 				//var pData=data;
 				//callback.call(this,$.makeArray(pData));
 			    }
-			    });*/
+			    });
 		$('#secondquartertotaldiv').puidatatable({
 			lazy: true,
 			    caption: 'Bets',
@@ -229,7 +229,7 @@ $(document).ready(function(){
 				var pData=data;
 				callback.call(this,$.makeArray(pData));
 			    }
-		    });
+			    });*/
 	    });
 	/*	$('input[type=button]').click(function(){
 		var firstquartertotal=$('[name=firstquartertotalpoll]:checked').val();
