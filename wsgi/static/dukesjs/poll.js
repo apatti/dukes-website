@@ -62,7 +62,7 @@ window.fbAsyncInit = function() {
 							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>";
-							 localPollStr = localPollStr + "<select id='basic' name='basic'>";
+							 localPollStr = localPollStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
 							//get the list of users who took poll fot this option
 							 if(this['users']){
@@ -75,7 +75,7 @@ window.fbAsyncInit = function() {
 								});
 								localPollStr = localPollStr +"</select>";
 								localPollStr = localPollStr + "</td>";
-								localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;'>("+userCount+")</div></td>";
+								localPollStr = localPollStr +"<td><div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+userCount+")</div></td>";
 							 }
 							 localPollStr = localPollStr + "</td>";
 							 localPollStr = localPollStr + "</tr>";
@@ -122,9 +122,9 @@ window.fbAsyncInit = function() {
 			*/
 			$('[class=pollButton]').click(function() {
 				 // alert( this.id );
-				 var selectedRadio = $('input:radio[name='+this.id+']:checked').val();
+				 //var selectedRadio = $('input:radio[name='+this.id+']:checked').val();
 				 
-				 var str = $('input:radio[name='+this.id+']:checked').val().split('&');
+				 var str = $('input[type=radio][class='+this.id+']:checked').val().split('&');
 					var optionId = str[0];
 					var pollid = (str[2].split('='))[1];
 					$.ajax({
