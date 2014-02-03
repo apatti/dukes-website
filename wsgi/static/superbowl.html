@@ -15,6 +15,7 @@
 	
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="dukesjs/login.js"></script>
 	<script type="text/javascript" src="dukesjs/header.js"></script>
 	<script type="text/javascript" src="primeui.js"></script>
@@ -37,6 +38,7 @@
 	              toggleable: true,
 	              closeable: true
 	      });
+	  
 	      $('#secondquartertotaldiv').puipanel({
 	              toggleable: true,
 	              closeable: true
@@ -77,6 +79,7 @@
 	              toggleable: true,
 	              closeable: true
 	      });
+	  
 	      $(':radio').puiradiobutton();
 	      //$(':button').puibutton();
 	  });
@@ -100,46 +103,46 @@
 	</div>
 	<div id="totalheaderdiv" style="margin-bottom:20px" title="Total - Over Under">
 	  <div id="firstquartertotaldiv" style="margin-bottom:20px" title="First Quarter - 10">
-	    <input type="radio" name="firstquartertotalpoll" id="firstquartertotal" value="Over">Over</input>
-	    <input type="radio" name="firstquartertotalpoll" id="firstquartertotal" value="Under">Under</input>
+	   <!-- <input type="radio" name="firstquartertotalpoll" id="firstquartertotal" checked value="Over">Over</input>
+	    <input type="radio" name="firstquartertotalpoll" id="firstquartertotal" value="Under">Under</input>-->
 	  </div>
 	  <div id="secondquartertotaldiv" style="margin-bottom:20px" title="Second Quarter - 14">
-	    <input type="radio" name="secondquartertotalpoll" id="secondquartertotal" value="Over">Over</input>
-	    <input type="radio" name="secondquartertotalpoll" id="secondquartertotal" value="Under">Under</input>
+	   <!-- <input type="radio" name="secondquartertotalpoll" id="secondquartertotal" checked value="Over">Over</input>
+	    <input type="radio" name="secondquartertotalpoll" id="secondquartertotal" value="Under">Under</input>-->
 	  </div>
 	  <div id="thirdquartertotaldiv" style="margin-bottom:20px" title="Third Quarter - 9">
-	    <input type="radio" name="thirdquartertotalpoll" id="thirdquartertotal" value="Over">Over</input>
-	    <input type="radio" name="thirdquartertotalpoll" id="thirdquartertotal" value="Under">Under</input>
+	    <!--<input type="radio" name="thirdquartertotalpoll" id="thirdquartertotal" checked value="Over">Over</input>
+	    <input type="radio" name="thirdquartertotalpoll" id="thirdquartertotal" value="Under">Under</input> -->
 	  </div>
 	  <div id="fourthquartertotaldiv" style="margin-bottom:20px" title="Fourth Quarter - 13">
-	    <input type="radio" name="fourthquartertotalpoll" id="fourthquartertotal" value="Over">Over</input>
-	    <input type="radio" name="fourthquartertotalpoll" id="fourthquartertotal" value="Under">Under</input>
+	    <!--<input type="radio" name="fourthquartertotalpoll" id="fourthquartertotal" checked value="Over">Over</input>
+	    <input type="radio" name="fourthquartertotalpoll" id="fourthquartertotal" value="Under">Under</input> -->
 	  </div>
 	  <div id="finaltotaldiv" style="margin-bottom:20px" title="Final - 47">
-	    <input type="radio" name="finalquartertotalpoll" id="finalquartertotal" value="Over">Over</input>
-	    <input type="radio" name="finalquartertotalpoll" id="finalquartertotal" value="Under">Under</input>
+	   <!-- <input type="radio" name="finaltotalpoll" id="finaltotal" checked value="Over">Over</input>
+	    <input type="radio" name="finaltotalpoll" id="finaltotal" value="Under">Under</input> -->
 	  </div>
 	</div>
 	<div id="spreadheaderdiv" style="margin-bottom:20px" title="Spread">
 	  <div id="firstquarterspreaddiv" style="margin-bottom:20px" title="First Quarter - Broncos: -3 Seahawks: +3">
-	    <input type="radio" name="firstquarterspreadpoll" id="firstquarterspread" value="Broncos">Broncos</input>
-	    <input type="radio" name="firstquarterspreadpoll" id="firstquarterspread" value="Seahawks">Seahawks</input>
+	    <!--<input type="radio" name="firstquarterspreadpoll" id="firstquarterspread" checked value="Broncos">Broncos</input>
+	    <input type="radio" name="firstquarterspreadpoll" id="firstquarterspread" value="Seahawks">Seahawks</input>-->
 	  </div>
 	  <div id="secondquarterspreaddiv" style="margin-bottom:20px" title="Second Quarter - Broncos: -1 Seahawks: +1">
-	    <input type="radio" name="firstquarterspreadpoll" id="secondquarterspread" value="Broncos">Broncos</input>
-	    <input type="radio" name="firstquarterspreadpoll" id="secondquarterspread" value="Seahawks">Seahawks</input>
+	    <!--<input type="radio" name="secondquarterspreadpoll" id="secondquarterspread" checked value="Broncos">Broncos</input>
+	    <input type="radio" name="secondquarterspreadpoll" id="secondquarterspread" value="Seahawks">Seahawks</input>-->
 	  </div>
 	  <div id="thirdquarterspreaddiv" style="margin-bottom:20px" title="Third Quarter - Broncos: -0.5 Seahawks: +0.5">
-	    <input type="radio" name="thirdquarterspreadpoll" id="thirdquarterspread" value="Broncos">Broncos</input>
-	    <input type="radio" name="thirdquarterspreadpoll" id="thirdquarterspread" value="Seahawks">Seahawks</input>
+	    <!--<input type="radio" name="thirdquarterspreadpoll" id="thirdquarterspread" checked value="Broncos">Broncos</input>
+	    <input type="radio" name="thirdquarterspreadpoll" id="thirdquarterspread" value="Seahawks">Seahawks</input>-->
 	  </div>
 	  <div id="fourthquarterspreaddiv" style="margin-bottom:20px" title="Fourth Quarter - Broncos: -3 Seahawks: +3">
-	    <input type="radio" name="fourthquarterspreadpoll" id="fourthquarterspread" value="Broncos">Broncos</input>
-	    <input type="radio" name="fourthquarterspreadpoll" id="fourthquarterspread" value="Seahawks">Seahawks</input>
+	    <!--<input type="radio" name="fourthquarterspreadpoll" id="fourthquarterspread" checked value="Broncos">Broncos</input>
+	    <input type="radio" name="fourthquarterspreadpoll" id="fourthquarterspread" value="Seahawks">Seahawks</input>-->
 	  </div>
 	  <div id="finalspreaddiv" style="margin-bottom:20px" title="Final - Broncos: -7 Seahawks: +7">
-	    <input type="radio" name="finalspreadpoll" id="finalspread" value="Broncos">Broncos</input>
-	    <input type="radio" name="finalspreadpoll" id="finalspread" value="Seahawks">Seahawks</input>
+	    <!--<input type="radio" name="finalspreadpoll" id="finalspread" checked value="Broncos">Broncos</input>
+	    <input type="radio" name="finalspreadpoll" id="finalspread" value="Seahawks">Seahawks</input>-->
 	  </div>
 	</div>
 	<input type="button" name="Save" id="save" value="Save"/>

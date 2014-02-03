@@ -1,6 +1,6 @@
 var DOMAIN_NAME = 'http://www.dukesxi.co';
 var username="none";
-
+/*
  window.fbAsyncInit = function() {
 	  FB.init({
 		appId      : '627120887325860',
@@ -32,7 +32,7 @@ var username="none";
 			localStorage.removeItem('USER_FB_INFO');
 		  }
 		 });
-		 applyCSSToPageComponents();
+	  applyCSSToPageComponents();
  };
 	   
 function loggedIn(){
@@ -50,25 +50,69 @@ function loggedIn(){
 			username=response.username;
  });
 }   
-
+*/
 
 $(document).ready(function(){
 	var superbowlObj ='';
 	$.get("/superbowl",function(data,status){
 		superbowlobj=data;
+	        google.load('visualization','1.0',{'packages':['table'],callback:drawChart});
+		function drawChart()
+		{
+		    var datarow = new google.visualization.DataTable();
+		    datarow.addColumn('string','User');
+		    datarow.addColumn('string','1Q Total 10-8');
+		    datarow.addColumn('string','1Q Spread S8');
+		    datarow.addColumn('string','2Q Total 14-14');
+		    datarow.addColumn('string','2Q Spread S14');
+		    datarow.addColumn('string','3Q Total 9-22');
+		    datarow.addColumn('string','3Q Spread S6');
+		    datarow.addColumn('string','4Q Total 7-13');
+		    datarow.addColumn('string','4Q Spread S7');
+		    datarow.addColumn('string','F Total 47-51');
+		    datarow.addColumn('string','F Spread S35');
+		    for (var i=0;i<data.results.length;i++)
+			{
+			    var username = data.results[i].username;
+			    var firstquartertotal=data.results[i].firstquartertotal;
+			    var secondquartertotal=data.results[i].secondquartertotal;
+			    var thirdquartertotal=data.results[i].thirdquartertotal;
+			    var fourthquartertotal=data.results[i].fourthquartertotal;
+			    var finaltotal=data.results[i].finaltotal;
+			    var firstquarterspread=data.results[i].firstquarterspread;
+			    var secondquarterspread=data.results[i].secondquarterspread;
+			    var thirdquarterspread=data.results[i].thirdquarterspread;
+			    var fourthquarterspread=data.results[i].fourthquarterspread;
+			    var finalspread=data.results[i].finalspread;
+		  	    datarow.addRows([[username,firstquartertotal,firstquarterspread,secondquartertotal,secondquarterspread,thirdquartertotal,thirdquarterspread,fourthquartertotal,fourthquarterspread,finaltotal,finalspread]]);
+			}
+		    var batroptions={ title:'Bets','height':600,vAxis:{title:'Runs'}};
+		    var batrchart = new google.visualization.Table(document.getElementById('squares_chart_div'));
+		    batrchart.draw(datarow);
+		}
+		/*
 		$('#firstquartertotaldiv').puidatatable({
 			lazy: true,
 			    caption: 'Bets',
 			    columns: [
-				      {field:'firstquartertotalover', headerText: 'Over',sortable:false},
-				      {field:'firstquartertotalunder', headerText: 'Under',sortable:false},
+				      {field:'username', headerText: 'User',sortable:false},
+				      {field:'firstquartertotal', headerText: 'FirstQuarterTotal',sortable:false},
+				      {field:'secondquartertotal', headerText: 'SecondQuarterTotal',sortable:false},
+				      {field:'thirdquartertotal', headerText: 'ThirdQuarterTotal',sortable:false},
+				      {field:'fourthquartertotal', headerText: 'FourthQuarterTotal',sortable:false},
+				      {field:'finalquartertotal', headerText: 'FinalTotal',sortable:false},
 				      ],
 			    datasource: function(callback,ui)
 			    {
-				var pData=data;
-				callback.call(this,$.makeArray(pData));
+				for(i=0;i<data.results.length;i++)
+				    {
+					var pData = data.results[i];
+					callback.call(pData);
+				    }
+				//var pData=data;
+				//callback.call(this,$.makeArray(pData));
 			    }
-		    });
+			    });
 		$('#secondquartertotaldiv').puidatatable({
 			lazy: true,
 			    caption: 'Bets',
@@ -185,9 +229,9 @@ $(document).ready(function(){
 				var pData=data;
 				callback.call(this,$.makeArray(pData));
 			    }
-		    });
+			    });*/
 	    });
-	$('input[type=button]').click(function(){
+	/*	$('input[type=button]').click(function(){
 		var firstquartertotal=$('[name=firstquartertotalpoll]:checked').val();
 		var secondquartertotal=$('[name=secondquartertotalpoll]:checked').val();
 		var thirdquartertotal=$('[name=thirdquartertotalpoll]:checked').val();
@@ -197,9 +241,21 @@ $(document).ready(function(){
 		var secondquarterspread=$('[name=secondquarterspreadpoll]:checked').val();
 		var thirdquarterspread=$('[name=thirdquarterspreadpoll]:checked').val();
 		var fourthquarterspread=$('[name=fourthquarterspreadpoll]:checked').val();
-		var finaltotal=$('[name=finalspreadpoll]:checked').val();
-
-		var superbowldata=JSON.stringify({'username':username,'firstquartertotal':firstquartertotal,'secondquartertotal':secondquartertotal,'thirdquartertotal':thirdquartertotal,'fourthquartertotal':fourthquartertotal,'finaltotal':finaltotal,'firstquarterspread':firstquarterspread,'secondquarterspread':secondquarterspread,'thirdquarterspread':thirdquarterspread,'fourthquarterspread':fourthquarterspread,'finaltotal':finalspread});
-		alert(superbowldata);
-	    });
+		var finalspread=$('[name=finalspreadpoll]:checked').val();
+				
+		
+		var superbowldata=JSON.stringify({'username':username,'firstquartertotal':firstquartertotal,'secondquartertotal':secondquartertotal,'thirdquartertotal':thirdquartertotal,'fourthquartertotal':fourthquartertotal,'finaltotal':finaltotal,'firstquarterspread':firstquarterspread,'secondquarterspread':secondquarterspread,'thirdquarterspread':thirdquarterspread,'fourthquarterspread':fourthquarterspread,'finalspread':finalspread});
+		$.ajax({
+			type:"POST",
+			    contentType:'application/json',
+			    url:'/superbowl',
+			    data:superbowldata,
+			    dataType:'json',
+			    success:function(msg)
+			    {
+				alert("Thanks for the betting entry!!");
+				location.href="/superbowl.html";
+			    }
+		    });
+		    });*/
     });
