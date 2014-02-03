@@ -87,7 +87,7 @@ $(document).ready(function(){
 		  	    datarow.addRows([[username,firstquarterspread,secondquarterspread,thirdquarterspread,fourthquarterspread,finalspread,firstquarterspread,secondquarterspread,thirdquarterspread,fourthquarterspread,finalspread]]);
 			}
 		    var batroptions={ title:'Bets','height':600,vAxis:{title:'Runs'}};
-		    var batrchart = new google.visualization.Table(document.getElementById('firstquartertotaldiv'));
+		    var batrchart = new google.visualization.Table(document.getElementById('squares_chart_div'));
 		    batrchart.draw(datarow);
 		}
 		/*
