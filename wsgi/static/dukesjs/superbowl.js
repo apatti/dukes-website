@@ -73,7 +73,7 @@ $(document).ready(function(){
 				for(i=0;i<data.results.length;i++)
 				    {
 					var pData = data.results[i];
-					callback.call($.makeArray(pData));
+					callback.call(pData);
 				    }
 				//var pData=data;
 				//callback.call(this,$.makeArray(pData));
