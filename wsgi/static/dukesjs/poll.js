@@ -122,7 +122,7 @@ window.fbAsyncInit = function() {
 			*/
 			$('[class=pollButton]').click(function() {
 				 // alert( this.id );
-				  $('input[type=radio]class['+this.id+']').each(function (){
+				  $('input[type=radio][class='+this.id+']').each(function (){
 					alert($(this).val() );
 				  });
 				 
