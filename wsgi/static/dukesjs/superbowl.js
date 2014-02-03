@@ -56,7 +56,41 @@ $(document).ready(function(){
 	var superbowlObj ='';
 	$.get("/superbowl",function(data,status){
 		superbowlobj=data;
-	       
+	        google.load('visualization','1.0',{'packages':['corechart'],callback:drawChart});
+		function drawChart()
+		{
+		    var datarow = new google.visualization.DataTable();
+		    datarow.addColumn('string','User');
+		    datarow.addColumn('string','FirstQuarter Total');
+		    datarow.addColumn('string','SecondQuarter Total');
+		    datarow.addColumn('string','ThirdQuarter Total');
+		    datarow.addColumn('string','FourQuarter Total');
+		    datarow.addColumn('string','Final Total');
+		    datarow.addColumn('string','FirstQuarter Spread');
+		    datarow.addColumn('string','SecondQuarter Spread');
+		    datarow.addColumn('string','ThirdQuarter Spread');
+		    datarow.addColumn('string','FourQuarter Spread');
+		    datarow.addColumn('string','Final Spread');
+		    for (var i=0;i<data.results.length;i++)
+			{
+			    var username = data.results[i].username;
+			    var firstquartertotal=data.results[i].firstquartertotal;
+			    var secondquartertotal=data.results[i].secondquartertotal;
+			    var thirdquartertotal=data.results[i].thirdquartertotal;
+			    var fourthquartertotal=data.results[i].fourthquartertotal;
+			    var finaltotal=data.results[i].finaltotal;
+			    var firstquarterspread=data.results[i].firstquarterspread;
+			    var secondquarterspread=data.results[i].secondquarterspread;
+			    var thirdquarterspread=data.results[i].thirdquarterspread;
+			    var fourthquarterspread=data.results[i].fourthquarterspread;
+			    var finalspread=data.results[i].finalspread;
+		  	    datarow.addRows([[username,firstquarterspread,secondquarterspread,thirdquarterspread,fourthquarterspread,finalspread,firstquarterspread,secondquarterspread,thirdquarterspread,fourthquarterspread,finalspread]]);
+			}
+		    var batroptions={ title:'Bets','height':600,vAxis:{title:'Runs'}};
+		    var batrchart = new google.visualization.Table(document.getElementById('firstquartertotaldiv'));
+		    batrchart.draw(datarow);
+		}
+		/*
 		$('#firstquartertotaldiv').puidatatable({
 			lazy: true,
 			    caption: 'Bets',
@@ -78,7 +112,7 @@ $(document).ready(function(){
 				//var pData=data;
 				//callback.call(this,$.makeArray(pData));
 			    }
-		    });
+			    });*/
 		$('#secondquartertotaldiv').puidatatable({
 			lazy: true,
 			    caption: 'Bets',
