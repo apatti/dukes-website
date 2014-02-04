@@ -119,7 +119,7 @@ window.fbAsyncInit = function() {
 					dataType: 'json',
 					success: function(msg) {
 					   alert("Thank you for Taking Poll.");
-					   updatePollDetails(pollid);
+					   updatePollDetails(pollid,99);
 					   //location.href="/";
 				   }
 				});
@@ -130,7 +130,7 @@ window.fbAsyncInit = function() {
 		
 	}
 	
-function updatePollDetails(pollId){
+function updatePollDetails(pollId,noOfPolls ){
 	$.get("http://www.dukesxi.co/polls/"+pollId,function(data,status){
 		var rr = JSON.stringify(data);	
 		var pData = $.parseJSON(rr);
@@ -141,7 +141,7 @@ function updatePollDetails(pollId){
 		if(pData['isClosed'] == 0 ){
 			var objId = pData['objectId'] ;
 			var updateProllStr = "";
-			updateProllStr = updateProllStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll'>";
+			updateProllStr = updateProllStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
 			updateProllStr = updateProllStr + "<table><tr>";
 			updateProllStr = updateProllStr + "<td colspan='3'>"+ pData['question'] +" Ends 	<b>"+ pData['endDate'] +"</b></td>";					
 			updateProllStr = updateProllStr + "</tr>";
@@ -185,7 +185,7 @@ function updatePollDetails(pollId){
 				updateProllStr = updateProllStr + "</table>";
 				updateProllStr = updateProllStr + "</div>";					
 				//pollDivStr = pollDivStr + updateProllStr;
-				noOfPolls ++;
+				
 			}
 			$('#'+pollId).html(updateProllStr); 
 		});
