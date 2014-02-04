@@ -187,7 +187,7 @@ function updatePollDetails(pollId){
 				//pollDivStr = pollDivStr + updateProllStr;
 				noOfPolls ++;
 			}
-			$('#pollsDiv').html(updateProllStr); 
+			$('#'+pollId).html(updateProllStr); 
 		});
 	}
 	function usersDropDown( users,pollId){
