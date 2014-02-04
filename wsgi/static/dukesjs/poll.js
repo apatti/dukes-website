@@ -138,12 +138,12 @@ function updatePollDetails(pollId){
 		var opData = $.parseJSON(op);
 	
 		//Open Polls
-		if(this['isClosed'] == 0 ){
-			var objId = this['objectId'] ;
+		if(pData['isClosed'] == 0 ){
+			var objId = pData['objectId'] ;
 			var updateProllStr = "";
 			updateProllStr = updateProllStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
 			updateProllStr = updateProllStr + "<table><tr>";
-			updateProllStr = updateProllStr + "<td colspan='3'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
+			updateProllStr = updateProllStr + "<td colspan='3'>"+ pData['question'] +" Ends 	<b>"+ pData['endDate'] +"</b></td>";					
 			updateProllStr = updateProllStr + "</tr>";
 			
 			$.each(opData, function() {
