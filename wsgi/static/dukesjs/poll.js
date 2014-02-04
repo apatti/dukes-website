@@ -141,7 +141,7 @@ function updatePollDetails(pollId){
 		if(pData['isClosed'] == 0 ){
 			var objId = pData['objectId'] ;
 			var updateProllStr = "";
-			updateProllStr = updateProllStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
+			updateProllStr = updateProllStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll'>";
 			updateProllStr = updateProllStr + "<table><tr>";
 			updateProllStr = updateProllStr + "<td colspan='3'>"+ pData['question'] +" Ends 	<b>"+ pData['endDate'] +"</b></td>";					
 			updateProllStr = updateProllStr + "</tr>";
