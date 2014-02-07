@@ -103,7 +103,7 @@ def takePollApi(poll_id):
     if result.get('code'):
         abort(404)
     reqObj = request.get_json(force=True)
-    result = takePoll(poll_id,reqObj.get("username"),reqObj.get("current_poll_id"),reqObj.get("prev_poll_id")))
+    result = takePoll(poll_id,reqObj.get("username"),reqObj.get("current_option_id"),reqObj.get("prev_option_id")))
     return jsonify({'result':result}),201
 
 @app.route('/superbowl',methods=['POST'])
