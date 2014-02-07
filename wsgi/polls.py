@@ -36,34 +36,9 @@ def takePoll(poll_id,username,optid,prev_optid):
     
     if not prev_optid or prev_optid != '':
         #handle the old option.
-        #TODO: Should handle this properly lateron.
-        params = urllib.urlencode({"where":json.dumps({
-                        "pollid":poll_id,
-                        "id":prev_optid
-                        })})
+        #TODO: Should handle this properly lateron.    
+        connection.request('PUT','/1/classes/polloptions/%s'%prev_optid,json.dumps({"users":{"__op":"Remove","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"}) 
     
-        connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-        result = json.loads(connection.getresponse().read())
-    
-        #now get the option id.
-        #print result
-        optionid=result.get("results")[0].get("objectId")
-        connection.request('PUT','/1/classes/polloptions/%s'%optionid,json.dumps({"users":{"__op":"Remove","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"}) 
-    
-
-    #handle the new poll option.
-    #get the poll option.
-    params = urllib.urlencode({"where":json.dumps({
-                    "pollid":poll_id,
-                    "id":optid
-                    })})
-
-    connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    
-    #now get the option id.
-    #print result
-    optionid=result.get("results")[0].get("objectId")
     connection.request('PUT','/1/classes/polloptions/%s'%optionid,json.dumps({"users":{"__op":"AddUnique","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"}) 
     result = json.loads(connection.getresponse().read())
     
