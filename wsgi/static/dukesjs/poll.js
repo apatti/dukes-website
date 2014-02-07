@@ -111,11 +111,12 @@ window.fbAsyncInit = function() {
 				var str = $('input[type=radio][class='+this.id+']:checked').val().split('&');
 				var optionId = str[0];
 				var pollid = (str[2].split('='))[1];
+				var previousOptionId = (str[3].split('='))[1];
 				$.ajax({
 					type: "PUT",
 					contentType:'application/json',
 					url: '/polls/'+pollid,
-					data: JSON.stringify({'id':parseInt(optionId),'username':fbUserName} ),
+					data: JSON.stringify({'current_option_id':parseInt(optionId),'prev_option_id':parseInt(optionId),'username':fbUserName} ),
 					dataType: 'json',
 					success: function(msg) {
 					   alert("Thank you for Taking Poll.");
