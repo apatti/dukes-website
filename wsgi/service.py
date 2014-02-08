@@ -83,6 +83,8 @@ def createPollApi():
     pollObj["endDate"] = reqObj.get("endDate")
     #pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]=0
+    print pollObj
+    print reqObj.get("options")
     result = createPoll(pollObj,reqObj.get("options"))
     return jsonify({'id':result}),201
 
