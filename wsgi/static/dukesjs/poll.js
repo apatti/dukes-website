@@ -79,7 +79,7 @@ window.fbAsyncInit = function() {
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+'objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
+							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='objectId="+'objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
@@ -110,14 +110,14 @@ window.fbAsyncInit = function() {
 			$('[class=pollButton]').click(function() {
 				var str = $('input[type=radio][class='+this.id+']:checked').val().split('&');
 				alert(str);
-				var optionId = str[0];
+				var optionId = (str[0].split('='))[1];;
 				var pollid = (str[1].split('='))[1];
 				var previousOptionId = (str[2].split('='))[1];
 				$.ajax({
 					type: "PUT",
 					contentType:'application/json',
 					url: '/polls/'+pollid,
-					data: JSON.stringify({'current_option_id':parseInt(optionId),'prev_option_id':parseInt(optionId),'username':fbUserName} ),
+					data: JSON.stringify({'current_option_id':parseInt(optionId),'prev_option_id':parseInt(previousOptionId),'username':fbUserName} ),
 					dataType: 'json',
 					success: function(msg) {
 					   alert("Thank you for Taking Poll.");
@@ -170,7 +170,7 @@ function updatePollDetails(pollId,noOfPolls ){
 				}
 				/* */
 				 updateProllStr = updateProllStr + "<tr>";
-				 updateProllStr = updateProllStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+'objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
+				 updateProllStr = updateProllStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+'objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
 				 updateProllStr = updateProllStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 				 
 				 updateProllStr = updateProllStr + "<td>" + dropDownStr + "</td>";
