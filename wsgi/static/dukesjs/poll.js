@@ -113,7 +113,12 @@ window.fbAsyncInit = function() {
 				var optionId = (str[0].split('='))[1];;
 				var pollid = (str[1].split('='))[1];
 				var tt = (str[2].split('='))[1];
-				var previousOptionId = function(tt )(return ( tt === '0') ? null : tt} ;
+				var previousOptionId ='';
+				if( tt === '0'){
+					previousOptionId = null;
+				}else{
+					previousOptionId = tt;
+				}
 					alert("current -> "+optionId);
 				alert("previous -> "+previousOptionId);
 				$.ajax({
