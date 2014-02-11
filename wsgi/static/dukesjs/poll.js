@@ -113,11 +113,13 @@ window.fbAsyncInit = function() {
 				var optionId = (str[0].split('='))[1];;
 				var pollid = (str[1].split('='))[1];
 				var previousOptionId = (str[2].split('='))[1];
+					alert("current -> "+optionId);
+				alert("previous -> "+previousOptionId);
 				$.ajax({
 					type: "PUT",
 					contentType:'application/json',
 					url: '/polls/'+pollid,
-					data: JSON.stringify({'current_option_id':parseInt(optionId),'prev_option_id':parseInt(previousOptionId),'username':fbUserName} ),
+					data: JSON.stringify({'current_option_id':optionId,'prev_option_id':previousOptionId,'username':fbUserName} ),
 					dataType: 'json',
 					success: function(msg) {
 					   alert("Thank you for Taking Poll.");
