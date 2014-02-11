@@ -75,12 +75,12 @@ window.fbAsyncInit = function() {
 									}
 									userCount ++;
 								});
-								dropDownStr = dropDownStr +"</select> <div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+uData.length+")</div>";
+								dropDownStr = dropDownStr +"</select> <div id='"+'pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+uData.length+")</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
-							 localPollStr = localPollStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
+							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+'objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
+							 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
 							 
@@ -110,8 +110,8 @@ window.fbAsyncInit = function() {
 			$('[class=pollButton]').click(function() {
 				var str = $('input[type=radio][class='+this.id+']:checked').val().split('&');
 				var optionId = str[0];
-				var pollid = (str[2].split('='))[1];
-				var previousOptionId = (str[3].split('='))[1];
+				var pollid = (str[1].split('='))[1];
+				var previousOptionId = (str[2].split('='))[1];
 				$.ajax({
 					type: "PUT",
 					contentType:'application/json',
@@ -165,12 +165,12 @@ function updatePollDetails(pollId,noOfPolls ){
 						}
 						userCount ++;
 					});
-					dropDownStr = dropDownStr +"</select> <div id='"+this['id']+'&pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+uData.length+")</div>";
+					dropDownStr = dropDownStr +"</select> <div id='"+'pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+uData.length+")</div>";
 				}
 				/* */
 				 updateProllStr = updateProllStr + "<tr>";
-				 updateProllStr = updateProllStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+this['id']+'&objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+this['id']+'&'+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
-				 updateProllStr = updateProllStr +"<td><label for='"+this['id']+"'>"+this['text']+"</label></td>";
+				 updateProllStr = updateProllStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='"+'objectId='+ this['objectId'] + '&'+ this['pollid'] +"' value='"+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue:'+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
+				 updateProllStr = updateProllStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 				 
 				 updateProllStr = updateProllStr + "<td>" + dropDownStr + "</td>";
 				 
