@@ -112,7 +112,7 @@ window.fbAsyncInit = function() {
 				alert(str);
 				var optionId = (str[0].split('='))[1];;
 				var pollid = (str[1].split('='))[1];
-				var previousOptionId = (str[2].split('='))[1];
+				var previousOptionId = if ((str[2].split('='))[1] === '0') ? null : (str[2].split('='))[1];
 					alert("current -> "+optionId);
 				alert("previous -> "+previousOptionId);
 				$.ajax({
