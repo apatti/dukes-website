@@ -14,6 +14,7 @@ def createPoll(pollObj,optObj):
     #poll is created, populate the options table.
     for option in optObj:
         option["pollid"]=pollId
+        connection.connection()
         connection.request('POST','/1/classes/polloptions',json.dumps(option),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
     return pollId
@@ -25,6 +26,7 @@ tent-Type": "application/json"})
     pollObj = json.loads(connection.getresponse().read())
     
     params = urllib.urlencode({"where":json.dumps({"pollid":poll_id})})
+    connection.connect()
     connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     options = json.loads(connection.getresponse().read())
     pollObj["options"]=options.get("results")
