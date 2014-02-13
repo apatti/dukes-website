@@ -112,7 +112,7 @@ window.fbAsyncInit = function() {
 			});			
 			$('[class=pollButton]').click(function() {
 				var str = $('input[type=radio][class='+this.id+']:checked').val().split('&');
-				alert(str);
+				
 				var optionId = (str[0].split('='))[1];;
 				var pollid = (str[1].split('='))[1];
 				var tt = (str[2].split('='))[1];
@@ -122,8 +122,7 @@ window.fbAsyncInit = function() {
 				}else{
 					previousOptionId = tt;
 				}
-					alert("current -> "+optionId);
-				alert("previous -> "+previousOptionId);
+					
 				$.ajax({
 					type: "PUT",
 					contentType:'application/json',
