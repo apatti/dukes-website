@@ -73,7 +73,7 @@ window.fbAsyncInit = function() {
 								$.each( uData,function () {
 									dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
 									if(this.toString() === fbUserName){
-										hasPollTaken = 'true';
+										hasPollTaken = 'yes';
 									}
 									userCount ++;
 								});
