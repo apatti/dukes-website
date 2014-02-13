@@ -112,7 +112,7 @@ window.fbAsyncInit = function() {
 				,closable: true
 			});			
 			$('[class=pollButton]').click(function() {
-				var str = $('input[type=radio][class='+this.id+']:checked').val().split('&');
+				var str = $('input[type=radio][class$='+this.id+']:checked').val().split('&');
 				
 				var optionId = (str[0].split('='))[1];;
 				var pollid = (str[1].split('='))[1];
