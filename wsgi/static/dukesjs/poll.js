@@ -104,7 +104,7 @@ window.fbAsyncInit = function() {
 					}
 				});
 			 
-			$.when($('#pollsDiv').append(pollDivStr)).then(selectOptions);
+			$.when( function () { $('#pollsDiv').html(pollDivStr) return ;})).then(selectOptions);
 			//$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
