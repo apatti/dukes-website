@@ -102,7 +102,7 @@ window.fbAsyncInit = function() {
 					}
 				});
 			$('#pollsDiv').append(pollDivStr); 
-			//$(':radio').puiradiobutton();   
+			$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
 				,closable: true
@@ -136,7 +136,7 @@ window.fbAsyncInit = function() {
 				
 			});
 				// update all radio buttons
-			$("input:radio[class='pollRadio']").each(function(){
+			$("input:radio[class$='pollRadio']").each(function(){
 				  var name = $(this).attr("name");
 				  alert("Name : "+ name);
 				  if($(this).is(":checked")){
