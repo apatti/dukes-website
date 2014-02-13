@@ -146,6 +146,7 @@ window.fbAsyncInit = function() {
 	}
 	function selectOptions(){
 	// update all radio buttons
+		alert("test");
 				$("input:radio[class$='pollRadio']").each(function(){
 				  var name = $(this).attr("name");
 				  alert($(this).is(":checked"));
