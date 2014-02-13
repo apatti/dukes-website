@@ -110,6 +110,7 @@ window.fbAsyncInit = function() {
 				,closable: true
 			});			
 			$('[class=pollButton]').click(function() {
+			/*
 				var str = $('input[type=radio][class='+this.id+']:checked').val().split('&');
 				alert(str);
 				var optionId = (str[0].split('='))[1];;
@@ -135,7 +136,8 @@ window.fbAsyncInit = function() {
 					   //location.href="/";
 				   }
 				});
-				
+				*/
+				selectOptions();
 			});
 			
 		});
