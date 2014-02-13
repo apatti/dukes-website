@@ -153,7 +153,7 @@ window.fbAsyncInit = function() {
 				  var name = $(this).attr("name");
 				  alert($(this).is(":checked"));
 				  if($(this).is(":checked")){
-					alert("Name : "+ name);
+					alert($(this).attr("value"));
 					this.click();
 				  }
 				});
