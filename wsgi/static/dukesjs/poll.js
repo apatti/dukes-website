@@ -152,9 +152,10 @@ window.fbAsyncInit = function() {
 				  if($(this).is(":checked")){
 					alert($(this).attr("value"));
 					this.click();
+					$('#radio').buttonset("refresh");
 				  }
 				});
-		$('#radio').buttonset("refresh");
+		
 
 	}
 function updatePollDetails(pollId,noOfPolls ){
