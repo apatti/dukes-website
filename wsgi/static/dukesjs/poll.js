@@ -61,7 +61,7 @@ window.fbAsyncInit = function() {
 						
 						$.each(opData, function() {
 							var dropDownStr ='';
-							var hasPollTaken=false;
+							var hasPollTaken='no';
 							/* create Users DropDown*/
 							dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
@@ -73,7 +73,7 @@ window.fbAsyncInit = function() {
 								$.each( uData,function () {
 									dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
 									if(this.toString() === fbUserName){
-										hasPollTaken = true;
+										hasPollTaken = 'true';
 									}
 									userCount ++;
 								});
@@ -148,7 +148,7 @@ window.fbAsyncInit = function() {
 	// update all radio buttons
 	$("input:radio[class$='pollRadio']").each(function(){
 		  var name = $(this).attr("yourSelection");
-		  if(name ){					
+		  if(name === 'yes'){					
 			this.click();					
 		  }
 		});
