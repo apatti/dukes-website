@@ -154,6 +154,8 @@ window.fbAsyncInit = function() {
 					this.click();
 				  }
 				});
+		$('#radio').buttonset("refresh");
+
 	}
 function updatePollDetails(pollId,noOfPolls ){
 	$.get("http://www.dukesxi.co/polls/"+pollId,function(data,status){
