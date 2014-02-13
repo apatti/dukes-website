@@ -31,9 +31,11 @@ window.fbAsyncInit = function() {
 		
 		   fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);	 
-		   polling();
+		   $.when(polling()).then(selectOptions);
 		});
  }
+ 
+ 
 	function polling(){
 		var pollDivStr ='';
 		$.get("http://www.dukesxi.co/polls",function(data,status){
@@ -137,9 +139,13 @@ window.fbAsyncInit = function() {
 			});
 			
 		});
-		$( document ).ajaxComplete(function( event, xhr, settings ) {
-			  if ( settings.url === "ajax/test.html" ) {
-				// update all radio buttons
+		
+			 
+		
+		return;
+	}
+	function selectOptions(){
+	// update all radio buttons
 				$("input:radio[class$='pollRadio']").each(function(){
 				  var name = $(this).attr("name");
 				  
@@ -148,13 +154,7 @@ window.fbAsyncInit = function() {
 					this.click();
 				  }
 				});
-			  }
-			});
-			
-		
-		
 	}
-	
 function updatePollDetails(pollId,noOfPolls ){
 	$.get("http://www.dukesxi.co/polls/"+pollId,function(data,status){
 		var rr = JSON.stringify(data);	
