@@ -59,7 +59,7 @@ window.fbAsyncInit = function() {
 						
 						$.each(opData, function() {
 							var dropDownStr ='';
-							var hasPollTaken=0;
+							var hasPollTaken=false;
 							/* create Users DropDown*/
 							dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
@@ -71,7 +71,7 @@ window.fbAsyncInit = function() {
 								$.each( uData,function () {
 									dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
 									if(this.toString() === fbUserName){
-										hasPollTaken = 1;
+										hasPollTaken = true;
 									}
 									userCount ++;
 								});
@@ -79,7 +79,7 @@ window.fbAsyncInit = function() {
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ hasPollTaken +"' class='"+this['pollid']+"'/></td>";	
+							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ hasPollTaken +"' class='"+this['pollid']+" pollRadio'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
@@ -137,7 +137,10 @@ window.fbAsyncInit = function() {
 			});
 		});
 		
-		
+		// update all radio buttons
+		$("input:radio").each(function(){
+			   alert(
+			});
 	}
 	
 function updatePollDetails(pollId,noOfPolls ){
@@ -158,7 +161,7 @@ function updatePollDetails(pollId,noOfPolls ){
 			
 			$.each(opData, function() {
 				var dropDownStr ='';
-				var hasPollTaken=0;
+				var hasPollTaken=false;
 				/* create Users DropDown*/
 				dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 				 
@@ -170,7 +173,7 @@ function updatePollDetails(pollId,noOfPolls ){
 					$.each( uData,function () {
 						dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
 						if(this.toString() === fbUserName){
-							hasPollTaken = 1;
+							hasPollTaken = true;
 						}
 						userCount ++;
 					});
