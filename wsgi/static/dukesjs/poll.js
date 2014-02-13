@@ -114,6 +114,12 @@ window.fbAsyncInit = function() {
 				,closable: true
 			});			
 			$('[class=pollButton]').click(function() {
+				$("input[type=radio][class$='"+this.id+"']").each(function(){
+					  var name = $(this).attr("myRadio");
+						if(! $(this).is(":checked")){
+							alert("Name : "+ $(this).attr("value"));
+						}
+					});
 				alert($('input[type=radio][class$='+this.id+']:checked').val());
 				var str = $('input[type=radio][class$='+this.id+']:checked').val().split('&');
 				
