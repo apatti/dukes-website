@@ -102,7 +102,7 @@ window.fbAsyncInit = function() {
 					}
 				});
 			$('#pollsDiv').append(pollDivStr); 
-			$(':radio').puiradiobutton();   
+			//$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
 				,closable: true
