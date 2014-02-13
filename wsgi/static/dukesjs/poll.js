@@ -138,9 +138,7 @@ window.fbAsyncInit = function() {
 		});
 		
 		// update all radio buttons
-		$("input:radio").each(function(){
-			   alert(
-			});
+	
 	}
 	
 function updatePollDetails(pollId,noOfPolls ){
