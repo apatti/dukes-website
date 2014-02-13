@@ -31,7 +31,7 @@ window.fbAsyncInit = function() {
 		
 		   fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);	 
-		   $.when(polling()).then(selectOptions);
+		   polling();
 		});
  }
  
@@ -103,7 +103,8 @@ window.fbAsyncInit = function() {
 						// Closed Polls
 					}
 				});
-			$('#pollsDiv').append(pollDivStr); 
+			 
+			$.when($('#pollsDiv').append(pollDivStr)).then(selectOptions);
 			//$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
