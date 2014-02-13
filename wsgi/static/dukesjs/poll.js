@@ -135,7 +135,10 @@ window.fbAsyncInit = function() {
 				});
 				
 			});
-				// update all radio buttons
+			
+		});
+		$.ajaxComplete(function(){
+			// update all radio buttons
 			$("input:radio[class$='pollRadio']").each(function(){
 				  var name = $(this).attr("name");
 				  
@@ -146,7 +149,6 @@ window.fbAsyncInit = function() {
 				});
 		});
 		
-	
 	}
 	
 function updatePollDetails(pollId,noOfPolls ){
