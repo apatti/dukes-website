@@ -137,9 +137,10 @@ window.fbAsyncInit = function() {
 			});
 			
 		});
-		$.ajaxComplete(function(){
-			// update all radio buttons
-			$("input:radio[class$='pollRadio']").each(function(){
+		$( document ).ajaxComplete(function( event, xhr, settings ) {
+			  if ( settings.url === "ajax/test.html" ) {
+				// update all radio buttons
+				$("input:radio[class$='pollRadio']").each(function(){
 				  var name = $(this).attr("name");
 				  
 				  if($(this).is(":checked")){
@@ -147,7 +148,10 @@ window.fbAsyncInit = function() {
 					this.click();
 				  }
 				});
-		});
+			  }
+			});
+			
+		
 		
 	}
 	
