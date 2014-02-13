@@ -146,18 +146,12 @@ window.fbAsyncInit = function() {
 	}
 	function selectOptions(){
 	// update all radio buttons
-		alert("test");
-				$("input:radio[class$='pollRadio']").each(function(){
-				  var name = $(this).attr("yourSelection");
-				  alert($(this).is(":checked"));
-				  if(name === 'yes'){
-					alert($(this).attr("value"));
-					this.click();
-					//$('#radio').buttonset("refresh");
-				  }
-				});
-		
-
+	$("input:radio[class$='pollRadio']").each(function(){
+		  var name = $(this).attr("yourSelection");
+		  if(name === 'yes'){					
+			this.click();					
+		  }
+		});
 	}
 function updatePollDetails(pollId,noOfPolls ){
 	$.get("http://www.dukesxi.co/polls/"+pollId,function(data,status){
