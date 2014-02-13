@@ -61,7 +61,7 @@ window.fbAsyncInit = function() {
 						
 						$.each(opData, function() {
 							var dropDownStr ='';
-							var hasPollTaken=false;
+							var hasPollTaken='no';
 							/* create Users DropDown*/
 							dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
@@ -73,7 +73,7 @@ window.fbAsyncInit = function() {
 								$.each( uData,function () {
 									dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
 									if(this.toString() === fbUserName){
-										hasPollTaken = true;
+										hasPollTaken = 'yes';
 									}
 									userCount ++;
 								});
@@ -81,7 +81,8 @@ window.fbAsyncInit = function() {
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
-							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ hasPollTaken +"' class='"+this['pollid']+" pollRadio'/></td>";	
+							 
+							 localPollStr = localPollStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ hasPollTaken +"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
@@ -147,12 +148,12 @@ window.fbAsyncInit = function() {
 	// update all radio buttons
 		alert("test");
 				$("input:radio[class$='pollRadio']").each(function(){
-				  var name = $(this).attr("name");
+				  var name = $(this).attr("yourSelection");
 				  alert($(this).is(":checked"));
-				  if($(this).is(":checked")){
+				  if(name === 'yes'){
 					alert($(this).attr("value"));
 					this.click();
-					$('#radio').buttonset("refresh");
+					//$('#radio').buttonset("refresh");
 				  }
 				});
 		
