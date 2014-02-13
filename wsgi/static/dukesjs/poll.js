@@ -114,6 +114,7 @@ window.fbAsyncInit = function() {
 				,closable: true
 			});			
 			$('[class=pollButton]').click(function() {
+				alert(this.id);
 				$("input[type=radio][class$='"+this.id+"']").each(function(){
 					  var name = $(this).attr("myRadio");
 						if(! $(this).is(":checked")){
