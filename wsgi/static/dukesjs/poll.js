@@ -138,7 +138,12 @@ window.fbAsyncInit = function() {
 		});
 		
 		// update all radio buttons
-	
+	$("input:radio[class='pollRadio']").each(function(){
+		  var name = $(this).attr("name");
+		  if($(this).is(":checked") === true){
+			this.click();
+		  }
+		});
 	}
 	
 function updatePollDetails(pollId,noOfPolls ){
