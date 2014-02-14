@@ -34,7 +34,7 @@
 				,closable: true
 			});
 			$('#pollSubjectTxt').puiinputtext();
-			$('#addPollOptionBtn').puibutton(); 
+			$('#addPollOptionBtn #createNewPollBtn').puibutton(); 
 			
 	}); 
 </script>	
@@ -59,7 +59,7 @@
 	<div id="pollCreationDiv" style="margin-bottom:20px" title="Polls Creation Form">
 		<table>
 			<tr>
-				<td>Poll Subject :</td><td><input id="pollSubjectTxt" type="text" /></td>
+				<td>Poll Subject :</td><td><textarea id="pollSubjectTxt" ></textarea></td>
 			</tr>
 			<tr>
 				<td><input id="pollSubjectTxt" type="text" /></td>
@@ -83,7 +83,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td></td><td></td>
+				<td colspan="2"><button id="createNewPollBtn" type="button">CreateNew Poll</button></td>
 			</tr>
 		</table>
 	</div>
