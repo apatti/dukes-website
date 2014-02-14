@@ -38,7 +38,7 @@
 			$('#addPollOptionBtn').puibutton(); 
 			 $('#createNewPollBtn').puibutton();
 			$('#addPollOptionBtn').click( function(){
-				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollOptionTxt').val()+'<a href="#" title="delete" class="itemDelete">x</a></li>');
+				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollOptionTxt').val()+' <a href="#" title="delete" class="itemDelete">x</a></li>');
 			});
 			$('.itemDelete').click(function() {
 				$(this).parent().remove();
@@ -77,8 +77,8 @@
 				<td colspan="2">
 					<div id="pollOptionsDiv">
 						<ul id="pollOptionsUl">
-							<li>Available<a href='#' title='delete' class="itemDelete">x</a></li>
-							<li>Not Available<a href='#' title='delete' class="itemDelete">x</a></li>							
+							<li>Available <a href='#' title='delete' class="itemDelete">x</a></li>
+							<li>Not Available <a href='#' title='delete' class="itemDelete">x</a></li>							
 						</ul>
 					</div>
 				</td>
