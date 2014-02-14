@@ -52,7 +52,7 @@ window.fbAsyncInit = function() {
 		   localStorage.setItem('USER_FB_INFO',jsonObj);
 	   },
 		   error: function(jqXHR, textStatus, errorThrown){
-		   alert(textStatus, errorThrown);
+		   //alert(textStatus, errorThrown);
 	   }
 
 	   });
