@@ -46,7 +46,7 @@ window.fbAsyncInit = function() {
 					var pData = $.parseJSON(rr);
 					var op = JSON.stringify(pData['options']);
 					var opData = $.parseJSON(op);
-				
+					
 					//Open Polls
 					if(this['isClosed'] == 0 ){
 						if(this['username'] === fbUserName ){
@@ -63,6 +63,8 @@ window.fbAsyncInit = function() {
 							var dropDownStr ='';
 							var hasPollTaken='no';
 							var checkedValue =false;
+							var optionId = this['objectId'];
+							var previousOptionId = '';
 							/* create Users DropDown*/
 							dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
@@ -76,6 +78,7 @@ window.fbAsyncInit = function() {
 									if(this.toString() === fbUserName){
 										hasPollTaken = 'yes';
 										checkedValue = true;
+										previousOptionId = optionId;
 									}
 									userCount ++;
 								});
@@ -84,7 +87,7 @@ window.fbAsyncInit = function() {
 							/* */
 							 localPollStr = localPollStr + "<tr>";
 							 
-							 localPollStr = localPollStr + "<td><input type='radio' checked='"+checkedValue+"' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ hasPollTaken +"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
+							 localPollStr = localPollStr + "<td><input type='radio' checked='"+checkedValue+"' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ previousOptionId +"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
@@ -115,12 +118,12 @@ window.fbAsyncInit = function() {
 			});			
 			$('[class=pollButton]').click(function() {
 				$("input[type=radio][class*='"+this.id+"']").each(function(){
-					  var name = $(this).attr("myRadio");
+					  var selectedRadio = $(this).attr("yourSelection");
 						if(! $(this).is(":checked")){
-							alert("Name : "+ $(this).attr("value"));
+							alert("Previously Selected : "+ $(this).attr("previousValue"));
 						}
 					});
-				alert($('input[type=radio][class*='+this.id+']:checked').val());
+			/*	
 				var str = $('input[type=radio][class*='+this.id+']:checked').val().split('&');
 				
 				var optionId = (str[0].split('='))[1];;
@@ -144,7 +147,8 @@ window.fbAsyncInit = function() {
 					   updatePollDetails(pollid,99);
 					   //location.href="/";
 				   }
-				});				
+				});	
+*/				
 			});
 			
 		});
@@ -181,7 +185,9 @@ function updatePollDetails(pollId,noOfPolls ){
 			$.each(opData, function() {
 				var dropDownStr ='';
 				var hasPollTaken='no';
-							var checkedValue =false;
+				var checkedValue =false;
+				var optionId = this['objectId'];
+				var previousOptionId = '';
 				/* create Users DropDown*/
 				dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 				 
@@ -195,6 +201,7 @@ function updatePollDetails(pollId,noOfPolls ){
 						if(this.toString() === fbUserName){
 							hasPollTaken='yes';
 							checkedValue =true;
+							previousOptionId = optionId;
 						}
 						userCount ++;
 					});
@@ -202,7 +209,7 @@ function updatePollDetails(pollId,noOfPolls ){
 				}
 				/* */
 				 updateProllStr = updateProllStr + "<tr>";
-				 updateProllStr = updateProllStr + "<td><input type='radio' checked='"+hasPollTaken+"' name='rd"+ noOfPolls +"' id='objectId='"+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ hasPollTaken +"' class='"+this['pollid']+"' yourSelection='"+hasPollTaken+"'/></td>";	
+				 updateProllStr = updateProllStr + "<td><input type='radio' checked='"+checkedValue+"' name='rd"+ noOfPolls +"' id='objectId='"+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ previousOptionId +"' class='"+this['pollid']+"' yourSelection='"+hasPollTaken+"'/></td>";	
 				 updateProllStr = updateProllStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 				 
 				 updateProllStr = updateProllStr + "<td>" + dropDownStr + "</td>";
