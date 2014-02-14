@@ -33,6 +33,8 @@
 				toggleable: true
 				,closable: true
 			});
+			$('#pollSubjectTxt').puiinputtext();
+			$('#addPollOptionBtn').puibutton(); 
 			
 	}); 
 </script>	
@@ -55,7 +57,35 @@
   <!-- Begin Left Column -->
   <div id="centerContent"> 
 	<div id="pollCreationDiv" style="margin-bottom:20px" title="Polls Creation Form">
-		
+		<table>
+			<tr>
+				<td>Poll Subject :</td><td><input id="pollSubjectTxt" type="text" /></td>
+			</tr>
+			<tr>
+				<td><input id="pollSubjectTxt" type="text" /></td>
+				<td><button id="addPollOptionBtn" type="button">Add Option</button></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="pollOptionsDiv">
+						<ul id="pollOptionsUl">
+							<li>
+								<input type="checkbox" name="chk" id="chk1" value="1"/><label for="chk1">Available</label>							
+							</li>
+							<li>
+								<input type="checkbox" name="chk" id="chk1" value="1"/><label for="chk1">Not Available</label>							
+							</li>
+							<li>
+								<input type="checkbox" name="chk" id="chk1" value="1"/><label for="chk1">Option 1</label>							
+							</li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+			</tr>
+		</table>
 	</div>
 	<div id="closedPollsDiv" style="margin-bottom:20px" title="All Closed Polls"></div>
 	
