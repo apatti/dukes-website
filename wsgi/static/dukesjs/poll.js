@@ -122,7 +122,7 @@ window.fbAsyncInit = function() {
 					  var selectedRadio = $(this).attr("yourSelection");
 						if(! $(this).is(":checked")){
 							alert("Previously Selected : "+ $(this).attr("previousValue"));
-							var str = $('input[type=radio][class*='+this.id+']:checked').val().split('&');
+							var str = $(this).val().split('&');
 				
 							var optionId = (str[0].split('='))[1];;
 							var pollid = (str[1].split('='))[1];
