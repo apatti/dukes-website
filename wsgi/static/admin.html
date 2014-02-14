@@ -49,7 +49,7 @@
 			});
 
 			$("#addPollOptionBtn").click(function () {
-				$('#pollOptionsUl').append("<li class='optionclass'>"+$('textarea#pollOptionTxt').val()+"<a href='#' class='delete'>Delete</a>");
+				$('#pollOptionsUl').append("<li class='optionclass'>"+$('#pollOptionTxt').val()+"<a href='#' class='delete'>Delete</a>");
 			});
 
 	}); 
@@ -79,7 +79,7 @@
 			</tr>
 			<tr>
 				<td>Enter Options : </td>
-				<td><textarea id="pollOptionTxt" ></textarea><button id="addPollOptionBtn">Add Option</button></td>
+				<td><input id="pollOptionTxt" type="text" /><button id="addPollOptionBtn">Add Option</button></td>
 			</tr>
 			<tr>
 				<td colspan="2">
