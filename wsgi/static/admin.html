@@ -40,7 +40,7 @@
 			$('#addPollOptionBtn').click( function(){
 				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollOptionTxt').val()+'<a href="#" title="delete" class="itemDelete">x</a></li>');
 			});
-			$('.itemDelete').live('click', function() {
+			$('.itemDelete').click(function() {
 				$(this).parent().remove();
 				return null;
 			});
