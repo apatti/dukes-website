@@ -38,7 +38,10 @@
 			$('#addPollOptionBtn').puibutton(); 
 			 $('#createNewPollBtn').puibutton();
 			$('#addPollOptionBtn').click( function(){
-				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollOptionTxt').val()+'</li>');
+				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollOptionTxt').val()+'<a href="#" title="delete" class="itemDelete">x</a></li>');
+			});
+			$('.itemDelete').live('click', function() {
+				$(this).closest('li').remove();
 			});
 	}); 
 </script>	
@@ -66,22 +69,15 @@
 				<td>Poll Subject :</td><td><textarea id="pollSubjectTxt" ></textarea></td>
 			</tr>
 			<tr>
-				<td><textarea id="pollOptionTxt" ></textarea></td>
-				<td><button id="addPollOptionBtn" type="button">Add Option</button></td>
+				<td>Do you Want Add More Options ? </td>
+				<td><textarea id="pollOptionTxt" ></textarea><button id="addPollOptionBtn" type="button">Add Option</button></td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<div id="pollOptionsDiv">
 						<ul id="pollOptionsUl">
-							<li>
-								<label for="chk1">Available</label>							
-							</li>
-							<li>
-								<label for="chk1">Not Available</label>							
-							</li>
-							<li>
-								<label for="chk1">Option 1</label>							
-							</li>
+							<li>Available<a href='#' title='delete' class="itemDelete">x</a></li>
+							<li>Not Available<a href='#' title='delete' class="itemDelete">x</a></li>							
 						</ul>
 					</div>
 				</td>
