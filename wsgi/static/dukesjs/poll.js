@@ -122,34 +122,29 @@ window.fbAsyncInit = function() {
 					  var selectedRadio = $(this).attr("yourSelection");
 						if(! $(this).is(":checked")){
 							alert("Previously Selected : "+ $(this).attr("previousValue"));
+							var str = $('input[type=radio][class*='+this.id+']:checked').val().split('&');
+				
+							var optionId = (str[0].split('='))[1];;
+							var pollid = (str[1].split('='))[1];
+							var tt = (str[2].split('='))[1];
+							var previousOptionId =$(this).attr("previousValue");
+							
+								
+							$.ajax({
+								type: "PUT",
+								contentType:'application/json',
+								url: '/polls/'+pollid,
+								data: JSON.stringify({'current_option_id':optionId,'prev_option_id':previousOptionId,'username':fbUserName} ),
+								dataType: 'json',
+								success: function(msg) {
+								   alert("Thank you for Taking Poll.");
+								   updatePollDetails(pollid,99);
+								   //location.href="/";
+							   }
+							});	
 						}
 					});
-			/*	
-				var str = $('input[type=radio][class*='+this.id+']:checked').val().split('&');
-				
-				var optionId = (str[0].split('='))[1];;
-				var pollid = (str[1].split('='))[1];
-				var tt = (str[2].split('='))[1];
-				var previousOptionId ='';
-				if( tt === '0'){
-					previousOptionId = null;
-				}else{
-					previousOptionId = tt;
-				}
-					
-				$.ajax({
-					type: "PUT",
-					contentType:'application/json',
-					url: '/polls/'+pollid,
-					data: JSON.stringify({'current_option_id':optionId,'prev_option_id':previousOptionId,'username':fbUserName} ),
-					dataType: 'json',
-					success: function(msg) {
-					   alert("Thank you for Taking Poll.");
-					   updatePollDetails(pollid,99);
-					   //location.href="/";
-				   }
-				});	
-			*/				
+			
 			});
 			
 		});
