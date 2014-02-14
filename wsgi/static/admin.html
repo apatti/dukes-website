@@ -37,13 +37,21 @@
 			$('#pollOptionTxt').puiinputtextarea();
 			$('#addPollOptionBtn').puibutton(); 
 			 $('#createNewPollBtn').puibutton();
-			$('#addPollOptionBtn').click( function(){
+			
+			/*$('#addPollOptionBtn').click( function(){
 				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollOptionTxt').val()+' <a href="#" title="delete" class="itemDelete">x</a></li>');
 			});
-			$('.itemDelete').click(function() {
-				$(this).parent().remove();
-				return null;
+			*/
+			$("#pollOptionsUl").sortable();
+
+			$("body").on('click', '#pollOptionsUl .delete', function () {
+				$(this).closest( ".optionclass" ).remove();
 			});
+
+			$("#addPollOptionBtn").click(function () {
+				$('#pollOptionsUl').append("<li class='optionclass'>"+$('textarea#pollOptionTxt').val()+"<button class='delete'>Delete</button></li>");
+			});
+
 	}); 
 </script>	
                                       
@@ -71,14 +79,18 @@
 			</tr>
 			<tr>
 				<td>Do you Want Add More Options ? </td>
-				<td><textarea id="pollOptionTxt" ></textarea><button id="addPollOptionBtn" type="button">Add Option</button></td>
+				<td><textarea id="pollOptionTxt" ></textarea><button id="addPollOptionBtn">Add Option</button></td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<div id="pollOptionsDiv">
 						<ul id="pollOptionsUl">
-							<li>Available <a href='#' title='delete' class="itemDelete">x</a></li>
-							<li>Not Available <a href='#' title='delete' class="itemDelete">x</a></li>							
+							<li class="optionclass">Available
+								<button class="delete">Delete</button>
+							</li>
+							<li class="optionclass">Not Available
+								<button class="delete">Delete</button>
+							</li>						
 						</ul>
 					</div>
 				</td>
