@@ -36,6 +36,9 @@
 			$('#pollSubjectTxt').puiinputtext();
 			$('#addPollOptionBtn #createNewPollBtn').puibutton(); 
 			
+			$('#addPollOptionBtn').click( function(){
+				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollSubjectTxt').val()+'</li>');
+			});
 	}); 
 </script>	
                                       
@@ -70,13 +73,13 @@
 					<div id="pollOptionsDiv">
 						<ul id="pollOptionsUl">
 							<li>
-								<input type="checkbox" name="chk" id="chk1" value="1"/><label for="chk1">Available</label>							
+								<label for="chk1">Available</label>							
 							</li>
 							<li>
-								<input type="checkbox" name="chk" id="chk1" value="1"/><label for="chk1">Not Available</label>							
+								<label for="chk1">Not Available</label>							
 							</li>
 							<li>
-								<input type="checkbox" name="chk" id="chk1" value="1"/><label for="chk1">Option 1</label>							
+								<label for="chk1">Option 1</label>							
 							</li>
 						</ul>
 					</div>
