@@ -49,7 +49,7 @@
 			});
 
 			$("#addPollOptionBtn").click(function () {
-				$('#pollOptionsUl').append("<li class='optionclass'>"+$('textarea#pollOptionTxt').val()+"<button class='delete'>Delete</button></li>");
+				$('#pollOptionsUl').append("<li class='optionclass'>"+$('textarea#pollOptionTxt').val()+"<a href='#' class='delete'>Delete</a>");
 			});
 
 	}); 
@@ -78,7 +78,7 @@
 				<td>Poll Subject :</td><td><textarea id="pollSubjectTxt" ></textarea></td>
 			</tr>
 			<tr>
-				<td>Do you Want Add More Options ? </td>
+				<td>Enter Options : </td>
 				<td><textarea id="pollOptionTxt" ></textarea><button id="addPollOptionBtn">Add Option</button></td>
 			</tr>
 			<tr>
@@ -86,10 +86,10 @@
 					<div id="pollOptionsDiv">
 						<ul id="pollOptionsUl">
 							<li class="optionclass">Available
-								<button class="delete">Delete</button>
+								<a href="#" class="delete">Delete</a>
 							</li>
 							<li class="optionclass">Not Available
-								<button class="delete">Delete</button>
+								<a href="#" class="delete">Delete</a>
 							</li>						
 						</ul>
 					</div>
