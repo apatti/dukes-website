@@ -148,7 +148,7 @@ window.fbAsyncInit = function() {
 					   //location.href="/";
 				   }
 				});	
-*/				
+			*/				
 			});
 			
 		});
