@@ -138,7 +138,7 @@ window.fbAsyncInit = function() {
 						type: "PUT",
 						contentType:'application/json',
 						url: '/polls/'+pollid,
-						data: JSON.stringify({'current_option_id':optionId,'prev_option_id':previousOptionId,'username':fbUserName} ),
+						data: JSON.stringify({'current_option_id':currentRadio,'prev_option_id':previousOptionId,'username':fbUserName} ),
 						dataType: 'json',
 						success: function(msg) {
 						   alert("Thank you for Taking Poll.");
