@@ -78,8 +78,7 @@ window.fbAsyncInit = function() {
 									if(this.toString() === fbUserName){
 										hasPollTaken = 'yes';
 										checkedValue = true;
-										previousOptionId = optionId;
-										alert(optionId);
+										previousOptionId = optionId;										
 									}
 									userCount ++;
 								});
@@ -135,9 +134,18 @@ window.fbAsyncInit = function() {
 							previousOptionId = 	temp;						
 					  }
 					});
-					alert( "Previous ID : "+ previousOptionId);
-					 alert( "Current ID : "+ currentRadio);
-					 alert( "Poll ID : "+ pollid);
+					$.ajax({
+						type: "PUT",
+						contentType:'application/json',
+						url: '/polls/'+pollid,
+						data: JSON.stringify({'current_option_id':optionId,'prev_option_id':previousOptionId,'username':fbUserName} ),
+						dataType: 'json',
+						success: function(msg) {
+						   alert("Thank you for Taking Poll.");
+						   updatePollDetails(pollid,99);
+						   //location.href="/";
+					   }
+					});	
 			});
 			
 		});
