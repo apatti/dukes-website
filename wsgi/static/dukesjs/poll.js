@@ -126,7 +126,7 @@ window.fbAsyncInit = function() {
 					  
 					  if(! $(this).is(":checked")){
 						 var str = $(this).val().split('&');				
-							currentRadio = = (str[0].split('='))[1];;
+							currentRadio = = (str[0].split('='))[1];
 							pollid = (str[1].split('='))[1];							
 					  }
 					  var temp = $(this).attr("previousValue");
