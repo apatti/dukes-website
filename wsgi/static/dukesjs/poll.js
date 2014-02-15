@@ -118,14 +118,26 @@ window.fbAsyncInit = function() {
 				,closable: true
 			});			
 			$('[class=pollButton]').click(function() {
-				alert(this.id);
-					var currentRadio = '';
-					  var pollid = '';
-					  var previousOptionId = '';
-					var str =  $("input[type=radio][class*='"+this.id+"']:checked")	.val();
-					alert(str);
+				var currentRadio = '';
+				var pollid = '';
+				var previousOptionId = '';
+				var rr =  $("input[type=radio][class*='"+this.id+"']:checked")	.val();
+				var str = rr.split('&');
 				
-			
+				currentRadio = (str[0].split('='))[1];;
+				pollid = (str[1].split('='))[1];
+				var tt = (str[2].split('='))[1];
+				$("input[type=radio][class*='"+this.id+"']").each(function(){
+					var temp = $(this).attr("previousValue");
+					  
+					   if( temp != null || temp === ''){
+						 var str = $(this).val().split('&');				
+							previousOptionId = 	temp;						
+					  }
+					});
+					alert( "Previous ID : "+ previousOptionId);
+					 alert( "Current ID : "+ currentRadio);
+					 alert( "Poll ID : "+ pollid);
 			});
 			
 		});
