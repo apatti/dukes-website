@@ -226,7 +226,8 @@ function updatePollDetails(pollId,noOfPolls ){
 				//pollDivStr = pollDivStr + updateProllStr;
 				
 			}
-			$('#'+pollId).html(updateProllStr); 
+			$.when( $('#'+pollId).html(updateProllStr)).then(selectOptions);
+			 
 		});
 	}
 	function usersDropDown( users,pollId){
