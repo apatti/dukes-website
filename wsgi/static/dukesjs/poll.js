@@ -118,6 +118,7 @@ window.fbAsyncInit = function() {
 				,closable: true
 			});			
 			$('[class=pollButton]').click(function() {
+				alert(this.id);
 					var currentRadio = '';
 					  var pollid = '';
 					  var previousOptionId = '';
