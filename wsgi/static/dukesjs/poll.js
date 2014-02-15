@@ -122,7 +122,7 @@ window.fbAsyncInit = function() {
 					var currentRadio = '';
 					  var pollid = '';
 					  var previousOptionId = '';
-					var str =  $("input[type=radio][class*='"+this.id+"']").val();
+					var str =  $("input[type=radio][class*='"+this.id+"']:checked")	.val();
 					alert(str);
 				
 			
