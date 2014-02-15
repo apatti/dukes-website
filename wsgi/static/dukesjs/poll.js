@@ -118,8 +118,27 @@ window.fbAsyncInit = function() {
 				,closable: true
 			});			
 			$('[class=pollButton]').click(function() {
+					var currentRadio = '';
+					  var pollid = '';
+					  var previousOptionId = '';
 				$("input[type=radio][class*='"+this.id+"']").each(function(){
 					  var selectedRadio = $(this).attr("yourSelection");
+					  
+					  if(! $(this).is(":checked")){
+						 var str = $(this).val().split('&');				
+							currentRadio = = (str[0].split('='))[1];;
+							pollid = (str[1].split('='))[1];							
+					  }
+					  var temp = $(this).attr("previousValue");
+					  
+					   if( temp != null || temp === ''){
+						 var str = $(this).val().split('&');				
+							previousOptionId = 	temp;						
+					  }
+					 alert( "Previous ID : "+ previousOptionId);
+					 alert( "Current ID : "+ currentRadio);
+					 alert( "Poll ID : "+ pollid);
+						/*
 						if(! $(this).is(":checked")){
 							alert("Previously Selected : "+ $(this).attr("previousValue"));
 							var str = $(this).val().split('&');
@@ -143,6 +162,7 @@ window.fbAsyncInit = function() {
 							   }
 							});	
 						}
+						*/
 					});
 			
 			});
