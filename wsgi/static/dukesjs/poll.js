@@ -205,14 +205,15 @@ function updatePollDetails(pollId,noOfPolls ){
 					dropDownStr = dropDownStr +"</select> <div id='"+'pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+uData.length+")</div>";
 				}
 				/* */
-				 updateProllStr = updateProllStr + "<tr>";
-				 updateProllStr = updateProllStr + "<td><input type='radio' checked='"+checkedValue+"' name='rd"+ noOfPolls +"' id='objectId='"+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ previousOptionId +"' previousValue ='"+previousOptionId+"' class='"+this['pollid']+"' yourSelection='"+hasPollTaken+"'/></td>";	
-				 updateProllStr = updateProllStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
+				 localPollStr = localPollStr + "<tr>";
+							 
+				 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +'&previousValue='+ previousOptionId +"' previousValue ='"+previousOptionId+"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
+				 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 				 
-				 updateProllStr = updateProllStr + "<td>" + dropDownStr + "</td>";
+				 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
 				 
-				 updateProllStr = updateProllStr + "</td>";
-				 updateProllStr = updateProllStr + "</tr>";
+				 localPollStr = localPollStr + "</td>";
+				 localPollStr = localPollStr + "</tr>";
 			});				
 				updateProllStr = updateProllStr + "</tr>";
 				updateProllStr = updateProllStr + "<td>";
