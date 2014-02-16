@@ -58,7 +58,7 @@ window.fbAsyncInit = function() {
 		submitJSON = submitJSON .append('endDate:2014-01-28');
 		submitJSON = submitJSON .append('options: ['+ options +']');
 		submitJSON = submitJSON .append('}');
-		alert(JSON.stringify(submitJSON);
+		alert(JSON.stringify(submitJSON));
 	});
  }
  
