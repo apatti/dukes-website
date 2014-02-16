@@ -134,6 +134,7 @@ window.fbAsyncInit = function() {
 							previousOptionId = 	temp;						
 					  }
 					});
+					alert('current_option_id :'+currentRadio +',prev_option_id:'+previousOptionId+',username:'+fbUserName);
 					$.ajax({
 						type: "PUT",
 						contentType:'application/json',
