@@ -1,5 +1,6 @@
 var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
+var previousOptionId = '';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -119,7 +120,7 @@ window.fbAsyncInit = function() {
 			$('[class=pollButton]').click(function() {
 				var currentRadio = '';
 				var pollid = '';
-				var previousOptionId = '';
+				
 				var rr =  $("input[type=radio][class*='"+this.id+"']:checked")	.val();
 				var str = rr.split('&');
 				
