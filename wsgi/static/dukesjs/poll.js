@@ -1,6 +1,5 @@
 var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
-var previousOptionId = '';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -59,13 +58,13 @@ window.fbAsyncInit = function() {
 						localPollStr = localPollStr + "<table><tr>";
 						localPollStr = localPollStr + "<td colspan='3'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
 						localPollStr = localPollStr + "</tr>";
-						
+						var previousOptionId = '';
 						$.each(opData, function() {
 							var dropDownStr ='';
 							var hasPollTaken='no';
 							var checkedValue =false;
 							var optionId = this['objectId'];
-							var previousOptionId = '';
+							
 							/* create Users DropDown*/
 							dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
@@ -99,7 +98,7 @@ window.fbAsyncInit = function() {
 						localPollStr = localPollStr + "</tr>";
 						localPollStr = localPollStr + "<td>";
 						localPollStr = localPollStr + "<div>";
-						localPollStr = localPollStr + "<button id='"+objId+"' type='button' class='pollButton'>Submit You Poll</button>";						
+						localPollStr = localPollStr + "<button id='"+objId+"' type='button' class='pollButton' previousOption='"+ previousOptionId +"'>Submit You Poll</button>";						
 						localPollStr = localPollStr + "</div>";
 						localPollStr = localPollStr + "</td>";
 						localPollStr = localPollStr + "</table>";
@@ -120,7 +119,7 @@ window.fbAsyncInit = function() {
 			$('[class=pollButton]').click(function() {
 				var currentRadio = '';
 				var pollid = '';
-				
+				var previousOptionId = '';
 				var rr =  $("input[type=radio][class*='"+this.id+"']:checked")	.val();
 				var str = rr.split('&');
 				
@@ -135,6 +134,7 @@ window.fbAsyncInit = function() {
 							previousOptionId = 	temp;						
 					  }
 					});
+					alert('From Button : '+$(this).attr('previousOption'));
 					alert('current_option_id :'+currentRadio +',prev_option_id:'+previousOptionId+',username:'+fbUserName);
 					$.ajax({
 						type: "PUT",
