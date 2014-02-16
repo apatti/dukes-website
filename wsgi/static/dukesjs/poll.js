@@ -87,7 +87,7 @@ window.fbAsyncInit = function() {
 							/* */
 							 localPollStr = localPollStr + "<tr>";
 							 
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid']+' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +"' previousValue ='"+previousOptionId+"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
 							 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
@@ -125,8 +125,7 @@ window.fbAsyncInit = function() {
 				
 				currentRadio = (str[0].split('='))[1];;
 				pollid = (str[1].split('='))[1];
-				
-				
+								
 					previousOptionId = $(this).attr('previousOption');
 					alert('current_option_id :'+currentRadio +',prev_option_id:'+previousOptionId+',username:'+fbUserName);
 					$.ajax({
@@ -138,7 +137,8 @@ window.fbAsyncInit = function() {
 						success: function(msg) {
 						   alert("Thank you for Taking Poll.");
 						   //updatePollDetails(pollid,99);
-						   location.reload();						   
+						   location.reload();
+						   //location.href="/";
 					   }
 					});	
 			});
