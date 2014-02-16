@@ -142,7 +142,8 @@ window.fbAsyncInit = function() {
 						dataType: 'json',
 						success: function(msg) {
 						   alert("Thank you for Taking Poll.");
-						   updatePollDetails(pollid,99);
+						   //updatePollDetails(pollid,99);
+						   location.reload();
 						   //location.href="/";
 					   }
 					});	
