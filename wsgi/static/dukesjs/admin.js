@@ -62,13 +62,12 @@ window.fbAsyncInit = function() {
 					})
 
 			var jsonArray = JSON.parse(JSON.stringify(options));
-			alert(JSON.stringify(jsonArray));
-		
+			alert(JSON.stringify(jsonArray));		
 		$.ajax({
 			type: "POST",
 			contentType:'application/json',
 			url: '/polls',
-			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':jsonOptions}),
+			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':jsonArray}),
 			dataType: 'json',
 			success: function(msg) {
 			   alert("New Poll Has been created");
