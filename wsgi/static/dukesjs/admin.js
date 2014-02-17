@@ -57,10 +57,10 @@ window.fbAsyncInit = function() {
 		})
 		var submitJSON = "{";
 		submitJSON = submitJSON + "username:"+fbUserName;
-		submitJSON = submitJSON + ("closeMethod:manual");
-		submitJSON = submitJSON +("question:"+question);
-		submitJSON = submitJSON + ("endDate:2014-01-28");
-		submitJSON = submitJSON +("options: ["+ options +"]");
+		submitJSON = submitJSON + (",closeMethod:manual");
+		submitJSON = submitJSON +(",question:"+question);
+		submitJSON = submitJSON + (",endDate:2014-01-28");
+		submitJSON = submitJSON +(",options: ["+ options +"]");
 		submitJSON = submitJSON + ("}");
 		alert(JSON.stringify(submitJSON));
 	});
