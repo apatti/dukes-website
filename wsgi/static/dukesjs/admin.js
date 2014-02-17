@@ -66,7 +66,7 @@ window.fbAsyncInit = function() {
 		$.ajax({
 			type: "POST",
 			contentType:'application/json',
-			url: '/polls,
+			url: '/polls',
 			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':options}),
 			dataType: 'json',
 			success: function(msg) {
