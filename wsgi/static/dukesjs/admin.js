@@ -62,12 +62,13 @@ window.fbAsyncInit = function() {
 		submitJSON = submitJSON + (",endDate:2014-01-28");
 		submitJSON = submitJSON +(",options: ["+ options +"]");
 		submitJSON = submitJSON + ("}");
-	
+		var jsonOptions  =JSON.parse( options );
+		alert(jsonOptions);
 		$.ajax({
 			type: "POST",
 			contentType:'application/json',
 			url: '/polls',
-			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':JSON.parse( options )}),
+			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':jsonOptions}),
 			dataType: 'json',
 			success: function(msg) {
 			   alert("New Poll Has been created");
