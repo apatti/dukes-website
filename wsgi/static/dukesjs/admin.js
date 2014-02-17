@@ -48,9 +48,13 @@ window.fbAsyncInit = function() {
 		var options ='';
 				
 		var options = [];
-		$('ul#pollOptionsUl').find('li').each(function(){						   
+		/*$('ul#pollOptionsUl').find('li').each(function(){						   
 			options.push('{ "text":"'+$(this).text()+'"}');
-		});
+		})
+		*/
+		$('.allOptions').each(function(){						   
+			options.push('{ "text":"'+$(this).text()+'"}');
+		})
 		var submitJSON = "{";
 		submitJSON = submitJSON + "username:"+fbUserName;
 		submitJSON = submitJSON + ("closeMethod:manual");
