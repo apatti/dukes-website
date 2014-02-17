@@ -52,12 +52,12 @@ window.fbAsyncInit = function() {
 			options.push('{ "text":"'+$(this).text()+'"}');
 		});
 		var submitJSON = "{";
-		submitJSON = submitJSON.append("username:"+fbUserName);
-		submitJSON = submitJSON.append("closeMethod:manual");
-		submitJSON = submitJSON.append("question:"+question);
-		submitJSON = submitJSON.append("endDate:2014-01-28");
-		submitJSON = submitJSON.append("options: ["+ options +"]");
-		submitJSON = submitJSON.append("}");
+		submitJSON = submitJSON + "username:"+fbUserName;
+		submitJSON = submitJSON + ("closeMethod:manual");
+		submitJSON = submitJSON +("question:"+question);
+		submitJSON = submitJSON + ("endDate:2014-01-28");
+		submitJSON = submitJSON +("options: ["+ options +"]");
+		submitJSON = submitJSON + ("}");
 		alert(JSON.stringify(submitJSON));
 	});
  }
