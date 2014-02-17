@@ -62,7 +62,7 @@ window.fbAsyncInit = function() {
 		submitJSON = submitJSON + (",endDate:2014-01-28");
 		submitJSON = submitJSON +(",options: ["+ options +"]");
 		submitJSON = submitJSON + ("}");
-		var jsonOptions  =JSON.parse( options );
+		var jsonOptions  =JSON.parse(JSON.stringify( options ));
 		alert(jsonOptions);
 		$.ajax({
 			type: "POST",
