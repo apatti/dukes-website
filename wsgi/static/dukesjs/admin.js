@@ -52,8 +52,12 @@ window.fbAsyncInit = function() {
 			options.push('{ "text":"'+$(this).text()+'"}');
 		})
 		*/
-		$('.allOptions').each(function(){						   
-			options.push('{ text:'+$(this).text()+'}');
+		
+		$('.allOptions').each(function(){	
+			var jsonArg1 = new Object();
+			jsonArg1.name = 'text';
+			jsonArg1.value = $(this).text();		
+			options.push(jsonArg1);
 		})
 		var submitJSON = "{";
 		submitJSON = submitJSON + "username:"+fbUserName;
