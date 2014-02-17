@@ -53,13 +53,17 @@ window.fbAsyncInit = function() {
 		})
 		*/
 		
-		$('.allOptions').each(function(){	
-			var jsonArg1 = new Object();
-			jsonArg1.name = 'text';
-			jsonArg1.value = $(this).text();		
-			options.push(jsonArg1);
-		})
-		var submitJSON = "{";
+		var options = [];
+			$('.allOptions').each(function(){	
+						var jsonArg1 = new Object();
+						jsonArg1.name = 'text';
+						jsonArg1.value = $(this).text();		
+						options.push(jsonArg1);
+					})
+
+			var jsonArray = JSON.parse(JSON.stringify(options));
+			alert(JSON.stringify(jsonArray));
+		/*var submitJSON = "{";
 		submitJSON = submitJSON + "username:"+fbUserName;
 		submitJSON = submitJSON + (",closeMethod:manual");
 		submitJSON = submitJSON +(",question:"+question);
@@ -68,6 +72,7 @@ window.fbAsyncInit = function() {
 		submitJSON = submitJSON + ("}");
 		var jsonOptions  =JSON.stringify(JSON.parse(JSON.stringify( options )));
 		alert(jsonOptions);
+		*/
 		$.ajax({
 			type: "POST",
 			contentType:'application/json',
