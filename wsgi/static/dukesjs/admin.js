@@ -57,14 +57,12 @@ window.fbAsyncInit = function() {
 			$('.allOptions').each(function(){	
 						var jsonArg1 = new Object();
 						jsonArg1.name = 'text';
-						alert($(this).text());
 						jsonArg1.value = $(this).text();		
 						options.push(jsonArg1);
 					})
 
 			var jsonArray = JSON.parse(JSON.stringify(options));
 			alert(JSON.stringify(jsonArray));
-		/*
 		
 		$.ajax({
 			type: "POST",
@@ -76,7 +74,7 @@ window.fbAsyncInit = function() {
 			   alert("New Poll Has been created");
 			   location.href="/poll.html";
 		   }
-		});	*/
+		});	
 	});
  }
  
