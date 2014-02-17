@@ -53,7 +53,7 @@ window.fbAsyncInit = function() {
 		})
 		*/
 		$('.allOptions').each(function(){						   
-			options.push( JSON.parse({'text':$(this).text()}));
+			options.push('{ text:'+$(this).text()+'}');
 		})
 		var submitJSON = "{";
 		submitJSON = submitJSON + "username:"+fbUserName;
@@ -67,7 +67,7 @@ window.fbAsyncInit = function() {
 			type: "POST",
 			contentType:'application/json',
 			url: '/polls',
-			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':options}),
+			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':JSON.parse( options )}),
 			dataType: 'json',
 			success: function(msg) {
 			   alert("New Poll Has been created");
