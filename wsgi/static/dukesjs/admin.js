@@ -53,7 +53,7 @@ window.fbAsyncInit = function() {
 		})
 		*/
 		$('.allOptions').each(function(){						   
-			options.push('{ text:'+$(this).text()+'}');
+			options.push('text:'+$(this).text());
 		})
 		var submitJSON = "{";
 		submitJSON = submitJSON + "username:"+fbUserName;
