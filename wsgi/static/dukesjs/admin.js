@@ -67,7 +67,7 @@ window.fbAsyncInit = function() {
 			type: "POST",
 			contentType:'application/json',
 			url: '/polls,
-			data: JSON.stringify(submitJSON),
+			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':options}),
 			dataType: 'json',
 			success: function(msg) {
 			   alert("New Poll Has been created");
