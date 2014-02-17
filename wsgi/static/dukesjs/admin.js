@@ -57,22 +57,15 @@ window.fbAsyncInit = function() {
 			$('.allOptions').each(function(){	
 						var jsonArg1 = new Object();
 						jsonArg1.name = 'text';
+						alert($(this).text());
 						jsonArg1.value = $(this).text();		
 						options.push(jsonArg1);
 					})
 
 			var jsonArray = JSON.parse(JSON.stringify(options));
 			alert(JSON.stringify(jsonArray));
-		/*var submitJSON = "{";
-		submitJSON = submitJSON + "username:"+fbUserName;
-		submitJSON = submitJSON + (",closeMethod:manual");
-		submitJSON = submitJSON +(",question:"+question);
-		submitJSON = submitJSON + (",endDate:2014-01-28");
-		submitJSON = submitJSON +(",options: ["+ options +"]");
-		submitJSON = submitJSON + ("}");
-		var jsonOptions  =JSON.stringify(JSON.parse(JSON.stringify( options )));
-		alert(jsonOptions);
-		*/
+		/*
+		
 		$.ajax({
 			type: "POST",
 			contentType:'application/json',
@@ -81,11 +74,9 @@ window.fbAsyncInit = function() {
 			dataType: 'json',
 			success: function(msg) {
 			   alert("New Poll Has been created");
-			   //updatePollDetails(pollid,99);
-			   //location.reload();
 			   location.href="/poll.html";
 		   }
-		});	
+		});	*/
 	});
  }
  
