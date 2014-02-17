@@ -56,8 +56,7 @@ window.fbAsyncInit = function() {
 		var options = [];
 			$('.allOptions').each(function(){	
 						var jsonArg1 = new Object();
-						jsonArg1.name = 'text';
-						jsonArg1.value = $(this).text();		
+						jsonArg1.text = $(this).text();		
 						options.push(jsonArg1);
 					})
 
