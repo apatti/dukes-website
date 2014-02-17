@@ -62,7 +62,21 @@ window.fbAsyncInit = function() {
 		submitJSON = submitJSON + (",endDate:2014-01-28");
 		submitJSON = submitJSON +(",options: ["+ options +"]");
 		submitJSON = submitJSON + ("}");
-		alert(JSON.stringify(submitJSON));
+		var pollStr = JSON.stringify(submitJSON);
+		
+		$.ajax({
+			type: "POST",
+			contentType:'application/json',
+			url: '/polls,
+			data: pollStr,
+			dataType: 'json',
+			success: function(msg) {
+			   alert("New Poll Has been created");
+			   //updatePollDetails(pollid,99);
+			   //location.reload();
+			   location.href="/poll.html";
+		   }
+		});	
 	});
  }
  
