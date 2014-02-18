@@ -115,6 +115,7 @@ background-size: 300px 70px;
 	float: left;
 	color: #333;
 	border: 0px solid #ccc;
+	border-radius:10x;
 	margin: 0px 0px 0px 0px;
 	width: 288px;
 	display: inline;
@@ -123,8 +124,9 @@ background-size: 300px 70px;
 	float: right;
 	color: #333;
 	border: 0px solid #ccc;
+	border-radius:10x;
 	margin: 0px 0px 0px 0px;
-	width: 400px;
+	width: 200px;
 	display: inline;
 }
 #submitBidDiv{
