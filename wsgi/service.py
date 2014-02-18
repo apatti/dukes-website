@@ -2,7 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
-from polls import createPoll,getPoll,takePoll,getPolls
+from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
 
 app = Flask(__name__,static_url_path='')
@@ -91,6 +91,11 @@ def createPollApi():
 @app.route('/polls/<poll_id>',methods=['GET'])
 def getPollApi(poll_id):
     return jsonify(getPoll(poll_id)),200
+
+@app.route('/polls/<poll_id>',methods=['DELETE'])
+def deletePollApi(poll_id):
+    deletePoll(poll_id)
+    return 200
 
 @app.route('/polls',methods=['GET'])
 def getAllPolls():

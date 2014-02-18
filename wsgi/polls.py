@@ -33,6 +33,18 @@ tent-Type": "application/json"})
 
     return pollObj
 
+def deletePoll(poll_id):
+    connection.connect()
+    connection.request('DELETE','/1/classes/polls/%s'%poll_id,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
+tent-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    
+    params = urllib.urlencode({"where":json.dumps({"pollid":poll_id})})
+    connection.connect()
+    connection.request('DELETE','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.getresponse().read()
+    
+    return result 
 
 def takePoll(poll_id,username,optid,prev_optid):
     connection.connect()
