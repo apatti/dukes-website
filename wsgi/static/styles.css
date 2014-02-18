@@ -127,7 +127,7 @@ background-size: 300px 70px;
 	border: 0px solid #ccc;
 	border-radius:10x;
 	margin: 0px 0px 0px 0px;
-	width: 200px;
+	width: 160px;
 	display: inline;
 }
 .currentBid .currentBidCSS .timerCSS{
@@ -143,14 +143,21 @@ background-size: 300px 70px;
 }
 .currentBid .currentBidCSS .highestBidCSS{
 	float: left;
-	color: #333;
-	border: 0px solid #ccc;
+	color: #333;	
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	margin: 0px 0px 0px 0px;
-	width: 200px;
+	width: 160px;
 	height: 20px;
 	display: inline;
+}
+.biddingArea .bidSubmit{
+	float: left;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	margin: 0px 0px 0px 0px;
+	width: 400px;
+	height: 60px;
 }
 #submitBidDiv{
 color: #333;
