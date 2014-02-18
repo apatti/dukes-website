@@ -123,19 +123,21 @@ background-size: 300px 70px;
 	display: inline;
 }
 .playerImgCSS{
+	float: left
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	margin: 0px 0px 0px 0px;
-	width: 150px;
-	height: 150px;
+	width: 100px;
+	height: 100px;
 	display: inline;
 }
 .playerStatsCSS{
-border: 2px solid #ccc;
+	float: left;
+	border: 2px solid #ccc;
 	border-radius: 5px;
 	margin: 0px 0px 0px 0px;
 	width: 288px;
-	height: 150px;
+	height: 60px;
 	display: inline;
 }
 .currentBid .currentBidCSS{
