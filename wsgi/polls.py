@@ -49,7 +49,7 @@ tent-Type": "application/json"})
         connection.request('DELETE','/1/classes/polloptions/%s'%optionObj.get("objectId"),'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
     
-    return result 
+    return "deleted" 
 
 def takePoll(poll_id,username,optid,prev_optid):
     connection.connect()
