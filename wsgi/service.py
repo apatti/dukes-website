@@ -94,7 +94,7 @@ def getPollApi(poll_id):
 
 @app.route('/polls/<poll_id>',methods=['DELETE'])
 def deletePollApi(poll_id):
-    return jsonsify(deletePoll(poll_id)),200
+    return jsonify(deletePoll(poll_id)),200
 
 @app.route('/polls',methods=['GET'])
 def getAllPolls():
