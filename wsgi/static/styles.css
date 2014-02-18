@@ -108,6 +108,8 @@ background-size: 300px 70px;
 	color: #333;
 	border: 0px solid #ccc;
 	margin: 0px 0px 0px 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	width: 488px;
 	display: inline;
 }
@@ -159,14 +161,8 @@ background-size: 300px 70px;
 	width: 400px;
 	height: 60px;
 }
-#submitBidDiv{
-color: #333;
-	border: 0px solid #ccc;
-	margin: 0px 0px 0px 0px;
-	width: 488px;
-	display: inline;
-}
-#hr {
+
+.hr {
 border: solid #464141;
 border-width: 1px 0 0;
 clear: both;
