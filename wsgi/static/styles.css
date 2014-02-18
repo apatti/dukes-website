@@ -111,7 +111,7 @@ background-size: 300px 70px;
 	width: 488px;
 	display: inline;
 }
-#currentPlyCSS{
+.currentBid .currentPlyCSS{
 	float: left;
 	color: #333;
 	border: 0px solid #ccc;
