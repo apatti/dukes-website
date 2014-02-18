@@ -26,23 +26,14 @@
 		$(function() { 
 			$('#biddingTab').addClass('dukesMenuActive');	
 			
-			$('#pollsDiv').puipanel({
-				toggleable: true
-				,closable: true
-			});
 			$('#loginStatusDiv').puipanel();
 			$('#usersDiv').puipanel();
 			$('#teamsDiv').puipanel();
 			$('#biddingDiv').puipanel();
 			$('#availablePlayesDiv').puipanel();
-			
-			
-			$('#closedPollsDiv').puipanel({
-				toggleable: true
-				,closable: true
-			});
-			
-	}); 
+			$('.numBtn').puibutton();
+			$('#bidAmmountTxt').puiinputtext();   
+		}); 
 </script>	
                                       
 </head>
@@ -78,7 +69,32 @@
 				</div>
 			</div>
 			<hr class="hr">
-			<div id="submitBidDiv" class="bidSubmit">submit your bid</div>
+			<div id="submitBidDiv" class="bidSubmit">
+				<table>
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td><h3>Enter Amount: </h3></td>
+									<td><input id="bidAmmountTxt" type="text" /> </td>
+								</tr>
+								<tr>
+									<td colspan="2">
+									<button id="btn_1" type="button" class="numBtn">+1</button>
+									<button id="btn_2" type="button" class="numBtn">+2</button>
+									<button id="btn_3" type="button" class="numBtn">+3</button>
+									<button id="btn_4" type="button" class="numBtn">+4</button>
+									<button id="btn_5" type="button" class="numBtn">+5</button>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<button id="btn_bidSubmit" type="button" class="numBtn">Bid</button>
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>	
 		<div id="availablePlayesDiv" style="margin-bottom:20px" title="Available Players" class="availablePlayers"></div>		
 	</div>
