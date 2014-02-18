@@ -10,6 +10,7 @@ window.fbAsyncInit = function() {
    FB.Event.subscribe('auth.logout', function(response) {
 	   logout();
 	   $('#loginStatusDiv').show();
+	   $('#successLoginDiv').hide();
 	   location.reload();
 		});
 	FB.Event.subscribe('auth.login', function() {
@@ -17,10 +18,13 @@ window.fbAsyncInit = function() {
 	});
 	 FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {	
-			$('#loginStatusDiv').hide();		
+			$('#loginStatusDiv').hide();	
+			$('#successLoginDiv').show();			
 			auction();					
 		}else{
 			$('#loginStatusDiv').show();
+			$('#successLoginDiv').hide();
+			
 		}
 	});
 	
