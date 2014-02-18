@@ -69,7 +69,7 @@
 			});
 
 			$("#addPollOptionBtn").click(function () {
-				$('#pollOptionsUl').append("<li class='optionclass'>"+$('#pollOptionTxt').val()+"<a href='#' class='delete'> X </a>");
+				$('#pollOptionsUl').append("<li class='optionclass'><div class='allOptions'>"+$('#pollOptionTxt').val()+"</div><a href='#' class='delete'> X </a>");
 			});
 
 	}); 
@@ -105,10 +105,10 @@
 				<td colspan="2">
 					<div id="pollOptionsDiv">
 						<ul id="pollOptionsUl">
-							<li class="optionclass">Available
+							<li class="optionclass"><div class="allOptions">Available</div>
 								<a href="#" class="delete"> X </a>
 							</li>
-							<li class="optionclass">Not Available
+							<li class="optionclass"><div class="allOptions">Not Available</div>
 								<a href="#" class="delete"> X </a>
 							</li>						
 						</ul>

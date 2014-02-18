@@ -42,5 +42,37 @@ window.fbAsyncInit = function() {
 	Poll Creation
  */
  function pollCreation(){
+	$('#createNewPollBtn').click(function (){
+		
+		var question = $('#pollSubjectTxt').val();
+		var options ='';
+				
+		var options = [];
+		/*$('ul#pollOptionsUl').find('li').each(function(){						   
+			options.push('{ "text":"'+$(this).text()+'"}');
+		})
+		*/
+		
+		var options = [];
+			$('.allOptions').each(function(){	
+						var jsonArg1 = new Object();
+						jsonArg1.text = $(this).text();		
+						options.push(jsonArg1);
+					})
+
+			var jsonArray = JSON.parse(JSON.stringify(options));
+			alert(JSON.stringify(jsonArray));		
+		$.ajax({
+			type: "POST",
+			contentType:'application/json',
+			url: '/polls',
+			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':JSON.stringify(jsonArray)}),
+			dataType: 'json',
+			success: function(msg) {
+			   alert("New Poll Has been created");
+			   location.href="/poll.html";
+		   }
+		});	
+	});
  }
  

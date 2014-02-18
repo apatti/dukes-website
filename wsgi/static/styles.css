@@ -69,3 +69,38 @@ background-size: 300px 70px;
  margin: 0px 0px 10px 0px;
  padding: 10px;
 }
+#biddingMainArea{
+	color: #333;
+	 border: 0px solid #ccc;
+	 margin: 0px 0px 0px 0px;
+	 padding: 5px;
+	 width: 918px;
+	 float: left;
+}
+#teamsDiv{
+	float: left;
+	color: #333;
+	border: 0px solid #ccc;
+	margin: 0px 0px 0px 0px;
+	padding: 5px;
+	width: 200px;
+	display: inline;
+}
+#availablePlayesDiv { 
+ color: #333;
+ border: 0px solid #ccc;
+ margin: 0px 0px 0px 0px;
+ padding: 5px;
+ width: 620px;
+ float: right;
+ /*background:#CCC8B3; */
+}
+#biddingDiv{
+	float: left;
+	color: #333;
+	border: 0px solid #ccc;
+	margin: 0px 0px 0px 0px;
+	padding: 5px;
+	width: 200px;
+	display: inline;
+}
