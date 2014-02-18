@@ -42,9 +42,9 @@ tent-Type": "application/json"})
     params = urllib.urlencode({"where":json.dumps({"pollid":poll_id})})
     connection.connect()
     connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    optionsObj=json.loads(connection.getresponse().read())
+    optionsObj=json.loads(connection.getresponse().read()).get("results")
     for optionObj in optionsObj:
-        print optionObj
+        #print optionObj
         connection.connect()
         connection.request('DELETE','/1/classes/polloptions/%s'%optionObj.get("objectId"),'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
