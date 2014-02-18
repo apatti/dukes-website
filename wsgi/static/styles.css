@@ -101,6 +101,43 @@ background-size: 300px 70px;
 	border: 0px solid #ccc;
 	margin: 0px 0px 0px 0px;
 	padding: 5px;
-	width: 518px;
+	width: 488px;
 	display: inline;
+}
+#currentBid{
+	color: #333;
+	border: 0px solid #ccc;
+	margin: 0px 0px 0px 0px;
+	width: 488px;
+	display: inline;
+}
+#currentPlyCSS{
+	float: left;
+	color: #333;
+	border: 0px solid #ccc;
+	margin: 0px 0px 0px 0px;
+	width: 288px;
+	display: inline;
+}
+#currentBidCSS{
+	float: right;
+	color: #333;
+	border: 0px solid #ccc;
+	margin: 0px 0px 0px 0px;
+	width: 400px;
+	display: inline;
+}
+#submitBidDiv{
+color: #333;
+	border: 0px solid #ccc;
+	margin: 0px 0px 0px 0px;
+	width: 488px;
+	display: inline;
+}
+#hr {
+border: solid #464141;
+border-width: 1px 0 0;
+clear: both;
+margin: 0.38462em 0 0.30769em;
+height: 0;
 }
