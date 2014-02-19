@@ -132,6 +132,15 @@ background-size: 300px 70px;
 	display: inline;
 }
 .playerStatsCSS{
+    float: left;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 0px 0px 0px 0px;
+    width: 100px;
+    height: 100px;
+    display: inline;
+}
+.currentBidderCSS{
 	float: left;
 	border: 2px solid #ccc;
 	border-radius: 5px;
