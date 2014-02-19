@@ -32,8 +32,9 @@
 			$('#biddingDiv').puipanel();
 			$('#availablePlayesDiv').puipanel();
 			$('.numBtn').puibutton();
-			$('#bidAmmountTxt').puiinputtext();   
-		}); 
+			$('#bidAmmountTxt').puiinputtext();
+            $('.radioBtnCSS').puiradiobutton();
+        });
 </script>	
                                       
 </head>
@@ -67,18 +68,40 @@
 							<table>
 								<tr>
 									<td><h2>Current Bid :</h2></td>
-									<td><div>100</div></td>
+									<td><div id="currentBidAmount" style="color:#45930b;"><h2>100</h2></div></td>
 								</tr>
 								<tr>
-									<td>Current Bidder:</td>
-									<td>Ram</td>
+									<td><h2>Current Bidder: </h2></td>
+									<td><div id="currentBidder" style="color:#45930b;"><h2>Ram</h2></div></td>
 								</tr>
 							</table>
 						</div>
 					</div>
 					<div class="currentBidCSS">
 						<div class="timerCSS">99</div>
-						<div class="highestBidCSS">autoAction</div>
+						<div class="autotBidCSS">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="rd" id="autoCheckBtn" value="1" class="radioBtnCSS"/>
+                                    </td>
+                                    <td>
+                                       <h4> <label for="autoCheckBtn"> Auto Bid</label></h4>
+                                    </td>
+                                    <td>
+                                        < <input id="limitAmmountTxt" size="6" type="text"/>
+                                    </td>
+                                 </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="rd" id="noBidBtn" value="1" class="radioBtnCSS"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <h4> <label for="noBidBtn"> No More Bid</label></h4>
+                                    </td>
+                                </tr>
+                            </table>
+						</div>
 					</div>
 				</div>
 				<hr class="hr">
@@ -92,14 +115,12 @@
 										<td><input id="bidAmmountTxt" size="10" type="text" style="height: 30px;font-size: x-large;"/> </td>
 									</tr>
 									<tr>
-										<td colspan="2">
-										<button id="btn_1" type="button" class="numBtn">+1</button>
-										<button id="btn_2" type="button" class="numBtn">+2</button>
-										<button id="btn_3" type="button" class="numBtn">+3</button>
-										<button id="btn_4" type="button" class="numBtn">+4</button>
-										<button id="btn_5" type="button" class="numBtn">+5</button>
-										<button id="btn_6" type="button" class="numBtn">+6</button>
-										</td>
+                                        <td>
+                                            <button id="btn_1" type="button" class="numBtn">Ammount+1</button>
+                                        </td>
+                                        <td>
+                                            <button id="btn_2" type="button" class="numBtn">Ammount+2</button>
+                                        </td>
 									</tr>
 								</table>
 							</td>
