@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="primeui.css" />
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<link rel="stylesheet" type="text/css" href="css/menu/menu.css" />
-	
 	<link rel="stylesheet" type="text/css" href="dukescss/dukes.css" />
-	
 	
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -22,7 +20,8 @@
 	<script type="text/javascript" src="dukesjs/dukesMenu.js"></script>
 	<script type="text/javascript" src="dukesjs/poll.js"></script>
 	<script type="text/javascript" src="dukesjs/footer.js"></script>
-    <script type="text/javascript">  
+
+    <script type="text/javascript">
 		$(function() { 
 			$('#pollTab').addClass('dukesMenuActive');			
 			$('#pollsDiv').puipanel({
@@ -36,6 +35,7 @@
 			
 	});
         function openUsersDialog(dialogName){
+            alert(dialogName);
             $( "#"+dialogName+"" ).dialog( "open" );
         }
 </script>	
