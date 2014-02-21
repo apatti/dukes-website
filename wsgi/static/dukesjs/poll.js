@@ -83,6 +83,7 @@ window.fbAsyncInit = function() {
 									userCount ++;
 								});
 								dropDownStr = dropDownStr +"</select>";
+                                 var dialogId = this['objectId'] + this['pollid'];
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" >";
                                 dropDownStr = dropDownStr + uData;
                                 dropDownStr = dropDownStr + "</div>";
