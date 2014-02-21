@@ -61,7 +61,7 @@ window.fbAsyncInit = function() {
         pollData.username = fbUserName;
         pollData.closeMethod ='manual';
         pollData.question = pollSubj;
-        pollData.endDate = '2014-01-28';
+        pollData.endDate = $("#datepicker").val();
         pollData.options = options;
 
 		var jsonArray = JSON.stringify(pollData);
