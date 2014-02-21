@@ -46,10 +46,7 @@ window.fbAsyncInit = function() {
 		
 		var pollSubj = $('#pollSubjectTxt').val();
 
-
-				
-		var options = [];
-		/*$('ul#pollOptionsUl').find('li').each(function(){						   
+		/*$('ul#pollOptionsUl').find('li').each(function(){
 			options.push('{ "text":"'+$(this).text()+'"}');
 		})
 		*/
@@ -66,8 +63,8 @@ window.fbAsyncInit = function() {
         pollData.question = pollSubj;
         pollData.options = options;
 
-			var jsonArray = JSON.parse(pollData);
-			alert(jsonArray);
+		var jsonArray = JSON.stringify(pollData); 
+		alert(jsonArray);
         /*
 		$.ajax({
 			type: "POST",
