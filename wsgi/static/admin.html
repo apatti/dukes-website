@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    
     <link rel="stylesheet" href="themes/flick/theme.css" />
     <link rel="stylesheet" href="primeui.css" />
 	<link rel="stylesheet" type="text/css" href="styles.css" />
@@ -67,7 +68,7 @@
 			$("#addPollOptionBtn").click(function () {
 				$('#pollOptionsUl').append("<li class='optionclass'><div class='allOptions'>"+$('#pollOptionTxt').val()+"</div><a href='#' class='delete'> X </a>");
 			});
-
+            $( "#datepicker" ).datepicker();
 	}); 
 </script>	
                                       
@@ -93,6 +94,12 @@
 			<tr>
 				<td>Poll Subject :</td><td><textarea id="pollSubjectTxt" ></textarea></td>
 			</tr>
+            <tr>
+                <td>
+                    End Date :
+                </td>
+                <td><input type="text" id="datepicker"></p></td>
+            </tr>
 			<tr>
 				<td>Enter Options : </td>
 				<td><input id="pollOptionTxt" type="text" /><button id="addPollOptionBtn">Add Option</button></td>
