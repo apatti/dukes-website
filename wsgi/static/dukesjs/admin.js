@@ -61,23 +61,23 @@ window.fbAsyncInit = function() {
         pollData.username = fbUserName;
         pollData.closeMethod ='manual';
         pollData.question = pollSubj;
+        pollData.endDate = '2014-01-28';
         pollData.options = options;
 
-		var jsonArray = JSON.stringify(pollData); 
-		alert(jsonArray);
-        /*
+		var jsonArray = JSON.stringify(pollData);
+
 		$.ajax({
 			type: "POST",
 			contentType:'application/json',
 			url: '/polls',
-			data: JSON.stringify({'username':fbUserName,'closeMethod':'manual','question':question,'endDate':'2014-01-28','options':JSON.stringify(jsonArray)}),
+			data: jsonArray,
 			dataType: 'json',
 			success: function(msg) {
 			   alert("New Poll Has been created");
 			   location.href="/poll.html";
 		   }
 		});
-		*/
+
 	});
  }
  
