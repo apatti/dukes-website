@@ -82,7 +82,12 @@ window.fbAsyncInit = function() {
 									}
 									userCount ++;
 								});
-								dropDownStr = dropDownStr +"</select> <div id='"+'pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"' >("+uData.length+")</div>";
+								dropDownStr = dropDownStr +"</select>";
+                                dropDownStr = dropDownStr +"<div id=''"+this['pollid'] +"Dialog' >";
+                                dropDownStr = dropDownStr + uData;
+                                dropDownStr = dropDownStr + "</div>";
+
+                                dropDownStr = dropDownStr +" <div id='"+'pollid='+ this['pollid']+"Div' style='color:blue;' class='"+this['pollid']+"'> <a href="#" onClick='openUsersDialog('"+this['pollid'] +"Dialog')'></a>("+uData.length+")</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
