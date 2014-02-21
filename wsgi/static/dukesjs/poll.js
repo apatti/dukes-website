@@ -122,7 +122,13 @@ window.fbAsyncInit = function() {
 			$('.pollDivCSS').puipanel({
 				toggleable: true
 				,closable: true
-			});			
+			});
+            $('.forDialog').click(function (){
+
+                var dialogId = $(this).attr('id');
+                alert(dialogId);
+                $( '#'+dialogId ).dialog( "open" );
+            });
 			$('[class=pollButton]').click(function() {
 				var currentRadio = '';
 				var pollid = '';
