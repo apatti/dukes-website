@@ -56,12 +56,8 @@
 			$('#pollSubjectTxt').puiinputtextarea();
 			$('#pollOptionTxt').puiinputtextarea();
 			$('#addPollOptionBtn').puibutton(); 
-			 $('#createNewPollBtn').puibutton();
-			
-			/*$('#addPollOptionBtn').click( function(){
-				$('ul#pollOptionsUl').append('<li>'+$('textarea#pollOptionTxt').val()+' <a href="#" title="delete" class="itemDelete">x</a></li>');
-			});
-			*/
+			$('#createNewPollBtn').puibutton();
+
 			$("#pollOptionsUl").sortable();
 
 			$("body").on('click', '#pollOptionsUl .delete', function () {

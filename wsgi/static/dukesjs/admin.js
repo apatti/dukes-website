@@ -44,8 +44,9 @@ window.fbAsyncInit = function() {
  function pollCreation(){
 	$('#createNewPollBtn').click(function (){
 		
-		var question = $('#pollSubjectTxt').val();
-		var options ='';
+		var pollSubj = $('#pollSubjectTxt').val();
+
+
 				
 		var options = [];
 		/*$('ul#pollOptionsUl').find('li').each(function(){						   
@@ -59,9 +60,15 @@ window.fbAsyncInit = function() {
 						jsonArg1.text = $(this).text();		
 						options.push(jsonArg1);
 					})
+        var pollData={};
+        pollData.username = fbUserName;
+        pollData.closeMethod ='manual';
+        pollData.question = pollSubj;
+        pollData.options = options;
 
-			var jsonArray = JSON.parse(JSON.stringify(options));
-			alert(JSON.stringify(jsonArray));		
+			var jsonArray = JSON.parse(pollData);
+			alert(jsonArray);
+        /*
 		$.ajax({
 			type: "POST",
 			contentType:'application/json',
@@ -72,7 +79,8 @@ window.fbAsyncInit = function() {
 			   alert("New Poll Has been created");
 			   location.href="/poll.html";
 		   }
-		});	
+		});
+		*/
 	});
  }
  
