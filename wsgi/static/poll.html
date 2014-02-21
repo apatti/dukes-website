@@ -34,10 +34,13 @@
 			});
 			
 	});
-        function openUsersDialog(dialogName){
-            alert(dialogName);
-            $( "#"+dialogName+"" ).dialog( "open" );
-        }
+        $('.forDialog').click(function (){
+
+            var dialogId = $(this).attr('id');
+            alert(dialogId);
+            $( '#'+dialogId ).dialog( "open" );
+        });
+
 </script>	
                                       
 </head>
