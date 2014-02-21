@@ -87,7 +87,8 @@ window.fbAsyncInit = function() {
                                 dropDownStr = dropDownStr + uData;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
-                                dropDownStr = dropDownStr +" <div><a href='#' onclick='openUsersDialog('"+this['pollid']+"Dialog' ) >"+uData.length+"</a></div>";
+                                 var dialogId = "'"+this['pollid']+"Dialog"+"'";
+                                dropDownStr = dropDownStr +" <div><a href='#' onclick='openUsersDialog("+dialogId+")' >"+uData.length+"</a></div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
