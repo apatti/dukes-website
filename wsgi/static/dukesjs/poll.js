@@ -66,25 +66,26 @@ window.fbAsyncInit = function() {
 							var optionId = this['objectId'];
 							
 							/* create Users DropDown*/
-							dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
+							//dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 
 							//get the list of users who took poll fot this option
 							 if(this['users']){
 								var u = JSON.stringify(this['users']);
 								var uData = $.parseJSON(u);	
 								var userCount = 0;
-								$.each( uData,function () {
-									dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
-									if(this.toString() === fbUserName){
-										hasPollTaken = 'yes';
-										checkedValue = true;
-										previousOptionId = optionId;										
-									}
-									userCount ++;
-								});
+								/*$.each( uData,function () {
+                                  dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
+                                  if(this.toString() === fbUserName){
+                                  hasPollTaken = 'yes';
+                                  checkedValue = true;
+                                  previousOptionId = optionId;
+                                  }
+                                  userCount ++;
+                                  });
 								dropDownStr = dropDownStr +"</select>";
+                                 */
                                  var dialogId = this['objectId'] + this['pollid']+"Dialog";
-                                dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
+                                dropDownStr = dropDownStr +"<a href='#'><div id="+dialogId+" class='userDialog'>"+"</a>";
                                 dropDownStr = dropDownStr + uData;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
