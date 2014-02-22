@@ -55,7 +55,7 @@ window.fbAsyncInit = function() {
 						var objId = this['objectId'] ;
 						var localPollStr = "";
 						localPollStr = localPollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
-						localPollStr = localPollStr + "<table><th>";
+						localPollStr = localPollStr + "<table><th style='background-color: gainsboro;'>";
 						localPollStr = localPollStr + "<td colspan='3'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
 						localPollStr = localPollStr + "</th>";
 						var previousOptionId = '';
@@ -143,9 +143,7 @@ window.fbAsyncInit = function() {
                     duration: 1000
                 }
             });
-            //$("table tr:even").css("background-color", "lightgray");
-            $("table th td").css("background-color", "lightgray");
-           
+         
 			$('[class=pollButton]').click(function() {
 				var currentRadio = '';
 				var pollid = '';
