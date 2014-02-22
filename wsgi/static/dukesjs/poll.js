@@ -83,13 +83,13 @@ window.fbAsyncInit = function() {
 									userCount ++;
 								});
 								dropDownStr = dropDownStr +"</select>";
-                                 var dialogId = this['objectId'] + this['pollid'];
+                                 var dialogId = this['objectId'] + this['pollid']+"Dialog";
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
                                 dropDownStr = dropDownStr + uData;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
 
-                                dropDownStr = dropDownStr +"<div id='"+dialogId+"' class='forDialog'>"+uData.length+"</div>";
+                                dropDownStr = dropDownStr +"<div id='"+this['objectId'] + this['pollid']+"' class='forDialog'>"+uData.length+"</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
@@ -125,8 +125,8 @@ window.fbAsyncInit = function() {
 			});
             $('.forDialog').click(function (){
 
-                var dialogId = $(this).attr('id');
-                alert(dialogId);
+                var dialogId = $(this).attr('id')+"Dialog";
+                alert('#'+dialogId );
                 $( '#'+dialogId ).dialog( "open" );
             });
 
