@@ -143,6 +143,7 @@ window.fbAsyncInit = function() {
                     duration: 1000
                 }
             });
+            $("table tr:even").css("background-color", "LightBlue");
 			$('[class=pollButton]').click(function() {
 				var currentRadio = '';
 				var pollid = '';
