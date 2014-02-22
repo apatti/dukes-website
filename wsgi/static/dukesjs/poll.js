@@ -67,7 +67,7 @@ window.fbAsyncInit = function() {
 							
 							/* create Users DropDown*/
 							//dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
-							 
+							 var usersTable = "<table>";
 							//get the list of users who took poll fot this option
 							 if(this['users']){
 								var u = JSON.stringify(this['users']);
@@ -75,6 +75,7 @@ window.fbAsyncInit = function() {
 								var userCount = 0;
 								$.each( uData,function () {
                                  // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
+                                  usersTable = usersTable + "<tr><td>"+this+"</td></tr>"
                                   if(this.toString() === fbUserName){
                                   hasPollTaken = 'yes';
                                   checkedValue = true;
@@ -82,11 +83,12 @@ window.fbAsyncInit = function() {
                                   }
                                   userCount ++;
                                   });
+                                 usersTable = usersTable + "</table>";
 								//dropDownStr = dropDownStr +"</select>";
 
                                  var dialogId = this['objectId'] + this['pollid']+"Dialog";
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
-                                dropDownStr = dropDownStr + uData;
+                                dropDownStr = dropDownStr + usersTable;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
 
@@ -127,7 +129,6 @@ window.fbAsyncInit = function() {
             $('.forDialog').click(function (){
 
                 var dialogId = $(this).attr('id')+"Dialog";
-                alert('#'+dialogId );
                 $( '#'+dialogId ).dialog( "open" );
             });
 
