@@ -84,7 +84,7 @@ window.fbAsyncInit = function() {
 								});
 								dropDownStr = dropDownStr +"</select>";
                                  var dialogId = this['objectId'] + this['pollid'];
-                                dropDownStr = dropDownStr +"<div id="+dialogId+" >";
+                                dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
                                 dropDownStr = dropDownStr + uData;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
@@ -128,6 +128,18 @@ window.fbAsyncInit = function() {
                 var dialogId = $(this).attr('id');
                 alert(dialogId);
                 $( '#'+dialogId ).dialog( "open" );
+            });
+
+            $( ".userDialog" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
             });
 			$('[class=pollButton]').click(function() {
 				var currentRadio = '';
