@@ -67,7 +67,7 @@ window.fbAsyncInit = function() {
 							
 							/* create Users DropDown*/
 							//dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
-							 var usersTable = "<table border='1'>";
+							 var usersTable = "<table>";
 							//get the list of users who took poll fot this option
 							 if(this['users']){
 								var u = JSON.stringify(this['users']);
@@ -75,7 +75,7 @@ window.fbAsyncInit = function() {
 								var userCount = 0;
 								$.each( uData,function () {
                                  // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
-                                  usersTable = usersTable + "<tr><td>"+userCount+"</td><td>"+this+"</td></tr>"
+                                  usersTable = usersTable + "<tr><td>"+this+"</td></tr>"
                                   if(this.toString() === fbUserName){
                                   hasPollTaken = 'yes';
                                   checkedValue = true;
@@ -92,7 +92,7 @@ window.fbAsyncInit = function() {
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
 
-                                dropDownStr = dropDownStr +"<div id='"+this['objectId'] + this['pollid']+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>("+ uData.length +"</a>"+" )</div>";
+                                dropDownStr = dropDownStr +"<div id='"+this['objectId'] + this['pollid']+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
