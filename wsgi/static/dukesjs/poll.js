@@ -56,7 +56,7 @@ window.fbAsyncInit = function() {
 						var localPollStr = "";
 						localPollStr = localPollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
 						localPollStr = localPollStr + "<table><th style='background-color: gainsboro;'>";
-						localPollStr = localPollStr + "<td colspan='3'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";					
+						localPollStr = localPollStr + "<td colspan='3' style='background-color: gainsboro;font-family: cursive;'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";
 						localPollStr = localPollStr + "</th>";
 						var previousOptionId = '';
 						$.each(opData, function() {
@@ -143,7 +143,7 @@ window.fbAsyncInit = function() {
                     duration: 1000
                 }
             });
-         
+
 			$('[class=pollButton]').click(function() {
 				var currentRadio = '';
 				var pollid = '';
