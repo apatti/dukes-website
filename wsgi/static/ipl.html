@@ -27,7 +27,9 @@
 		       $('#iplTab').addClass('dukesMenuActive');
 		       $('#iplTabPage').puitabview();
 		       $('#rulestab').empty().load('fantasyrules.html');
-		});
+               $('.formTxt').puiinputtext();
+                $('#teamNameSubmitBtn').puibutton();
+        });
 
 
 </script>	
@@ -57,6 +59,21 @@
           </ul>
           <div>
               <div id="teamtab">
+                  <table>
+                      <tr>
+                          <td>Team Name</td>
+                          <td><input id="teamNameTxt" type="text" class="formTxt" /></td>
+                      </tr>
+                      <tr>
+                          <td>Email Id</td>
+                          <td><input id="emailTxt" type="text" class="formTxt" /></td>
+                      </tr>
+                      <tr>
+                          <td colspan="2">
+                              <button id="teamNameSubmitBtn" type="button">Submit</button>
+                          </td>
+                      </tr>
+                  </table>
               </div>
              <!-- <div id="tab2">
                   <p>Content for Tab 2</p>
