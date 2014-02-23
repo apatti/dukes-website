@@ -38,7 +38,6 @@ def updateUser(userName,userObj,associate):
         name=existingUser.get("results")[0].get("name")
         tca_id=userObj.get("tca_id")
         send_mail("%s is requesting to associate TCA ID %s with his user id %s" % (name,tca_id,userName),"cricketadmin@dukesxi.co",userObj.get("email"),"Permission to assoicate TCA ID with user id")
-
     return result
 
 def queryUser(key,value):
