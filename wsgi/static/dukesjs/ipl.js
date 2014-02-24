@@ -36,7 +36,11 @@ window.fbAsyncInit = function() {
  
  
 	function ipl_init(){
-
+        $.get(DOMAIN_NAME+"/users/"+fbUserName,function(data,status){
+            var results = JSON.stringify(data.user.results[0]);
+            var userData = $.parseJSON(results);
+            alert(userData.email);
+        });
 	}
 	
  
