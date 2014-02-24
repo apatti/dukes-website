@@ -42,9 +42,10 @@ window.fbAsyncInit = function() {
             var userData = $.parseJSON(results);
             var email = userData.email;
             var iplTeamName = userData.iplteam;
-
+            $('#iplTeamNameTxt').val(iplTeamName);
             if(email != ''){
-                $('#iplTeamNameTxt').val(iplTeamName);
+
+
                $('#emailTxt').val(email);
                 //$('#emailTxt').attr('readonly');
             }
