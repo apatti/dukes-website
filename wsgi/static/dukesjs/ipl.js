@@ -40,7 +40,10 @@ window.fbAsyncInit = function() {
             var results = JSON.stringify(data.user.results[0]);
             var userData = $.parseJSON(results);
             var email = userData.email;
+            alert(email);
             if(email != ''){
+                alert(email);
+                $('#emailTxt').text(email);
                 $('#emailTxt').attr('readonly');
             }
         });
