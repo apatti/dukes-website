@@ -124,7 +124,7 @@ def insertSuperBowlApi():
 def getSuperBowlApi():
     return jsonify(getSuperBowl()),200
 
-@app.route('/ipl/user/<username>',methods=['POST'])
+@app.route('/ipl/users/<username>',methods=['POST'])
 def saveIplUser():
     reqObj = request.get_json(force=True)
     return jsonify({'user':saveIPLUser(username,reqObj.get("iplteam"),reqObj.get("email"))}),201
