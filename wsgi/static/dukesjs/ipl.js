@@ -41,10 +41,17 @@ window.fbAsyncInit = function() {
             var userData = $.parseJSON(results);
             var email = userData.email;
             if(email != ''){
-                alert(email);
-                $('#emailDiv').content(email);
+                $('#emailTxt').attr('readonly');
             }
         });
 	}
+
+$('#teamNameSubmitBtn').click(function (){
+    var iplTeamObj = {};
+    iplTeamObj.iplteam = $('#iplTeamNameTxt').val();
+    iplTeamObj.email = $('#emailTxt').val();
+
+    alert(JSON.stringify(iplTeamObj))
+});
 	
  
