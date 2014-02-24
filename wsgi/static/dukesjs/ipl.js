@@ -60,7 +60,7 @@ function registerEventHandlers(){
         var iplTeamJSON  = JSON.stringify(iplTeamObj);
         $.ajax({
             type: 'POST',
-            url: DOMAIN_NAME +'/users/'+fbUserName,
+            url: DOMAIN_NAME +'/ipl/users/'+fbUserName,
             dataType: 'json',
             contentType:'application/json',
             data:iplTeamJSON,
