@@ -31,6 +31,7 @@ window.fbAsyncInit = function() {
 		   fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);	 
 		   ipl_init();
+           registerEventHandlers();
 		});
  }
  
@@ -48,14 +49,31 @@ window.fbAsyncInit = function() {
             }
         });
 	}
+function registerEventHandlers(){
+    $('#teamNameSubmitBtn').click(function (){
+        alert("From Save");
+        var iplTeamObj = {};
+        iplTeamObj.iplteam = $('#iplTeamNameTxt').val();
+        iplTeamObj.email = $('#emailTxt').val();
 
-$('#teamNameSubmitBtn').click(function (){
-    alert("From Save");
-    var iplTeamObj = {};
-    iplTeamObj.iplteam = $('#iplTeamNameTxt').val();
-    iplTeamObj.email = $('#emailTxt').val();
+        alert(JSON.stringify(iplTeamObj));
+        var iplTeamJSON  = JSON.stringify(iplTeamObj);
+        $.ajax({
+            type: 'POST',
+            url: DOMAIN_NAME +'/users/'+fbUserName,
+            dataType: 'json',
+            contentType:'application/json',
+            data:iplTeamJSON,
+            success: function(res,status,jqXHR){
+               alert("You IPL team has been registered");
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                alert(textStatus, errorThrown);
+            }
 
-    alert(JSON.stringify(iplTeamObj))
-});
+        });
+    });
+}
+
 	
  
