@@ -39,7 +39,10 @@ window.fbAsyncInit = function() {
         $.get(DOMAIN_NAME+"/users/"+fbUserName,function(data,status){
             var results = JSON.stringify(data.user.results[0]);
             var userData = $.parseJSON(results);
-            alert(userData.email);
+            var email = userData.email;
+            if(email){
+                $('#emailDiv').content(email);
+            }
         });
 	}
 	
