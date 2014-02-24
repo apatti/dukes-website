@@ -40,16 +40,17 @@ window.fbAsyncInit = function() {
             var results = JSON.stringify(data.user.results[0]);
             var userData = $.parseJSON(results);
             var email = userData.email;
-           
+
             if(email != ''){
                 alert(email);
-                $('#emailTxt').text(email);
+                $('#emailTxt').val(email);
                 //$('#emailTxt').attr('readonly');
             }
         });
 	}
 
 $('#teamNameSubmitBtn').click(function (){
+    alert("From Save");
     var iplTeamObj = {};
     iplTeamObj.iplteam = $('#iplTeamNameTxt').val();
     iplTeamObj.email = $('#emailTxt').val();
