@@ -43,20 +43,16 @@ window.fbAsyncInit = function() {
             var email = userData.email;
 
             if(email != ''){
-                alert(email);
-                $('#emailTxt').val(email);
+               $('#emailTxt').val(email);
                 //$('#emailTxt').attr('readonly');
             }
         });
 	}
 function registerEventHandlers(){
     $('#teamNameSubmitBtn').click(function (){
-        alert("From Save");
         var iplTeamObj = {};
         iplTeamObj.iplteam = $('#iplTeamNameTxt').val();
         iplTeamObj.email = $('#emailTxt').val();
-
-        alert(JSON.stringify(iplTeamObj));
         var iplTeamJSON  = JSON.stringify(iplTeamObj);
         $.ajax({
             type: 'POST',
