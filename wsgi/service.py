@@ -4,6 +4,7 @@ from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
 from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
+from ipluser import *
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -122,6 +123,11 @@ def insertSuperBowlApi():
 @app.route('/superbowl',methods=['GET'])
 def getSuperBowlApi():
     return jsonify(getSuperBowl()),200
+
+@app.route('/ipl/user/<username>',methods=['POST'])
+def saveIplUser():
+    reqObj = request.get_json(force=True)
+    return jsonify({'user':saveIPLUser(username,reqObj.get("iplteam"),reqObj.get("email"))}),201
 
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
