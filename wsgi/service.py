@@ -126,7 +126,7 @@ def getSuperBowlApi():
 
 @app.route('/ipl/users',methods=['GET'])
 def getIplUsersApi():
-    return jsonify(getIplUsers(),200)
+    return jsonify(getIplUsers()),200
 
 
 @app.route('/ipl/users/<username>',methods=['POST'])
