@@ -10,7 +10,7 @@ $.get("/team/stats",function(data,status){
                 {field:'matches_played', headerText: 'Mat', sortable:false},
                 {field:'wMatches', headerText: 'Wins', sortable:false},
                 {field:'lMatches', headerText: 'Lost', sortable:false},
-		{field:'tMatches', headerText: 'Match Draw', sortable:false}				
+		        {field:'tMatches', headerText: 'Match Draw', sortable:false}
                ],
 			   datasource: function(callback, ui) {  
 					
