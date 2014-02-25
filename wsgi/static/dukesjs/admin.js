@@ -43,7 +43,7 @@ window.fbAsyncInit = function() {
  */
  function pollCreation(){
 	$('#createNewPollBtn').click(function (){
-		
+		alert("Poll Creation");
 		var pollSubj = $('#pollSubjectTxt').val();
 
 		/*$('ul#pollOptionsUl').find('li').each(function(){
