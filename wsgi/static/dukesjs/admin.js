@@ -33,8 +33,11 @@ window.fbAsyncInit = function() {
 		   $('#loggedUserDiv').html(response.username);	 
 		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti'){
 				pollCreation();
+               $('#pollCreationDiv').show();
+               $('#noPermission').hide();
 		   }else{
-				$('#pollCreationDiv').append('You dont have permissions to view Admin Dashboard');
+               $('#pollCreationDiv').hide();
+				$('#noPermission').show();
 		   }
 		});
  }
