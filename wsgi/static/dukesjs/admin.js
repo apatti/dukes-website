@@ -31,7 +31,7 @@ window.fbAsyncInit = function() {
 		
 		   fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);	 
-		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'abc.earring'){
+		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'surendra.batchu'){
 				pollCreation();
                $('#pollCreationDiv').show();
                $('#noPermission').hide();
