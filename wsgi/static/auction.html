@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="primeui.css" />
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<link rel="stylesheet" type="text/css" href="css/menu/menu.css" />
-	
+
 	<link rel="stylesheet" type="text/css" href="dukescss/dukes.css" />
 	
 	
@@ -35,8 +35,8 @@
 			$('#bidAmmountTxt').puiinputtext();
             $('.radioBtnCSS').puiradiobutton();
         });
-</script>	
-                                      
+</script>
+
 </head>
 <body>
 <!-- Begin Wrapper -->
@@ -46,7 +46,7 @@
 	<div id='headerTitleDiv' style="float: left;"><h1></h1></div>
 	<div id="dukesLoginDiv" class="dukesLogin"></div>
 	<div id='loggedUserDiv' class="dukesLogin"></div>
-	
+
   </div>
   <!-- End Header -->
   <!-- Begin Navigation -->
@@ -65,42 +65,25 @@
 						<div class="playerImgCSS"> Player Img</div>
                         <div class="playerStatsCSS"> player Info</div>
 						<div class="currentBidderCSS">
-							<table>
-								<tr>
-									<td><h2>Current Bid :</h2></td>
-									<td><div id="currentBidAmount" style="color:#45930b;"><h2>100</h2></div></td>
-								</tr>
-								<tr>
-									<td><h2>Current Bidder: </h2></td>
-									<td><div id="currentBidder" style="color:#45930b;"><h2>Ram</h2></div></td>
-								</tr>
-							</table>
+                            <div style="width: 180px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;">Current Bid :</div>
+                            <div id="currentBidAmount" style="color:#45930b;width: 60px;float: left;font-size: x-large;font-weight: 700;">100</div>
+                            <div style="width: 180px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;">Current Bidder :</div>
+                            <div id="currentBidder" style="color:#45930b;width: 60px;float: left;font-size: x-large;font-weight: 700;">Ram</div>
+
 						</div>
 					</div>
 					<div class="currentBidCSS">
 						<div class="timerCSS">99</div>
 						<div class="autotBidCSS">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <input type="radio" name="rd" id="autoCheckBtn" value="1" class="radioBtnCSS"/>
-                                    </td>
-                                    <td>
-                                       <h4> <label for="autoCheckBtn"> Auto Bid</label></h4>
-                                    </td>
-                                    <td>
-                                        < <input id="limitAmmountTxt" size="6" type="text"/>
-                                    </td>
-                                 </tr>
-                                <tr>
-                                    <td>
-                                        <input type="radio" name="rd" id="noBidBtn" value="1" class="radioBtnCSS"/>
-                                    </td>
-                                    <td colspan="2">
-                                        <h4> <label for="noBidBtn"> No More Bid</label></h4>
-                                    </td>
-                                </tr>
-                            </table>
+                            <div>
+                                <input type="radio" name="rd" id="autoCheckBtn" value="1"/>
+                                <label for="autoCheckBtn" style="font-size: larger;font-weight: 700;"> Auto Bid</label><input id="limitAmmountTxt" size="6" type="text"/>
+                            </div>
+                            <div>
+                                  <input type="radio" name="rd" id="noBidBtn" value="1"/>
+                                  <label for="noBidBtn" style="font-size: larger;font-weight: 700;"> No More Bid</label>
+                            </div>
+
 						</div>
 					</div>
 				</div>
