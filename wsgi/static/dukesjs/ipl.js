@@ -78,7 +78,7 @@ function registerEventHandlers(){
 $(document).ready(function(){
 
     var statsObj='';
-    $.get("/ipl/teams",function(data,status){
+    $.get("/ipl/users",function(data,status){
         statsObj=data;
         $('#teamstab').puidatatable({
             lazy: true,
