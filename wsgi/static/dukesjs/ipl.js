@@ -77,9 +77,9 @@ function registerEventHandlers(){
 
 $(document).ready(function(){
 
-    var statsObj='';
+    
     $.get("/ipl/users",function(data,status){
-        statsObj=data;
+
         $('#teamstab').puidatatable({
             lazy: true,
             caption: 'Registered IPL Teams',
@@ -96,6 +96,13 @@ $(document).ready(function(){
 
                 var pData = data.results;
                 callback.call(this, $.makeArray(pData));
+            },
+            selectionMode: 'single',
+            rowSelect: function(event, data) {
+                $('#teamstab').puigrowl('show', [{severity:'info', summary: 'Row Selected', detail: (data.brand + ' ' + data.vin)}]);
+            },
+            rowUnselect: function(event, data) {
+                $('#teamstab').puigrowl('show', [{severity:'info', summary: 'Row Unselected', detail: (data.brand + ' ' + data.vin)}]);
             }
         });
     });
