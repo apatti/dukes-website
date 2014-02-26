@@ -74,5 +74,30 @@ function registerEventHandlers(){
     });
 }
 
-	
- 
+
+$(document).ready(function(){
+
+    var statsObj='';
+    $.get("/ipl/teams",function(data,status){
+        statsObj=data;
+        $('#teamstab').puidatatable({
+            lazy: true,
+            caption: 'Registered IPL Teams',
+            paginator: {
+                rows: 15
+            },
+            columns: [
+                {field:'name', headerText: 'NAME', sortable:true},
+                {field:'iplteam', headerText: 'TEAM NAME', sortable:true},
+                {field:'email', headerText: 'EMAIL', sortable:true},
+
+            ],
+            datasource: function(callback, ui) {
+
+                var pData = data;
+                callback.call(this, $.makeArray(pData));
+            }
+        });
+    });
+
+});
