@@ -94,7 +94,7 @@ $(document).ready(function(){
             ],
             datasource: function(callback, ui) {
 
-                var pData = data;
+                var pData = data.results;
                 callback.call(this, $.makeArray(pData));
             }
         });
