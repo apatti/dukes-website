@@ -77,7 +77,7 @@ function registerEventHandlers(){
 
 $(document).ready(function(){
 
-    
+
     $.get("/ipl/users",function(data,status){
 
         $('#teamstab').puidatatable({
@@ -89,7 +89,7 @@ $(document).ready(function(){
             columns: [
                 {field:'name', headerText: 'NAME', sortable:true},
                 {field:'iplteam', headerText: 'TEAM NAME', sortable:true},
-                {field:'email', headerText: 'EMAIL', sortable:true},
+                {field:'email', headerText: 'EMAIL', sortable:true}
 
             ],
             datasource: function(callback, ui) {
