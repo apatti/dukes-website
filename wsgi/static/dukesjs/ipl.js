@@ -32,6 +32,7 @@ window.fbAsyncInit = function() {
 		   $('#loggedUserDiv').html(response.username);	 
 		   ipl_init();
            registerEventHandlers();
+         updateTeamTable();
 		});
  }
  
@@ -75,7 +76,7 @@ function registerEventHandlers(){
 }
 
 
-$(document).ready(function(){
+function updateTeamTable(){
 
 
     $.get("/ipl/users",function(data,status){
@@ -107,4 +108,4 @@ $(document).ready(function(){
         });
     });
 
-});
+}
