@@ -84,9 +84,7 @@ function updateTeamTable(){
         $('#teamstab').puidatatable({
             lazy: true,
             caption: 'Registered IPL Teams',
-            paginator: {
-                rows: 15
-            },
+            
             columns: [
                 {field:'name', headerText: 'OWNER', sortable:true},
                 {field:'iplteam', headerText: 'TEAM', sortable:true},
