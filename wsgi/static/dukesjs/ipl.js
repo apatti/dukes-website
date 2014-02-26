@@ -87,7 +87,7 @@ $(document).ready(function(){
                 rows: 15
             },
             columns: [
-                {field:'name', headerText: 'NAME', sortable:true},
+                {field:'name', headerText: 'OWNER NAME', sortable:true},
                 {field:'iplteam', headerText: 'TEAM NAME', sortable:true},
                 {field:'email', headerText: 'EMAIL', sortable:true}
 
