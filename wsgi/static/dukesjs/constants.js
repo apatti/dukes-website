@@ -3,3 +3,4 @@
  */
 var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
+var version = 2;
