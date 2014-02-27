@@ -78,7 +78,7 @@ function updateTeamTable(){
 
 
     $.get("/ipl/users",function(data,status){
-        alert(data.result);
+        
         $('#teamstab').puidatatable({
             lazy: true,
             caption: 'Registered IPL Teams',
