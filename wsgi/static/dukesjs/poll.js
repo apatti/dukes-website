@@ -56,7 +56,7 @@ window.fbAsyncInit = function() {
 						var localPollStr = "";
 						localPollStr = localPollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
 						localPollStr = localPollStr + "<table><th style='background-color: gainsboro;'>";
-						localPollStr = localPollStr + "<td colspan='3' style='background-color: gainsboro;font-family: cursive;'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";
+						localPollStr = localPollStr + "<td colspan='3' style='font-family: monospace;color: darkblue;'>"+ this['question'] +" Ends 	<b>"+ this['endDate'] +"</b></td>";
 						localPollStr = localPollStr + "</th>";
 						var previousOptionId = '';
 						$.each(opData, function() {
@@ -75,7 +75,7 @@ window.fbAsyncInit = function() {
 								var userCount = 0;
 								$.each( uData,function () {
                                  // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
-                                  usersTable = usersTable + "<tr><td>"+this+"</td></tr>"
+                                  usersTable = usersTable + "<tr><td style='background-color: burlywood;'>"+this+"</td></tr>"
                                   if(this.toString() === fbUserName){
                                   hasPollTaken = 'yes';
                                   checkedValue = true;
