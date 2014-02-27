@@ -1,4 +1,4 @@
-var DOMAIN_NAME = 'http://www.dukesxi.co';
+
 var username="none";
 /*
  window.fbAsyncInit = function() {
