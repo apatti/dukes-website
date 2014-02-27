@@ -1,5 +1,3 @@
-var fbUserName='';
-var DOMAIN_NAME = 'http://www.dukesxi.co';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
