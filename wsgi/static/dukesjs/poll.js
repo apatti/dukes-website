@@ -98,7 +98,7 @@ window.fbAsyncInit = function() {
 							 localPollStr = localPollStr + "<tr>";
 							 
 							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +"' previousValue ='"+previousOptionId+"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
-							 localPollStr = localPollStr +"<td><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
+							 localPollStr = localPollStr +"<td style='background-color: burlywood;'><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
 							 
