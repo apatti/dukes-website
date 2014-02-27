@@ -30,7 +30,7 @@ window.fbAsyncInit = function() {
 		   $('#loggedUserDiv').html(response.username);	 
 		   ipl_init();
            registerEventHandlers();
-         updateTeamTable();
+            updateTeamTable();
 		});
  }
  
