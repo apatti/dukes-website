@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="dukesjs/dukesMenu.js"></script>
 	<script type="text/javascript" src="dukesjs/ipl.js"></script>
 	<script type="text/javascript" src="dukesjs/footer.js"></script>
+    <script type="text/javascript" src="dukesjs/auction.js"></script>
 
     <script type="text/javascript">
 		$(function() 
@@ -27,8 +28,10 @@
 		       $('#iplTab').addClass('dukesMenuActive');
 		       $('#iplTabPage').puitabview();
 		       $('#rulestab').empty().load('fantasyrules.html');
+
                $('.formTxt').puiinputtext();
-                $('#teamNameSubmitBtn').puibutton();
+               $('#teamNameSubmitBtn').puibutton();
+
         });
 
     </script>
@@ -53,6 +56,7 @@
       <div id="iplTabPage">
           <ul>
               <li><a href="#teamregistrationtab">Team Registration</a></li>
+              <li><a href="#biddingtab">Bidding</a></li>
              <li><a href="#rulestab">Rules</a></li> 
 		<li><a href="#teamstab">Teams</a></li>
               
@@ -75,7 +79,9 @@
                       </tr>
                   </table>
               </div>
+              <div id="biddingtab">
 
+              </div>
               <div id="rulestab">
               </div>
 
