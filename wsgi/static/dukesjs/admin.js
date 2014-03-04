@@ -66,7 +66,7 @@ window.fbAsyncInit = function() {
         pollData.question = pollSubj;
         pollData.endDate = $("#datepicker").val();
         pollData.options = options;
-
+	pollData.sendmailto=$("#sendmail").val();
 		var jsonArray = JSON.stringify(pollData);
 
 		$.ajax({

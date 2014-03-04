@@ -58,7 +58,7 @@
 			$('#pollOptionTxt').puiinputtextarea();
 			$('#addPollOptionBtn').puibutton(); 
 			$('#createNewPollBtn').puibutton();
-
+		        $('#sendmail').puidropdown();
 			$("#pollOptionsUl").sortable();
 
 			$("body").on('click', '#pollOptionsUl .delete', function () {
@@ -118,6 +118,16 @@
 						</ul>
 					</div>
 				</td>
+			</tr>
+			<tr>
+			  <td>Send mail to:</td>
+			  <td>
+			    <select id="sendmail" name="sendmail">
+			      <option value="0">Cricket team</option>
+			      <option value="1">IPL team </option>
+			      <option value="2">All </option>
+			    </select>
+			  </td>
 			</tr>
 			<tr>
 				<td colspan="2"><button id="createNewPollBtn" type="button">CreateNew Poll</button></td>

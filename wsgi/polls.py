@@ -1,10 +1,11 @@
 import json,httplib,urllib
 import urllib2
 import requests
+import dukesMail as mail
 
 connection = httplib.HTTPSConnection('api.parse.com',443)
 
-def createPoll(pollObj,optObj):
+def createPoll(pollObj,optObj,sendMailTo):
     connection.connect()
     connection.request('POST','/1/classes/polls',json.dumps(pollObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
@@ -17,6 +18,11 @@ def createPoll(pollObj,optObj):
         connection.connect()
         connection.request('POST','/1/classes/polloptions',json.dumps(option),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
+    
+    message = getPollMailMessage(pollObj["question"])
+    if sendMailTo==0 : #cricket team
+        mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
+
     return pollId
 
 def getPoll(poll_id):
@@ -79,4 +85,9 @@ def getPolls():
     
     return pollsObj
 
+def getPollMailMessage(question):
+    message = "Enter your vote today! A new poll has been created for the DukesXI group:"
+    message = message + "\n%s"%question
+    message = message + "\n\nTo vote, please visit the following web page:\nhttp://www.dukesxi.co/polls.html  \n\nThanks, DukesXI Management"
+    return message
     
