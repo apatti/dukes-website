@@ -50,6 +50,7 @@
 				toggleable: true
 				,closable: true
 			});
+		        $('#pollCreationTab').empty().load('adminpoll.html');
 			$('#pollCreationDiv').puipanel({
 				toggleable: true
 				,closable: true
@@ -90,6 +91,8 @@
   <!-- Begin Left Column -->
   <div id="centerContent">
      <div id="noPermission" style="margin-bottom:20px ;display:block;">You dont have permissions to view Admin Dashboard</div>
+       <div id="pollCreationTab"></div>
+       <!--
 	<div id="pollCreationDiv" style="margin-bottom:20px ;display: none;" title="Polls Creation Form">
 		<table>
 			<tr>
@@ -135,7 +138,7 @@
 		</table>
 	</div>
 	<div id="closedPollsDiv" style="margin-bottom:20px" title="All Closed Polls"></div>
-	
+	-->
   </div>
   <!-- End Left Column -->
   
