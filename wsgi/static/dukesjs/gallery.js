@@ -1,4 +1,4 @@
-var DOMAIN_NAME = 'http://www.dukesxi.co';
+
 $(document).ready(function(){
 	$.get(DOMAIN_NAME +'/gallery/',function(data,status){
 		//var results = JSON.stringify(data.user.results[0]);	

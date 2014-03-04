@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Dukes XI</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="themes/flick/theme.css" />
@@ -10,10 +10,12 @@
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<link rel="stylesheet" type="text/css" href="css/menu/menu.css" />
 	<link rel="stylesheet" type="text/css" href="dukescss/dukes.css" />
-	
+
+
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="dukesjs/constants.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="primeui.js"></script>
 	<script type="text/javascript" src="dukesjs/login.js"></script>
 	<script type="text/javascript" src="dukesjs/header.js"></script>
@@ -21,18 +23,20 @@
 	<script type="text/javascript" src="dukesjs/ipl.js"></script>
 	<script type="text/javascript" src="dukesjs/footer.js"></script>
 
+
     <script type="text/javascript">
 		$(function() 
 		{ 
 		       $('#iplTab').addClass('dukesMenuActive');
 		       $('#iplTabPage').puitabview();
 		       $('#rulestab').empty().load('fantasyrules.html');
-               $('.formTxt').puiinputtext();
-                $('#teamNameSubmitBtn').puibutton();
+
+            $('.formTxt').puiinputtext();
+               $('#teamNameSubmitBtn').puibutton();
+
         });
 
-
-</script>	
+    </script>
                                       
 </head>
 <body>
@@ -53,13 +57,15 @@
   <div id="centerContent">
       <div id="iplTabPage">
           <ul>
-              <li><a href="#teamtab">Team Registration</a></li>
+              <li><a href="#teamregistrationtab">Team Registration</a></li>
+              <li><a href="#biddingtab">Bidding</a></li>
              <li><a href="#rulestab">Rules</a></li> 
-		<li><a href="#tab2">Teams</a></li>
+		      <li><a href="#teamstab">Teams</a></li>
               
           </ul>
+
           <div>
-              <div id="teamtab">
+              <div id="teamregistrationtab">
                   <table>
                       <tr>
                           <td>IPL Team </td>
@@ -76,10 +82,14 @@
                       </tr>
                   </table>
               </div>
-             <!-- <div id="tab2">
-                  <p>Content for Tab 2</p>
-              </div> -->
+              <div id="biddingtab">
+
+              </div>
               <div id="rulestab">
+              </div>
+
+               <div id="teamstab">
+
               </div>
           </div>
       </div>
