@@ -51,10 +51,7 @@
 				,closable: true
 			});
 		        $('#pollCreationTab').empty().load('adminpoll.html');
-			$('#pollCreationDiv').puipanel({
-				toggleable: true
-				,closable: true
-			});
+			$('#pollCreationDiv').puipanel();
 			$('#pollSubjectTxt').puiinputtextarea();
 			$('#pollOptionTxt').puiinputtextarea();
 			$('#addPollOptionBtn').puibutton(); 
@@ -106,7 +103,7 @@
           </ul>
 
           <div>
-               <div id="pollCreationDiv" style="margin-bottom:20px ;display: none;" title="Polls Creation Form">
+               <div id="pollCreationDiv" style="margin-bottom:20px ;" title="Polls Creation Form">
 
                </div>
 

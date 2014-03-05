@@ -13,7 +13,7 @@ window.fbAsyncInit = function() {
        $('#adminTabPanel').hide();
        $('#noPermission').show();
 	   $('#noPermission').append('Please Login To See Admin Dashboard');
-       
+
 	   location.reload();
 		});
 	FB.Event.subscribe('auth.login', function() {
