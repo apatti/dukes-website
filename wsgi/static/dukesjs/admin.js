@@ -33,10 +33,10 @@ window.fbAsyncInit = function() {
 		   $('#loggedUserDiv').html(response.username);	 
 		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'surendra.batchu'){
 				pollCreation();
-               $('#pollCreationDiv').show();
+               $('#adminTabPanel').show();
                $('#noPermission').hide();
 		   }else{
-               $('#pollCreationDiv').hide();
+               $('#adminTabPanel').hide();
 				$('#noPermission').show();
 		   }
 		});
