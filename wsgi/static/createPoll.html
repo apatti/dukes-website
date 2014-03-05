@@ -1,0 +1,43 @@
+
+<table>
+    <tr>
+        <td>Poll Subject :</td><td><textarea id="pollSubjectTxt" ></textarea></td>
+    </tr>
+    <tr>
+        <td>
+            End Date :
+        </td>
+        <td><input type="text" id="datepicker"></p></td>
+    </tr>
+    <tr>
+        <td>Enter Options : </td>
+        <td><input id="pollOptionTxt" type="text" /><button id="addPollOptionBtn">Add Option</button></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div id="pollOptionsDiv">
+                <ul id="pollOptionsUl">
+                    <li class="optionclass"><div class="allOptions">Available</div>
+                        <a href="#" class="delete"> X </a>
+                    </li>
+                    <li class="optionclass"><div class="allOptions">Not Available</div>
+                        <a href="#" class="delete"> X </a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Send mail to:</td>
+        <td>
+            <select id="sendmail" name="sendmail">
+                <option value="0">Cricket team</option>
+                <option value="1">IPL team </option>
+                <option value="2">All </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><button id="createNewPollBtn" type="button">CreateNew Poll</button></td>
+    </tr>
+</table>
