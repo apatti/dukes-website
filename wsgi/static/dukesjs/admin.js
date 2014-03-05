@@ -8,8 +8,12 @@ window.fbAsyncInit = function() {
     xfbml      : true  // parse XFBML
   });
    FB.Event.subscribe('auth.logout', function(response) {
+
 	   logout();
-	   $('#pollCreationDiv').append('Please Login To See Admin Dashboard');
+       $('#adminTabPanel').hide();
+       $('#noPermission').show();
+	   $('#noPermission').append('Please Login To See Admin Dashboard');
+       
 	   location.reload();
 		});
 	FB.Event.subscribe('auth.login', function() {
@@ -19,7 +23,9 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {		
 			loggedIn();					
 		}else{
-			$('#pollCreationDiv').append('Please Login To See Admin Dashboard');
+            $('#adminTabPanel').hide();
+            $('#noPermission').show();
+			$('#noPermission').append('Please Login To See Admin Dashboard');
 		}
 	});
 	
