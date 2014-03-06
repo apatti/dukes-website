@@ -68,8 +68,22 @@ function selectTeam()
         });
         $("#selectpoll").change(function()
         {
-            alert(polldata[$(this).childen(":selected").attr("id")]);
-            console.log(polldata[$(this).childen(":selected").attr("id")]);
+            var pollid=$(this).children(":selected").attr("id");
+            if(pollid!="default")
+            {
+                $.each(polldata[pollid],function()
+                {
+                   if(this['text']=='Available')
+                   {
+                       ("#availableplayers").append('<tr>');
+                       $.each(this.users,function()
+                       {
+                           ("#availableplayers").append('<td><input type="checkbox" name="playing">'+this.value+'</td>')
+                       });
+                       ("#availebleplayers").append('</tr>');
+                   }
+                });
+            }
         });
     });
 }
