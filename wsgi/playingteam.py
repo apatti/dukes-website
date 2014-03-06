@@ -29,3 +29,13 @@ def createPlayingTeam(playingTeamObj):
     mail.send_mail_to(message, "ashwin.patti@gmail.com", "ashwin.patti@gmail.com", "Playing XI")
 
     return "ok"
+
+
+def getPlayingTeam():
+    params = urllib.urlencode(
+        {"order": "-updatedAt", "limit": 1
+        })
+    connection.connect()
+    connection.request('GET', '/1/classes/playingteam','', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    return result
