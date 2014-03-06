@@ -9,12 +9,14 @@ connection = httplib.HTTPSConnection('api.parse.com',443)
 
 def getPlayingTeamMessage(playingTeamObj):
         message=""
-        message=message+"<b>Please find the playing XI:</b><br>\n<ol>"
+        message=message+"Please find the playing XI:\n"
+        index = 1
         for user in playingTeamObj.get("team"):
-            message=message+"<li>"+user+"</li>\n"
+            message = message+"\t"+index+"."+user+"\n"
+            index=index+1
 
-        message=message+"</ol>Ground:\n%s\n\t\t" % playingTeamObj.get("ground")
-        message = message+"<br>Time:%s\n" % playingTeamObj.get("time")
+        message=message+"\nVenue:\n\t\t%s\n" % playingTeamObj.get("ground")
+        message = message+"Time:\t\t%s\n" % playingTeamObj.get("time")
         message = message+"\n%s\n" % playingTeamObj.get("message")
         message = message+"\n--\nDukes XI Management"
 
