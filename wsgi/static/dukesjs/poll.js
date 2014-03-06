@@ -135,6 +135,7 @@ window.fbAsyncInit = function() {
                             /* create Users DropDown*/
 
                             var usersTable = "<table>";
+                            usersTable = usersTable+ "<th>"+this['text']+"</th>";
                             //get the list of users who took poll fot this option
                             if(this['users']){
                                 var u = JSON.stringify(this['users']);
@@ -150,9 +151,9 @@ window.fbAsyncInit = function() {
 
                             }
                             /* */
-
+                            closePollStr = closePollStr +usersTable;
                         });
-                        closePollStr = closePollStr +usersTable;
+
                         closePollStr = closePollStr + "</tr>";
 
                         closePollStr = closePollStr + "</table>";
