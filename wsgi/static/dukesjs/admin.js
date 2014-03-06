@@ -83,6 +83,13 @@ function selectTeam()
                 });
             }
         });
+        $("#submitteam").click(function()
+        {
+            var playingTeam=$("#playing input:checkbox:checked").map(function(){
+                return $(this).val();
+            }).get();
+            alert(playingTeam);
+        });
     });
 }
 
