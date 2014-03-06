@@ -150,8 +150,9 @@ window.fbAsyncInit = function() {
 
                             }
                             /* */
-                            
+
                         });
+                        closePollStr = closePollStr +usersTable;
                         closePollStr = closePollStr + "</tr>";
 
                         closePollStr = closePollStr + "</table>";
