@@ -5,6 +5,7 @@ from teamstats import getTeamWL
 from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import *
+from playingteam import createPlayingTeam
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -112,6 +113,17 @@ def takePollApi(poll_id):
     reqObj = request.get_json(force=True)
     result = takePoll(poll_id,reqObj.get("username"),reqObj.get("current_option_id"),reqObj.get("prev_option_id"))
     return jsonify({'result':result}),201
+
+@app.route('/playingteam',methods=['POST'])
+def insertPlayingTeam():
+    reqObj = request.get_json(force=True)
+    result = createPlayingTeam(reqObj)
+    return jsonify({'result':result}),201
+
+#@app.route('/playingteam',methods=['GET'])
+#def getPlayingTeams():
+    #return jsonfify()
+
 
 @app.route('/superbowl',methods=['POST'])
 def insertSuperBowlApi():

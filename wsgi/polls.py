@@ -85,9 +85,10 @@ def getPolls():
     
     return pollsObj
 
+
 def getPollMailMessage(question):
     message = "Enter your vote today! A new poll has been created for the DukesXI group:"
     message = message + "\n%s"%question
     message = message + "\n\nTo vote, please visit the following web page:\nhttp://www.dukesxi.co/polls.html  \n\nThanks, DukesXI Management"
     return message
-    
+

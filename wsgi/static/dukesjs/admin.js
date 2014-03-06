@@ -109,10 +109,9 @@ function selectTeam()
                 return;
             }
             playingteamobj.message=$("#message").val();
-            alert(playingteamobj);
             var jsonObj = JSON.stringify(playingteamobj);
 
-		    /*$.ajax({
+		    $.ajax({
 			    type: "POST",
 			    contentType:'application/json',
 			    url: '/playingteam',
@@ -122,7 +121,7 @@ function selectTeam()
 			        alert("Team been submitted");
 			        location.href="/";
 		        }
-		    });*/
+		    });
         });
     });
 }
