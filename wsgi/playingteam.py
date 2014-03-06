@@ -12,7 +12,7 @@ def getPlayingTeamMessage(playingTeamObj):
         message=message+"Please find the playing XI:\n"
         index = 1
         for user in playingTeamObj.get("team"):
-            message = message+"\t"+index+"."+user+"\n"
+            message = message+"\t"+str(index)+"."+user+"\n"
             index=index+1
 
         message=message+"\nVenue:\n\t\t%s\n" % playingTeamObj.get("ground")
