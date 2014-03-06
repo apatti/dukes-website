@@ -38,7 +38,8 @@ window.fbAsyncInit = function() {
 		   fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);	 
 		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'surendra.batchu'){
-				pollCreation();
+			    pollCreation();
+                selectTeam();
                $('#adminTabPanel').show();
                $('#noPermission').hide();
 		   }else{
@@ -47,6 +48,33 @@ window.fbAsyncInit = function() {
 		   }
 		});
  }
+
+/*
+ * Select Team
+ */
+function selectTeam()
+{
+    $.get("http://www.dukesxi.co/polls",function(data,status){
+        var dd = $.parseJSON(data);
+        var polldata={};
+        $("sendmail").append('<option id="default">Select the poll</option>');
+        $.each(dd,function()
+        {
+            if(this['isClosed']==1)
+            {
+                $("sendmail").append('<option id="'+this.objectId+'">'+this.question+'</option>');
+                polldata[this.objectId]=this.options;
+            }
+        });
+        $("sendmail").change(function()
+        {
+            alert(this.options);
+            console.log(this.options);
+        });
+    });
+}
+
+
  /*
 	Poll Creation
  */
