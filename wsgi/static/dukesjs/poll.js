@@ -143,7 +143,7 @@ window.fbAsyncInit = function() {
                                 var userCount = 0;
                                 $.each( uData,function () {
                                     // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
-                                    usersTable = usersTable + "<tr><td style='background-color: burlywood;'>"+this+"</td></tr>"
+                                    usersTable = usersTable + "<tr><td style='background-color: beige;'>"+this+"</td></tr>"
 
                                     userCount ++;
                                 });
