@@ -38,6 +38,7 @@ window.fbAsyncInit = function() {
  
 	function polling(){
 		var pollDivStr ='';
+        var closeDivStr ='';
 		$.get("http://www.dukesxi.co/polls",function(data,status){
 				var dd = $.parseJSON(data);
 				var noOfPolls = 1;
@@ -117,10 +118,52 @@ window.fbAsyncInit = function() {
 						noOfPolls ++;
 					}else{
 						// Closed Polls
+
+                        var objId = this['objectId'] ;
+                        var closePollStr = "";
+                        closePollStr = closePollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
+                        closePollStr = closePollStr + "<table><th style='background-color: gainsboro;'>";
+                        closePollStr = closePollStr + "<td colspan='3' style='font-family: monospace;color: darkblue;'>"+ this['question'] +"<br><b style='color: blue;'>Poll Ends	: "+ this['endDate'] +"</b></td>";
+                        closePollStr = closePollStr + "</th>";
+                        var previousOptionId = '';
+                        $.each(opData, function() {
+                            var dropDownStr ='';
+                            var hasPollTaken='no';
+                            var checkedValue =false;
+                            var optionId = this['objectId'];
+
+                            /* create Users DropDown*/
+
+                            var usersTable = "<table>";
+                            //get the list of users who took poll fot this option
+                            if(this['users']){
+                                var u = JSON.stringify(this['users']);
+                                var uData = $.parseJSON(u);
+                                var userCount = 0;
+                                $.each( uData,function () {
+                                    // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
+                                    usersTable = usersTable + "<tr><td style='background-color: burlywood;'>"+this+"</td></tr>"
+
+                                    userCount ++;
+                                });
+                                usersTable = usersTable + "</table>";
+
+                            }
+                            /* */
+                            
+                        });
+                        closePollStr = closePollStr + "</tr>";
+
+                        closePollStr = closePollStr + "</table>";
+                        closePollStr = closePollStr + "</div>";
+                        closeDivStr = closeDivStr + closePollStr;
+                        noOfPolls ++;
+                        //-----------------------
 					}
 				});
 			 
 			$.when( $('#pollsDiv').html(pollDivStr)).then(selectOptions);
+            $.when( $('#closedPollsDiv').html(closeDivStr));
 			//$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
