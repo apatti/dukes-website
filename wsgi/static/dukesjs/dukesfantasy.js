@@ -59,27 +59,28 @@ function selectTeam()
 {
     $.get("http://www.dukesxi.co/playingteam",function(data,status){
         var dd = $.parseJSON(data);
-        $.each(dd['team'],function()
+        var team = dd.team.results[0].team;
+        for(var index=0;index<team.length;index++)
         {
-            //TODO: Complete the functionality
-        });
+            $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
+        }
 
         $("#submitteam").click(function()
         {
             //TODO: Complete the functionality
-            var playingTeam=$('input[name="playing"]:checkbox:checked').map(function(){
+            var fantasyTeam=$('input[name="playing"]:checkbox:checked').map(function(){
                 return $(this).val();
             }).get();
-            if(playingTeam.length!=7)
+            if(fantasyTeam.length!=7)
             {
                 alert("Please select 7 players!!");
                 return;
             }
-            var playingteamobj={};
-            playingteamobj.pollid=$("#selectpoll").children(":selected").attr("id");
-            playingteamobj.team = playingTeam;
-
-		    $.ajax({
+            var fantasyTeamobj={};
+            fantasyTeamobj.pollid=$("#selectpoll").children(":selected").attr("id");
+            fantasyTeamobj.team = fantasyTeam;
+            alert(JSON.stringify(fantasyTeamobj));
+		    /*$.ajax({
 			    type: "POST",
 			    contentType:'application/json',
 			    url: '/playingteam',
@@ -89,7 +90,7 @@ function selectTeam()
 			        alert("Team been submitted");
 			        location.href="/";
 		        }
-		    });
+		    });*/
         });
     });
 }
