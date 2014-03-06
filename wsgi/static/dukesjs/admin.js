@@ -75,12 +75,10 @@ function selectTeam()
                 {
                    if(this['text']=='Available')
                    {
-                       $("#availableplayers").append('<tr>');
-                       $.each(this.users,function()
+                       for(var index=0;index<this.users.length;index++)
                        {
-                           $("#availableplayers").append('<td><input type="checkbox" name="playing">'+this.value+'</td>')
+                           $("#availableplayers").append('<tr><td><input type="checkbox" name="playing">'+this.users[index]+'</td></tr>')
                        });
-                       $("#availebleplayers").append('</tr>');
                    }
                 });
             }
