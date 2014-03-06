@@ -7,29 +7,25 @@ import dukesMail as mail
 
 connection = httplib.HTTPSConnection('api.parse.com',443)
 
+def getPlayingTeamMessage(playingTeamObj):
+        message=""
+        message=message+"Please find the playing XI:\n\n"
+        for user in playingTeamObj.get("team"):
+            message=message+user+"\n"
+        message=message+"Ground:\n%s\n" % playingTeamObj.get("ground")
+        message = message+"Time:%s\n" % playingTeamObj.get("time")
+        message = message+"\n%s\n" % playingTeamObj.get("message")
+
+        return message
 
 def createPlayingTeam(playingTeamObj):
-    params = urllib.urlencode({"where": json.dumps({
-        "username": {
-            "$in": playingTeamObj.get("team")
-        }
-    }), "keys": "username,name,tca_skillset"})
 
     connection.connect()
-    connection.request('GET','/1/classes/users?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    users = json.loads(connection.getresponse().read()).get("results")
-    print users
-    playingTeamObj["team"] = []
-    for user in users:
-        playingTeamObj["team"].append(user.get("username")+'-'+user.get("tca_skillset"))
-
-    print playingTeamObj
-
     connection.request('POST', '/1/classes/playingteam',json.dumps(playingTeamObj), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
 
-    #message = getPollMailMessage(pollObj["question"])
-    #if sendMailTo==0 : #cricket team
-    #    mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
+    message = getPlayingTeamMessage(playingTeamObj)
+    print message
+    mail.send_mail_to(message, "ashwin.patti@gmail.com", "ashwin.patti@gmail.com", "Playing XI")
 
     return "ok"

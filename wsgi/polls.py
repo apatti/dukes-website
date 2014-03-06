@@ -5,6 +5,14 @@ import dukesMail as mail
 
 connection = httplib.HTTPSConnection('api.parse.com',443)
 
+
+def getPollMailMessage(question):
+    message = "Enter your vote today! A new poll has been created for the DukesXI group:"
+    message = message + "\n%s"%question
+    message = message + "\n\nTo vote, please visit the following web page:\nhttp://www.dukesxi.co/polls.html  \n\nThanks, DukesXI Management"
+    return message
+
+
 def createPoll(pollObj,optObj,sendMailTo):
     connection.connect()
     connection.request('POST','/1/classes/polls',json.dumps(pollObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
@@ -14,13 +22,13 @@ def createPoll(pollObj,optObj,sendMailTo):
         abort(400)
     #poll is created, populate the options table.
     for option in optObj:
-        option["pollid"]=pollId
+        option["pollid"] = pollId
         connection.connect()
         connection.request('POST','/1/classes/polloptions',json.dumps(option),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
     
     message = getPollMailMessage(pollObj["question"])
-    if sendMailTo==0 : #cricket team
+    if sendMailTo == 0:
         mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
 
     return pollId
@@ -61,7 +69,7 @@ def takePoll(poll_id,username,optid,prev_optid):
     connection.connect()
     if not prev_optid or prev_optid != '':
         #handle the old option.
-        #TODO: Should handle this properly lateron.    
+        #TODO: Should handle this properly later on.
         connection.request('PUT','/1/classes/polloptions/%s'%prev_optid,json.dumps({"users":{"__op":"Remove","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
     
@@ -85,10 +93,4 @@ def getPolls():
     
     return pollsObj
 
-
-def getPollMailMessage(question):
-    message = "Enter your vote today! A new poll has been created for the DukesXI group:"
-    message = message + "\n%s"%question
-    message = message + "\n\nTo vote, please visit the following web page:\nhttp://www.dukesxi.co/polls.html  \n\nThanks, DukesXI Management"
-    return message
 
