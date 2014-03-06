@@ -121,7 +121,7 @@ def insertPlayingTeam():
     return jsonify({'result':result}),201
 
 @app.route('/playingteam',methods=['GET'])
-def getPlayingTeam():
+def getPlayingTeamApi():
     return jsonify({'team': getPlayingTeam()}), 200
 
 
