@@ -78,7 +78,7 @@ function selectTeam()
                        for(var index=0;index<this.users.length;index++)
                        {
                            $("#availableplayers").append('<tr><td><input type="checkbox" name="playing">'+this.users[index]+'</td></tr>')
-                       });
+                       }
                    }
                 });
             }
