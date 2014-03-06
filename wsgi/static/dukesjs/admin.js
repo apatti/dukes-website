@@ -68,8 +68,8 @@ function selectTeam()
         });
         $("#selectpoll").change(function()
         {
-            alert(this["options"]);
-            console.log(this["options"]);
+            alert(polldata[$(this).childen(":selected").attr("id")]);
+            console.log(polldata[$(this).childen(":selected").attr("id")]);
         });
     });
 }
