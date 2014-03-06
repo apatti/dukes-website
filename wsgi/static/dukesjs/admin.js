@@ -77,7 +77,7 @@ function selectTeam()
                    {
                        for(var index=0;index<this.users.length;index++)
                        {
-                           $("#availableplayers").append('<tr><td><input type="checkbox" name="playing">'+this.users[index]+'</td></tr>')
+                           $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+this.users[index]+'">'+this.users[index]+'</td></tr>')
                        }
                    }
                 });
@@ -85,10 +85,44 @@ function selectTeam()
         });
         $("#submitteam").click(function()
         {
-            var playingTeam=$("#playing input:checkbox:checked").map(function(){
+            var playingTeam=$('input[name="playing"]:checkbox:checked').map(function(){
                 return $(this).val();
             }).get();
-            alert(playingTeam);
+            if(playingTeam.length<11)
+            {
+                alert("Please select minimum 11 players!!");
+                return;
+            }
+            var playingteamobj={};
+            playingteamobj.pollid=$("#selectpoll").children(":selected").attr("id");
+            playingteamobj.team = playingTeam;
+            playingteamobj.ground=$("#groundaddress").val();
+            if(playingteamobj.ground=='')
+            {
+                alert("Please enter the ground details!!");
+                return;
+            }
+            playingteamobj.time=$("#time").val();
+            if(playingteamobj.time=='')
+            {
+                alert("Please enter the time");
+                return;
+            }
+            playingteamobj.message=$("#message").val();
+            alert(playingteamobj);
+            var jsonObj = JSON.stringify(playingteamobj);
+
+		    /*$.ajax({
+			    type: "POST",
+			    contentType:'application/json',
+			    url: '/playingteam',
+			    data: jsonObj,
+			    dataType: 'json',
+			    success: function(msg) {
+			        alert("Team been submitted");
+			        location.href="/";
+		        }
+		    });*/
         });
     });
 }
