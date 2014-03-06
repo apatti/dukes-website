@@ -58,8 +58,8 @@ window.fbAsyncInit = function() {
 function selectTeam()
 {
     $.get("http://www.dukesxi.co/playingteam",function(data,status){
-        var dd = $.parseJSON(data);
-        var team = dd.team.results[0].team;
+        var pollid= data.team.results[0].pollid;
+        var team = data.team.results[0].team;
         for(var index=0;index<team.length;index++)
         {
             $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
@@ -77,7 +77,7 @@ function selectTeam()
                 return;
             }
             var fantasyTeamobj={};
-            fantasyTeamobj.pollid=$("#selectpoll").children(":selected").attr("id");
+            fantasyTeamobj.pollid=pollid;
             fantasyTeamobj.team = fantasyTeam;
             alert(JSON.stringify(fantasyTeamobj));
 		    /*$.ajax({
