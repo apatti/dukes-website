@@ -60,6 +60,7 @@ function selectTeam()
     $.get("http://www.dukesxi.co/playingteam",function(data,status){
         var pollid= data.team.results[0].pollid;
         var team = data.team.results[0].team;
+        team.sort();
         for(var index=0;index<team.length;index++)
         {
             $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
@@ -67,6 +68,13 @@ function selectTeam()
 
         $("#submitteam").click(function()
         {
+            var teamName=$("#teamname").val()
+            if(teamName=='')
+            {
+                alert("Enter team name!!");
+                return;
+            }
+
             //TODO: Complete the functionality
             var fantasyTeam=$('input[name="playing"]:checkbox:checked').map(function(){
                 return $(this).val();
