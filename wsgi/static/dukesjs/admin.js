@@ -57,16 +57,16 @@ function selectTeam()
     $.get("http://www.dukesxi.co/polls",function(data,status){
         var dd = $.parseJSON(data);
         var polldata={};
-        $("sendmail").append('<option id="default">Select the poll</option>');
+        $("#sendmail").append('<option id="default">Select the poll</option>');
         $.each(dd,function()
         {
             if(this['isClosed']==1)
             {
-                $("sendmail").append('<option id="'+this.objectId+'">'+this.question+'</option>');
+                $("#sendmail").append('<option id="'+this.objectId+'">'+this.question+'</option>');
                 polldata[this.objectId]=this.options;
             }
         });
-        $("sendmail").change(function()
+        $("#sendmail").change(function()
         {
             alert(this.options);
             console.log(this.options);
