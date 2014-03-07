@@ -145,7 +145,7 @@ function selectTeam()
                 return;
             }
 
-            if(jQuery.inArray(fantasyTeam,powerplayer)==-1)
+            if(jQuery.inArray(powerplayer,fantasyTeam)==-1)
             {
                 alert("Please select the power player from the 7 selected players");
                 return;
