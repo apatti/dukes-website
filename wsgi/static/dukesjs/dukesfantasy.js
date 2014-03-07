@@ -155,7 +155,7 @@ function selectTeam()
             fantasyTeamobj.user=fbUserName;
             fantasyTeamobj.pollid=pollid;
             fantasyTeamobj.team = fantasyTeam;
-            fantasyTeamobj.powerplayer=
+            fantasyTeamobj.powerplayer=powerplayer;
 		    $.ajax({
 			    type: "POST",
 			    contentType:'application/json',
