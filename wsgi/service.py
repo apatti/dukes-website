@@ -5,7 +5,8 @@ from teamstats import getTeamWL
 from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import *
-from playingteam import createPlayingTeam,getPlayingTeam
+from playingteam import createPlayingTeam, getPlayingTeam
+from dukesfantasy import createFantasyTeam
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -123,6 +124,12 @@ def insertPlayingTeam():
 @app.route('/playingteam',methods=['GET'])
 def getPlayingTeamApi():
     return jsonify({'team': getPlayingTeam()}), 200
+
+@app.route('/fantasyteam',methods=['POST'])
+def insertFantasyTeam():
+    reqObj = request.get_json(force=True)
+    result = createFantasyTeam(reqObj)
+    return jsonify({'result':result}),201
 
 
 @app.route('/superbowl',methods=['POST'])

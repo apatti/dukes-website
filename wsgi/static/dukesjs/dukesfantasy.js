@@ -136,19 +136,20 @@ function selectTeam()
             }
 
             var fantasyTeamobj={};
+            fantasyTeamobj.user=fbUserName;
             fantasyTeamobj.pollid=pollid;
             fantasyTeamobj.team = fantasyTeam;
-		    /*$.ajax({
+		    $.ajax({
 			    type: "POST",
 			    contentType:'application/json',
-			    url: '/playingteam',
-			    data: jsonObj,
+			    url: '/fantasyteam',
+			    data: JSON.stringify(fantasyTeamobj),
 			    dataType: 'json',
 			    success: function(msg) {
 			        alert("Team been submitted");
 			        location.href="/";
 		        }
-		    });*/
+		    });
         });
     });
 }
