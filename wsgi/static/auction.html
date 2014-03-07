@@ -55,7 +55,7 @@
   <!-- Begin Left Column -->
   <div id="centerContent"> 
 	<div id="loginStatusDiv" style="margin-bottom:20px" title="">Please Login For Bidding ....</div>
-	<div id="successLoginDiv">
+	<div id="successLoginDiv" style="display: none;">
 		<div id="usersDiv" style="margin-bottom:20px" title="All Participants"></div>
 		<div id="biddintAreaDiv" class="biddingMainArea">	
 			<div id="teamsDiv" style="margin-bottom:20px" title="All Team" class="bidTeams"> Participants</div>	
@@ -74,17 +74,11 @@
 					</div>
 					<div class="currentBidCSS">
 						<div class="timerCSS">99</div>
-						<div class="autotBidCSS">
-                            <div>
-                                <input type="radio" name="rd" id="autoCheckBtn" value="1"/>
-                                <label for="autoCheckBtn" style="font-size: larger;font-weight: 700;"> Auto Bid</label><input id="limitAmmountTxt" size="6" type="text"/>
-                            </div>
-                            <div>
-                                  <input type="radio" name="rd" id="noBidBtn" value="1"/>
-                                  <label for="noBidBtn" style="font-size: larger;font-weight: 700;"> No More Bid</label>
-                            </div>
+						<!--<div class="autotBidCSS">
 
-						</div>
+
+
+						</div>-->
 					</div>
 				</div>
 				<hr class="hr">
@@ -92,10 +86,12 @@
                     <div style="width: 360px;height:80px;float: left;">
                         <div style="width: 200px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;">Enter Amount : </div>
                         <div style="width: 150px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;"><input id="bidAmmountTxt" size="10" type="text" style="height: 30px;font-size: x-large;"/></div>
-                        <div style="width: 100px;float: left;"><button id="btn_1" type="button" class="numBtn">Ammount+1</button></div>
+                        <div style="width: 100px;float: left;"><button id="btn_1" type="button" class="numBtn">89+1</button></div>
                         <div>
                             <input type="radio" name="rd" id="autoCheckBtn" value="1"/>
-                            <label for="autoCheckBtn" style="font-size: larger;font-weight: 700;"> Auto Bid</label><input id="limitAmmountTxt" size="6" type="text"/>
+                            <label for="autoCheckBtn" style="font-size: larger;font-weight: 700;"> Auto Bid</label>
+                            <input type="radio" name="rd" id="noBidBtn" value="1"/>
+                            <label for="noBidBtn" style="font-size: larger;font-weight: 700;"> No More Bid</label>
                         </div>
                     </div>
                     <div style="width: 100px;float: left;">
