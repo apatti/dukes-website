@@ -137,10 +137,24 @@ function selectTeam()
                 return;
             }
 
+            var powerplayer=$('#selectpowerplayer').children(':selected').val();
+                            
+            if(powerplayer=='')
+            {
+                alert("Please select the power player");
+                return;
+            }
+
+            if(jQuery.inArray(fantasyTeam,powerplayer)==-1)
+            {
+                alert("Please select the power player from the 7 selected players");
+            }
+
             var fantasyTeamobj={};
             fantasyTeamobj.user=fbUserName;
             fantasyTeamobj.pollid=pollid;
             fantasyTeamobj.team = fantasyTeam;
+            fantasyTeamobj.powerplayer=
 		    $.ajax({
 			    type: "POST",
 			    contentType:'application/json',
