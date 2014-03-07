@@ -65,10 +65,20 @@ function selectTeam()
          * Sort according to the skill set.
          */
         team.sort(function(first,second){
+
+            //name sort
+
             var firstskill=first.substr(first.indexOf('(')+1,2);
             var secondskill=second.substr(second.indexOf('(')+1,2);
             if(firstskill==secondskill)
-                return 0;
+            {
+                if(first==second)
+                    return 0;
+                if(first<second)
+                    return -1;
+                else
+                    return 1
+            }
             if(firstskill<secondskill)
                 return -1;
             if(firstskill>secondskill)
