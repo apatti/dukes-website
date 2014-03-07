@@ -168,7 +168,7 @@ function selectTeam()
 		    });
         });
 
-        $("#selectpowerplayer").click(function()
+        $("#selectpowerplayer").select(function()
         {
             var fantasyTeam=$('input[name="playing"]:checkbox:checked').map(function(){
                 return $(this).val();
