@@ -138,7 +138,6 @@ function selectTeam()
             var fantasyTeamobj={};
             fantasyTeamobj.pollid=pollid;
             fantasyTeamobj.team = fantasyTeam;
-            alert(JSON.stringify(fantasyTeamobj));
 		    /*$.ajax({
 			    type: "POST",
 			    contentType:'application/json',
