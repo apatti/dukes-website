@@ -84,9 +84,11 @@ function selectTeam()
             if(firstskill>secondskill)
                 return 1;
         });
+        $("#selectpowerplayer").append('<option value="">Select Power Player</option>');
         for(var index=0;index<team.length;index++)
         {
             $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
+            $("#selectpowerplayer").append('<option value="'+team[index]+'">'+team[index]+'</option>');
         }
 
         $("#submitteam").click(function()
@@ -135,10 +137,25 @@ function selectTeam()
                 return;
             }
 
+            var powerplayer=$('#selectpowerplayer').children(':selected').val();
+
+            if(powerplayer=='')
+            {
+                alert("Please select the power player");
+                return;
+            }
+
+            if(jQuery.inArray(powerplayer,fantasyTeam)==-1)
+            {
+                alert("Please select the power player from the 7 selected players");
+                return;
+            }
+
             var fantasyTeamobj={};
             fantasyTeamobj.user=fbUserName;
             fantasyTeamobj.pollid=pollid;
             fantasyTeamobj.team = fantasyTeam;
+            fantasyTeamobj.powerplayer=powerplayer;
 		    $.ajax({
 			    type: "POST",
 			    contentType:'application/json',
