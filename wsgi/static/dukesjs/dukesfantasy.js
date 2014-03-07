@@ -100,7 +100,6 @@ function selectTeam()
                 return;
             }
 
-            //TODO: Complete the functionality
             var fantasyTeam=$('input[name="playing"]:checkbox:checked').map(function(){
                 return $(this).val();
             }).get();
@@ -167,6 +166,17 @@ function selectTeam()
 			        location.href="/";
 		        }
 		    });
+        });
+
+        $("#selectpowerplayer").click(function()
+        {
+            var fantasyTeam=$('input[name="playing"]:checkbox:checked').map(function(){
+                return $(this).val();
+            }).get();
+            for(var index=0;index<fantasyTeam.length;index++)
+            {
+                $("#selectpowerplayer").append('<option value="'+fantasyTeam[index]+'">'+fantasyTeam[index]+'</option>');
+            }
         });
     });
 }
