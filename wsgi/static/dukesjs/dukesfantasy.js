@@ -60,7 +60,20 @@ function selectTeam()
     $.get("http://www.dukesxi.co/playingteam",function(data,status){
         var pollid= data.team.results[0].pollid;
         var team = data.team.results[0].team;
-        team.sort();
+
+        /*
+         * Sort according to the skill set.
+         */
+        team.sort(function(first,second){
+            var firstskill=first.substr(first.indexOf('(')+1,2);
+            var secondskill=second.substr(second.indexOf('(')+1,2);
+            if(firstskill==secondskill)
+                return 0;
+            if(firstskill<secondskill)
+                return -1;
+            if(firstskill>secondskill)
+                return 1;
+        });
         for(var index=0;index<team.length;index++)
         {
             $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
@@ -86,17 +99,17 @@ function selectTeam()
             }
 
             var bowlercount=jQuery.grep(fantasyTeam,function(user,index){
-                if(user.toLowerCase().indexOf('bowler'))
+                if(user.toLowerCase().indexOf('bowler')!=-1)
                     return true;
             }).length;
 
             var batsmancount=jQuery.grep(fantasyTeam,function(user,index){
-                if(user.toLowerCase().indexOf('batsman')||user.toLowerCase().indexOf('keeper'))
+                if((user.toLowerCase().indexOf('batsman')!=1)||(user.toLowerCase().indexOf('keeper')!=-1))
                     return true;
             }).length;
 
             var allroundercount=jQuery.grep(fantasyTeam,function(user,index){
-                if(user.toLowerCase().indexOf('allrounder'))
+                if(user.toLowerCase().indexOf('allrounder')!=-1)
                     return true;
             }).length;
 
