@@ -84,6 +84,34 @@ function selectTeam()
                 alert("Please select 7 players!!");
                 return;
             }
+
+            var bowlercount=jQuery.grep(fantasyTeam,function(user,index){
+                if(user.toLowerCase().indexOf('bowler'))
+                    return true;
+            }).length;
+
+            var batsmancount=jQuery.grep(fantasyTeam,function(user,index){
+                if(user.toLowerCase().indexOf('batsman')||user.toLowerCase().indexOf('keeper'))
+                    return true;
+            }).length;
+
+            var allroundercount=jQuery.grep(fantasyTeam,function(user,index){
+                if(user.toLowerCase().indexOf('allrounder'))
+                    return true;
+            }).length;
+
+            if(bowlercount<2||batsmancount<2||allroundercount<1)
+            {
+                if(bowlercount<2)
+                    alert("Please select at least 2 bowlers!!");
+                if(batsmancount<2)
+                    alert("Please select at least 2 batsman!!");
+                if(allroundercount<1)
+                    alert("Please select at least 1 allrounder!!");
+
+                return;
+            }
+
             var fantasyTeamobj={};
             fantasyTeamobj.pollid=pollid;
             fantasyTeamobj.team = fantasyTeam;
