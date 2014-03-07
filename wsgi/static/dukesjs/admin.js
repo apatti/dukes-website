@@ -71,7 +71,8 @@ function selectTeam()
             var pollid=$(this).children(":selected").attr("id");
             if(pollid!="default")
             {
-                polldata[pollid].users.sort();
+                polldata[pollid][0].users.sort();
+                polldata[pollid][1].users.sort();
                 $.each(polldata[pollid],function()
                 {
                    if(this['text']=='Available')

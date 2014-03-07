@@ -84,9 +84,11 @@ function selectTeam()
             if(firstskill>secondskill)
                 return 1;
         });
+        $("#selectpowerplayer").append('<f:selectItem itemLabel="Select One" itemValue="" />');
         for(var index=0;index<team.length;index++)
         {
             $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
+            $("#selectpowerplayer").append('<f:selectItem itemLabel="'+team[index]+'" itemValue="'+team[index]+'" />');
         }
 
         $("#submitteam").click(function()
