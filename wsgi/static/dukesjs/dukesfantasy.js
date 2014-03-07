@@ -84,11 +84,11 @@ function selectTeam()
             if(firstskill>secondskill)
                 return 1;
         });
-        //$("#selectpowerplayer").append('<option value="">Select Power Player</option>');
+        $("#selectpowerplayer").append('<option value="">Select Power Player</option>');
         for(var index=0;index<team.length;index++)
         {
             $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
-            //$("#selectpowerplayer").append('<option value="'+team[index]+'">'+team[index]+'</option>');
+            $("#selectpowerplayer").append('<option value="'+team[index]+'">'+team[index]+'</option>');
         }
 
         $("#submitteam").click(function()
@@ -167,7 +167,7 @@ function selectTeam()
 		        }
 		    });
         });
-
+        /*
         $("#selectpowerplayer").change(function()
         {
             var fantasyTeam=$('input[name="playing"]:checkbox:checked').map(function(){
@@ -178,6 +178,6 @@ function selectTeam()
             {
                 $("#selectpowerplayer").append('<option value="'+fantasyTeam[index]+'">'+fantasyTeam[index]+'</option>');
             }
-        });
+        });*/
     });
 }
