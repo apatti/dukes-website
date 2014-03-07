@@ -88,7 +88,7 @@ function selectTeam()
         for(var index=0;index<team.length;index++)
         {
             $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+team[index]+'">'+team[index]+'</td></tr>')
-            $("#selectpowerplayer").append('<option value="'+team[index]+'">'+team[index]+'"</option>');
+            $("#selectpowerplayer").append('<option value="'+team[index]+'">'+team[index]+'</option>');
         }
 
         $("#submitteam").click(function()
@@ -138,7 +138,7 @@ function selectTeam()
             }
 
             var powerplayer=$('#selectpowerplayer').children(':selected').val();
-                            
+
             if(powerplayer=='')
             {
                 alert("Please select the power player");
@@ -148,6 +148,7 @@ function selectTeam()
             if(jQuery.inArray(fantasyTeam,powerplayer)==-1)
             {
                 alert("Please select the power player from the 7 selected players");
+                return;
             }
 
             var fantasyTeamobj={};
