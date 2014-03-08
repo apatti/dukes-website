@@ -222,20 +222,23 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '<tbody class="pui-datatable-data">';
         //var rr = JSON.stringify(dd.results);
         //var tt = $.parseJSON(rr);
-        var pData = JSON.stringify(dd);
+       // var pData = JSON.stringify(dd);
+        var pData = dd;
         alert(pData);
         $.each(pData,function(){
+            var pd = JSON.stringify(this);
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
-            allTeamsTableStr = allTeamsTableStr + this['user'];
+            allTeamsTableStr = allTeamsTableStr + pd['user'];
             allTeamsTableStr = allTeamsTableStr + '</td>';
             allTeamsTableStr = allTeamsTableStr + '<td>';
-            allTeamsTableStr = allTeamsTableStr + this['powerplayer'];
+            allTeamsTableStr = allTeamsTableStr + pd['powerplayer'];
             allTeamsTableStr = allTeamsTableStr + '</td>';
             allTeamsTableStr = allTeamsTableStr + '<td>';
-            var tt = $.parseJSON(this['team']);
+            var tt = $.parseJSON(pd['team']);
             $.each(tt,function (){
-                allTeamsTableStr = allTeamsTableStr + this +'<br>'
+                var players = JSON.stringify(this);
+                allTeamsTableStr = allTeamsTableStr + players +'<br>'
             });
             allTeamsTableStr = allTeamsTableStr + '';
             allTeamsTableStr = allTeamsTableStr + '</td>';
