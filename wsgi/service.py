@@ -133,7 +133,7 @@ def insertFantasyTeam():
 
 @app.route('/fantasyteam', methods=['GET'])
 def getFantasyTeamApi():
-    return jsonify({'result': getAllFantasyTeams()}), 200
+    return json.dumps(getAllFantasyTeams()), 200
 
 
 @app.route('/superbowl',methods=['POST'])
