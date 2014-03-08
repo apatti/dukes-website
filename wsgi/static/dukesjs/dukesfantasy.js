@@ -222,7 +222,7 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '<tbody class="pui-datatable-data">';
         //var rr = JSON.stringify(dd.results);
         //var tt = $.parseJSON(rr);
-        var pData = dd
+        var pData = JSON.stringify(dd);
         alert(pData);
         $.each(pData,function(){
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
