@@ -41,10 +41,11 @@ window.fbAsyncInit = function() {
 		   fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);
 		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'surendra.batchu'){
-               $('#adminTabPanel').show();
+               $('#allTeamsDiv').show();
+               allTeams();
                $('#noPermission').hide();
 		   }else{
-               $('#adminTabPanel').hide();
+               $('#allTeamsDiv').hide();
 				$('#noPermission').show();
 		   }
             selectTeam();
@@ -179,5 +180,30 @@ function selectTeam()
                 $("#selectpowerplayer").append('<option value="'+fantasyTeam[index]+'">'+fantasyTeam[index]+'</option>');
             }
         });*/
+    });
+
+
+}
+
+function allTeams(){
+    $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+
+        $('#allTeamsDiv').puidatatable({
+            lazy: false,
+            caption: 'All Teams',
+            columns: [
+                {field:'user', headerText: 'Owner', sortable:false},
+                {field:'powerplayer', headerText: 'PowerPlayer', sortable:false},
+                {field:'team', headerText: 'Team', sortable:false}
+
+            ],
+            datasource: function(callback, ui) {
+
+                var pData = $.parseJSON(data);
+                //dataArray = pData['FieldStats'];
+                //dataArray = [{'catches':'30','runouts': 2012, 'stumps':'23'}];
+                callback.call(this, $.makeArray(pData['results']));
+            }
+        });
     });
 }
