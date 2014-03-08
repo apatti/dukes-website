@@ -187,7 +187,7 @@ function selectTeam()
 }
 
 function allTeams(){
-  /*  $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+   $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
 
         $('#allTeamsDiv').puidatatable({
             lazy: false,
@@ -207,9 +207,9 @@ function allTeams(){
             },
             selectionMode: 'single'
         });
-    });*/
+    });
 
-   var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
+  /* var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
     var rr = $.parseJSON(data);
     var dd = rr.results;
@@ -220,14 +220,12 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '<th class="ui-state-default">Team</th>';
         allTeamsTableStr = allTeamsTableStr + '</thead>';
         allTeamsTableStr = allTeamsTableStr + '<tbody class="pui-datatable-data">';
-        //var rr = JSON.stringify(dd.results);
-        //var tt = $.parseJSON(rr);
-       // var pData = JSON.stringify(dd);
+
         var pData = dd;
-        alert(pData);
+
         $.each(pData,function(){
             var pd = JSON.stringify(this);
-            alert( pd);
+
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + pd['user'];
@@ -235,19 +233,20 @@ function allTeams(){
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + pd['powerplayer'];
             allTeamsTableStr = allTeamsTableStr + '</td>';
-           /* allTeamsTableStr = allTeamsTableStr + '<td>';
+           *//* allTeamsTableStr = allTeamsTableStr + '<td>';
             var tt = $.parseJSON(pd['team']);
             $.each(tt,function (){
                 var players = JSON.stringify(this);
                 allTeamsTableStr = allTeamsTableStr + players +'<br>'
             });
             allTeamsTableStr = allTeamsTableStr + '';
-            allTeamsTableStr = allTeamsTableStr + '</td>';*/
+            allTeamsTableStr = allTeamsTableStr + '</td>';*//*
             allTeamsTableStr = allTeamsTableStr + '</tr>';
         });
         allTeamsTableStr = allTeamsTableStr + '</tbody>';
         allTeamsTableStr = allTeamsTableStr + '</table>';
         allTeamsTableStr = allTeamsTableStr + '</div>';
     });
-    $('#allTeamsDiv').html(allTeamsTableStr);
+    alert( pd);
+    $('#allTeamsDiv').html(allTeamsTableStr);*/
 }
