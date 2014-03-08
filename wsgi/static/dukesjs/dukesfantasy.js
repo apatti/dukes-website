@@ -212,7 +212,7 @@ function allTeams(){
    var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
     var rr = JSON.stringify(data);
-    var pData = $.parseJSON(rr);
+    var dd = $.parseJSON(rr);
         allTeamsTableStr = allTeamsTableStr + '<table><caption class="pui-datatable-caption ui-widget-header">All Teams</caption>';
         allTeamsTableStr = allTeamsTableStr + '<thead>';
         allTeamsTableStr = allTeamsTableStr + '<th class="ui-state-default">Owner</th>';
@@ -222,6 +222,7 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '<tbody class="pui-datatable-data">';
         //var rr = JSON.stringify(dd.results);
         //var tt = $.parseJSON(rr);
+        var pData = dd.results;
         $.each(pData,function(){
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
