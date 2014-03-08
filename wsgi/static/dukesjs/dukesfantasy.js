@@ -211,8 +211,8 @@ function allTeams(){
 
    var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
-    var rr = JSON.stringify(data);
-    var dd = $.parseJSON(rr.results);
+    var rr = $.parseJSON(data);
+    var dd = rr.results;
         allTeamsTableStr = allTeamsTableStr + '<table><caption class="pui-datatable-caption ui-widget-header">All Teams</caption>';
         allTeamsTableStr = allTeamsTableStr + '<thead>';
         allTeamsTableStr = allTeamsTableStr + '<th class="ui-state-default">Owner</th>';
