@@ -40,15 +40,16 @@ window.fbAsyncInit = function() {
 
 		   fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);
-		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'surendra.batchu'){
+		  /* if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'surendra.batchu'){
                $('#allTeamsDiv').show();
-               allTeams();
+               //allTeams();
                $('#noPermission').hide();
 		   }else{
                $('#allTeamsDiv').hide();
 				$('#noPermission').show();
-		   }
+		   }*/
             selectTeam();
+            allTeams();
 		});
  }
 
@@ -186,7 +187,7 @@ function selectTeam()
 }
 
 function allTeams(){
-   /* $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+    $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
 
         $('#allTeamsDiv').puidatatable({
             lazy: false,
@@ -206,9 +207,9 @@ function allTeams(){
             },
             selectionMode: 'single'
         });
-    });*/
+    });
 
-    var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
+   /* var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
         var dd = $.parseJSON(data);
        // var pp = JSON.parse(dd)
@@ -242,5 +243,5 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '</table>';
         allTeamsTableStr = allTeamsTableStr + '</div>';
     });
-    $('#allTeamsDiv').html(allTeamsTableStr);
+    $('#allTeamsDiv').html(allTeamsTableStr);*/
 }
