@@ -220,8 +220,8 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '</thead>';
         allTeamsTableStr = allTeamsTableStr + '<tbody class="pui-datatable-data">';
         var rr = JSON.stringify(dd.results);
-        alert(rr);
-        $.each(rr,function(){
+        var tt = $.parseJSON(rr);
+        $.each(tt,function(){
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + this['user'];
