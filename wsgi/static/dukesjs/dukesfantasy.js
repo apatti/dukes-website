@@ -210,7 +210,7 @@ function allTeams(){
 
     var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
-        var dd = JSON.stringify(data);
+        var dd = JSON.parse(JSON.stringify(data.results));
         alert(dd);
         allTeamsTableStr = allTeamsTableStr + '<table><caption class="pui-datatable-caption ui-widget-header">All Teams</caption>';
         allTeamsTableStr = allTeamsTableStr + '<thead>';
