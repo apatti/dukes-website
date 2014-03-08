@@ -187,7 +187,7 @@ function selectTeam()
 }
 
 function allTeams(){
-    $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+  /*  $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
 
         $('#allTeamsDiv').puidatatable({
             lazy: false,
@@ -207,12 +207,12 @@ function allTeams(){
             },
             selectionMode: 'single'
         });
-    });
+    });*/
 
-   /* var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
+   var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
-        var dd = $.parseJSON(data);
-       // var pp = JSON.parse(dd)
+    var rr = JSON.stringify(data);
+    var pData = $.parseJSON(rr);
         allTeamsTableStr = allTeamsTableStr + '<table><caption class="pui-datatable-caption ui-widget-header">All Teams</caption>';
         allTeamsTableStr = allTeamsTableStr + '<thead>';
         allTeamsTableStr = allTeamsTableStr + '<th class="ui-state-default">Owner</th>';
@@ -220,9 +220,9 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '<th class="ui-state-default">Team</th>';
         allTeamsTableStr = allTeamsTableStr + '</thead>';
         allTeamsTableStr = allTeamsTableStr + '<tbody class="pui-datatable-data">';
-        var rr = JSON.stringify(dd.results);
-        var tt = $.parseJSON(rr);
-        $.each(tt,function(){
+        //var rr = JSON.stringify(dd.results);
+        //var tt = $.parseJSON(rr);
+        $.each(pData,function(){
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + this['user'];
@@ -243,5 +243,5 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '</table>';
         allTeamsTableStr = allTeamsTableStr + '</div>';
     });
-    $('#allTeamsDiv').html(allTeamsTableStr);*/
+    $('#allTeamsDiv').html(allTeamsTableStr);
 }
