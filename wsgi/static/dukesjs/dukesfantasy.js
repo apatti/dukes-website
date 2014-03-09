@@ -234,14 +234,15 @@ function allTeams(){
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + this.powerplayer;
             allTeamsTableStr = allTeamsTableStr + '</td>';
-          /* allTeamsTableStr = allTeamsTableStr + '<td>';
-            var tt = $.parseJSON(pd['team']);
+           allTeamsTableStr = allTeamsTableStr + '<td>';
+            allTeamsTableStr = allTeamsTableStr + this.team;
+            /*var tt = $.parseJSON(pd['team']);
             $.each(tt,function (){
                 var players = JSON.stringify(this);
                 allTeamsTableStr = allTeamsTableStr + players +'<br>'
-            });
-            allTeamsTableStr = allTeamsTableStr + '';
-            allTeamsTableStr = allTeamsTableStr + '</td>';*/
+            });*/
+           
+            allTeamsTableStr = allTeamsTableStr + '</td>';
             allTeamsTableStr = allTeamsTableStr + '</tr>';
         });
         allTeamsTableStr = allTeamsTableStr + '</tbody>';
