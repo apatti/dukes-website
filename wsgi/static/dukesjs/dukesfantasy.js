@@ -187,7 +187,7 @@ function selectTeam()
 }
 
 function allTeams(){
-   $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+   /*$.get("http://www.dukesxi.co/fantasyteam",function(data,status){
 
         $('#allTeamsDiv').puidatatable({
             lazy: false,
@@ -207,9 +207,9 @@ function allTeams(){
             },
             selectionMode: 'single'
         });
-    });
+    });*/
 
-  /* var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
+   var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
     var rr = $.parseJSON(data);
     var dd = rr.results;
@@ -233,20 +233,20 @@ function allTeams(){
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + pd['powerplayer'];
             allTeamsTableStr = allTeamsTableStr + '</td>';
-           *//* allTeamsTableStr = allTeamsTableStr + '<td>';
+          /* allTeamsTableStr = allTeamsTableStr + '<td>';
             var tt = $.parseJSON(pd['team']);
             $.each(tt,function (){
                 var players = JSON.stringify(this);
                 allTeamsTableStr = allTeamsTableStr + players +'<br>'
             });
             allTeamsTableStr = allTeamsTableStr + '';
-            allTeamsTableStr = allTeamsTableStr + '</td>';*//*
+            allTeamsTableStr = allTeamsTableStr + '</td>';*/
             allTeamsTableStr = allTeamsTableStr + '</tr>';
         });
         allTeamsTableStr = allTeamsTableStr + '</tbody>';
         allTeamsTableStr = allTeamsTableStr + '</table>';
         allTeamsTableStr = allTeamsTableStr + '</div>';
     });
-    alert( pd);
-    $('#allTeamsDiv').html(allTeamsTableStr);*/
+    alert( allTeamsTableStr);
+    $('#allTeamsDiv').html(allTeamsTableStr);
 }
