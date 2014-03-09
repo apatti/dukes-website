@@ -246,7 +246,8 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '</tbody>';
         allTeamsTableStr = allTeamsTableStr + '</table>';
         allTeamsTableStr = allTeamsTableStr + '</div>';
+        alert( allTeamsTableStr);
+        $('#allTeamsDiv').html(allTeamsTableStr);
     });
-    alert( allTeamsTableStr);
-    $('#allTeamsDiv').html(allTeamsTableStr);
+
 }
