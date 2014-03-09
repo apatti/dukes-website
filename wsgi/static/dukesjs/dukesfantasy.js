@@ -242,7 +242,7 @@ function allTeams(){
 
 
             $.each(playersArray,function (){
-                var players = JSON.stringify(this);
+              
                  allTeamsTableStr = allTeamsTableStr +'<tr>';
                  allTeamsTableStr = allTeamsTableStr +'<td>';
                 allTeamsTableStr = allTeamsTableStr + this;
