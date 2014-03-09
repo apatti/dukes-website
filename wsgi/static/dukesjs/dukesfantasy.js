@@ -227,7 +227,7 @@ function allTeams(){
         $.each(pData,function(){
             var pd = JSON.stringify(this);
             var teamplayers = JSON.stringify(this.team);
-            var playersArray = $.makeArray(teamplayers);
+            var playersArray = teamplayers.toArray();
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + this.user;
