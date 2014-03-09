@@ -229,10 +229,10 @@ function allTeams(){
 
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
-            allTeamsTableStr = allTeamsTableStr + pd.user;
+            allTeamsTableStr = allTeamsTableStr + this.user;
             allTeamsTableStr = allTeamsTableStr + '</td>';
             allTeamsTableStr = allTeamsTableStr + '<td>';
-            allTeamsTableStr = allTeamsTableStr + pd.powerplayer;
+            allTeamsTableStr = allTeamsTableStr + this.powerplayer;
             allTeamsTableStr = allTeamsTableStr + '</td>';
           /* allTeamsTableStr = allTeamsTableStr + '<td>';
             var tt = $.parseJSON(pd['team']);
