@@ -226,7 +226,7 @@ function allTeams(){
 
         $.each(pData,function(){
             var pd = JSON.stringify(this);
-
+            var teamplayers = JSON.stringify(this.team);
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
             allTeamsTableStr = allTeamsTableStr + this.user;
@@ -235,13 +235,13 @@ function allTeams(){
             allTeamsTableStr = allTeamsTableStr + this.powerplayer;
             allTeamsTableStr = allTeamsTableStr + '</td>';
            allTeamsTableStr = allTeamsTableStr + '<td>';
-            allTeamsTableStr = allTeamsTableStr + this.team;
+            allTeamsTableStr = allTeamsTableStr + teamplayers;
             /*var tt = $.parseJSON(pd['team']);
             $.each(tt,function (){
                 var players = JSON.stringify(this);
                 allTeamsTableStr = allTeamsTableStr + players +'<br>'
             });*/
-           
+
             allTeamsTableStr = allTeamsTableStr + '</td>';
             allTeamsTableStr = allTeamsTableStr + '</tr>';
         });
