@@ -242,12 +242,11 @@ function allTeams(){
 
 
             $.each(playersArray,function (){
-                alert(this);
-                 allTeamsTableStr = allTeamsTableStr +'<tr>';
-                 allTeamsTableStr = allTeamsTableStr +'<td>';
+                allTeamsTableStr = allTeamsTableStr +'<tr>';
+                allTeamsTableStr = allTeamsTableStr +'<td>';
                 allTeamsTableStr = allTeamsTableStr + this;
-                 allTeamsTableStr = allTeamsTableStr +'</td>';
-                 allTeamsTableStr = allTeamsTableStr +'</tr>';
+                allTeamsTableStr = allTeamsTableStr +'</td>';
+                allTeamsTableStr = allTeamsTableStr +'</tr>';
 
             });
             allTeamsTableStr = allTeamsTableStr +'</table>';
