@@ -242,7 +242,7 @@ function allTeams(){
 
 
             $.each(playersArray,function (){
-
+                alert(this);
                  allTeamsTableStr = allTeamsTableStr +'<tr>';
                  allTeamsTableStr = allTeamsTableStr +'<td>';
                 allTeamsTableStr = allTeamsTableStr + this;
@@ -257,7 +257,7 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '</tbody>';
         allTeamsTableStr = allTeamsTableStr + '</table>';
         allTeamsTableStr = allTeamsTableStr + '</div>';
-        alert( allTeamsTableStr);
+
         $('#allTeamsDiv').html(allTeamsTableStr);
     });
 
