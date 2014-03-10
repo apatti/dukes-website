@@ -45,29 +45,9 @@ window.fbAsyncInit = function() {
 
         $.get("/ipl/users",function(data,status){
 
-            $('#teamstab').puidatatable({
-                lazy: true,
-                caption: 'Registered IPL Teams',
-
-                columns: [
-                    {field:'name', headerText: 'OWNER', sortable:true},
-                    {field:'iplteam', headerText: 'TEAM', sortable:true},
-                    {field:'email', headerText: 'EMAIL', sortable:true}
-
-                ],
-                datasource: function(callback, ui) {
-
-                    var pData = data.results;
-                    callback.call(this, $.makeArray(pData));
-                },
-                selectionMode: 'single',
-                rowSelect: function(event, data) {
-                    $('#teamstab').puigrowl('show', [{severity:'info', summary: 'Row Selected', detail: (data.brand + ' ' + data.vin)}]);
-                },
-                rowUnselect: function(event, data) {
-                    $('#teamstab').puigrowl('show', [{severity:'info', summary: 'Row Unselected', detail: (data.brand + ' ' + data.vin)}]);
-                }
-            });
+            var rr = $.parseJSON(data);
+            var dd = rr.results;
+            alert(dd);
         });
 
 
