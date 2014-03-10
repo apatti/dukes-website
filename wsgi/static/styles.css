@@ -196,3 +196,12 @@ clear: both;
 margin: 0.38462em 0 0.30769em;
 height: 0;
 }
+
+
+.iplOwner{
+    width:76px ;
+    height:76px;
+    float: left;
+    background:green;
+    border-radius: 3px;
+}
