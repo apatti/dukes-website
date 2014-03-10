@@ -203,5 +203,8 @@ height: 0;
     height:96px;
     float: left;
     background:green;
-    border-radius: 3px;
+    border-radius: 5px;
+    margin-left: 2px;
 }
+
+
