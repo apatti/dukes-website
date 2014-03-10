@@ -45,7 +45,7 @@ window.fbAsyncInit = function() {
             var dd = data.results;
             console.log(dd);
             $.each(dd,function (){
-                alert(this.username);
+                console.log(this.username);
             });
         });
 
