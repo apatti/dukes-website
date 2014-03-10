@@ -53,7 +53,7 @@ window.fbAsyncInit = function() {
                     allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
                     allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
                     allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+firstName[0]+'</div>';
-                    allOwnerDivs = allOwnerDivs + '<div class="ownerAmount"> Lef $: 99</div>';
+                    allOwnerDivs = allOwnerDivs + '<div class="ownerAmount"> Left $ 99</div>';
 
                     allOwnerDivs = allOwnerDivs+'</div>';
                 }
