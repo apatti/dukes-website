@@ -48,9 +48,11 @@ window.fbAsyncInit = function() {
             $.each(dd,function (){
                 if(  this.username != 'rupesh.kunnath'){
                     console.log(this.username);
+                    var firstName = this.username.split('.');
                     var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
                     allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
                     allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="55px" height="60px"/></div>';
+                    allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+firstName[0]+'</div>';
                     allOwnerDivs = allOwnerDivs+'</div>';
                 }
 
