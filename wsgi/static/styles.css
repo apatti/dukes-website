@@ -208,9 +208,16 @@ height: 0;
 }
 .ownerName{
     width:89px ;
-    height:10px;
+    height:20px;
     float: left;
     background:#f5f5f5;
+    border-radius: 5px;
+}
+.ownerAmount{
+    width:89px ;
+    height:20px;
+    float: left;
+    background:lightpink;
     border-radius: 5px;
 }
 
