@@ -46,7 +46,7 @@ window.fbAsyncInit = function() {
             var allOwnerDivs ='';
             console.log(dd);
             $.each(dd,function (){
-                if( ! this.username === 'rupesh.kunnath'){
+                if(  this.username != 'rupesh.kunnath'){
                     console.log(this.username);
                     var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
                     allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
