@@ -43,10 +43,13 @@ window.fbAsyncInit = function() {
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
+            var allOwnerDivs ='';
             console.log(dd);
             $.each(dd,function (){
                 console.log(this.username);
+                allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner"></div>'
             });
+            $('#ownersDiv').html(allOwnerDivs);
         });
 
 	}
