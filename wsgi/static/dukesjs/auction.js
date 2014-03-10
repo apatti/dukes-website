@@ -32,12 +32,11 @@ window.fbAsyncInit = function() {
  function auction(){
 	 FB.api('/me', function(response) {
 		  console.log('Good to see you, ' + response.name + '.');	  
-		  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
-		
-		   fbUserName = response.username;
+		     fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);	 
-		   polling();
+
 		});
+     polling();
  }
  
  
