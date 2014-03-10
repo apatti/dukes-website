@@ -50,7 +50,7 @@ window.fbAsyncInit = function() {
                     console.log(this.username);
                     var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
                     allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
-                    allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="50px" height="50px"/></div>';
+                    allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="55px" height="60px"/></div>';
                     allOwnerDivs = allOwnerDivs+'</div>';
                 }
 
