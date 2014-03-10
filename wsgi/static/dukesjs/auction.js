@@ -45,7 +45,6 @@ window.fbAsyncInit = function() {
 
         $.get("/ipl/users",function(data,status){
 
-            var rr = $.parseJSON(data);
             var dd = rr.results;
             alert(dd);
         });
