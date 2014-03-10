@@ -42,7 +42,7 @@ window.fbAsyncInit = function() {
  
  
 	function polling(){
-
+        alert("Test");
         $.get("/ipl/users",function(data,status){
 
             var dd = data.results;
