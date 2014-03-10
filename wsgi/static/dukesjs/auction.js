@@ -49,7 +49,7 @@ window.fbAsyncInit = function() {
                 console.log(this.username);
                 allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner"></div>'
             });
-            $('#ownersDiv').html(allOwnerDivs);
+            $('#ownersDiv').append(allOwnerDivs);
         });
 
 	}
