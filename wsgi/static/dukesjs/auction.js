@@ -47,7 +47,12 @@ window.fbAsyncInit = function() {
             console.log(dd);
             $.each(dd,function (){
                 console.log(this.username);
-                allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner"></div>'
+                var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
+                allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
+                allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="50px" height="50px"/></div>';
+                allOwnerDivs = allOwnerDivs+'</div>';
+
+
             });
             $('#ownersDiv').append(allOwnerDivs);
         });
