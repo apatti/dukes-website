@@ -33,16 +33,16 @@ window.fbAsyncInit = function() {
 	 FB.api('/me', function(response) {
 		  console.log('Good to see you, ' + response.name + '.');	  
 		     fbUserName = response.username;
-		   $('#loggedUserDiv').html(response.username);	 
-
+		   $('#loggedUserDiv').html(response.username);
+         polling();
 		});
-     polling();
+
  }
  
  
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-
+            console.log(data);
             var dd = data.results;
             alert(dd);
         });
