@@ -49,7 +49,5 @@ window.fbAsyncInit = function() {
             alert(dd);
         });
 
-
-		return;
 	}
 	
