@@ -21,8 +21,10 @@ window.fbAsyncInit = function() {
 	});
 	 FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {		
-			loggedIn();					
-		}else{
+			loggedIn();
+            $( "#datepicker" ).datepicker();
+
+        }else{
             $('#adminTabPanel').hide();
             $('#noPermission').show();
 			$('#noPermission').append('Please Login To See Admin Dashboard');
