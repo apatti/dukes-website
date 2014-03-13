@@ -32,17 +32,35 @@ window.fbAsyncInit = function() {
  function auction(){
 	 FB.api('/me', function(response) {
 		  console.log('Good to see you, ' + response.name + '.');	  
-		  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
-		
-		   fbUserName = response.username;
-		   $('#loggedUserDiv').html(response.username);	 
-		   polling();
+		     fbUserName = response.username;
+		   $('#loggedUserDiv').html(response.username);
+         polling();
 		});
+
  }
  
  
 	function polling(){
-		
-		return;
+        $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
+            var dd = data.results;
+            var allOwnerDivs ='';
+            console.log(dd);
+            $.each(dd,function (){
+                if(  this.username != 'rupesh.kunnath'){
+                    console.log(this.username);
+                    var firstName = this.username.split('.');
+                    var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
+                    allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
+                    allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
+                    allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+firstName[0]+'</div>';
+                    allOwnerDivs = allOwnerDivs + '<div class="ownerAmount"> Left $ 99</div>';
+
+                    allOwnerDivs = allOwnerDivs+'</div>';
+                }
+
+            });
+            $('#ownersDiv').append(allOwnerDivs);
+        });
+
 	}
 	

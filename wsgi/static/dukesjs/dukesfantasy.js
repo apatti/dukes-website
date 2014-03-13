@@ -187,7 +187,7 @@ function selectTeam()
 }
 
 function allTeams(){
-    $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+  /*$.get("http://www.dukesxi.co/fantasyteam",function(data,status){
 
         $('#allTeamsDiv').puidatatable({
             lazy: false,
@@ -208,11 +208,12 @@ function allTeams(){
             selectionMode: 'single'
         });
     });
+*/
 
-   /* var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
-        var dd = $.parseJSON(data);
-       // var pp = JSON.parse(dd)
+    var rr = $.parseJSON(data);
+    var dd = rr.results;
+        var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
         allTeamsTableStr = allTeamsTableStr + '<table><caption class="pui-datatable-caption ui-widget-header">All Teams</caption>';
         allTeamsTableStr = allTeamsTableStr + '<thead>';
         allTeamsTableStr = allTeamsTableStr + '<th class="ui-state-default">Owner</th>';
@@ -220,28 +221,43 @@ function allTeams(){
         allTeamsTableStr = allTeamsTableStr + '<th class="ui-state-default">Team</th>';
         allTeamsTableStr = allTeamsTableStr + '</thead>';
         allTeamsTableStr = allTeamsTableStr + '<tbody class="pui-datatable-data">';
-        var rr = JSON.stringify(dd.results);
-        var tt = $.parseJSON(rr);
-        $.each(tt,function(){
+
+        var pData = dd;
+
+        $.each(pData,function(){
+            var pd = JSON.stringify(this);
+            var teamplayers = JSON.stringify(this.team);
+            var playersArray = $.parseJSON(teamplayers);
             allTeamsTableStr = allTeamsTableStr + '<tr class="ui-widget-content pui-datatable-even">';
             allTeamsTableStr = allTeamsTableStr + '<td>';
-            allTeamsTableStr = allTeamsTableStr + this['user'];
+            allTeamsTableStr = allTeamsTableStr + this.user;
             allTeamsTableStr = allTeamsTableStr + '</td>';
             allTeamsTableStr = allTeamsTableStr + '<td>';
-            allTeamsTableStr = allTeamsTableStr + this['powerplayer'];
+            allTeamsTableStr = allTeamsTableStr + this.powerplayer;
             allTeamsTableStr = allTeamsTableStr + '</td>';
-            allTeamsTableStr = allTeamsTableStr + '<td>';
-            var tt = $.parseJSON(this['team']);
-            $.each(tt,function (){
-                allTeamsTableStr = allTeamsTableStr + this +'<br>'
+           allTeamsTableStr = allTeamsTableStr + '<td>';
+
+             allTeamsTableStr = allTeamsTableStr +'<table>';
+
+
+
+            $.each(playersArray,function (){
+                allTeamsTableStr = allTeamsTableStr +'<tr>';
+                allTeamsTableStr = allTeamsTableStr +'<td>';
+                allTeamsTableStr = allTeamsTableStr + this;
+                allTeamsTableStr = allTeamsTableStr +'</td>';
+                allTeamsTableStr = allTeamsTableStr +'</tr>';
+
             });
-            allTeamsTableStr = allTeamsTableStr + '';
+            allTeamsTableStr = allTeamsTableStr +'</table>';
             allTeamsTableStr = allTeamsTableStr + '</td>';
             allTeamsTableStr = allTeamsTableStr + '</tr>';
         });
         allTeamsTableStr = allTeamsTableStr + '</tbody>';
         allTeamsTableStr = allTeamsTableStr + '</table>';
         allTeamsTableStr = allTeamsTableStr + '</div>';
+
+        $('#allTeamsDiv').html(allTeamsTableStr);
     });
-    $('#allTeamsDiv').html(allTeamsTableStr);*/
+
 }
