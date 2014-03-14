@@ -29,6 +29,7 @@
             $('#submitteam').puibutton();
             $('#dukesFantasyTabPage').puitabview();
             $('#leaderboardTab').puitabview();
+            $('#playerScoreTab').puitabview();
             $('#rulesTab').empty().load('dukesfantasyrules.html');
             //$('#rulesTab').puitabview();
 
@@ -59,6 +60,7 @@
           <ul>
               <li><a href="#yourTeamTab">Create Team</a></li>
               <li><a href="#resultTab">Teams</a></li>
+              <li><a href="#playerScoreTab">Players Score</a></li>
               <li><a href="#leaderboardTab">Leader Board</a></li>
               <li><a href="#rulesTab">Fantasy Rules</a></li>
            </ul>
@@ -88,6 +90,9 @@
               </div>
               <div id="resultTab">
                   <div id="allTeamsDiv" style="margin-bottom:20px;" title="All Teams" class="pui-datatable ui-widget"></div>
+              </div>
+              <div id="playerScoreTab">
+                  <div id="playerscoretable"></div>
               </div>
               <div id="leaderboardTab">
                   <div id="leaderboardtable"></div>

@@ -51,6 +51,7 @@ window.fbAsyncInit = function() {
             selectTeam();
             allTeams();
             showLeaderBoard();
+            showPlayerScores();
 		});
  }
 
@@ -188,7 +189,7 @@ function selectTeam()
 
 function showLeaderBoard()
 {
-    $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+    $.get("http://www.dukesxi.co/fantasyteam/irnZqbjMME",function(data,status){
         teamdata = $.parseJSON(data);
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
@@ -203,6 +204,41 @@ function showLeaderBoard()
 		  	    datarow.addRows([[username,points]]);
 			}
             var leaderboardtable = new google.visualization.Table(document.getElementById('leaderboardtable'));
+		    leaderboardtable.draw(datarow);
+        }
+
+    });
+}
+
+function showPlayerScores()
+{
+    $.get("http://www.dukesxi.co/fantasyscore/irnZqbjMME",function(data,status){
+        playersdata = $.parseJSON(data);
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+		    datarow.addColumn('string','Player');
+		    datarow.addColumn('number','BattingPts');
+            datarow.addColumn('number','BattingBonusPts');
+            datarow.addColumn('number','BowlingPts');
+            datarow.addColumn('number','BowlingBonusPts');
+            datarow.addColumn('number','FieldingPts');
+            datarow.addColumn('number','MoMPts');
+            datarow.addColumn('number','TotalPoints');
+		    for (var i=0;i<playersdata.results.length;i++)
+			{
+			    var username = playersdata.results[i].user;
+			    var battingpoints=playersdata.results[i].battingpoints;
+                var battingbonuspoints=playersdata.results[i].battingbonuspoints;
+                var bowlingpoints=playersdata.results[i].bowlingpoints;
+                var bowlingbonuspoints=playersdata.results[i].bowlingbonuspoints;
+                var fieldingpoints=playersdata.results[i].fieldingpoints;
+                var mompoints=playersdata.results[i].mompoints;
+                var points=playersdata.results[i].points;
+		  	    datarow.addRows([[username,battingpoints,battingbonuspoints,bowlingpoints,bowlingbonuspoints,fieldingpoints,mompoints,points]]);
+			}
+            var leaderboardtable = new google.visualization.Table(document.getElementById('playerscoretable'));
 		    leaderboardtable.draw(datarow);
         }
 
@@ -233,7 +269,7 @@ function allTeams(){
     });
 */
 
-    $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
+    $.get("http://www.dukesxi.co/fantasyteam/irnZqbjMME",function(data,status){
     var rr = $.parseJSON(data);
     var dd = rr.results;
         var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';

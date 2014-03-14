@@ -16,7 +16,8 @@ def createFantasyTeam(fantasyTeamObj):
     return "ok"
 
 
-def getAllFantasyTeams():
+def getAllFantasyTeams(gameid):
+    params = urllib.urlencode({"where": json.dumps({"pollid": gameid})})
     connection.connect()
     connection.request('GET', '/1/classes/dukesfantasyteam','', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
@@ -102,6 +103,14 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
         result = json.loads(connection.getresponse().read())
     return "ok"
 
+
+def getFantasyTeamScores(gameid):
+    params = urllib.urlencode({"where": json.dumps({"gameid": gameid})})
+    connection.connect()
+    connection.request('GET', '/1/classes/dukesfantasyscore?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+
+    return result
 
 def calculateFantasyTeamScores(gameid):
     params = urllib.urlencode({"where": json.dumps({"gameid": gameid}), "keys": "player,points"})
