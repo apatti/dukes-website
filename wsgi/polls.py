@@ -29,7 +29,7 @@ def createPoll(pollObj,optObj,sendMailTo):
     
     message = getPollMailMessage(pollObj["question"])
     if sendMailTo == 0:
-        mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
+        mail.send_mail_all(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
 
     return pollId
 

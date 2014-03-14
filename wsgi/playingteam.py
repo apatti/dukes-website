@@ -30,7 +30,7 @@ def createPlayingTeam(playingTeamObj):
 
     message = getPlayingTeamMessage(playingTeamObj)
     print message
-    mail.send_mail_to(message, "ashwin.patti@gmail.com", "ashwin.patti@gmail.com", "Playing XI")
+    mail.send_mail_all(message, "ashwin.patti@gmail.com", "Playing XI")
 
     return "ok"
 
