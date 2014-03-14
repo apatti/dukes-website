@@ -98,4 +98,5 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
         scorejsonobj = {"player": fantasyScore["player"], "gameid": gameid, "points": points, "battingpoints": battingpoints, "battingbonuspoints": battingbonuspoints, "bowlingpoints": bowlingpoints, "bowlingbonuspoints": bowlingbonuspoints, "fieldingpoints": fieldingpoints, "mompoints": mompoints}
         connection.connect()
         connection.request(operation, url, json.dumps(scorejsonobj), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        result = json.loads(connection.getresponse().read())
     return "ok"
