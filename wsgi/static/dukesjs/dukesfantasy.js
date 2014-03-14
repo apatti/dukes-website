@@ -189,21 +189,21 @@ function selectTeam()
 function showLeaderBoard()
 {
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
-        teamdata = data;
+        teamdata = $.parseJSON(data);
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
 		    datarow.addColumn('string','User');
 		    datarow.addColumn('string','Points');
-		    for (var i=0;i<data.results.length;i++)
+		    for (var i=0;i<teamdata.results.length;i++)
 			{
-			    var username = data.results[i].user;
-			    var points=data.results[i].points;
+			    var username = teamdata.results[i].user;
+			    var points=teamdata.results[i].points;
 		  	    datarow.addRows([[username,points]]);
 			}
             var leaderboardtable = new google.visualization.Table(document.getElementById('leaderboardtable'));
-		    //leaderboardtable.draw(datarow);
+		    leaderboardtable.draw(datarow);
         }
 
     });
