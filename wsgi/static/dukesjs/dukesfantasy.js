@@ -204,7 +204,7 @@ function showLeaderBoard()
 		  	    datarow.addRows([[username,points]]);
 			}
             var leaderboardtable = new google.visualization.Table(document.getElementById('leaderboardtable'));
-		    leaderboardtable.draw(datarow);
+		    //leaderboardtable.draw(datarow);
         }
 
     });
