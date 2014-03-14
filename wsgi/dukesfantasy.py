@@ -37,7 +37,7 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
             battingbonuspoints += 10
         if (fantasyScore["battingRuns"] >= 15) and (fantasyScore["battingRuns"] < 25):
             battingbonuspoints += 15
-        if (fantasyScore["battingRuns"] >=25) and (fantasyScore["battingRuns"] < 50):
+        if (fantasyScore["battingRuns"] >= 25) and (fantasyScore["battingRuns"] < 50):
             battingbonuspoints += 25
         if (fantasyScore["battingRuns"] >= 50) and (fantasyScore["battingRuns"] < 75):
             battingbonuspoints += 50
@@ -86,8 +86,7 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
         #TODO update the player.
         params = urllib.urlencode({"where": json.dumps({"player":fantasyScore["player"], "gameid": gameid})})
         connection.connect()
-        connection.request('GET', '/1/classes/dukesfantasyscore?%s' % params, '',
-                           {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        connection.request('GET', '/1/classes/dukesfantasyscore?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
         if len(result.get("results")) > 0:
             operation = 'PUT'
