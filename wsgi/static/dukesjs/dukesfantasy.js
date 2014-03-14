@@ -195,7 +195,7 @@ function showLeaderBoard()
         {
             var datarow = new google.visualization.DataTable();
 		    datarow.addColumn('string','User');
-		    datarow.addColumn('string','Points');
+		    datarow.addColumn('integer','Points');
 		    for (var i=0;i<teamdata.results.length;i++)
 			{
 			    var username = teamdata.results[i].user;
