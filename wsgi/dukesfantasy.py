@@ -109,12 +109,10 @@ def calculateFantasyTeamScores(gameid):
     connection.request('GET', '/1/classes/dukesfantasyscore?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     players = result.get("results")
-    print players
     params = urllib.urlencode({"where": json.dumps({"pollid": gameid}), "keys": "powerplayer,team"})
     connection.connect()
     connection.request('GET', '/1/classes/dukesfantasyteam?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     fantasyTeams = json.loads(connection.getresponse().read()).get("results")
-    print fantasyTeams
     for fantasyTeam in fantasyTeams:
         points = 0
         for player in players:
@@ -123,7 +121,7 @@ def calculateFantasyTeamScores(gameid):
                 if re.match('%s' % player.get("player"), fantasyTeam.get("powerplayer")) is not None:
                     points += player.get("points")
         connection.connect()
-        connection.request('PUT', '/1/classes/dukesfantasyteam/%s' % fantasyTeam.get("objectId"), json.dumps({"points", points}), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        connection.request('PUT', '/1/classes/dukesfantasyteam/%s' % fantasyTeam.get("objectId"), json.dumps({"points": points}), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
 
     return "ok"
