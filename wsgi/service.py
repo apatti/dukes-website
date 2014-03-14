@@ -6,7 +6,7 @@ from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import *
 from playingteam import createPlayingTeam, getPlayingTeam
-from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateFantasyScore
+from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateFantasyScore, calculateFantasyTeamScores
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -134,6 +134,11 @@ def insertFantasyTeam():
 @app.route('/fantasyteam', methods=['GET'])
 def getFantasyTeamApi():
     return json.dumps(getAllFantasyTeams()), 200
+
+@app.route('/fantasyteam/<game_id>', methods=['PUT'])
+def updateFantasyTeamScoreApi(game_id):
+    result = calculateFantasyTeamScores(game_id)
+    return json.dumps({'result': result}), 201
 
 @app.route('/fantasyscore/<game_id>', methods=['PUT'])
 def updateFantasyScoreApi(game_id):

@@ -1,6 +1,7 @@
 __author__ = 'apatti'
 
 import json,httplib,urllib
+import re
 import urllib2
 import requests
 
@@ -70,7 +71,7 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
             bowlingbonuspoints += 100
         if fantasyScore["bowlingExtras"] == 0:
             bowlingbonuspoints += 20
-        if fantasyScore["bowlingEconomy"] <= 2.5:
+        if (fantasyScore["bowlingEconomy"] >= 0) and (fantasyScore["bowlingEconomy"] <= 2.5):
             bowlingbonuspoints += 50
         if (fantasyScore["bowlingEconomy"] > 2.5) and (fantasyScore["bowlingEconomy"] <= 3.5):
             bowlingbonuspoints += 30
@@ -84,7 +85,7 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
 
         points = battingpoints+battingbonuspoints+bowlingpoints+bowlingbonuspoints+fieldingpoints+mompoints
         #TODO update the player.
-        params = urllib.urlencode({"where": json.dumps({"player":fantasyScore["player"], "gameid": gameid})})
+        params = urllib.urlencode({"where": json.dumps({"player": fantasyScore["player"], "gameid": gameid})})
         connection.connect()
         connection.request('GET', '/1/classes/dukesfantasyscore?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
@@ -99,4 +100,30 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
         connection.connect()
         connection.request(operation, url, json.dumps(scorejsonobj), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
+    return "ok"
+
+
+def calculateFantasyTeamScores(gameid):
+    params = urllib.urlencode({"where": json.dumps({"gameid": gameid}), "keys": "player,points"})
+    connection.connect()
+    connection.request('GET', '/1/classes/dukesfantasyscore?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    players = result.get("results")
+
+    params = urllib.urlencode({"where": json.dumps({"pollid": gameid}), "keys": "powerplayer,team"})
+    connection.connect()
+    connection.request('GET', '/1/classes/dukesfantasyteam?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    fantasyTeams = json.loads(connection.getresponse().read()).get("results")
+
+    for fantasyTeam in fantasyTeams:
+        points = 0
+        for player in players:
+            if len([x for x in fantasyTeam.get("team") if re.match('%s' % player.get("player"), x)]) != 0:
+                points += player.get("points")
+                if re.match('%s' % player.get("player"), fantasyTeam.get("powerplayer")) is not None:
+                    points += player.get("points")
+        connection.connect()
+        connection.request('PUT', '/1/classes/dukesfantasyteam/%s' % fantasyTeam.get("objectId"), json.dumps({"points", points}), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        connection.getresponse().read()
+
     return "ok"
