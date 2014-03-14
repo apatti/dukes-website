@@ -219,11 +219,11 @@ function showPlayerScores()
         {
             var datarow = new google.visualization.DataTable();
 		    datarow.addColumn('string','Player');
-		    datarow.addColumn('number','BattingPts');
-            datarow.addColumn('number','BattingBonusPts');
-            datarow.addColumn('number','BowlingPts');
-            datarow.addColumn('number','BowlingBonusPts');
-            datarow.addColumn('number','FieldingPts');
+		    datarow.addColumn('number','BatPts');
+            datarow.addColumn('number','BatBonusPts');
+            datarow.addColumn('number','BowlPts');
+            datarow.addColumn('number','BowlBonusPts');
+            datarow.addColumn('number','FldPts');
             datarow.addColumn('number','MoMPts');
             datarow.addColumn('number','TotalPoints');
 		    for (var i=0;i<playersdata.results.length;i++)
