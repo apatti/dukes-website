@@ -228,7 +228,7 @@ function showPlayerScores()
             datarow.addColumn('number','TotalPoints');
 		    for (var i=0;i<playersdata.results.length;i++)
 			{
-			    var username = playersdata.results[i].user;
+			    var username = playersdata.results[i].player;
 			    var battingpoints=playersdata.results[i].battingpoints;
                 var battingbonuspoints=playersdata.results[i].battingbonuspoints;
                 var bowlingpoints=playersdata.results[i].bowlingpoints;
