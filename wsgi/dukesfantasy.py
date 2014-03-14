@@ -105,7 +105,7 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
 
 
 def getFantasyTeamScores(gameid):
-    params = urllib.urlencode({"where": json.dumps({"gameid": gameid})})
+    params = urllib.urlencode({"where": json.dumps({"gameid": gameid}),"order":"-points"})
     connection.connect()
     connection.request('GET', '/1/classes/dukesfantasyscore?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
