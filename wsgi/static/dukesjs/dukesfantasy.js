@@ -190,8 +190,7 @@ function showLeaderBoard()
 {
     $.get("http://www.dukesxi.co/fantasyteam",function(data,status){
         teamdata = data;
-        google.load('visualization', '1', {packages:['table']});
-        google.setOnLoadCallback(drawTable);
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
