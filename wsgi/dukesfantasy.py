@@ -72,7 +72,7 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
             bowlingbonuspoints += 20
         if fantasyScore["bowlingEconomy"] <= 2.5:
             bowlingbonuspoints += 50
-        if (fantasyScore["bowlingEconomy"] > 2.5) and (fantasyScore["bowlingWickets"] <= 3.5):
+        if (fantasyScore["bowlingEconomy"] > 2.5) and (fantasyScore["bowlingEconomy"] <= 3.5):
             bowlingbonuspoints += 30
 
         fieldingpoints += fantasyScore["fieldingCatches"]*20
