@@ -50,6 +50,7 @@ window.fbAsyncInit = function() {
 		   }*/
             selectTeam();
             allTeams();
+            showLeaderBoard();
 		});
  }
 
@@ -183,7 +184,30 @@ function selectTeam()
         });*/
     });
 
+}
 
+function showLeaderBoard()
+{
+    $.get("http://www.dukesxi.co/fantasyteam/leaderboard",function(data,status){
+        teamdata = data;
+        google.load('visualization', '1', {packages:['table']});
+        google.setOnLoadCallback(drawTable);
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+		    datarow.addColumn('string','User');
+		    datarow.addColumn('string','Points');
+		    for (var i=0;i<data.results.length;i++)
+			{
+			    var username = data.results[i].user;
+			    var points=data.results[i].points;
+		  	    datarow.addRows([[username,points]]);
+			}
+            var leaderboardtable = new google.visualization.Table(document.getElementById('leaderboardtable'));
+		    leaderboardtable.draw(datarow);
+        }
+
+    });
 }
 
 function allTeams(){
