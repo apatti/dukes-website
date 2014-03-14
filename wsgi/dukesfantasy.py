@@ -115,7 +115,6 @@ def calculateFantasyTeamScores(gameid):
     fantasyTeams = json.loads(connection.getresponse().read()).get("results")
     for fantasyTeam in fantasyTeams:
         points = 0
-        print fantasyTeam
         for player in players:
             if len([x for x in fantasyTeam.get("team") if re.match('%s' % player.get("player"), x)]) != 0:
                 points += player.get("points")
