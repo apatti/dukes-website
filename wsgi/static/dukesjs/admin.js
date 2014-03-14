@@ -23,6 +23,7 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {		
 			loggedIn();
             $( "#datepicker" ).datepicker();
+            $("#gamedate").datepicker();
 
         }else{
             $('#adminTabPanel').hide();
@@ -106,6 +107,7 @@ function selectTeam()
                 alert("Please enter the ground details!!");
                 return;
             }
+            playingteamobj.gamedate=$("#gamedate").val();
             playingteamobj.time=$("#time").val();
             if(playingteamobj.time=='')
             {
