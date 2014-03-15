@@ -49,7 +49,7 @@ def updateFantasyScore(gameid,fantasyTeamScoreObj):
             battingbonuspoints += 100
 
         if fantasyScore["battingRuns"] >= 10:
-            srr = fantasyScore["battingRuns"]/fantasyScore["battingBalls"]
+            srr = (fantasyScore["battingRuns"]/fantasyScore["battingBalls"])*100
         if (srr >= 75) and (srr < 95):
             battingbonuspoints += 15
         if (srr >= 95) and (srr < 115):
