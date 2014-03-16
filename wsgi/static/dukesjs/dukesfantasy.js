@@ -48,7 +48,7 @@ window.fbAsyncInit = function() {
                $('#allTeamsDiv').hide();
 				$('#noPermission').show();
 		   }*/
-            $(".selectgamediv").html(getgameshtml());
+            getgameshtml();
             selectTeam();
             allTeams();
             showLeaderBoard('irnZqbjMME');
@@ -66,7 +66,7 @@ function getgameshtml()
             htmlstr+='<option id="'+gamesdata[i].pollid+'">'+gamesdata[i].gamedate+'-'+gamesdata[i].opposition+'</option>';
         }
         htmlstr+='</select>'
-        return htmlstr;
+        $(".selectgamediv").html(htmlstr);
     });
 }
 
