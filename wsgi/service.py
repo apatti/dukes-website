@@ -5,7 +5,7 @@ from teamstats import getTeamWL
 from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import *
-from playingteam import createPlayingTeam, getPlayingTeam
+from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
 
 app = Flask(__name__,static_url_path='')
@@ -140,10 +140,13 @@ def updateFantasyTeamScoreApi(game_id):
     result = calculateFantasyTeamScores(game_id)
     return json.dumps({'result': result}), 201
 
-
 @app.route('/fantasyscore/<game_id>', methods=['GET'])
 def getFantasyScoreApi(game_id):
     return json.dumps(getFantasyTeamScores(game_id)), 200
+
+@app.route('/cricketgames/', methods=['GET'])
+def getCricketGamesMetaApi():
+    return json.dumps(getGamesMeta()), 200
 
 @app.route('/fantasyscore/<game_id>', methods=['PUT'])
 def updateFantasyScoreApi(game_id):

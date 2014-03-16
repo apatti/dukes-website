@@ -48,13 +48,27 @@ window.fbAsyncInit = function() {
                $('#allTeamsDiv').hide();
 				$('#noPermission').show();
 		   }*/
+            $(".selectgamediv").html(getgameshtml());
             selectTeam();
             allTeams();
-            showLeaderBoard();
-            showPlayerScores();
+            showLeaderBoard('irnZqbjMME');
+            showPlayerScores('irnZqbjMME');
 		});
  }
 
+function getgameshtml()
+{
+    $.get("http://www.dukesxi.co/cricketgames/",function(data,status){
+        var htmlstr ='<select class="selectgame">';
+        gamesdata = $.parseJSON(data).results;
+        for (var i=0;i<gamesdata.length;i++)
+        {
+            htmlstr+='<option id="'+gamesdata[i].pollid+'">'+gamesdata[i].gamedate+'-'+gamesdata[i].opposition+'</option>';
+        }
+        htmlstr+='</select>'
+        return htmlstr;
+    });
+}
 
 /*
  * Select Team
@@ -188,9 +202,9 @@ function selectTeam()
 
 }
 
-function showLeaderBoard()
+function showLeaderBoard(gameid)
 {
-    $.get("http://www.dukesxi.co/fantasyteam/irnZqbjMME",function(data,status){
+    $.get("http://www.dukesxi.co/fantasyteam/"+gameid,function(data,status){
         teamdata = $.parseJSON(data);
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
@@ -211,9 +225,9 @@ function showLeaderBoard()
     });
 }
 
-function showPlayerScores()
+function showPlayerScores(gameid)
 {
-    $.get("http://www.dukesxi.co/fantasyscore/irnZqbjMME",function(data,status){
+    $.get("http://www.dukesxi.co/fantasyscore/"+gameid,function(data,status){
         playersdata = $.parseJSON(data);
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
