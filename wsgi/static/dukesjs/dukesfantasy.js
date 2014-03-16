@@ -59,7 +59,7 @@ window.fbAsyncInit = function() {
 function getgameshtml()
 {
     $.get("http://www.dukesxi.co/cricketgames/",function(data,status){
-        var htmlstr ='<select class="selectgame">';
+        var htmlstr ='<select class="selectgame"><option id="">Total</option>';
         gamesdata = $.parseJSON(data).results;
         for (var i=0;i<gamesdata.length;i++)
         {
@@ -67,6 +67,13 @@ function getgameshtml()
         }
         htmlstr+='</select>'
         $(".selectgamediv").html(htmlstr);
+
+        $("#selectgame").change(function(){
+            var gameid=$(this).children(":selected").attr("id");
+            showLeaderBoard(gameid);
+            showPlayerScores(gameid);
+        });
+
     });
 }
 
