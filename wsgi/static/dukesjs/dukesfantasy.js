@@ -59,7 +59,8 @@ window.fbAsyncInit = function() {
 function getgameshtml()
 {
     $.get("http://www.dukesxi.co/cricketgames/",function(data,status){
-        var htmlstr ='<select class="selectgame"><option id="">Total</option>';
+        //var htmlstr ='<select class="selectgame"><option id="">Total</option>';
+        var htmlstr='';
         gamesdata = $.parseJSON(data).results;
         for (var i=0;i<gamesdata.length;i++)
         {
