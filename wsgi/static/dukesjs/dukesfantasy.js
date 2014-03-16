@@ -68,7 +68,7 @@ function getgameshtml()
         htmlstr+='</select>'
         $(".selectgamediv").html(htmlstr);
 
-        $("#selectgame").change(function(){
+        $(".selectgame").change(function(){
             var gameid=$(this).children(":selected").attr("id");
             showLeaderBoard(gameid);
             showPlayerScores(gameid);
