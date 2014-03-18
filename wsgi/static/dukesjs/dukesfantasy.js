@@ -51,8 +51,8 @@ window.fbAsyncInit = function() {
             getgameshtml();
             selectTeam();
             allTeams();
-            showLeaderBoard('irnZqbjMME');
-            showPlayerScores('irnZqbjMME');
+            showLeaderBoard('total');
+            showPlayerScores('total');
 		});
  }
 
