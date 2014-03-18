@@ -1,4 +1,5 @@
 import json,httplib,urllib
+from dukesuser import getUserSkill
 import dukesMail as mail
 
 
@@ -66,6 +67,8 @@ tent-Type": "application/json"})
     return "deleted" 
 
 def takePoll(poll_id,username,optid,prev_optid):
+    userskill = getUserSkill(username)
+    username= username + " (" + userskill + ")"
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     if not prev_optid or prev_optid != '':
