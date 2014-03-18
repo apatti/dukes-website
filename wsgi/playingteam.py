@@ -5,8 +5,6 @@ import urllib2
 import requests
 import dukesMail as mail
 
-connection = httplib.HTTPSConnection('api.parse.com',443)
-
 def getPlayingTeamMessage(playingTeamObj):
         message=""
         message=message+"Please find the playing XI:\n"
@@ -23,14 +21,14 @@ def getPlayingTeamMessage(playingTeamObj):
         return message
 
 def createPlayingTeam(playingTeamObj):
-
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('POST', '/1/classes/playingteam',json.dumps(playingTeamObj), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
 
     message = getPlayingTeamMessage(playingTeamObj)
     print message
-    mail.send_mail_all(message, "ashwin.patti@gmail.com", "Playing XI")
+    mail.send_mail_cricket(message, "ashwin.patti@gmail.com", "Playing XI")
 
     return "ok"
 
@@ -39,6 +37,7 @@ def getPlayingTeam():
     params = urllib.urlencode(
         {"order": "-updatedAt", "limit": 1
         })
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET', '/1/classes/playingteam?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
@@ -47,6 +46,7 @@ def getPlayingTeam():
 def getGamesMeta():
     params = urllib.urlencode(
         {"order": "-updatedAt", "keys": "gamedate,opposition,pollid"})
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET', '/1/classes/playingteam?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())

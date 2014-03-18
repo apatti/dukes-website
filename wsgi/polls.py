@@ -1,9 +1,5 @@
 import json,httplib,urllib
-import urllib2
-import requests
 import dukesMail as mail
-
-connection = httplib.HTTPSConnection('api.parse.com',443)
 
 
 def getPollMailMessage(question):
@@ -14,6 +10,7 @@ def getPollMailMessage(question):
 
 
 def createPoll(pollObj,optObj,sendMailTo):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('POST','/1/classes/polls',json.dumps(pollObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
@@ -29,17 +26,19 @@ def createPoll(pollObj,optObj,sendMailTo):
     
     message = getPollMailMessage(pollObj["question"])
     if sendMailTo == 0:
-        mail.send_mail_all(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
+        mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
 
     return pollId
 
 def getPoll(poll_id):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/polls/%s'%poll_id,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
 tent-Type": "application/json"})
     pollObj = json.loads(connection.getresponse().read())
     
     params = urllib.urlencode({"where":json.dumps({"pollid":poll_id})})
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     options = json.loads(connection.getresponse().read())
@@ -48,6 +47,7 @@ tent-Type": "application/json"})
     return pollObj
 
 def deletePoll(poll_id):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('DELETE','/1/classes/polls/%s'%poll_id,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
 tent-Type": "application/json"})
@@ -66,6 +66,7 @@ tent-Type": "application/json"})
     return "deleted" 
 
 def takePoll(poll_id,username,optid,prev_optid):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     if not prev_optid or prev_optid != '':
         #handle the old option.
@@ -80,6 +81,7 @@ def takePoll(poll_id,username,optid,prev_optid):
 
 
 def getPolls():
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/polls','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     pollsObj = json.loads(connection.getresponse().read()).get("results");

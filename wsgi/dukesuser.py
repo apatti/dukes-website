@@ -2,8 +2,8 @@ import json,httplib,urllib
 import urllib2
 import requests
 
-connection = httplib.HTTPSConnection('api.parse.com',443)
 def saveUser(userObj):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
@@ -16,6 +16,7 @@ def getUser(userName):
 def getUsers():
     #r = requests.get('http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184')
     #tcaUsers = json.loads(r.text)
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     #params = urllib.urlencode({"where":json.dumps({key:value})})
     connection.request('GET','/1/classes/user','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
@@ -31,6 +32,7 @@ def updateUser(userName,userObj,associate):
     if not existingUser.get("results"):
         abort(404)
     userid = existingUser.get("results")[0].get("objectId")
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('PUT','/1/classes/user/%s' % userid,json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
@@ -42,6 +44,7 @@ def updateUser(userName,userObj,associate):
     return result
 
 def queryUser(key,value):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     params = urllib.urlencode({"where":json.dumps({key:value})})
     connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
