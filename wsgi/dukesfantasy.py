@@ -113,6 +113,7 @@ def getFantasyTeamScores(gameid):
 
     return result
 
+
 def calculateFantasyTeamScores(gameid):
     params = urllib.urlencode({"where": json.dumps({"gameid": gameid}), "keys": "player,points"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -137,3 +138,4 @@ def calculateFantasyTeamScores(gameid):
         connection.getresponse().read()
 
     return "ok"
+
