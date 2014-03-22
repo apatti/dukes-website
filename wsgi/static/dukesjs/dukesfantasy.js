@@ -295,7 +295,7 @@ function allTeams(){
     });
 */
 
-    $.get("http://www.dukesxi.co/fantasyteam/MwcvuATX1T",function(data,status){
+    $.get("http://www.dukesxi.co/fantasyteam/jC7LXyXxDi",function(data,status){
     var rr = $.parseJSON(data);
     var dd = rr.results;
         var allTeamsTableStr ='<div class="pui-datatable-tablewrapper">';
