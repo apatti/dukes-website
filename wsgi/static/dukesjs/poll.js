@@ -76,7 +76,7 @@ window.fbAsyncInit = function() {
 								var userCount = 0;
 								$.each( uData,function () {
                                  // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
-                                  usersTable = usersTable + "<tr><td style='background-color: burlywood;'>"+this+"</td></tr>"
+                                  usersTable = usersTable + "<tr><td style='background-color: greenyellow;font-family: monospace;'>"+this+"</td></tr>"
                                   if(this.toString() === fbUserName){
                                   hasPollTaken = 'yes';
                                   checkedValue = true;
@@ -164,8 +164,8 @@ window.fbAsyncInit = function() {
 					}
 				});
 			 
-			$.when( $('#pollsDiv').html(pollDivStr)).then(selectOptions);
-            $.when( $('#closedPollsDiv').html(closeDivStr));
+			$.when( $('#pollsDiv').apend(pollDivStr)).then(selectOptions);
+            $.when( $('#closedPollsDiv').append(closeDivStr));
 			//$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
 				toggleable: true
