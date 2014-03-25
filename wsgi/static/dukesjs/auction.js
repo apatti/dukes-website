@@ -57,6 +57,7 @@ window.fbAsyncInit = function() {
 
                     allOwnerDivs = allOwnerDivs+'</div>';
                 }
+                $("#iplTeamsDropDown").append('<option value="">'+this.username+'</option>');
 
             });
             $('#ownersDiv').append(allOwnerDivs);
