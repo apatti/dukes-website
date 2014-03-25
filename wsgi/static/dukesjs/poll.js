@@ -164,7 +164,7 @@ window.fbAsyncInit = function() {
 					}
 				});
 			 
-			$.when( $('#pollsDiv').apend(pollDivStr)).then(selectOptions);
+			$.when( $('#pollsDiv').append(pollDivStr)).then(selectOptions);
             $.when( $('#closedPollsDiv').append(closeDivStr));
 			//$(':radio').puiradiobutton();   
 			$('.pollDivCSS').puipanel({
