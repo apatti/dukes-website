@@ -60,7 +60,7 @@ window.fbAsyncInit = function() {
 		    availableIPLPlayerstable.draw(datarow);
 			google.visualization.events.addListener(availableIPLPlayerstable, 'select', function() {
 				var selection = availableIPLPlayerstable.getSelection();
-				selection = visualization.getSelection();
+				
 				var message = '';
 				  for (var i = 0; i < selection.length; i++) {
 					var item = selection[i];
