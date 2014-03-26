@@ -43,21 +43,24 @@ window.fbAsyncInit = function() {
  function showAvailableIPLplayers()
 {
     $.get("http://www.dukesxi.co/fantasyteam/MwcvuATX1T",function(data,status){
-        teamdata = $.parseJSON(data);
+        players = $.parseJSON(data);
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
 		    datarow.addColumn('string','User');
 		    datarow.addColumn('number','Points');
-		    for (var i=0;i<teamdata.results.length;i++)
+		    for (var i=0;i<players.results.length;i++)
 			{
-			    var username = teamdata.results[i].user;
-			    var points=teamdata.results[i].points;
+			    var username = players.results[i].user;
+			    var points=players.results[i].points;
 		  	    datarow.addRows([[username,points]]);
 			}
-            var leaderboardtable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
-		    leaderboardtable.draw(datarow);
+            var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
+		    availableIPLPlayerstable.draw(datarow);
+			google.visualization.events.addListener(availableIPLPlayerstable, 'select', function() {
+				alert(table.getSelection());
+			  });
         }
 
     });
