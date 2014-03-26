@@ -42,7 +42,7 @@ window.fbAsyncInit = function() {
  
  function showAvailableIPLplayers()
 {
-    $.get("http://www.dukesxi.co/fantasyteam/"+gameid,function(data,status){
+    $.get("http://www.dukesxi.co/fantasyteam/MwcvuATX1T",function(data,status){
         teamdata = $.parseJSON(data);
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
