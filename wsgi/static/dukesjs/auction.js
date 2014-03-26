@@ -64,7 +64,8 @@ window.fbAsyncInit = function() {
 				var message = '';
 				  for (var i = 0; i < selection.length; i++) {
 					var item = selection[i];
-					if (item.row != null && item.column != null) {
+					alert(datarow.getFormattedValue(item.row, item.column));
+					/*if (item.row != null && item.column != null) {
 					  var str = datarow.getFormattedValue(item.row, item.column);
 					  message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
 					} else if (item.row != null) {
@@ -73,12 +74,9 @@ window.fbAsyncInit = function() {
 					} else if (item.column != null) {
 					  var str = datarow.getFormattedValue(0, item.column);
 					  message += '{(no row, showing first), column:' + item.column + '} = ' + str + '\n';
-					}
+					} */
 				  }
-				  if (message == '') {
-					message = 'nothing';
-				  }
-				  alert('You selected ' + message);
+				  
 				});
 			}
 
