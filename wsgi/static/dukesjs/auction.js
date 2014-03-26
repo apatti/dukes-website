@@ -35,11 +35,33 @@ window.fbAsyncInit = function() {
 		     fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);
          polling();
+		 showAvailableIPLplayers();
 		});
 
  }
  
- 
+ function showAvailableIPLplayers()
+{
+    $.get("http://www.dukesxi.co/fantasyteam/"+gameid,function(data,status){
+        teamdata = $.parseJSON(data);
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+		    datarow.addColumn('string','User');
+		    datarow.addColumn('number','Points');
+		    for (var i=0;i<teamdata.results.length;i++)
+			{
+			    var username = teamdata.results[i].user;
+			    var points=teamdata.results[i].points;
+		  	    datarow.addRows([[username,points]]);
+			}
+            var leaderboardtable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
+		    leaderboardtable.draw(datarow);
+        }
+
+    });
+}
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
