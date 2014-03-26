@@ -75,8 +75,7 @@ window.fbAsyncInit = function() {
 					  var str = datarow.getFormattedValue(0, item.column);
 					  message += '{(no row, showing first), column:' + item.column + '} = ' + str + '\n';
 					} */
-				  }
-				  
+				  }				  
 				});
 			}
 
