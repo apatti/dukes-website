@@ -64,7 +64,7 @@ window.fbAsyncInit = function() {
 				var message = '';
 				  for (var i = 0; i < selection.length; i++) {
 					var item = selection[i];
-					alert(datarow.getFormattedValue(item.row, item.column));
+					alert(datarow.getFormattedValue(item.row, 0));
 					/*if (item.row != null && item.column != null) {
 					  var str = datarow.getFormattedValue(item.row, item.column);
 					  message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
