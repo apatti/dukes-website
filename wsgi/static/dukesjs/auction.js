@@ -59,7 +59,7 @@ window.fbAsyncInit = function() {
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
 		    availableIPLPlayerstable.draw(datarow);
 			google.visualization.events.addListener(availableIPLPlayerstable, 'select', function() {
-				alert(table.getSelection());
+				alert(availableIPLPlayerstable.getSelection());
 			  });
         }
 
