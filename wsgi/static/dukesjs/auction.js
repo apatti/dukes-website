@@ -118,6 +118,7 @@ function startAuction() {
     });
 
     $('#btn_bidSubmit').click( function(){
+		alert("bid_Start");
         socket.emit("bidstart");
         var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
