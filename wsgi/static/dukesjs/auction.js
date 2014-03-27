@@ -43,7 +43,7 @@ window.fbAsyncInit = function() {
  function showAvailableIPLplayers()
 {
     $.get("http://www.dukesxi.co/ipl/players",function(data,status){
-        players = $.parseJSON(data);		
+        players = $.parseJSON(JSON.stringify(data));		
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
