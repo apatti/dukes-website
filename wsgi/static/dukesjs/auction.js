@@ -43,9 +43,7 @@ window.fbAsyncInit = function() {
  function showAvailableIPLplayers()
 {
     $.get("http://www.dukesxi.co/ipl/players",function(data,status){
-        players = $.parseJSON(data);
-		console.log(players);
-		console.log(JSON.stringify(players));
+        players = $.parseJSON(data);		
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
@@ -57,7 +55,7 @@ window.fbAsyncInit = function() {
 		    for (var i=0;i<players.results.length;i++)
 			{
 				var id = players.results[i].ID;
-			    var plsyerName = players.results[i].name;
+			    var plsyerName = players.results[i].Name;
 			    var type=players.results[i].Type;
 		  	    datarow.addRows([[id,plsyerName,type]]);
 			}
