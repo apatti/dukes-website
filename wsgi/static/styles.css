@@ -100,7 +100,7 @@ background-size: 300px 70px;
 	border: 0px solid #ccc;
 	margin: 0px 0px 0px 0px;
 	padding: 5px;
-	width: 488px;
+	width: 400px;
 	display: inline;
 }
 .currentBid{
@@ -109,7 +109,7 @@ background-size: 300px 70px;
 	margin: 0px 0px 0px 0px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	width: 488px;
+	width: 400px;
 	display: inline;
 }
 .currentBid .currentPlyCSS{
@@ -118,7 +118,7 @@ background-size: 300px 70px;
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	margin: 0px 0px 0px 0px;
-	width: 288px;
+	width: 200px;
 	display: inline;
 }
 .playerImgCSS{
@@ -144,7 +144,7 @@ background-size: 300px 70px;
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	margin: 0px 0px 0px 0px;
-	width: 288px;
+	width: 200px;
 	height: 60px;
 	display: inline;
 }
@@ -196,7 +196,8 @@ clear: both;
 margin: 0.38462em 0 0.30769em;
 height: 0;
 }
-
+.playerDetailsClass{
+}
 
 .iplOwner{
     width:89px ;
