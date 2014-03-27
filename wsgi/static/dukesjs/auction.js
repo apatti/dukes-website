@@ -65,6 +65,8 @@ window.fbAsyncInit = function() {
 					type ='ALL';
 				}else if(palyerType ==='Wicket Keeper'){
 					type ='KEEP';
+				}else if(palyerType ==='Batsman'){
+					type ='BAT';
 				}
 		  	    datarow.addRows([[id,plsyerName,type]]);
 			}
@@ -86,6 +88,8 @@ window.fbAsyncInit = function() {
 							type ='All-Rounder';
 						}else if(palyerType ==='KEEP'){
 							type ='Wicket Keeper';
+						}else if(palyerType ==='BAT'){
+							type ='Batsman';
 						}
 					$('#currentIPLPlayerTypeDiv').html(type);
 					/*if (item.row != null && item.column != null) {
