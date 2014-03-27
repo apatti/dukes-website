@@ -48,7 +48,7 @@ window.fbAsyncInit = function() {
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-			datarow.addColumn('string','ID');
+			datarow.addColumn('number','ID');
 		    datarow.addColumn('string','Player');
 			datarow.addColumn('string','Type');
 			
