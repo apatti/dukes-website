@@ -7,6 +7,7 @@ from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import *
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
+from iplplayers import getIplPlayers
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -172,6 +173,9 @@ def getSuperBowlApi():
 def getIplUsersApi():
     return jsonify(getIplUsers()),200
 
+@app.route('/ipl/players',methods=['GET'])
+def getIplPlayersApi():
+    return jsonify(getIplPlayers()),200
 
 @app.route('/ipl/users/<username>',methods=['POST'])
 def saveIplUserApi(username):
