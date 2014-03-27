@@ -52,7 +52,6 @@ window.fbAsyncInit = function() {
 		    datarow.addColumn('string','Player');
 			datarow.addColumn('string','Type');
 			
-		    datarow.addColumn('number','Points');
 		    for (var i=0;i<players.results.length;i++)
 			{
 				var id = players.results[i].ID;
