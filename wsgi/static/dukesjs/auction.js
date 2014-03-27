@@ -56,7 +56,14 @@ window.fbAsyncInit = function() {
 			{
 				var id = players.results[i].ID;
 			    var plsyerName = players.results[i].Name;
-			    var type=players.results[i].Type;
+			    var type='';
+				if(players.results[i].Type ==='Bowler'){
+					type ='BOW';
+				}else if(players.results[i].Type ==='All-Rounder'){
+					type ='ALL';
+				}else if(players.results[i].Type ==='Wicket Keeper'){
+					type ='KEEP';
+				}
 		  	    datarow.addRows([[id,plsyerName,type]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
