@@ -92,18 +92,16 @@ function selectHandler() {
             var allOwnerDivs ='';
             console.log(dd);
             $.each(dd,function (){
-                if(  this.username != 'rupesh.kunnath'){
-                    console.log(this.username);
-                    var firstName = this.username.split('.');
-                    var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
-                    allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
-                    allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
-                    allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+firstName[0]+'</div>';
-                    allOwnerDivs = allOwnerDivs + '<div class="ownerAmount"> Left $ 99</div>';
+                                   
+				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
+				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
+				allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
+				allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
+				allOwnerDivs = allOwnerDivs + '<div class="ownerAmount">$'+this.balance+' Left $ 99</div>';
 
-                    allOwnerDivs = allOwnerDivs+'</div>';
-                }
-                $("#iplTeamsDropDown").append('<option value="">'+this.username+'</option>');
+				allOwnerDivs = allOwnerDivs+'</div>';
+               
+                $("#iplTeamsDropDown").append('<option value="">'+this.firstname+'</option>');
 
             });
             $('#ownersDiv').append(allOwnerDivs);
