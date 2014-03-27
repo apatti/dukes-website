@@ -44,6 +44,8 @@ window.fbAsyncInit = function() {
 {
     $.get("http://www.dukesxi.co/ipl/players",function(data,status){
         players = $.parseJSON(data);
+		console.log(players);
+		console.log(JSON.stringify(players));
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
