@@ -97,7 +97,7 @@ function selectHandler() {
 				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
 				allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
 				allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
-				allOwnerDivs = allOwnerDivs + '<div class="ownerAmount">$'+this.balance+' Left $ 99</div>';
+				allOwnerDivs = allOwnerDivs + '<div class="ownerAmount">$'+this.balance+'</div>';
 
 				allOwnerDivs = allOwnerDivs+'</div>';
                
