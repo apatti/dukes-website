@@ -116,7 +116,7 @@ function startAuction() {
          });
     });
 
-    $('#btn_bidSubmit').clack( function(){
+    $('#btn_bidSubmit').click( function(){
         socket.emit("bidstart");
         var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
