@@ -68,7 +68,8 @@ window.fbAsyncInit = function() {
 				var message = '';
 				  for (var i = 0; i < selection.length; i++) {
 					var item = selection[i];
-					$('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 0));
+					$('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 1));
+					$('#currentIPLPlayerTypeDiv').html(datarow.getFormattedValue(item.row, 2));
 					/*if (item.row != null && item.column != null) {
 					  var str = datarow.getFormattedValue(item.row, item.column);
 					  message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
