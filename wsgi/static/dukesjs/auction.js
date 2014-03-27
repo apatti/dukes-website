@@ -60,7 +60,7 @@ window.fbAsyncInit = function() {
 		  	    datarow.addRows([[id,plsyerName,type]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
-			options['height'] = '300';
+			var options = {'height': 300};
 		    availableIPLPlayerstable.draw(datarow,options);
 			google.visualization.events.addListener(availableIPLPlayerstable, 'select', function() {
 				var selection = availableIPLPlayerstable.getSelection();
