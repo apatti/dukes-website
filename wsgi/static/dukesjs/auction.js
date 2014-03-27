@@ -78,6 +78,7 @@ window.fbAsyncInit = function() {
 					var item = selection[i];
 					$('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 1));
 					var palyerType = datarow.getFormattedValue(item.row, 2);
+					var type ='';
 					if( palyerType ==='BOW'){
 							type ='Bowler';
 						}else if(palyerType ==='All'){
@@ -85,7 +86,7 @@ window.fbAsyncInit = function() {
 						}else if(palyerType ==='KEEP'){
 							type ='Wicket Keeper';
 						}
-					$('#currentIPLPlayerTypeDiv').html(datarow.getFormattedValue(item.row, 2));
+					$('#currentIPLPlayerTypeDiv').html(datarow.getFormattedValue(item.row,type));
 					/*if (item.row != null && item.column != null) {
 					  var str = datarow.getFormattedValue(item.row, item.column);
 					  message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
