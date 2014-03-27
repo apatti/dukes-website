@@ -42,19 +42,23 @@ window.fbAsyncInit = function() {
  
  function showAvailableIPLplayers()
 {
-    $.get("http://www.dukesxi.co/fantasyteam/MwcvuATX1T",function(data,status){
+    $.get("http://www.dukesxi.co/ipl/players",function(data,status){
         players = $.parseJSON(data);
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-		    datarow.addColumn('string','User');
+			datarow.addColumn('string','ID');
+		    datarow.addColumn('string','Player');
+			datarow.addColumn('string','Type');
+			
 		    datarow.addColumn('number','Points');
 		    for (var i=0;i<players.results.length;i++)
 			{
-			    var username = players.results[i].user;
-			    var points=players.results[i].points;
-		  	    datarow.addRows([[username,points]]);
+				var id = players.results[i].ID;
+			    var plsyerName = players.results[i].name;
+			    var type=players.results[i].Type;
+		  	    datarow.addRows([[id,plsyerName,type]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
 		    availableIPLPlayerstable.draw(datarow);
