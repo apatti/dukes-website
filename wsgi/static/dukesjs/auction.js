@@ -56,12 +56,13 @@ window.fbAsyncInit = function() {
 			{
 				var id = players.results[i].ID;
 			    var plsyerName = players.results[i].Name;
+				var palyerType = players.results[i].Type;
 			    var type='';
-				if(players.results[i].Type ==='Bowler'){
+				if( palyerType ==='Bowler'){
 					type ='BOW';
-				}else if(players.results[i].Type ==='All-Rounder'){
+				}else if(palyerType ==='All-Rounder'){
 					type ='ALL';
-				}else if(players.results[i].Type ==='Wicket Keeper'){
+				}else if(palyerType ==='Wicket Keeper'){
 					type ='KEEP';
 				}
 		  	    datarow.addRows([[id,plsyerName,type]]);
@@ -76,6 +77,14 @@ window.fbAsyncInit = function() {
 				  for (var i = 0; i < selection.length; i++) {
 					var item = selection[i];
 					$('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 1));
+					var palyerType = datarow.getFormattedValue(item.row, 2);
+					if( palyerType ==='BOW'){
+							type ='Bowler';
+						}else if(palyerType ==='All'){
+							type ='All-Rounder';
+						}else if(palyerType ==='KEEP'){
+							type ='Wicket Keeper';
+						}
 					$('#currentIPLPlayerTypeDiv').html(datarow.getFormattedValue(item.row, 2));
 					/*if (item.row != null && item.column != null) {
 					  var str = datarow.getFormattedValue(item.row, item.column);
@@ -94,8 +103,27 @@ window.fbAsyncInit = function() {
     });
 }
 
-function selectHandler() {
-  
+function startAuction() {
+  var socket;
+    $(function(){
+         socket =io.connect('http://auction-dukesxi.rhcloud.com:8000');
+         socket.on('timer',function(content){
+             $('#timer').text(content.timer);
+         });
+         socket.on('biddata',function(content){
+             $('#currentBidAmount').text(content.bidAmount);
+             $('#currentBidder').text(content.user);
+         });
+    });
+
+    $('#btn_bidSubmit').clack( function(){
+        socket.emit("bidstart");
+        var oldbid=$("#currentBidAmount").text();
+        var bid=$("#bidAmmountTxt").val();
+        var user=fbUserName;
+        socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
+    });
+
 }
 
 	function polling(){

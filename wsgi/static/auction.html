@@ -22,6 +22,8 @@
 	<script type="text/javascript" src="dukesjs/dukesMenu.js"></script>
 	<script type="text/javascript" src="dukesjs/auction.js"></script>
 	<script type="text/javascript" src="dukesjs/footer.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://auction-dukesxi.rhcloud.com:8000/socket.io/socket.io.js"></script>
     <script type="text/javascript">  
 		$(function() { 
 			$('#biddingTab').addClass('dukesMenuActive');	
@@ -74,9 +76,9 @@
 						-->
 						<div class="currentBidderCSS">
                             <div style="width: 180px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;">Current Bid :</div>
-                            <div id="currentBidAmount" style="color:#45930b;width: 60px;float: left;font-size: x-large;font-weight: 700;">100</div>
+                            <div id="currentBidAmount" style="color:#45930b;width: 60px;float: left;font-size: x-large;font-weight: 700;">-</div>
                             <div style="width: 180px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;">Current Bidder :</div>
-                            <div id="currentBidder" style="color:#45930b;width: 60px;float: left;font-size: x-large;font-weight: 700;">Ram</div>
+                            <div id="currentBidder" style="color:#45930b;width: 60px;float: left;font-size: x-large;font-weight: 700;">-</div>
 
 						</div>
 					</div>
