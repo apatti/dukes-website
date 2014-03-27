@@ -86,7 +86,7 @@ window.fbAsyncInit = function() {
 						}else if(palyerType ==='KEEP'){
 							type ='Wicket Keeper';
 						}
-					$('#currentIPLPlayerTypeDiv').html(datarow.getFormattedValue(item.row,type));
+					$('#currentIPLPlayerTypeDiv').html(type);
 					/*if (item.row != null && item.column != null) {
 					  var str = datarow.getFormattedValue(item.row, item.column);
 					  message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
