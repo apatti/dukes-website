@@ -82,7 +82,7 @@ window.fbAsyncInit = function() {
 					var type ='';
 					if( palyerType ==='BOW'){
 							type ='Bowler';
-						}else if(palyerType ==='All'){
+						}else if(palyerType ==='ALL'){
 							type ='All-Rounder';
 						}else if(palyerType ==='KEEP'){
 							type ='Wicket Keeper';
