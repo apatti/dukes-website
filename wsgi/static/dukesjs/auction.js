@@ -35,11 +35,57 @@ window.fbAsyncInit = function() {
 		     fbUserName = response.username;
 		   $('#loggedUserDiv').html(response.username);
          polling();
+		 showAvailableIPLplayers();
 		});
 
  }
  
- 
+ function showAvailableIPLplayers()
+{
+    $.get("http://www.dukesxi.co/fantasyteam/MwcvuATX1T",function(data,status){
+        players = $.parseJSON(data);
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+		    datarow.addColumn('string','User');
+		    datarow.addColumn('number','Points');
+		    for (var i=0;i<players.results.length;i++)
+			{
+			    var username = players.results[i].user;
+			    var points=players.results[i].points;
+		  	    datarow.addRows([[username,points]]);
+			}
+            var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
+		    availableIPLPlayerstable.draw(datarow);
+			google.visualization.events.addListener(availableIPLPlayerstable, 'select', function() {
+				var selection = availableIPLPlayerstable.getSelection();
+				
+				var message = '';
+				  for (var i = 0; i < selection.length; i++) {
+					var item = selection[i];
+					$('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 0));
+					/*if (item.row != null && item.column != null) {
+					  var str = datarow.getFormattedValue(item.row, item.column);
+					  message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
+					} else if (item.row != null) {
+					  var str = datarow.getFormattedValue(item.row, 0);
+					  message += '{row:' + item.row + ', (no column, showing first)} = ' + str + '\n';
+					} else if (item.column != null) {
+					  var str = datarow.getFormattedValue(0, item.column);
+					  message += '{(no row, showing first), column:' + item.column + '} = ' + str + '\n';
+					} */
+				  }				  
+				});
+			}
+
+    });
+}
+
+function selectHandler() {
+  
+}
+
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
@@ -57,6 +103,7 @@ window.fbAsyncInit = function() {
 
                     allOwnerDivs = allOwnerDivs+'</div>';
                 }
+                $("#iplTeamsDropDown").append('<option value="">'+this.username+'</option>');
 
             });
             $('#ownersDiv').append(allOwnerDivs);
