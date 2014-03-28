@@ -165,8 +165,11 @@ function startAuction() {
 	function updateTeams(){
 		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;			
-            $.each(dd,function (){                
-				$('#'+this.username+'ownerAmount').html('$'+this.balance);//this.balance);							
+            $.each(dd,function (){   
+				var currentUser='narashan'	
+				var bal = 89;//this.balance;
+				$('#'+currentUser+'ownerAmount').html('$'+bal);//this.balance);
+				$('#'+currentUser).css('background','green');				
             });
            
         });
