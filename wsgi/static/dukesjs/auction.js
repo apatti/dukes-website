@@ -158,6 +158,11 @@ function startAuction() {
 				allOwnerDivs = allOwnerDivs+'</div>';
                
                 $("#iplTeamsDropDown").append('<option value="">'+this.firstname+'</option>');
+				
+				var team = this.team;
+				$.each(team,function (){
+					alert(this);
+				});
 							
             });
             $('#ownersDiv').append(allOwnerDivs);
