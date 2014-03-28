@@ -136,7 +136,6 @@ function startAuction() {
 
  $(function(){
 	$('#btn_1').click( function(){
-		alert("button Click");
 		updateTeams(); 
 	});
 });
@@ -165,11 +164,9 @@ function startAuction() {
 	
 	function updateTeams(){
 		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-            var dd = data.results;
-			alert("test");
+            var dd = data.results;			
             $.each(dd,function (){                
-				$('#'+this.username+'ownerAmount').html(98);//this.balance);
-							
+				$('#'+this.username+'ownerAmount').html('$'+this.balance);//this.balance);							
             });
            
         });
