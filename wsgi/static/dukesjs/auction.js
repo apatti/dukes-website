@@ -3,6 +3,7 @@ var DOMAIN_NAME = 'http://www.dukesxi.co';
 var currentBalance=0;
 var allTeamPlayers='';
 var iplPlayer='';
+var playerType = '';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -61,9 +62,12 @@ window.fbAsyncInit = function() {
 		    for (var i=0;i<players.results.length;i++)
 			{
 				var id = players.results[i].ID;
-			    var plsyerName = players.results[i].Name;
+			    var playerName = players.results[i].Name;
 				var palyerType = players.results[i].Type;
 				var objId = players.results[i].objectId;
+				
+				sessionStorage.setItem(objId,playerName+'%'+palyerType);
+				
 			    var type='';
 				if( palyerType ==='Bowler'){
 					type ='BOW';
@@ -74,7 +78,7 @@ window.fbAsyncInit = function() {
 				}else if(palyerType ==='Batsman'){
 					type ='BAT';
 				}
-		  	    datarow.addRows([[id,plsyerName,type,objId]]);
+		  	    datarow.addRows([[id,playerName,type,objId]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
 			var options = {'height': 300};
@@ -121,12 +125,19 @@ function startAuction() {
     $(function(){
          socket =io.connect('http://auction-dukesxi.rhcloud.com:8000');
          socket.on('timer',function(content){
-             $('#timer').text(content.timer);
-			 $('#btn_bidSubmit').removeAttr("disabled");
+            $('#timer').text(content.timer);
+			$('#btn_bidSubmit').removeAttr("disabled");
+			
+			 
          });
          socket.on('biddata',function(content){
              $('#currentBidAmount').text(content.bidAmount);
              $('#currentBidder').text(content.user);
+			 var pDetails = sessionStorage.getItem(content.iplPlayer);
+			 var tt = pDetails.split('%');
+			$('#currentIPLPlayerDiv').html(tt[0]);
+			$('#currentIPLPlayerTypeDiv').html(tt[1]);
+			  
          });
     });
 
