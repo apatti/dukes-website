@@ -134,10 +134,12 @@ function startAuction() {
 
 }
 
- $('#btn_1').click( function(){
-		updateTeams();
-        
-    });
+ $(function(){
+	$('#btn_1').click( function(){
+		alert("button Click");
+		updateTeams(); 
+	});
+});
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
@@ -164,6 +166,7 @@ function startAuction() {
 	function updateTeams(){
 		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
+			alert("test");
             $.each(dd,function (){                
 				$('#'+this.username+' '+ownerAmount).html(98);//this.balance);
 							
