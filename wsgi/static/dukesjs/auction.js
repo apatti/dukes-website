@@ -168,7 +168,7 @@ function startAuction() {
             var dd = data.results;
 			alert("test");
             $.each(dd,function (){                
-				$('#'+this.username).$('#ownerAmount').html(98);//this.balance);
+				$('#'+this.username+' ownerAmount').html(98);//this.balance);
 							
             });
            
