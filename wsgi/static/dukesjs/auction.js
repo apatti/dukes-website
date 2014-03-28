@@ -150,6 +150,8 @@ function startAuction() {
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
+			allTeamPlayers = dd;
+
             var allOwnerDivs ='';
             console.log(dd);
             $.each(dd,function (){
