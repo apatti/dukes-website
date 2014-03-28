@@ -66,7 +66,7 @@ window.fbAsyncInit = function() {
 				var palyerType = players.results[i].Type;
 				var objId = players.results[i].objectId;
 				
-				sessionStorage.setItem(objId,playerName+'%'+palyerType});
+				sessionStorage.setItem(objId,playerName+'%'+palyerType);
 				
 			    var type='';
 				if( palyerType ==='Bowler'){
