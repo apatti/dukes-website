@@ -136,7 +136,10 @@ function startAuction() {
 
  $(function(){
 	$('#btn_1').click( function(){
-		updateTeams(); 
+	
+		var bid=$("#bidAmmountTxt").val();
+		$("#bidAmmountTxt").val(bid+1);
+		//updateTeams(); 
 	});
 });
 	function polling(){
