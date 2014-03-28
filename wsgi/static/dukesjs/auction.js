@@ -133,7 +133,7 @@ function startAuction() {
          socket.on('biddata',function(content){
              $('#currentBidAmount').text(content.bidAmount);
              $('#currentBidder').text(content.user);
-			 var pDetails = sessionStorage.get(content.iplPlayer);
+			 var pDetails = sessionStorage.getItem(content.iplPlayer);
 			 var tt = pDetails.split('%');
 			$('#currentIPLPlayerDiv').html(tt[0]);
 			$('#currentIPLPlayerTypeDiv').html(tt[1]);
