@@ -1,5 +1,6 @@
 var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
+var currentBalance=0;
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -133,6 +134,10 @@ function startAuction() {
 
 }
 
+ $('#btn_1').click( function(){
+		updateTeams();
+        
+    });
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
@@ -149,10 +154,21 @@ function startAuction() {
 				allOwnerDivs = allOwnerDivs+'</div>';
                
                 $("#iplTeamsDropDown").append('<option value="">'+this.firstname+'</option>');
-
+							
             });
             $('#ownersDiv').append(allOwnerDivs);
         });
-
+		
+	}
+	
+	function updateTeams(){
+		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
+            var dd = data.results;
+            $.each(dd,function (){                
+				$('#'+this.username+' '+ownerAmount).html(98);//this.balance);
+							
+            });
+            $('#ownersDiv').append(allOwnerDivs);
+        });
 	}
 	
