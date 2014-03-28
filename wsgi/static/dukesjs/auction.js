@@ -66,7 +66,7 @@ window.fbAsyncInit = function() {
 				var palyerType = players.results[i].Type;
 				var objId = players.results[i].objectId;
 				
-				sessionStorage.setItem(objId,{playerName,palyerType});
+				sessionStorage.setItem(objId,playerName+'%'+palyerType});
 				
 			    var type='';
 				if( palyerType ==='Bowler'){
@@ -134,8 +134,9 @@ function startAuction() {
              $('#currentBidAmount').text(content.bidAmount);
              $('#currentBidder').text(content.user);
 			 var pDetails = sessionStorage.get(content.iplPlayer);
-			$('#currentIPLPlayerDiv').html(this[0]);
-			$('#currentIPLPlayerTypeDiv').html(this[1]);
+			 var tt = pDetails.split('%');
+			$('#currentIPLPlayerDiv').html(tt[0]);
+			$('#currentIPLPlayerTypeDiv').html(tt[1]);
 			  
          });
     });
