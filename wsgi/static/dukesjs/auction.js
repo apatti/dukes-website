@@ -1,6 +1,7 @@
 var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
 var currentBalance=0;
+var allTeamPlayers='';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -141,6 +142,10 @@ function startAuction() {
 		$("#bidAmmountTxt").val(parseInt(bid)+1);
 		//updateTeams(); 
 	});
+	$("#iplTeamsDropDown").change(function(){
+            var teamId=$(this).children(":selected").attr("id");
+            selectTeam(teamId);
+        });
 });
 	function polling(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
@@ -157,7 +162,7 @@ function startAuction() {
 
 				allOwnerDivs = allOwnerDivs+'</div>';
                
-                $("#iplTeamsDropDown").append('<option value="">'+this.firstname+'</option>');
+                $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
 				
 				var team = this.team;
 				if(team){
@@ -172,9 +177,14 @@ function startAuction() {
 		
 	}
 	
+	function selectTeam(userName){
+		alert("selected Team -> "+ userName);
+		alert(allTeamPlayers[userName]);
+	}
 	function updateTeams(){
 		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-            var dd = data.results;			
+            var dd = data.results;		
+			allTeamPlayers = dd;
             $.each(dd,function (){   
 				var currentUser='narashan'	
 				var bal = 89;//this.balance;
