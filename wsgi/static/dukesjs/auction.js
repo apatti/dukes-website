@@ -2,6 +2,7 @@ var fbUserName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
 var currentBalance=0;
 var allTeamPlayers='';
+var iplPlayer='';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -54,12 +55,15 @@ window.fbAsyncInit = function() {
 			datarow.addColumn('number','ID');
 		    datarow.addColumn('string','Player');
 			datarow.addColumn('string','Type');
+			datarow.addColumn('string','Obj');
+			
 			
 		    for (var i=0;i<players.results.length;i++)
 			{
 				var id = players.results[i].ID;
 			    var plsyerName = players.results[i].Name;
 				var palyerType = players.results[i].Type;
+				var objId = players.results[i].objectId;
 			    var type='';
 				if( palyerType ==='Bowler'){
 					type ='BOW';
@@ -70,7 +74,7 @@ window.fbAsyncInit = function() {
 				}else if(palyerType ==='Batsman'){
 					type ='BAT';
 				}
-		  	    datarow.addRows([[id,plsyerName,type]]);
+		  	    datarow.addRows([[id,plsyerName,type,objId]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
 			var options = {'height': 300};
@@ -81,6 +85,7 @@ window.fbAsyncInit = function() {
 				var message = '';
 				  for (var i = 0; i < selection.length; i++) {
 					var item = selection[i];
+					iplPlayer = datarow.getFormattedValue(item.row, 3);
 					$('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 1));
 					var palyerType = datarow.getFormattedValue(item.row, 2);
 					var type ='';
@@ -127,7 +132,7 @@ function startAuction() {
 
     $('#btn_bidSubmit').click( function(){
 		
-        socket.emit("bidstart");
+        socket.emit("bidstart",{"iplPlayer":iplPlayer});
         var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
         var user=fbUserName;
@@ -153,8 +158,9 @@ function startAuction() {
             var dd = data.results;
 			allTeamPlayers = dd;
 
-            var allOwnerDivs ='';
+             var allOwnerDivs ='';
             console.log(dd);
+			var bidButtonEnabled = false;
             $.each(dd,function (){
                                    
 				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
@@ -168,14 +174,15 @@ function startAuction() {
                 $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
 
 				//Enable Bid button only for currentPlayer
-				if(this.iscurrentplayer && this.username === fbUserName){
-					
-					$('#btn_bidSubmit').removeAttr("disabled");
-				}else{
-					$('#btn_bidSubmit').attr("disabled", "disabled");
-					
+				if(! bidButtonEnabled){
+					if( this.iscurrentplayer && this.username === fbUserName){						
+						$('#btn_bidSubmit').removeAttr("disabled");
+						bidButtonEnabled = true;
+					}else{
+						$('#btn_bidSubmit').attr("disabled", "disabled");
+						
+					}
 				}
-				
 				var team = this.team;
 				if(team){
 					$.each(team,function (){
