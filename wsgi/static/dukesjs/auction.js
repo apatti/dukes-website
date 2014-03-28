@@ -165,6 +165,12 @@ function startAuction() {
 				allOwnerDivs = allOwnerDivs+'</div>';
                
                 $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
+				if(this.iscurrentplayer){
+				
+					$('#btn_bidSubmit').removeAttr("disabled");
+				}else{
+					$('#btn_bidSubmit').attr("disabled", "disabled");
+				}
 				
 				var team = this.team;
 				if(team){
