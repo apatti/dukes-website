@@ -162,7 +162,7 @@ function startAuction() {
 				var team = this.team;
 				if(team){
 					$.each(team,function (){
-						alert(this);
+						
 					});
 				}
 							
