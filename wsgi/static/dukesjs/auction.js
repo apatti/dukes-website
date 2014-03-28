@@ -117,6 +117,7 @@ function startAuction() {
          socket =io.connect('http://auction-dukesxi.rhcloud.com:8000');
          socket.on('timer',function(content){
              $('#timer').text(content.timer);
+			 $('#btn_bidSubmit').removeAttr("disabled");
          });
          socket.on('biddata',function(content){
              $('#currentBidAmount').text(content.bidAmount);
@@ -166,6 +167,7 @@ function startAuction() {
                
                 $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
 
+				//Enable Bid button only for currentPlayer
 				if(this.iscurrentplayer && this.username === fbUserName){
 					
 					$('#btn_bidSubmit').removeAttr("disabled");
