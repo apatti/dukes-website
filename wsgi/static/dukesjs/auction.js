@@ -74,7 +74,7 @@ window.fbAsyncInit = function() {
 				}else if(palyerType ==='Batsman'){
 					type ='BAT';
 				}
-		  	    datarow.addRows([[id,plsyerName,type]]);
+		  	    datarow.addRows([[id,plsyerName,type,objId]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
 			var options = {'height': 300};
