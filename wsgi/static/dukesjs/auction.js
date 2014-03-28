@@ -138,7 +138,7 @@ function startAuction() {
 	$('#btn_1').click( function(){
 	
 		var bid=$("#bidAmmountTxt").val();
-		$("#bidAmmountTxt").val(bid+1);
+		$("#bidAmmountTxt").val(parseInt(bid)+1);
 		//updateTeams(); 
 	});
 });
