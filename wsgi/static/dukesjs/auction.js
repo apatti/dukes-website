@@ -181,7 +181,7 @@ function startAuction() {
 	
 	function selectTeam(userName){
 		alert("selected Team -> "+ userName);
-		alert(allTeamPlayers[userName]);
+		alert(allTeamPlayers);
 	}
 	function updateTeams(){
 		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
