@@ -153,8 +153,9 @@ function startAuction() {
             var dd = data.results;
 			allTeamPlayers = dd;
 
-            var allOwnerDivs ='';
+             var allOwnerDivs ='';
             console.log(dd);
+			var bidButtonEnabled = false;
             $.each(dd,function (){
                                    
 				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
@@ -168,14 +169,15 @@ function startAuction() {
                 $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
 
 				//Enable Bid button only for currentPlayer
-				if(this.iscurrentplayer && this.username === fbUserName){
-					
-					$('#btn_bidSubmit').removeAttr("disabled");
-				}else{
-					$('#btn_bidSubmit').attr("disabled", "disabled");
-					
+				if(! bidButtonEnabled){
+					if( this.iscurrentplayer && this.username === fbUserName){						
+						$('#btn_bidSubmit').removeAttr("disabled");
+						bidButtonEnabled = true;
+					}else{
+						$('#btn_bidSubmit').attr("disabled", "disabled");
+						
+					}
 				}
-				
 				var team = this.team;
 				if(team){
 					$.each(team,function (){
