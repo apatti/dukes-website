@@ -165,13 +165,13 @@ function startAuction() {
 				allOwnerDivs = allOwnerDivs+'</div>';
                
                 $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
-				alert (this.iscurrentplayer +' '+ this.username);
+
 				if(this.iscurrentplayer && this.username === fbUserName){
 					
 					$('#btn_bidSubmit').removeAttr("disabled");
 				}else{
 					$('#btn_bidSubmit').attr("disabled", "disabled");
-					alert (this.iscurrentplayer);
+					
 				}
 				
 				var team = this.team;
