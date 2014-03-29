@@ -204,18 +204,19 @@ function startAuction() {
             function drawTable()
             {
                 var datarow = new google.visualization.DataTable();
-                datarow.addColumn('number','ID');
+                datarow.addColumn('string','Role');
                 datarow.addColumn('string','Player');
-                datarow.addColumn('string','Type');
-                datarow.addColumn('string','Team');
+                datarow.addColumn('string','$');
 
                 for (var i=0;i<players.results.length;i++)
                 {
-                    var id = players.results[i].ID;
+                    //var id = players.results[i].ID;
                     var playerName = players.results[i].Name;
-                    var type = players.results[i].Type;
+                    var role = players.results[i].Type;
                     var teamName  =	players.results[i].Team;
-                    datarow.addRows([[id,playerName,type,teamName]]);
+                    var price = players.results[i].price;
+                    playerName = playerName+", "+teamName;
+                    datarow.addRows([[role,playerName,price]]);
                 }
                 var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplTeamDiv'));
                 var options = {'height': 300};
