@@ -192,9 +192,9 @@ function startAuction() {
             $('#currentBidAmount').text('0');
             $('currentBidder').text('');
             $("#bidAmmountTxt").val(1);
-            if(bidInitiator === fbUserName){
-                $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
-            }
+           // if(bidInitiator === fbUserName){
+                $('#'+(bidInitiator).replace(/\./g, '_')).css({ backgroundColor: 'green' });
+            //}
             $('.iplOwner').click(function (){
 
                 selectTeam((this.id).replace(/\_/g, '.'));
