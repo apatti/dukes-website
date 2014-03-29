@@ -285,18 +285,10 @@ function startAuction() {
                 datarow.addColumn('string','Role');
                 datarow.addColumn('string','Player');
                 datarow.addColumn('number','$');
-                if(team.bat1!=null)
-                {
-                    datarow.addRows([[team.bat1.Type,team.bat1.Name+", "+team.bat1.teamName,team.bat1.price]]);
-                }
-                else
-                {
-                    datarow.addRows([["Batsman","",0]]);
-                }
 
                 if(team.keep!=null)
                     {
-                        datarow.addRows([["Wicket Keeper",team.keep.Name+", "+team.keep.teamName,team.keep.price]]);
+                        datarow.addRows([["Wicket Keeper",team.keep.Name+", "+team.keep.Team,team.keep.price]]);
                     }
                     else
                     {
@@ -307,7 +299,7 @@ function startAuction() {
                 {
                     if(team["bat"+i+1]!=null)
                     {
-                        datarow.addRows([[team["bat"+i+1].Type,team["bat"+i+1].Name+", "+team["bat"+i+1].teamName,team["bat"+i+1].price]]);
+                        datarow.addRows([[team["bat"+i+1].Type,team["bat"+i+1].Name+", "+team["bat"+i+1].Team,team["bat"+i+1].price]]);
                     }
                     else
                     {
@@ -315,7 +307,7 @@ function startAuction() {
                     }
                     if(team["bowl"+i+1]!=null)
                     {
-                        datarow.addRows([[team["bowl"+i+1].Type,team["bowl"+i+1].Name+", "+team["bowl"+i+1].teamName,team["bowl"+i+1].price]]);
+                        datarow.addRows([[team["bowl"+i+1].Type,team["bowl"+i+1].Name+", "+team["bowl"+i+1].Team,team["bowl"+i+1].price]]);
                     }
                     else
                     {
@@ -323,7 +315,7 @@ function startAuction() {
                     }
                     if(team["all"+i+1]!=null)
                     {
-                        datarow.addRows([[team["all"+i+1].Type,team["all"+i+1].Name+", "+team["all"+i+1].teamName,team["all"+i+1].price]]);
+                        datarow.addRows([[team["all"+i+1].Type,team["all"+i+1].Name+", "+team["all"+i+1].Team,team["all"+i+1].price]]);
                     }
                     else
                     {
@@ -331,7 +323,7 @@ function startAuction() {
                     }
                     if(team["filler"+i+1]!=null)
                     {
-                        datarow.addRows([[team["filler"+i+1].Type,team["filler"+i+1].Name+", "+team["filler"+i+1].teamName,team["filler"+i+1].price]]);
+                        datarow.addRows([[team["filler"+i+1].Type,team["filler"+i+1].Name+", "+team["filler"+i+1].Team,team["filler"+i+1].price]]);
                     }
                 }
 
