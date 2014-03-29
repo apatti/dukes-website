@@ -150,7 +150,11 @@ function startAuction() {
             });
             $('#ownersDiv').append(allOwnerDivs);
 
-            updateTeams();
+            if(bidInitiator === fbUserName){
+
+                $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
+
+            }
         });
 		
 	}
@@ -160,11 +164,7 @@ function startAuction() {
 		alert(allTeamPlayers);
 	}
 	function updateTeams(){
-        if(bidInitiator === fbUserName){
 
-            $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
-
-        }
 		/*$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;		
 			allTeamPlayers = dd;
