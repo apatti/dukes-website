@@ -101,6 +101,8 @@ function startAuction() {
 		//this should be called only once by whoever has got the turn.
         var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
+        console.log("Old Amount " + oldbid);
+        console.log("Current Amount "+ bid);
         var user=fbUserName;
         if(bid <= 0){
             return;
