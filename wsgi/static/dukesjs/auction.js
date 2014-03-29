@@ -161,6 +161,7 @@ function startAuction() {
 	}
 	function updateTeams(){
         if(bidInitiator === fbUserName){
+            alert($('#'+fbUserName));
             $('#'+fbUserName).css('background','green');
         }
 		/*$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
