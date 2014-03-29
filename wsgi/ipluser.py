@@ -37,7 +37,15 @@ def getNextBidder():
             index = index+1
             if(index==9):
                 index=0
-
+    connection.connect()
+    connection.request('PUT', '/1/classes/iplplayers/'+iplusers[index].get("objectid"), json.dumps({
+        "iscurrentplayer": True
+        }), {
+        "X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M",
+        "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo",
+        "Content-Type": "application/json"
+        })
+    result = json.loads(connection.getresponse().read())
 
     return iplusers[index].get("username")
 
