@@ -146,12 +146,11 @@ function startAuction() {
 						
 					});
 				}
-							
+
             });
             $('#ownersDiv').append(allOwnerDivs);
-            if(bidInitiator === fbUserName){
-                $('#'+fbUserName).css('background','green');	;
-            }
+
+            updateTeams();
         });
 		
 	}
@@ -161,7 +160,10 @@ function startAuction() {
 		alert(allTeamPlayers);
 	}
 	function updateTeams(){
-		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
+        if(bidInitiator === fbUserName){
+            $('#'+fbUserName).css('background','green');
+        }
+		/*$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;		
 			allTeamPlayers = dd;
             $.each(dd,function (){   
@@ -171,7 +173,7 @@ function startAuction() {
 				$('#'+currentUser).css('background','green');				
             });
            
-        });
+        });*/
 	}
 
 function updateIPlFantasyTeams(){
