@@ -62,6 +62,7 @@ function startAuction() {
          socket.on('biddata',function(content){
              $('#currentBidAmount').text(content.bidAmount);
              $('#currentBidder').text(content.user);
+             $("#bidAmmountTxt").text(parseInt(content.bidAmount)+1);
 			 var pDetails = sessionStorage.getItem(content.iplPlayer);
 			 var tt = pDetails.split('%');
 			$('#currentIPLPlayerDiv').html(tt[0]);
@@ -72,7 +73,7 @@ function startAuction() {
 
             $('#solddiv').html(sessionStorage.getItem(content.iplPlayer)+" sold to "+content.user+" for "+content.bidAmount);
             $('#solddialog').dialog("open");
-            $( ".userDialog" ).dialog({
+            $( ".userdialog" ).dialog({
                 autoOpen: false,
                 show: {
                     effect: "blind",
