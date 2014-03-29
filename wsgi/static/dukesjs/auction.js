@@ -91,18 +91,27 @@ function startAuction() {
 
     $('#btn_bidSubmit').click( function(){
 		//this should be called only once by whoever has got the turn.
-		
-		socket.emit("bidstart",{"iplPlayer":iplPlayer});
-		//--------------------
-		
-		var oldbid=$("#currentBidAmount").text();
+        var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
         var user=fbUserName;
-		if(parseInt(bid) > currentBalance ) {
-			alert("Bid mount should not be more than : "+currentBalance);
-		}else{
-			socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});			
-		}
+        if(bid <= 0){
+            return;
+        }
+        if(iplPlayer == null || iplPlayer ===''){
+            return;
+        }
+        socket.emit("bidstart", {"iplPlayer": iplPlayer});
+
+		if(oldbid < bid) {
+            if(parseInt(bid) > currentBalance ) {
+                alert("Bid mount should not be more than : "+currentBalance);
+            }else{
+                socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
+            }
+        }
+		//--------------------
+		
+
         
         
     });
@@ -140,7 +149,7 @@ function startAuction() {
 
 				allOwnerDivs = allOwnerDivs+'</div>';
                
-                $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
+                /*$("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');*/
 
 				//Enable Bid button only for currentPlayer
 				if(! bidButtonEnabled){
@@ -168,36 +177,47 @@ function startAuction() {
 				}
 
             });
-            $('#ownersDiv').append(allOwnerDivs);
-
+            $('#ownersDiv').html(allOwnerDivs);
+            $('#currentBidAmount').text('0');
+            $('currentBidder').text('');
+            $("#bidAmmountTxt").val(1);
             if(bidInitiator === fbUserName){
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }
             $('.iplOwner').click(function (){
-                alert(this.id);
-                alert($(this).attr('id'));
+
+                selectTeam((this.id).replace(/\_/g, '.'));
             });
         });
 		
 	}
 	
 	function selectTeam(userName){
-		alert("selected Team -> "+ userName);
-		alert(allTeamPlayers);
-	}
-	function updateTeams(){
 
-		/*$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-            var dd = data.results;		
-			allTeamPlayers = dd;
-            $.each(dd,function (){   
-				var currentUser='narashan'	
-				var bal = 89;//this.balance;
-				$('#'+currentUser+'ownerAmount').html('$'+bal);//this.balance);
-				$('#'+currentUser).css('background','green');				
-            });
-           
-        });*/
+		$.get(DOMAIN_NAME+"/ipl/userteams/"+userName,function(data,status){
+            players = $.parseJSON(JSON.stringify(data));
+            google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+            function drawTable()
+            {
+                var datarow = new google.visualization.DataTable();
+                datarow.addColumn('number','ID');
+                datarow.addColumn('string','Player');
+                datarow.addColumn('string','Type');
+
+                for (var i=0;i<players.results.length;i++)
+                {
+                    var id = players.results[i].ID;
+                    var playerName = players.results[i].Name;
+                    var type = players.results[i].Type;
+                    datarow.addRows([[id,playerName,type]]);
+                }
+                var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplTeamDiv'));
+                var options = {'height': 300};
+                availableIPLPlayerstable.draw(datarow,options);
+            }
+
+
+        });
 	}
 
 function updateIPlFantasyTeams(){
@@ -263,6 +283,8 @@ function showAvailableIPLplayers()
                                 type = 'Batsman';
                             }
                             $('#currentIPLPlayerTypeDiv').html(type);
+                            $('#currentBidAmount').text('0');
+                            $('currentBidder').text('');
                         }
                     }
 				});
