@@ -91,6 +91,8 @@ function startAuction() {
         });
         socket.on('bidreset',function(content){
             init();
+            $('#currentBidder').text('');
+            $('#timer').text('0');
         });
     });
 
