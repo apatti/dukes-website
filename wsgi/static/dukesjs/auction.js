@@ -128,7 +128,7 @@ function startAuction() {
 						$('#btn_cancelSubmit').removeAttr("disabled");
 						$('#btn_1').removeAttr("disabled");
 						bidButtonEnabled = true;
-                        $('#'+this.username).css('background:green');
+                        $('#'+this.username).css('background-color: green');
 					}else{
 						$('#btn_bidSubmit').attr("disabled", "disabled");
 						$('#btn_cancelSubmit').attr("disabled", "disabled");
