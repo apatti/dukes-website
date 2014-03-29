@@ -284,9 +284,58 @@ function startAuction() {
                 var datarow = new google.visualization.DataTable();
                 datarow.addColumn('string','Role');
                 datarow.addColumn('string','Player');
-                datarow.addColumn('string','$');
+                datarow.addColumn('number','$');
+                if(team.bat1!=null)
+                {
+                    datarow.addRows([[team.bat1.Type,team.bat1.Name+", "+team.bat1.teamName,team.bat1.price]]);
+                }
+                else
+                {
+                    datarow.addRows([["Batsman","",0]]);
+                }
 
-                for (var i=0;i<players.results.length;i++)
+                if(team.keep!=null)
+                    {
+                        datarow.addRows([["Wicket Keeper",team.keep.Name+", "+team.keep.teamName,team.keep.price]]);
+                    }
+                    else
+                    {
+                        datarow.addRows([["Wicket Keeper","",0]]);
+                    }
+
+                for(var i=0;i<2;i++)
+                {
+                    if(team["bat"+i+1]!=null)
+                    {
+                        datarow.addRows([[team["bat"+i+1].Type,team["bat"+i+1].Name+", "+team["bat"+i+1].teamName,team["bat"+i+1].price]]);
+                    }
+                    else
+                    {
+                        datarow.addRows([["Batsman","",0]]);
+                    }
+                    if(team["bowl"+i+1]!=null)
+                    {
+                        datarow.addRows([[team["bowl"+i+1].Type,team["bowl"+i+1].Name+", "+team["bowl"+i+1].teamName,team["bowl"+i+1].price]]);
+                    }
+                    else
+                    {
+                        datarow.addRows([["Bowler","",0]]);
+                    }
+                    if(team["all"+i+1]!=null)
+                    {
+                        datarow.addRows([[team["all"+i+1].Type,team["all"+i+1].Name+", "+team["all"+i+1].teamName,team["all"+i+1].price]]);
+                    }
+                    else
+                    {
+                        datarow.addRows([["All-Rounder","",0]]);
+                    }
+                    if(team["filler"+i+1]!=null)
+                    {
+                        datarow.addRows([[team["filler"+i+1].Type,team["filler"+i+1].Name+", "+team["filler"+i+1].teamName,team["filler"+i+1].price]]);
+                    }
+                }
+
+                for (var i=10;i<players.results.length;i++)
                 {
                     //var id = players.results[i].ID;
                     var playerName = players.results[i].Name;
