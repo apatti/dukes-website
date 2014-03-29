@@ -155,30 +155,39 @@ function startAuction() {
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }
             $('.iplOwner').click(function (){
-                alert(this.id);
-                alert($(this).attr('id'));
+
+                selectTeam(this.id);
             });
         });
 		
 	}
 	
 	function selectTeam(userName){
-		alert("selected Team -> "+ userName);
-		alert(allTeamPlayers);
-	}
-	function updateTeams(){
 
-		/*$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-            var dd = data.results;		
-			allTeamPlayers = dd;
-            $.each(dd,function (){   
-				var currentUser='narashan'	
-				var bal = 89;//this.balance;
-				$('#'+currentUser+'ownerAmount').html('$'+bal);//this.balance);
-				$('#'+currentUser).css('background','green');				
-            });
-           
-        });*/
+		$.get(DOMAIN_NAME+"/ipl/userteams/"+userName,function(data,status){
+            players = $.parseJSON(JSON.stringify(data));
+            google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+            function drawTable()
+            {
+                var datarow = new google.visualization.DataTable();
+                datarow.addColumn('number','ID');
+                datarow.addColumn('string','Player');
+                datarow.addColumn('string','Type');
+
+                for (var i=0;i<players.results.length;i++)
+                {
+                    var id = players.results[i].ID;
+                    var playerName = players.results[i].Name;
+                    var type = players.results[i].Type;
+                    datarow.addRows([[id,playerName,type]]);
+                }
+                var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
+                var options = {'height': 300};
+                availableIPLPlayerstable.draw(datarow,options);
+            }
+
+
+        });
 	}
 
 function updateIPlFantasyTeams(){
