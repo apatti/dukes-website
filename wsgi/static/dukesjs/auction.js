@@ -168,8 +168,9 @@ function startAuction() {
 				}
 
             });
-            $('#ownersDiv').append(allOwnerDivs);
-
+            $('#ownersDiv').html(allOwnerDivs);
+            $('#currentBidAmount').text('0');
+            $('currentBidder').text('');
             if(bidInitiator === fbUserName){
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }
@@ -200,7 +201,7 @@ function startAuction() {
                     var type = players.results[i].Type;
                     datarow.addRows([[id,playerName,type]]);
                 }
-                var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
+                var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplTeamDiv'));
                 var options = {'height': 300};
                 availableIPLPlayerstable.draw(datarow,options);
             }
