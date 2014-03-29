@@ -91,18 +91,20 @@ function startAuction() {
 
     $('#btn_bidSubmit').click( function(){
 		//this should be called only once by whoever has got the turn.
-		
-		socket.emit("bidstart",{"iplPlayer":iplPlayer});
-		//--------------------
-		
-		var oldbid=$("#currentBidAmount").text();
+        socket.emit("bidstart", {"iplPlayer": iplPlayer});
+        var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
         var user=fbUserName;
-		if(parseInt(bid) > currentBalance ) {
-			alert("Bid mount should not be more than : "+currentBalance);
-		}else{
-			socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});			
-		}
+		if(oldbid < bid) {
+            if(parseInt(bid) > currentBalance ) {
+                alert("Bid mount should not be more than : "+currentBalance);
+            }else{
+                socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
+            }
+        }
+		//--------------------
+		
+
         
         
     });
