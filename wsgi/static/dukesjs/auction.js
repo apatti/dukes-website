@@ -148,9 +148,9 @@ function startAuction() {
 				}
 							
             });
-            $('#ownersDiv').append(allOwnerDivs);
+            $('#ownersDiv').append(allOwnerDivs); 
             if(bidInitiator === fbUserName){
-                $('#'+this.username).css('background-color: green');
+                $('#'+this.username).css('background','green');	;
             }
         });
 		
@@ -192,7 +192,7 @@ function showAvailableIPLplayers()
 			datarow.addColumn('string','Type');
 			datarow.addColumn('string','Obj');
 			
-			
+
 		    for (var i=0;i<players.results.length;i++)
 			{
 				var id = players.results[i].ID;
@@ -219,25 +219,26 @@ function showAvailableIPLplayers()
 		    availableIPLPlayerstable.draw(datarow,options);
 			google.visualization.events.addListener(availableIPLPlayerstable, 'select', function() {
 				var selection = availableIPLPlayerstable.getSelection();
-				
-				var message = '';
-				  for (var i = 0; i < selection.length; i++) {
-					var item = selection[i];
-					iplPlayer = datarow.getFormattedValue(item.row, 3);
-					$('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 1));
-					var palyerType = datarow.getFormattedValue(item.row, 2);
-					var type ='';
-					if( palyerType ==='BOW'){
-							type ='Bowler';
-						}else if(palyerType ==='ALL'){
-							type ='All-Rounder';
-						}else if(palyerType ==='KEEP'){
-							type ='Wicket Keeper';
-						}else if(palyerType ==='BAT'){
-							type ='Batsman';
-						}
-					$('#currentIPLPlayerTypeDiv').html(type);					
-				  }				  
+				if(bidInitiator === fbUserName) {
+                        var message = '';
+                        for (var i = 0; i < selection.length; i++) {
+                            var item = selection[i];
+                            iplPlayer = datarow.getFormattedValue(item.row, 3);
+                            $('#currentIPLPlayerDiv').html(datarow.getFormattedValue(item.row, 1));
+                            var palyerType = datarow.getFormattedValue(item.row, 2);
+                            var type = '';
+                            if (palyerType === 'BOW') {
+                                type = 'Bowler';
+                            } else if (palyerType === 'ALL') {
+                                type = 'All-Rounder';
+                            } else if (palyerType === 'KEEP') {
+                                type = 'Wicket Keeper';
+                            } else if (palyerType === 'BAT') {
+                                type = 'Batsman';
+                            }
+                            $('#currentIPLPlayerTypeDiv').html(type);
+                        }
+                    }
 				});
 			}
 
