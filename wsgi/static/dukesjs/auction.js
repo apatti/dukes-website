@@ -200,6 +200,23 @@ function startAuction() {
 
 		$.get(DOMAIN_NAME+"/ipl/userteams/"+userName,function(data,status){
             players = $.parseJSON(JSON.stringify(data));
+            var batsman=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('batsman')!=-1)
+                    return true;
+            });
+            var bowlers=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('bowler')!=-1)
+                    return true;
+            });
+            var allrounders=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('all-rounder')!=-1)
+                    return true;
+            });
+            var keepers=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('wicket keeper')!=-1)
+                    return true;
+            });
+            
             google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
             function drawTable()
             {
