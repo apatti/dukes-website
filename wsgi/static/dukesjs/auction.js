@@ -148,9 +148,9 @@ function startAuction() {
 				}
 							
             });
-            $('#ownersDiv').append(allOwnerDivs); 
+            $('#ownersDiv').append(allOwnerDivs);
             if(bidInitiator === fbUserName){
-                $('#'+this.username).css('background','green');	;
+                $('#'+fbUserName).css('background','green');	;
             }
         });
 		
