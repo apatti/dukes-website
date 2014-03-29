@@ -4,6 +4,7 @@ var currentBalance=0;
 var allTeamPlayers='';
 var iplPlayer='';
 var playerType = '';
+var bidInitiator ='';
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -127,8 +128,9 @@ function startAuction() {
 						$('#btn_bidSubmit').removeAttr("disabled");
 						$('#btn_cancelSubmit').removeAttr("disabled");
 						$('#btn_1').removeAttr("disabled");
-						bidButtonEnabled = true;
-                        $('#'+this.username).css('background-color: green');
+                        bidInitiator  = this.username;
+                        bidButtonEnabled = true;
+
 					}else{
 						$('#btn_bidSubmit').attr("disabled", "disabled");
 						$('#btn_cancelSubmit').attr("disabled", "disabled");
@@ -147,6 +149,9 @@ function startAuction() {
 							
             });
             $('#ownersDiv').append(allOwnerDivs);
+            if(bidInitiator === fbUserName){
+                $('#'+this.username).css('background-color: green');
+            }
         });
 		
 	}
