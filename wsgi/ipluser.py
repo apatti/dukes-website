@@ -11,8 +11,9 @@ def saveIPLUser(userName,userTeam,userEmail):
     return updateUser(userName,userObj,0)
 
 def getIplUsers():
+    params = urllib.urlencode({"order" : "teamname"})
     connection.connect()
-    connection.request('GET','/1/classes/iplfantasy','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.request('GET','/1/classes/iplfantasy?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     #result = json.loads(connection.getresponse().read())
     return json.loads(connection.getresponse().read())
 
