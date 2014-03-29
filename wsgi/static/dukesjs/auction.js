@@ -62,12 +62,31 @@ function startAuction() {
          socket.on('biddata',function(content){
              $('#currentBidAmount').text(content.bidAmount);
              $('#currentBidder').text(content.user);
+             $("#bidAmmountTxt").val(parseInt(content.bidAmount)+1);
 			 var pDetails = sessionStorage.getItem(content.iplPlayer);
 			 var tt = pDetails.split('%');
 			$('#currentIPLPlayerDiv').html(tt[0]);
 			$('#currentIPLPlayerTypeDiv').html(tt[1]);
 			  
          });
+        socket.on('bidcomplete',function(content){
+
+            $('#solddiv').html(sessionStorage.getItem(content.iplPlayer)+" sold to "+content.user+" for "+content.bidAmount);
+            $( ".userdialog" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+            $('#solddialog').dialog("open");
+
+            init();
+        });
     });
 
     $('#btn_bidSubmit').click( function(){
