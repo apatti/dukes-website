@@ -68,6 +68,7 @@ function startAuction() {
 			 var tt = pDetails.split('%');
 			$('#currentIPLPlayerDiv').html(tt[0]);
 			$('#currentIPLPlayerTypeDiv').html(tt[1]);
+             iplPlayer = content.iplPlayer;
 			  
          });
         socket.on('bidcomplete',function(content){
@@ -104,10 +105,10 @@ function startAuction() {
         if(bid <= 0){
             return;
         }
-       /* if(iplPlayer === null || iplPlayer ===''){
+       if(iplPlayer === null || iplPlayer ===''){
             alert("Please Select Player");
             return;
-        }*/
+        }
         socket.emit("bidstart", {"iplPlayer": iplPlayer});
 
 		if(oldbid < bid) {
