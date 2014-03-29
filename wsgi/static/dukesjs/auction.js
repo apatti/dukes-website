@@ -97,7 +97,8 @@ function startAuction() {
         if(bid <= 0){
             return;
         }
-        if(iplPlayer == null || iplPlayer ===''){
+        if(iplPlayer === null || iplPlayer ===''){
+            alert("Please Select Player ");
             return;
         }
         socket.emit("bidstart", {"iplPlayer": iplPlayer});
