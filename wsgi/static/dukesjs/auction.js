@@ -62,7 +62,7 @@ function startAuction() {
          socket.on('biddata',function(content){
              $('#currentBidAmount').text(content.bidAmount);
              $('#currentBidder').text(content.user);
-             $("#bidAmmountTxt").text(parseInt(content.bidAmount)+1);
+             $("#bidAmmountTxt").val(parseInt(content.bidAmount)+1);
 			 var pDetails = sessionStorage.getItem(content.iplPlayer);
 			 var tt = pDetails.split('%');
 			$('#currentIPLPlayerDiv').html(tt[0]);
