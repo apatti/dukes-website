@@ -5,6 +5,7 @@ var allTeamPlayers='';
 var iplPlayer='';
 var playerType = '';
 var bidInitiator ='';
+var maxbid=0;
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -70,8 +71,9 @@ function startAuction() {
 			  
          });
         socket.on('bidcomplete',function(content){
-
-            $('#solddiv').html(sessionStorage.getItem(content.iplPlayer)+" sold to "+content.user+" for "+content.bidAmount);
+            var pDetails = sessionStorage.getItem(content.iplPlayer);
+			var tt = pDetails.split('%');
+            $('#solddiv').html(tt[0]+" ("+tt[1] +") sold to "+content.user+" for $"+content.bidAmount);
             $( ".userdialog" ).dialog({
                 autoOpen: false,
                 show: {
@@ -104,8 +106,8 @@ function startAuction() {
         socket.emit("bidstart", {"iplPlayer": iplPlayer});
 
 		if(oldbid < bid) {
-            if(parseInt(bid) > currentBalance ) {
-                alert("Bid mount should not be more than : "+currentBalance);
+            if(parseInt(bid) > maxbid ) {
+                alert("Bid mount should not be more than : "+maxbid);
             }else{
                 socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
             }
@@ -169,6 +171,7 @@ function startAuction() {
 				}
 				if(this.username === fbUserName){
 					currentBalance = this.balance;
+                    maxbid = currentBalance-(9-this.playercount)+1;
 				}
 				var team = this.team;
 				if(team){
