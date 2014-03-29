@@ -127,6 +127,10 @@ function startAuction() {
          socket.on('timer',function(content){
             $('#timer').text(content.timer);
 			$('#btn_bidSubmit').removeAttr("disabled");
+			$('#btn_cancelSubmit').removeAttr("disabled");
+			$('#btn_1').removeAttr("disabled");
+			
+			
 			
 			 
          });
@@ -188,10 +192,13 @@ function startAuction() {
 				if(! bidButtonEnabled){
 					if( this.iscurrentplayer && this.username === fbUserName){						
 						$('#btn_bidSubmit').removeAttr("disabled");
+						$('#btn_cancelSubmit').removeAttr("disabled");
+						$('#btn_1').removeAttr("disabled");
 						bidButtonEnabled = true;
 					}else{
 						$('#btn_bidSubmit').attr("disabled", "disabled");
-						
+						$('#btn_cancelSubmit').attr("disabled", "disabled");
+						$('#btn_1').attr("disabled", "disabled");
 					}
 				}
 				var team = this.team;
