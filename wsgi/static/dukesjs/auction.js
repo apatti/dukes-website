@@ -297,33 +297,33 @@ function startAuction() {
 
                 for(var i=0;i<2;i++)
                 {
-                    if(team["bat"+i+1]!=null)
+                    if(team["bat"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["bat"+i+1].Type,team["bat"+i+1].Name+", "+team["bat"+i+1].Team,team["bat"+i+1].price]]);
+                        datarow.addRows([[team["bat"+(i+1)].Type,team["bat"+(i+1)].Name+", "+team["bat"+(i+1)].Team,team["bat"+(i+1)].price]]);
                     }
                     else
                     {
                         datarow.addRows([["Batsman","",0]]);
                     }
-                    if(team["bowl"+i+1]!=null)
+                    if(team["bowl"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["bowl"+i+1].Type,team["bowl"+i+1].Name+", "+team["bowl"+i+1].Team,team["bowl"+i+1].price]]);
+                        datarow.addRows([[team["bowl"+(i+1)].Type,team["bowl"+(i+1)].Name+", "+team["bowl"+(i+1)].Team,team["bowl"+(i+1)].price]]);
                     }
                     else
                     {
                         datarow.addRows([["Bowler","",0]]);
                     }
-                    if(team["all"+i+1]!=null)
+                    if(team["all"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["all"+i+1].Type,team["all"+i+1].Name+", "+team["all"+i+1].Team,team["all"+i+1].price]]);
+                        datarow.addRows([[team["all"+(i+1)].Type,team["all"+(i+1)].Name+", "+team["all"+(i+1)].Team,team["all"+(i+1)].price]]);
                     }
                     else
                     {
                         datarow.addRows([["All-Rounder","",0]]);
                     }
-                    if(team["filler"+i+1]!=null)
+                    if(team["filler"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["filler"+i+1].Type,team["filler"+i+1].Name+", "+team["filler"+i+1].Team,team["filler"+i+1].price]]);
+                        datarow.addRows([[team["filler"+(i+1)].Type,team["filler"+(i+1)].Name+", "+team["filler"+(i+1)].Team,team["filler"+(i+1)].price]]);
                     }
                 }
 
