@@ -68,6 +68,23 @@ function startAuction() {
 			$('#currentIPLPlayerTypeDiv').html(tt[1]);
 			  
          });
+        socket.on('bidcomplete',function(content){
+
+            $('#solddiv').html(sessionStorage.getItem(content.iplPlayer)+" sold to "+content.user+" for "+content.bidAmount);
+            $('#solddialog').dialog("open");
+            $( ".userDialog" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+            init();
+        });
     });
 
     $('#btn_bidSubmit').click( function(){
