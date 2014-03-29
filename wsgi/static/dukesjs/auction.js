@@ -118,6 +118,7 @@ function startAuction() {
             var teamId=$(this).children(":selected").attr("id");
             selectTeam(teamId);
         });
+
 });
 	function init(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
@@ -170,6 +171,10 @@ function startAuction() {
             if(bidInitiator === fbUserName){
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }
+            $('.iplOwner').click(function (){
+                alert(this.id);
+                alert($(this).attr('id'));
+            });
         });
 		
 	}
@@ -210,7 +215,7 @@ function showAvailableIPLplayers()
 		    datarow.addColumn('string','Player');
 			datarow.addColumn('string','Type');
 			datarow.addColumn('string','Obj');
-			
+
 
 		    for (var i=0;i<players.results.length;i++)
 			{
@@ -220,7 +225,7 @@ function showAvailableIPLplayers()
 				var objId = players.results[i].objectId;
 				
 				sessionStorage.setItem(objId,playerName+'%'+palyerType);
-				
+
 			    var type='';
 				if( palyerType ==='Bowler'){
 					type ='BOW';
