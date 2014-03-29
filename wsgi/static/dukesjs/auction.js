@@ -36,9 +36,9 @@ window.fbAsyncInit = function() {
  function auction(){
 	 FB.api('/me', function(response) {
 		  console.log('Good to see you, ' + response.name + '.');	  
-		     fbUserName = response.username;
-		   $('#loggedUserDiv').html(response.username);
-         polling();
+		 fbUserName = response.username;
+		 $('#loggedUserDiv').html(response.username);
+         init();
 		 showAvailableIPLplayers();
 		 startAuction();
 		});
@@ -56,9 +56,6 @@ function startAuction() {
 			$('#btn_bidSubmit').removeAttr("disabled");
 			$('#btn_cancelSubmit').removeAttr("disabled");
 			$('#btn_1').removeAttr("disabled");
-			
-			
-			
 			 
          });
          socket.on('biddata',function(content){
@@ -104,7 +101,7 @@ function startAuction() {
             selectTeam(teamId);
         });
 });
-	function polling(){
+	function init(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
             var dd = data.results;
 			allTeamPlayers = dd;
@@ -131,6 +128,7 @@ function startAuction() {
 						$('#btn_cancelSubmit').removeAttr("disabled");
 						$('#btn_1').removeAttr("disabled");
 						bidButtonEnabled = true;
+                        $('#'+this.username).css('background:green');
 					}else{
 						$('#btn_bidSubmit').attr("disabled", "disabled");
 						$('#btn_cancelSubmit').attr("disabled", "disabled");
@@ -170,6 +168,10 @@ function startAuction() {
            
         });
 	}
+
+function updateIPlFantasyTeams(){
+
+}
 	
 	// Show All Available IPL Players
 function showAvailableIPLplayers()
