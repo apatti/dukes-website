@@ -204,13 +204,15 @@ function startAuction() {
                 datarow.addColumn('number','ID');
                 datarow.addColumn('string','Player');
                 datarow.addColumn('string','Type');
+                datarow.addColumn('string','Team');
 
                 for (var i=0;i<players.results.length;i++)
                 {
                     var id = players.results[i].ID;
                     var playerName = players.results[i].Name;
                     var type = players.results[i].Type;
-                    datarow.addRows([[id,playerName,type]]);
+                    var teamName  =	players.results[i].Team;
+                    datarow.addRows([[id,playerName,type,teamName]]);
                 }
                 var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplTeamDiv'));
                 var options = {'height': 300};
@@ -238,6 +240,7 @@ function showAvailableIPLplayers()
 		    datarow.addColumn('string','Player');
 			datarow.addColumn('string','Type');
 			datarow.addColumn('string','Obj');
+            datarow.addColumn('string','Team');
 
 
 		    for (var i=0;i<players.results.length;i++)
@@ -246,7 +249,7 @@ function showAvailableIPLplayers()
 			    var playerName = players.results[i].Name;
 				var palyerType = players.results[i].Type;
 				var objId = players.results[i].objectId;
-				
+                var teamName  =	players.results[i].Team;
 				sessionStorage.setItem(objId,playerName+'%'+palyerType);
 
 			    var type='';
@@ -259,7 +262,7 @@ function showAvailableIPLplayers()
 				}else if(palyerType ==='Batsman'){
 					type ='BAT';
 				}
-		  	    datarow.addRows([[id,playerName,type,objId]]);
+		  	    datarow.addRows([[id,playerName,type,objId,teamName]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
 			var options = {'height': 300};

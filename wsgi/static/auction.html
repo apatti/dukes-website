@@ -63,7 +63,7 @@
             <div id="solddiv"></div>
         </div>
 		<div id="biddintAreaDiv" class="biddingMainArea">	
-			<div id="teamsDiv" style="margin-bottom:20px" title="All Team" class="bidTeams"> Participants
+			<div id="teamsDiv" style="margin-bottom:20px" title="All Team" class="bidTeams"> <div id="teamNameDiv"></div>
                 <!-- Current IPL Fantasy Team-->
 
 				<div id="iplTeamDiv">
@@ -88,10 +88,28 @@
 						<div id="timer" class="timerCSS"></div>
 					</div>
 					<div class="currentBidderCSS">
-                            <div style="width: 180px;float: left;font-size: large;font-family: -webkit-body;font-weight: 800;">Current Bid :</div>
-                            <div id="currentBidAmount" style="color:#45930b;width: 60px;float: left;font-size: large;font-weight: 800;">0</div>
-                            <div style="width: 180px;float: left;font-size: large;font-family: -webkit-body;font-weight: 800;">Current Bidder :</div>
-                            <div id="currentBidder" style="color:#45930b;width: 60px;float: left;font-size: large;font-weight: 800;">-</div>
+                            <table border="0">
+                                <tr>
+                                    <td>
+                                        <div style="width: 180px;float: left;font-size: large;font-family: -webkit-body;font-weight: 800;">Current Bid :</div>
+                                    </td>
+                                    <td>
+                                        <div id="currentBidAmount" style="color:#45930b;width: 60px;float: left;font-size: large;font-weight: 800;">0</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="width: 180px;float: left;font-size: large;font-family: -webkit-body;font-weight: 800;">Current Bidder :</div>
+                                    </td>
+                                    <td>
+                                        <div id="currentBidder" style="color:#45930b;width: 60px;float: left;font-size: large;font-weight: 800;">-</div>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+
+
 
 					</div>
 				</div>
@@ -117,7 +135,7 @@
 
 				</div>
 			</div>	
-			<div id="availablePlayesDiv" style="margin-bottom:20px" title="Available Players" class="availablePlayers">
+			<div id="availablePlayesDiv" style="margin-bottom:20px;float: left;" title="Available Players" class="availablePlayers">
 			<div id="iplPlayersDiv"></div>
 			</div>		
 		</div>
