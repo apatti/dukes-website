@@ -151,9 +151,7 @@ function startAuction() {
             $('#ownersDiv').append(allOwnerDivs);
 
             if(bidInitiator === fbUserName){
-
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
-
             }
         });
 		
