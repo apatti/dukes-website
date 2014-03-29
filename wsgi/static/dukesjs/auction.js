@@ -140,7 +140,7 @@ function startAuction() {
 
 				allOwnerDivs = allOwnerDivs+'</div>';
                
-                $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
+                /*$("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');*/
 
 				//Enable Bid button only for currentPlayer
 				if(! bidButtonEnabled){
@@ -176,7 +176,7 @@ function startAuction() {
             }
             $('.iplOwner').click(function (){
 
-                selectTeam(this.id);
+                selectTeam((this.id).replace(/\_/g, '.'));
             });
         });
 		
