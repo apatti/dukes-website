@@ -91,10 +91,14 @@ function startAuction() {
 
     $('#btn_bidSubmit').click( function(){
 		//this should be called only once by whoever has got the turn.
-        socket.emit("bidstart", {"iplPlayer": iplPlayer});
         var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
         var user=fbUserName;
+        if(bid <= 0){
+            return;
+        }
+        socket.emit("bidstart", {"iplPlayer": iplPlayer});
+
 		if(oldbid < bid) {
             if(parseInt(bid) > currentBalance ) {
                 alert("Bid mount should not be more than : "+currentBalance);
@@ -173,6 +177,7 @@ function startAuction() {
             $('#ownersDiv').html(allOwnerDivs);
             $('#currentBidAmount').text('0');
             $('currentBidder').text('');
+            $("#bidAmmountTxt").val(1);
             if(bidInitiator === fbUserName){
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }
