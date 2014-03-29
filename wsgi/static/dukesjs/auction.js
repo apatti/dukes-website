@@ -204,7 +204,7 @@ function startAuction() {
                 datarow.addColumn('number','ID');
                 datarow.addColumn('string','Player');
                 datarow.addColumn('string','Type');
-                datarow.addColumn('String','Team');
+                datarow.addColumn('string','Team');
 
                 for (var i=0;i<players.results.length;i++)
                 {
@@ -240,7 +240,7 @@ function showAvailableIPLplayers()
 		    datarow.addColumn('string','Player');
 			datarow.addColumn('string','Type');
 			datarow.addColumn('string','Obj');
-            datarow.addColumn('String','Team');
+            datarow.addColumn('string','Team');
 
 
 		    for (var i=0;i<players.results.length;i++)
