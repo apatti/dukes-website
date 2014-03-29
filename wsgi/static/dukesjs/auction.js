@@ -72,7 +72,6 @@ function startAuction() {
         socket.on('bidcomplete',function(content){
 
             $('#solddiv').html(sessionStorage.getItem(content.iplPlayer)+" sold to "+content.user+" for "+content.bidAmount);
-            $('#solddialog').dialog("open");
             $( ".userdialog" ).dialog({
                 autoOpen: false,
                 show: {
@@ -84,6 +83,8 @@ function startAuction() {
                     duration: 1000
                 }
             });
+            $('#solddialog').dialog("open");
+
             init();
         });
     });
