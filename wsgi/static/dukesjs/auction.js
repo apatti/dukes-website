@@ -167,15 +167,20 @@ function startAuction() {
 						$('#btn_bidSubmit').removeAttr("disabled");
 						$('#btn_cancelSubmit').removeAttr("disabled");
 						$('#btn_1').removeAttr("disabled");
-                        bidInitiator  = this.username;
+
                         bidButtonEnabled = true;
 
 					}else{
 						$('#btn_bidSubmit').attr("disabled", "disabled");
 						$('#btn_cancelSubmit').attr("disabled", "disabled");
 						$('#btn_1').attr("disabled", "disabled");
-					}					
+					}
+
 				}
+                if( this.iscurrentplayer){
+                    bidInitiator  = this.username;
+                    $('#'+(bidInitiator).replace(/\./g, '_')).css({ backgroundColor: 'green' });
+                }
 				if(this.username === fbUserName){
 					currentBalance = this.balance;
                     maxbid = currentBalance-(9-this.playercount)+1;
@@ -193,7 +198,7 @@ function startAuction() {
             $('currentBidder').text('');
             $("#bidAmmountTxt").val(1);
            // if(bidInitiator === fbUserName){
-                $('#'+(bidInitiator).replace(/\./g, '_')).css({ backgroundColor: 'green' });
+
             //}
             $('.iplOwner').click(function (){
 
