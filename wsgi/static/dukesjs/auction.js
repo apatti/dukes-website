@@ -101,9 +101,7 @@ function startAuction() {
             var teamId=$(this).children(":selected").attr("id");
             selectTeam(teamId);
         });
-     $('.iplOwner').click(function (){
-         alert($(this).attr('id'));
-     });
+
 });
 	function init(){
         $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
@@ -156,6 +154,9 @@ function startAuction() {
             if(bidInitiator === fbUserName){
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }
+            $('.iplOwner').click(function (){
+                alert($(this).attr('id'));
+            });
         });
 		
 	}
