@@ -305,6 +305,9 @@ function startAuction() {
                     {
                         datarow.addRows([["Batsman","",0]]);
                     }
+                }
+                for(var i=0;i<2;i++)
+                {
                     if(team["bowl"+(i+1)]!=null)
                     {
                         datarow.addRows([[team["bowl"+(i+1)].Type,team["bowl"+(i+1)].Name+", "+team["bowl"+(i+1)].Team,team["bowl"+(i+1)].price]]);
@@ -313,6 +316,9 @@ function startAuction() {
                     {
                         datarow.addRows([["Bowler","",0]]);
                     }
+                }
+                for(var i=0;i<2;i++)
+                {
                     if(team["all"+(i+1)]!=null)
                     {
                         datarow.addRows([[team["all"+(i+1)].Type,team["all"+(i+1)].Name+", "+team["all"+(i+1)].Team,team["all"+(i+1)].price]]);
@@ -321,22 +327,19 @@ function startAuction() {
                     {
                         datarow.addRows([["All-Rounder","",0]]);
                     }
+                }
+                for(var i=0;i<2;i++)
+                {
                     if(team["filler"+(i+1)]!=null)
                     {
                         datarow.addRows([[team["filler"+(i+1)].Type,team["filler"+(i+1)].Name+", "+team["filler"+(i+1)].Team,team["filler"+(i+1)].price]]);
                     }
+                    else
+                    {
+                        datarow.addRows([["Filler","",0]]);
+                    }
                 }
 
-                for (var i=10;i<players.results.length;i++)
-                {
-                    //var id = players.results[i].ID;
-                    var playerName = players.results[i].Name;
-                    var role = players.results[i].Type;
-                    var teamName  =	players.results[i].Team;
-                    var price = players.results[i].price;
-                    playerName = playerName+", "+teamName;
-                    datarow.addRows([[role,playerName,price]]);
-                }
                 var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplTeamDiv'));
                 var options = {'height': 300};
                 availableIPLPlayerstable.draw(datarow,options);
@@ -362,8 +365,8 @@ function showAvailableIPLplayers()
 			//datarow.addColumn('number','ID');
 			datarow.addColumn('string','Type');
 		    datarow.addColumn('string','Player');
-			datarow.addColumn('string','Obj');
             datarow.addColumn('string','Team');
+			datarow.addColumn('string','Obj');
 
 
 		    for (var i=0;i<players.results.length;i++)
@@ -385,7 +388,7 @@ function showAvailableIPLplayers()
 				}else if(palyerType ==='Batsman'){
 					type ='BAT';
 				}
-		  	    datarow.addRows([[type,playerName,objId,teamName]]);
+		  	    datarow.addRows([[type,playerName,teamName,objId]]);
 			}
             var availableIPLPlayerstable = new google.visualization.Table(document.getElementById('iplPlayersDiv'));
 			var options = {'height': 300};
