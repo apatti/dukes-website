@@ -89,6 +89,9 @@ function startAuction() {
 
             init();
         });
+        socket.on('bidreset',function(content){
+            init();
+        });
     });
 
     $('#btn_bidSubmit').click( function(){
@@ -113,11 +116,13 @@ function startAuction() {
             }
         }
 		//--------------------
-		
 
-        
-        
     });
+    if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti') {
+        $('#btn_cancelSubmit').click(function () {
+            socket.emit("bidreset");
+        });
+    }
 
 }
 

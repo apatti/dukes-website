@@ -137,6 +137,10 @@ function selectTeam()
 	Poll Creation
  */
  function pollCreation(){
+
+     $('#resetAuctionBtn').click(function (){
+
+     });
 	$('#createNewPollBtn').click(function (){
 		alert("Poll Creation");
 		var pollSubj = $('#pollSubjectTxt').val();
