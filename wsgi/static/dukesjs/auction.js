@@ -275,6 +275,8 @@ function showAvailableIPLplayers()
                                 type = 'Batsman';
                             }
                             $('#currentIPLPlayerTypeDiv').html(type);
+                            $('#currentBidAmount').text('0');
+                            $('currentBidder').text('');
                         }
                     }
 				});
