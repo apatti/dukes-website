@@ -200,6 +200,15 @@ function startAuction() {
 
 		$.get(DOMAIN_NAME+"/ipl/userteams/"+userName,function(data,status){
             var team=new Object;
+            team.bat1=null;
+            team.bat2=null;
+            team.bowl1=null;
+            team.bowl2=null;
+            team.all1=null;
+            team.all2=null;
+            team.keep=null;
+            team.filler1=null;
+            team.filler2=null;
             players = $.parseJSON(JSON.stringify(data));
             var batsman=jQuery.grep(players.results,function(iplplayer,index){
                 if(iplplayer.Type.toLowerCase().indexOf('batsman')!=-1)
@@ -219,23 +228,53 @@ function startAuction() {
                 if(iplplayer.Type.toLowerCase().indexOf('wicket keeper')!=-1)
                     return true;
             });
-
             var fillerindex=0;
-            for(var i=0;i<9;i++)
+            for(var i=0;i<batsman.length;i++)
             {
                 if(i<2)
                 {
-                    if(i<batsman.length)
-                        team["bat"+(i+1)]=batsman[i];
-                    if(i<bowlers.length)
-                        team["bowl"+(i+1)]=bowlers[i];
-                    if(i<allrounders.length)
-                        team["all"+(i+1)]=allrounders[i];
+                    team["bat"+(i+1)]=batsman[i];
                 }
                 else
                 {
-                    //team["fil"+(fillerindex+1)]=batsman[i];
-                    //fillerindex++;
+                    team["filler"+(fillerindex+1)]=batsman[i];
+                    fillerindex++;
+                }
+            }
+            for(var i=0;i<bowlers.length;i++)
+            {
+                if(i<2)
+                {
+                    team["bowl"+(i+1)]=bowlers[i];
+                }
+                else
+                {
+                    team["filler"+(fillerindex+1)]=batsman[i];
+                    fillerindex++;
+                }
+            }
+            for(var i=0;i<allrounders.length;i++)
+            {
+                if(i<2)
+                {
+                    team["all"+(i+1)]=allrounders[i];
+                }
+                else
+                {
+                    team["filler"+(fillerindex+1)]=allrounders[i];
+                    fillerindex++;
+                }
+            }
+            for(var i=0;i<keepers.length;i++)
+            {
+                if(i<1)
+                {
+                    team["keep"+(i+1)]=batsman[i];
+                }
+                else
+                {
+                    team["filler"+(fillerindex+1)]=keepers[i];
+                    fillerindex++;
                 }
             }
 
