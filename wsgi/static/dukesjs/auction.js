@@ -45,7 +45,134 @@ window.fbAsyncInit = function() {
 
  }
  
- function showAvailableIPLplayers()
+ 
+
+function startAuction() {
+  var socket;
+    $(function(){
+         socket =io.connect('http://auction-dukesxi.rhcloud.com:8000');
+         socket.on('timer',function(content){
+            $('#timer').text(content.timer);
+			$('#btn_bidSubmit').removeAttr("disabled");
+			$('#btn_cancelSubmit').removeAttr("disabled");
+			$('#btn_1').removeAttr("disabled");
+			
+			
+			
+			 
+         });
+         socket.on('biddata',function(content){
+             $('#currentBidAmount').text(content.bidAmount);
+             $('#currentBidder').text(content.user);
+			 var pDetails = sessionStorage.getItem(content.iplPlayer);
+			 var tt = pDetails.split('%');
+			$('#currentIPLPlayerDiv').html(tt[0]);
+			$('#currentIPLPlayerTypeDiv').html(tt[1]);
+			  
+         });
+    });
+
+    $('#btn_bidSubmit').click( function(){
+		//this should be called only once by whoever has got the turn.
+		
+		socket.emit("bidstart",{"iplPlayer":iplPlayer});
+		//--------------------
+		
+		var oldbid=$("#currentBidAmount").text();
+        var bid=$("#bidAmmountTxt").val();
+        var user=fbUserName;
+		if(parseInt(bid) > currentBalance ) {
+			alert("Bid mount should not be more than : "+currentBalance);
+		}else{
+			socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});			
+		}
+        
+        
+    });
+
+}
+
+ $(function(){
+	$('#btn_1').click( function(){
+	
+		var bid=$("#bidAmmountTxt").val();
+		$("#bidAmmountTxt").val(parseInt(bid)+1);
+		//updateTeams(); 
+	});
+	$("#iplTeamsDropDown").change(function(){
+            var teamId=$(this).children(":selected").attr("id");
+            selectTeam(teamId);
+        });
+});
+	function polling(){
+        $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
+            var dd = data.results;
+			allTeamPlayers = dd;
+
+             var allOwnerDivs ='';
+            console.log(dd);
+			var bidButtonEnabled = false;
+            $.each(dd,function (){
+                                   
+				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
+				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
+				allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
+				allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
+				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'ownerAmount" class="ownerAmount" style="font-size: medium;font-weight: 800;color: darkred;">$'+this.balance+'</div>';
+
+				allOwnerDivs = allOwnerDivs+'</div>';
+               
+                $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
+
+				//Enable Bid button only for currentPlayer
+				if(! bidButtonEnabled){
+					if( this.iscurrentplayer && this.username === fbUserName){						
+						$('#btn_bidSubmit').removeAttr("disabled");
+						$('#btn_cancelSubmit').removeAttr("disabled");
+						$('#btn_1').removeAttr("disabled");
+						bidButtonEnabled = true;
+					}else{
+						$('#btn_bidSubmit').attr("disabled", "disabled");
+						$('#btn_cancelSubmit').attr("disabled", "disabled");
+						$('#btn_1').attr("disabled", "disabled");
+					}					
+				}
+				if(this.username === fbUserName){
+					currentBalance = this.balance;
+				}
+				var team = this.team;
+				if(team){
+					$.each(team,function (){
+						
+					});
+				}
+							
+            });
+            $('#ownersDiv').append(allOwnerDivs);
+        });
+		
+	}
+	
+	function selectTeam(userName){
+		alert("selected Team -> "+ userName);
+		alert(allTeamPlayers);
+	}
+	function updateTeams(){
+		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
+            var dd = data.results;		
+			allTeamPlayers = dd;
+            $.each(dd,function (){   
+				var currentUser='narashan'	
+				var bal = 89;//this.balance;
+				$('#'+currentUser+'ownerAmount').html('$'+bal);//this.balance);
+				$('#'+currentUser).css('background','green');				
+            });
+           
+        });
+	}
+	
+	// Show All Available IPL Players
+function showAvailableIPLplayers()
 {
     $.get("http://www.dukesxi.co/ipl/players",function(data,status){
         players = $.parseJSON(JSON.stringify(data));		
@@ -102,133 +229,10 @@ window.fbAsyncInit = function() {
 						}else if(palyerType ==='BAT'){
 							type ='Batsman';
 						}
-					$('#currentIPLPlayerTypeDiv').html(type);
-					/*if (item.row != null && item.column != null) {
-					  var str = datarow.getFormattedValue(item.row, item.column);
-					  message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
-					} else if (item.row != null) {
-					  var str = datarow.getFormattedValue(item.row, 0);
-					  message += '{row:' + item.row + ', (no column, showing first)} = ' + str + '\n';
-					} else if (item.column != null) {
-					  var str = datarow.getFormattedValue(0, item.column);
-					  message += '{(no row, showing first), column:' + item.column + '} = ' + str + '\n';
-					} */
+					$('#currentIPLPlayerTypeDiv').html(type);					
 				  }				  
 				});
 			}
 
     });
 }
-
-function startAuction() {
-  var socket;
-    $(function(){
-         socket =io.connect('http://auction-dukesxi.rhcloud.com:8000');
-         socket.on('timer',function(content){
-            $('#timer').text(content.timer);
-			$('#btn_bidSubmit').removeAttr("disabled");
-			$('#btn_cancelSubmit').removeAttr("disabled");
-			$('#btn_1').removeAttr("disabled");
-			
-			
-			
-			 
-         });
-         socket.on('biddata',function(content){
-             $('#currentBidAmount').text(content.bidAmount);
-             $('#currentBidder').text(content.user);
-			 var pDetails = sessionStorage.getItem(content.iplPlayer);
-			 var tt = pDetails.split('%');
-			$('#currentIPLPlayerDiv').html(tt[0]);
-			$('#currentIPLPlayerTypeDiv').html(tt[1]);
-			  
-         });
-    });
-
-    $('#btn_bidSubmit').click( function(){
-		
-        socket.emit("bidstart",{"iplPlayer":iplPlayer});
-        var oldbid=$("#currentBidAmount").text();
-        var bid=$("#bidAmmountTxt").val();
-        var user=fbUserName;
-        socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
-    });
-
-}
-
- $(function(){
-	$('#btn_1').click( function(){
-	
-		var bid=$("#bidAmmountTxt").val();
-		$("#bidAmmountTxt").val(parseInt(bid)+1);
-		//updateTeams(); 
-	});
-	$("#iplTeamsDropDown").change(function(){
-            var teamId=$(this).children(":selected").attr("id");
-            selectTeam(teamId);
-        });
-});
-	function polling(){
-        $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-            var dd = data.results;
-			allTeamPlayers = dd;
-
-             var allOwnerDivs ='';
-            console.log(dd);
-			var bidButtonEnabled = false;
-            $.each(dd,function (){
-                                   
-				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
-				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'" class="iplOwner">';
-				allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
-				allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
-				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'ownerAmount" class="ownerAmount" style="font-size: medium;font-weight: 800;color: darkred;">$'+this.balance+'</div>';
-
-				allOwnerDivs = allOwnerDivs+'</div>';
-               
-                $("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');
-
-				//Enable Bid button only for currentPlayer
-				if(! bidButtonEnabled){
-					if( this.iscurrentplayer && this.username === fbUserName){						
-						$('#btn_bidSubmit').removeAttr("disabled");
-						$('#btn_cancelSubmit').removeAttr("disabled");
-						$('#btn_1').removeAttr("disabled");
-						bidButtonEnabled = true;
-					}else{
-						$('#btn_bidSubmit').attr("disabled", "disabled");
-						$('#btn_cancelSubmit').attr("disabled", "disabled");
-						$('#btn_1').attr("disabled", "disabled");
-					}
-				}
-				var team = this.team;
-				if(team){
-					$.each(team,function (){
-						
-					});
-				}
-							
-            });
-            $('#ownersDiv').append(allOwnerDivs);
-        });
-		
-	}
-	
-	function selectTeam(userName){
-		alert("selected Team -> "+ userName);
-		alert(allTeamPlayers);
-	}
-	function updateTeams(){
-		$.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-            var dd = data.results;		
-			allTeamPlayers = dd;
-            $.each(dd,function (){   
-				var currentUser='narashan'	
-				var bal = 89;//this.balance;
-				$('#'+currentUser+'ownerAmount').html('$'+bal);//this.balance);
-				$('#'+currentUser).css('background','green');				
-            });
-           
-        });
-	}
-	
