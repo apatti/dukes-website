@@ -155,6 +155,7 @@ function startAuction() {
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }
             $('.iplOwner').click(function (){
+                alert(this.id);
                 alert($(this).attr('id'));
             });
         });
