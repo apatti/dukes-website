@@ -113,8 +113,8 @@ function startAuction() {
         }
         socket.emit("bidstart", {"iplPlayer": iplPlayer});
 
-		if(oldbid < bid) {
-            if(parseInt(bid) > maxbid ) {
+		if(parseInt(oldbid) < parseInt(bid)) {
+            if(parseInt(bid) > parseInt(maxbid) ) {
                 alert("Bid mount should not be more than : "+maxbid);
             }else{
                 socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
