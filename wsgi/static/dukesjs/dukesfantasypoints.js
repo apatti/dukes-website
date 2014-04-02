@@ -74,21 +74,22 @@ function playingTeam()
             '</tr></thead>';
         for(var index=0;index<team.length;index++)
         {
-            teamtablehtml+='<tr><td>'+team[index]+'</td>' +
-                '<td><input type="text" id="'+team[index]+'battingRuns"></td>' +
-                '<td><input type="text" id="'+team[index]+'battingBalls"></td>' +
-                '<td><input type="checkbox" id="'+team[index]+'notOut"></td>' +
-                '<td><input type="text" id="'+team[index]+'bowlingWickets"></td>' +
-                '<td><input type="text" id="'+team[index]+'bowlingExtras"></td>' +
-                '<td><input type="text" id="'+team[index]+'bowlingMaidenOvers"></td>' +
-                '<td><input type="text" id="'+team[index]+'bowlingEconomy"></td>' +
-                '<td><input type="text" id="'+team[index]+'fieldingCatches"></td>' +
-                '<td><input type="text" id="'+team[index]+'fieldingStumping"></td>' +
-                '<td><input type="text" id="'+team[index]+'fieldingRunOut"></td>' +
-                '<td><input type="checkbox" id="'+team[index]+'IsMoM"></td></tr>';
+            var player = team[index].split('(')[0];
+            teamtablehtml+='<tr><td>'+player+'</td>' +
+                '<td><input type="number" id="'+player+'battingRuns"></td>' +
+                '<td><input type="number" id="'+player+'battingBalls"></td>' +
+                '<td><input type="checkbox" id="'+player+'notOut"></td>' +
+                '<td><input type="number" id="'+player+'bowlingWickets"></td>' +
+                '<td><input type="number" id="'+player+'bowlingExtras"></td>' +
+                '<td><input type="number" id="'+player+'bowlingMaidenOvers"></td>' +
+                '<td><input type="number" id="'+player+'bowlingEconomy"></td>' +
+                '<td><input type="number" id="'+player+'fieldingCatches"></td>' +
+                '<td><input type="number" id="'+player+'fieldingStumping"></td>' +
+                '<td><input type="number" id="'+player+'fieldingRunOut"></td>' +
+                '<td><input type="checkbox" id="'+player+'IsMoM"></td></tr>';
         }
         teamtablehtml+='</table>';
-        teamtablehtml+='<input type="button" id="submitpoints">Submit</input>'
+        teamtablehtml+='<input type="button" id="submitpoints" value="Submit"/>'
         $('#teamDiv').html(teamtablehtml);
 
         $('#submitpoints').click(function()
