@@ -164,11 +164,11 @@ function startAuction() {
                     allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:cornsilk;">';
                 }
 
-				allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
+				allOwnerDivs = allOwnerDivs + '<a href="javascript:void(0);" ><div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
 				allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
 				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'ownerAmount" class="ownerAmount" style="font-size: medium;font-weight: 800;color: darkred;">$'+this.balance+'</div>';
 
-				allOwnerDivs = allOwnerDivs+'</div>';
+				allOwnerDivs = allOwnerDivs+'</a></div>';
                
                 /*$("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');*/
 
