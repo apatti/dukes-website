@@ -58,7 +58,7 @@ function playingTeam()
     $.get("http://www.dukesxi.co/playingteam",function(data,status){
         var pollid= data.team.results[0].pollid;
         var team = data.team.results[0].team;
-        var teamtablehtml='<table><thead><tr>' +
+        var teamtablehtml='<table id="teamTable"><thead><tr>' +
             '<th>Name</th>' +
             '<th>BattingRuns</th>' +
             '<th>BattingBalls</th>' +
@@ -94,7 +94,11 @@ function playingTeam()
 
         $('#submitpoints').click(function()
         {
-
+            var teamtable = $('#teamTable');
+            for(var i=0;i<teamtable.rows.length;i++)
+            {
+                alert(teamtable.rows[i].cells[0].innerHTML);
+            }
         });
 
     });
