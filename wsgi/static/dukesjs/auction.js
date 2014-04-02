@@ -159,7 +159,7 @@ function startAuction() {
 				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
                 if(this.iscurrentplayer){
 
-                    allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:green;">';
+                    allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:darkorchid;">';
                 } else{
                     allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:cornsilk;">';
                 }
@@ -191,7 +191,7 @@ function startAuction() {
 					currentBalance = this.balance;
                     maxbid = currentBalance-(9-this.playercount)+1;
 				}
-				
+
 
             });
             $('#ownersDiv').html(allOwnerDivs);
