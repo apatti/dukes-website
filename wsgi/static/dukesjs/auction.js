@@ -195,7 +195,48 @@ function startAuction() {
         });
 		
 	}
-	
+
+    function canBid(userName,playertype)
+    {
+        $.get(DOMAIN_NAME+"/ipl/userteams/"+userName,function(data,status){
+            var team=new Object;
+            team.bat1=null;
+            team.bat2=null;
+            team.bowl1=null;
+            team.bowl2=null;
+            team.all1=null;
+            team.all2=null;
+            team.keep=null;
+            team.filler1=null;
+            team.filler2=null;
+            players = $.parseJSON(JSON.stringify(data));
+            var batsman=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('batsman')!=-1)
+                    return true;
+            }).length;
+
+
+            var bowlers=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('bowler')!=-1)
+                    return true;
+            }).length;
+            var allrounders=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('all-rounder')!=-1)
+                    return true;
+            }).length;
+            var keepers=jQuery.grep(players.results,function(iplplayer,index){
+                if(iplplayer.Type.toLowerCase().indexOf('wicket keeper')!=-1)
+                    return true;
+            }).length;
+
+            if(playertype=='Batsman' && batsman.length>2 && (bowlers.length+keepers.length+allrounders.length))
+            {
+
+            }
+
+        });
+    }
+
 	function selectTeam(userName){
 
 		$.get(DOMAIN_NAME+"/ipl/userteams/"+userName,function(data,status){
