@@ -94,9 +94,24 @@ function playingTeam()
 
         $('#submitpoints').click(function()
         {
-            var teamtable = $('#teamTable');
+            var teamtable = document.getElementById("teamTable");
+            var teamJson=[];
+            var playerJson={};
             for(var i=0;i<teamtable.rows.length;i++)
             {
+                playerJson.player=teamtable.rows[i].cells[0].innerHTML;
+                playerJson.battingRuns=teamtable.rows[i].cells[1].innerHTML;
+                playerJson.battingBalls=teamtable.rows[i].cells[2].innerHTML;
+                playerJson.notOut=teamtable.rows[i].cells[3].innerHTML;
+                playerJson.bowlingWickets=teamtable.rows[i].cells[4].innerHTML;
+                playerJson.bowlingExtras=teamtable.rows[i].cells[5].innerHTML;
+                playerJson.bowlingMaidenOvers=teamtable.rows[i].cells[6].innerHTML;
+                playerJson.bowlingEconomy=teamtable.rows[i].cells[7].innerHTML;
+                playerJson.fieldingCatches=teamtable.rows[i].cells[8].innerHTML;
+                playerJson.fieldingStumping=teamtable.rows[i].cells[9].innerHTML;
+                playerJson.fieldingRunOut=teamtable.rows[i].cells[10].innerHTML;
+                playerJson.IsMoM=teamtable.rows[i].cells[11].innerHTML;
+                teamJson.append(playerJson);
                 alert(teamtable.rows[i].cells[0].innerHTML);
             }
         });
