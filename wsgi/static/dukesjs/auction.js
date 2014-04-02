@@ -202,7 +202,7 @@ function startAuction() {
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
             }*/
             $('.iplOwner').click(function (){
-                $('#teamsDiv').attr('title',(this.id).replace(/\_/g, '.'));
+                $('#teamsDiv').find('span.ui-panel-title').val((this.id).replace(/\_/g, '.'));
                 selectTeam((this.id).replace(/\_/g, '.'));
             });
         });
