@@ -68,6 +68,7 @@ function startAuction() {
 			 var tt = pDetails.split('%');
 			$('#currentIPLPlayerDiv').html(tt[0]);
 			$('#currentIPLPlayerTypeDiv').html(tt[1]);
+             iplPlayer = content.iplPlayer;
 			  
          });
         socket.on('bidcomplete',function(content){
@@ -89,35 +90,46 @@ function startAuction() {
 
             init();
         });
+        socket.on('bidreset',function(content){
+            init();
+            $('#currentBidder').text('');
+            $('#timer').text('0');
+        });
     });
 
     $('#btn_bidSubmit').click( function(){
 		//this should be called only once by whoever has got the turn.
         var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
+        console.log("Old Amount " + oldbid);
+        console.log("Current Amount "+ bid);
         var user=fbUserName;
         if(bid <= 0){
             return;
         }
-        if(iplPlayer === null || iplPlayer ===''){
+       if(iplPlayer === null || iplPlayer ===''){
             alert("Please Select Player");
             return;
         }
         socket.emit("bidstart", {"iplPlayer": iplPlayer});
 
-		if(oldbid < bid) {
-            if(parseInt(bid) > maxbid ) {
+		if(parseInt(oldbid) < parseInt(bid)) {
+            if(parseInt(bid) > parseInt(maxbid) ) {
                 alert("Bid mount should not be more than : "+maxbid);
             }else{
                 socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
             }
         }
 		//--------------------
-		
 
-        
-        
     });
+    if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti') {
+        /*$('#btn_cancelSubmit').click(function () {
+            socket.emit("bidreset");
+            $('#currentBidAmount').text('0');
+            $('currentBidder').text('');
+        });*/
+    }
 
 }
 
@@ -145,12 +157,18 @@ function startAuction() {
             $.each(dd,function (){
                                    
 				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
-				allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner">';
-				allOwnerDivs = allOwnerDivs + '<div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
+                if(this.iscurrentplayer){
+
+                    allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:darkorchid;">';
+                } else{
+                    allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:cornsilk;">';
+                }
+
+				allOwnerDivs = allOwnerDivs + '<a href="javascript:void(0);" ><div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
 				allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
 				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'ownerAmount" class="ownerAmount" style="font-size: medium;font-weight: 800;color: darkred;">$'+this.balance+'</div>';
 
-				allOwnerDivs = allOwnerDivs+'</div>';
+				allOwnerDivs = allOwnerDivs+'</a></div>';
                
                 /*$("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');*/
 
@@ -167,29 +185,24 @@ function startAuction() {
 						$('#btn_bidSubmit').attr("disabled", "disabled");
 						$('#btn_cancelSubmit').attr("disabled", "disabled");
 						$('#btn_1').attr("disabled", "disabled");
-					}					
+					}
 				}
 				if(this.username === fbUserName){
 					currentBalance = this.balance;
                     maxbid = currentBalance-(9-this.playercount)+1;
 				}
-				var team = this.team;
-				if(team){
-					$.each(team,function (){
-						
-					});
-				}
+
 
             });
             $('#ownersDiv').html(allOwnerDivs);
             $('#currentBidAmount').text('0');
             $('currentBidder').text('');
             $("#bidAmmountTxt").val(1);
-            if(bidInitiator === fbUserName){
+            /*if(bidInitiator === fbUserName){
                 $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
-            }
+            }*/
             $('.iplOwner').click(function (){
-
+                $('#teamsDiv').find('span.ui-panel-title').text('Team : '+(this.id).replace(/\_/g, '.'));
                 selectTeam((this.id).replace(/\_/g, '.'));
             });
         });
