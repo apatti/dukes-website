@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "dukesxi"
+        }, 
+        "dukesxi": {
+            "applicationId": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", 
+            "masterKey": "d7f5UV05TPng5myYynVWyPn3MiY1glPvaLHttrL1"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.15"
+    }
+}
