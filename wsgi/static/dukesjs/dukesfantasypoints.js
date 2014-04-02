@@ -90,5 +90,11 @@ function playingTeam()
         teamtablehtml+='</table>';
         teamtablehtml+='<input type="button" id="submitpoints">Submit</input>'
         $('#teamDiv').html(teamtablehtml);
+
+        $('#submitpoints').click(function()
+        {
+
+        });
+
     });
 }
