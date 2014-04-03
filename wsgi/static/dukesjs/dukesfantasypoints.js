@@ -97,20 +97,20 @@ function playingTeam()
             var teamtable = document.getElementById("teamTable");
             var teamJson=[];
             var playerJson={};
-            for(var i=0;i<teamtable.rows.length;i++)
+            for(var i=1;i<teamtable.rows.length;i++)
             {
                 playerJson.player=teamtable.rows[i].cells[0].innerHTML;
-                playerJson.battingRuns=$('#'+playerJson.player+'battingRuns').val();
-                playerJson.battingBalls=$('#'+playerJson.player+'battingBalls').val();
-                playerJson.notOut=$('#'+playerJson.player+'notOut').val();
-                playerJson.bowlingWickets=$('#'+playerJson.player+'bowlingWickets').val();
-                playerJson.bowlingExtras=$('#'+playerJson.player+'bowlingExtras').val();
-                playerJson.bowlingMaidenOvers=$('#'+playerJson.player+'bowlingMaidenOvers').val();
-                playerJson.bowlingEconomy=$('#'+playerJson.player+'bowlingEconomy').val();
-                playerJson.fieldingCatches=$('#'+playerJson.player+'fieldingCatches').val();
-                playerJson.fieldingStumping=$('#'+playerJson.player+'fieldingStumping').val();
-                playerJson.fieldingRunOut=$('#'+playerJson.player+'fieldingRunOut').val();
-                playerJson.IsMoM=$('#'+playerJson.player+'IsMoM').val();
+                playerJson.battingRuns=teamtable.rows[i].cells[1].children[0].value;
+                playerJson.battingBalls=teamtable.rows[i].cells[2].children[0].value;
+                playerJson.notOut=teamtable.rows[i].cells[3].children[0].value;
+                playerJson.bowlingWickets=teamtable.rows[i].cells[4].children[0].value;
+                playerJson.bowlingExtras=teamtable.rows[i].cells[5].children[0].value;
+                playerJson.bowlingMaidenOvers=teamtable.rows[i].cells[6].children[0].value;
+                playerJson.bowlingEconomy=teamtable.rows[i].cells[7].children[0].value
+                playerJson.fieldingCatches=teamtable.rows[i].cells[8].children[0].value
+                playerJson.fieldingStumping=teamtable.rows[i].cells[9].children[0].value
+                playerJson.fieldingRunOut=teamtable.rows[i].cells[10].children[0].value
+                playerJson.IsMoM=teamtable.rows[i].cells[11].children[0].value
                 teamJson.push(playerJson);
             }
             //alert(JSON.stringify(teamJson));
