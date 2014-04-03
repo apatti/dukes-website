@@ -76,16 +76,16 @@ function playingTeam()
         {
             var player = team[index].split(' (')[0];
             teamtablehtml+='<tr><td>'+player+'</td>' +
-                '<td><input type="number" id="'+player+'battingRuns"></td>' +
-                '<td><input type="number" id="'+player+'battingBalls"></td>' +
+                '<td><input type="number" id="'+player+'battingRuns" value=0></td>' +
+                '<td><input type="number" id="'+player+'battingBalls" value=0></td>' +
                 '<td><input type="checkbox" id="'+player+'notOut"></td>' +
-                '<td><input type="number" id="'+player+'bowlingWickets"></td>' +
-                '<td><input type="number" id="'+player+'bowlingExtras"></td>' +
-                '<td><input type="number" id="'+player+'bowlingMaidenOvers"></td>' +
-                '<td><input type="number" id="'+player+'bowlingEconomy"></td>' +
-                '<td><input type="number" id="'+player+'fieldingCatches"></td>' +
-                '<td><input type="number" id="'+player+'fieldingStumping"></td>' +
-                '<td><input type="number" id="'+player+'fieldingRunOut"></td>' +
+                '<td><input type="number" id="'+player+'bowlingWickets" value=0></td>' +
+                '<td><input type="number" id="'+player+'bowlingExtras" value=1></td>' +
+                '<td><input type="number" id="'+player+'bowlingMaidenOvers" value=0></td>' +
+                '<td><input type="number" id="'+player+'bowlingEconomy" value=-1></td>' +
+                '<td><input type="number" id="'+player+'fieldingCatches" value=0></td>' +
+                '<td><input type="number" id="'+player+'fieldingStumping" value=0></td>' +
+                '<td><input type="number" id="'+player+'fieldingRunOut" value=0></td>' +
                 '<td><input type="checkbox" id="'+player+'IsMoM"></td></tr>';
         }
         teamtablehtml+='</table>';
@@ -100,17 +100,17 @@ function playingTeam()
             for(var i=1;i<teamtable.rows.length;i++)
             {
                 playerJson.player=teamtable.rows[i].cells[0].innerHTML;
-                playerJson.battingRuns=teamtable.rows[i].cells[1].children[0].value;
-                playerJson.battingBalls=teamtable.rows[i].cells[2].children[0].value;
+                playerJson.battingRuns=parseInt(teamtable.rows[i].cells[1].children[0].value);
+                playerJson.battingBalls=parseInt(teamtable.rows[i].cells[2].children[0].value);
                 playerJson.notOut=teamtable.rows[i].cells[3].children[0].value;
-                playerJson.bowlingWickets=teamtable.rows[i].cells[4].children[0].value;
-                playerJson.bowlingExtras=teamtable.rows[i].cells[5].children[0].value;
-                playerJson.bowlingMaidenOvers=teamtable.rows[i].cells[6].children[0].value;
-                playerJson.bowlingEconomy=teamtable.rows[i].cells[7].children[0].value
-                playerJson.fieldingCatches=teamtable.rows[i].cells[8].children[0].value
-                playerJson.fieldingStumping=teamtable.rows[i].cells[9].children[0].value
-                playerJson.fieldingRunOut=teamtable.rows[i].cells[10].children[0].value
-                playerJson.IsMoM=teamtable.rows[i].cells[11].children[0].value
+                playerJson.bowlingWickets=parseInt(teamtable.rows[i].cells[4].children[0].value);
+                playerJson.bowlingExtras=parseInt(teamtable.rows[i].cells[5].children[0].value);
+                playerJson.bowlingMaidenOvers=parseInt(teamtable.rows[i].cells[6].children[0].value);
+                playerJson.bowlingEconomy=parseInt(teamtable.rows[i].cells[7].children[0].value);
+                playerJson.fieldingCatches=parseInt(teamtable.rows[i].cells[8].children[0].value);
+                playerJson.fieldingStumping=parseInt(teamtable.rows[i].cells[9].children[0].value);
+                playerJson.fieldingRunOut=parseInt(teamtable.rows[i].cells[10].children[0].value);
+                playerJson.IsMoM=teamtable.rows[i].cells[11].children[0].value;
                 teamJson.push(playerJson);
             }
             //alert(JSON.stringify(teamJson));
