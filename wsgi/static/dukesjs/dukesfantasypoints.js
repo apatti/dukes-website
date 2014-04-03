@@ -102,7 +102,7 @@ function playingTeam()
                 playerJson.player=teamtable.rows[i].cells[0].innerHTML;
                 playerJson.battingRuns=parseInt(teamtable.rows[i].cells[1].children[0].value);
                 playerJson.battingBalls=parseInt(teamtable.rows[i].cells[2].children[0].value);
-                playerJson.notOut=teamtable.rows[i].cells[3].children[0].value;
+                playerJson.notOut=document.getElementById(playerJson.player+"notOut").checked;
                 playerJson.bowlingWickets=parseInt(teamtable.rows[i].cells[4].children[0].value);
                 playerJson.bowlingExtras=parseInt(teamtable.rows[i].cells[5].children[0].value);
                 playerJson.bowlingMaidenOvers=parseInt(teamtable.rows[i].cells[6].children[0].value);
@@ -110,7 +110,7 @@ function playingTeam()
                 playerJson.fieldingCatches=parseInt(teamtable.rows[i].cells[8].children[0].value);
                 playerJson.fieldingStumping=parseInt(teamtable.rows[i].cells[9].children[0].value);
                 playerJson.fieldingRunOut=parseInt(teamtable.rows[i].cells[10].children[0].value);
-                playerJson.IsMoM=teamtable.rows[i].cells[11].children[0].value;
+                playerJson.IsMoM=document.getElementById(playerJson.player+"IsMoM").checked;
                 teamJson.push(playerJson);
             }
             //alert(JSON.stringify(teamJson));
