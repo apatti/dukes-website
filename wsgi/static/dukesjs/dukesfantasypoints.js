@@ -113,7 +113,7 @@ function playingTeam()
                 playerJson.IsMoM=teamtable.rows[i].cells[11].innerHTML;
                 teamJson.push(playerJson);
             }
-            alert(JSON.stringify(teamJson));
+            //alert(JSON.stringify(teamJson));
             /*
             $.ajax({
 			    type: "POST",
