@@ -63,7 +63,7 @@ function playingTeam()
             '<th>BattingRuns</th>' +
             '<th>BattingBalls</th>' +
             '<th>NotOut</th>' +
-            '<th>BowlingRuns</th>' +
+            '<th>Wickets</th>' +
             '<th>Extras</th>' +
             '<th>Maidens</th>' +
             '<th>Economy</th>' +
@@ -74,7 +74,7 @@ function playingTeam()
             '</tr></thead>';
         for(var index=0;index<team.length;index++)
         {
-            var player = team[index].split('(')[0];
+            var player = team[index].split(' (')[0];
             teamtablehtml+='<tr><td>'+player+'</td>' +
                 '<td><input type="number" id="'+player+'battingRuns"></td>' +
                 '<td><input type="number" id="'+player+'battingBalls"></td>' +
