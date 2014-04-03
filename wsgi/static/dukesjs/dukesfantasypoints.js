@@ -113,7 +113,7 @@ function playingTeam()
                 playerJson.IsMoM=document.getElementById(playerJson.player+"IsMoM").checked;
                 teamJson.push(playerJson);
             }
-            //alert(JSON.stringify(teamJson));
+            alert(pollid);
             /*
             $.ajax({
 			    type: "POST",
