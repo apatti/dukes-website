@@ -111,9 +111,21 @@ function playingTeam()
                 playerJson.fieldingStumping=teamtable.rows[i].cells[9].innerHTML;
                 playerJson.fieldingRunOut=teamtable.rows[i].cells[10].innerHTML;
                 playerJson.IsMoM=teamtable.rows[i].cells[11].innerHTML;
-                teamJson.append(playerJson);
-                alert(teamtable.rows[i].cells[0].innerHTML);
+                teamJson.push(playerJson);
             }
+            alert(JSON.stringify(teamJson));
+            /*
+            $.ajax({
+			    type: "POST",
+			    contentType:'application/json',
+			    url: '/fantasyscore',
+			    data: JSON.stringify(teamJson),
+			    dataType: 'json',
+			    success: function(msg) {
+			        alert("Points updated");
+			        location.href="/";
+		        }
+		    });*/
         });
 
     });
