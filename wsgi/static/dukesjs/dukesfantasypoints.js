@@ -113,19 +113,18 @@ function playingTeam()
                 playerJson.IsMoM=document.getElementById(playerJson.player+"IsMoM").checked;
                 teamJson.push(playerJson);
             }
-            alert(pollid);
-            /*
+
             $.ajax({
 			    type: "POST",
 			    contentType:'application/json',
-			    url: '/fantasyscore',
+			    url: '/fantasyscore/'+pollid,
 			    data: JSON.stringify(teamJson),
 			    dataType: 'json',
 			    success: function(msg) {
 			        alert("Points updated");
 			        location.href="/";
 		        }
-		    });*/
+		    });
         });
 
     });
