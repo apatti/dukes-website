@@ -115,7 +115,7 @@ function playingTeam()
             }
 
             $.ajax({
-			    type: "POST",
+			    type: "PUT",
 			    contentType:'application/json',
 			    url: '/fantasyscore/'+pollid,
 			    data: JSON.stringify(teamJson),
