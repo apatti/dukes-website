@@ -96,9 +96,9 @@ function playingTeam()
         {
             var teamtable = document.getElementById("teamTable");
             var teamJson=[];
-            var playerJson={};
             for(var i=1;i<teamtable.rows.length;i++)
             {
+                var playerJson={};
                 playerJson.player=teamtable.rows[i].cells[0].innerHTML;
                 playerJson.battingRuns=parseInt(teamtable.rows[i].cells[1].children[0].value);
                 playerJson.battingBalls=parseInt(teamtable.rows[i].cells[2].children[0].value);
