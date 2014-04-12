@@ -147,65 +147,73 @@ function startAuction() {
 
 });
 	function init(){
-        $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
-            var dd = data.results;
-			allTeamPlayers = dd;
+        $.get(DOMAIN_NAME+"/ipl/users/nextbidder",function(nextbidder,status)
+            {
+                $.get(DOMAIN_NAME+"/ipl/users",function(data,status){
+                    var dd = data.results;
+                    allTeamPlayers = dd;
 
-             var allOwnerDivs ='';
-            console.log(dd);
-			var bidButtonEnabled = false;
-            $.each(dd,function (){
-                                   
-				var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
-                if(this.iscurrentplayer){
+                    var allOwnerDivs ='';
+                    console.log(dd);
+                    var bidButtonEnabled = false;
+                    $.each(dd,function (){
+                        if(this.username==nextbidder.username)
+                            iscurrentplayer = true;
+                        else
+                            iscurrentplayer = false;
+                        var imgUrl = 'https://graph.facebook.com/'+this.username+'/picture?type=normal';
+                        if(iscurrentplayer){
 
-                    allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:darkorchid;">';
-                } else{
-                    allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:cornsilk;">';
-                }
+                            allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:darkorchid;">';
+                        } else{
+                            allOwnerDivs = allOwnerDivs + '<div id="'+(this.username).replace(/\./g, '_')+'" class="iplOwner" style="background:cornsilk;">';
+                        }
 
-				allOwnerDivs = allOwnerDivs + '<a href="javascript:void(0);" ><div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
-				allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
-				allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'ownerAmount" class="ownerAmount" style="font-size: medium;font-weight: 800;color: darkred;">$'+this.balance+'</div>';
+                        allOwnerDivs = allOwnerDivs + '<a href="javascript:void(0);" ><div class="ownerImg"><img src="'+ imgUrl +'"  class="image" width="80px" height="75px"/></div>';
+                        allOwnerDivs = allOwnerDivs + '<div class="ownerName">'+this.firstname+'</div>';
+                        allOwnerDivs = allOwnerDivs + '<div id="'+this.username+'ownerAmount" class="ownerAmount" style="font-size: medium;font-weight: 800;color: darkred;">$'+this.balance+'</div>';
 
-				allOwnerDivs = allOwnerDivs+'</a></div>';
-               
-                /*$("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');*/
+                        allOwnerDivs = allOwnerDivs+'</a></div>';
 
-				//Enable Bid button only for currentPlayer
-				if(! bidButtonEnabled){
-					if( this.iscurrentplayer && this.username === fbUserName){						
-						$('#btn_bidSubmit').removeAttr("disabled");
-						$('#btn_cancelSubmit').removeAttr("disabled");
-						$('#btn_1').removeAttr("disabled");
-                        bidInitiator  = this.username;
-                        bidButtonEnabled = true;
+                        /*$("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');*/
 
-					}else{
-						$('#btn_bidSubmit').attr("disabled", "disabled");
-						$('#btn_cancelSubmit').attr("disabled", "disabled");
-						$('#btn_1').attr("disabled", "disabled");
-					}
-				}
-				if(this.username === fbUserName){
-					currentBalance = this.balance;
-                    maxbid = currentBalance-(9-this.playercount)+1;
-				}
+                        //Enable Bid button only for currentPlayer
+                        if(! bidButtonEnabled){
+                            if( iscurrentplayer && this.username === fbUserName){
+                                $('#btn_bidSubmit').removeAttr("disabled");
+                                $('#btn_cancelSubmit').removeAttr("disabled");
+                                $('#btn_1').removeAttr("disabled");
+                                bidInitiator  = this.username;
+                                bidButtonEnabled = true;
+
+                            }else{
+                                $('#btn_bidSubmit').attr("disabled", "disabled");
+                                $('#btn_cancelSubmit').attr("disabled", "disabled");
+                                $('#btn_1').attr("disabled", "disabled");
+                            }
+                        }
+                        if(this.username === fbUserName){
+                            currentBalance = this.balance;
+                            maxbid = currentBalance-(9-this.playercount)+1;
+                        }
 
 
-            });
-            $('#ownersDiv').html(allOwnerDivs);
-            $('#currentBidAmount').text('0');
-            $('currentBidder').text('');
-            $("#bidAmmountTxt").val(1);
-            /*if(bidInitiator === fbUserName){
-                $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
-            }*/
-            $('.iplOwner').click(function (){
-                $('#teamsDiv').find('span.ui-panel-title').text('Team : '+(this.id).replace(/\_/g, '.'));
-                selectTeam((this.id).replace(/\_/g, '.'));
-            });
-        });
+                    });
+                    $('#ownersDiv').html(allOwnerDivs);
+                    $('#currentBidAmount').text('0');
+                    $('currentBidder').text('');
+                    $("#bidAmmountTxt").val(1);
+                    /*if(bidInitiator === fbUserName){
+                        $('#'+(fbUserName).replace(/\./g, '_')).css({ backgroundColor: 'green' });
+                    }*/
+                    $('.iplOwner').click(function (){
+                        $('#teamsDiv').find('span.ui-panel-title').text('Team : '+(this.id).replace(/\_/g, '.'));
+                        selectTeam((this.id).replace(/\_/g, '.'));
+                    });
+                });
+            }
+        );
+
 		
 	}
 
