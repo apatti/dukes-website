@@ -418,7 +418,7 @@ function updateIPlFantasyTeams(){
 	// Show All Available IPL Players
 function showAvailableIPLplayers()
 {
-    $.get("http://www.dukesxi.co/ipl/players",function(data,status){
+    $.get("http://http://www.dukesxi.co/ipl/availableplayers/"+fbUserName,function(data,status){
         players = $.parseJSON(JSON.stringify(data));		
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
