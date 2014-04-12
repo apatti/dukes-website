@@ -31,8 +31,9 @@ def getIplUserTeam(username):
 def getNextBidder():
     connection.connect()
     connection.request('GET','/1/classes/iplbidindex','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    bidindex = json.loads(connection.getresponse().read()).get("results")[0].get("index")
-    totalPlayers = json.loads(connection.getresponse().read()).get("results")[0].get("totalplayers")
+    result = json.loads(connection.getresponse().read()).get("results")[0]
+    bidindex = result.get("index")
+    totalPlayers = result.get("totalplayers")
     bidindex = bidindex % totalPlayers
     if bidindex != currentBidIndex:
         params = urllib.urlencode({"where":json.dumps({"bidindex":bidindex})})
