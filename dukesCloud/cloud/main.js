@@ -14,15 +14,19 @@ Parse.Cloud.afterSave("iplplayers",function(request){
             var iplBidIndexQuery = new Parse.Query("iplbidindex");
             iplBidIndexQuery.first({
                 success:function(iplBidIndex){
-                    console.log("Updating bid index");
-                    iplBidIndex.increment("index");
-                    iplBidIndex.set("isbidstarted", "false");
-                    iplBidIndex.save();
-                },
-                error:function(err){
-                    console.error("Got an error " +err.code+" : " + err.message);
-                }
-            });
+                        console.log("Updating bid index");
+                        iplBidIndex.increment("index");
+                        iplBidIndex.set("isbidstarted", false);
+                        iplBidIndex.save().then(function(obj){console.log("Update completed")},
+                        function(err){
+                            console.error("Got an error " +err.code+" : " + err.message);
+                        });
+                    },
+                    error:function(err){
+                        console.error("Got an error " +err.code+" : " + err.message);
+                    }
+                });
+
         },
         error:function(err){
             console.error("Got an error " + err.code + " : " + err.message);
