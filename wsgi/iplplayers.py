@@ -26,14 +26,14 @@ def getIplUserAvailablePlayers(username):
     userplayers = json.loads(connection.getresponse().read()).get("results")
     useravailableplayers = []
     availabletypes=['Batsman','Bowler','Wicket Keeper','All-Rounder']
-    if userplayers.count()==9:
+    if len(userplayers)==9:
         return useravailableplayers
 
-    if userplayers.count()>2:
-        batsmancount = [players for players in userplayers if players.get("Type")=='Batsman'].count()
-        bowlercount = [players for players in userplayers if players.get("Type")=='Bowler'].count()
-        keepercount = [players for players in userplayers if players.get("Type")=='Wicket Keeper'].count()
-        allroundercount = [players for players in userplayers if players.get("Type")=='All-Rounder'].count()
+    if len(userplayers)>2:
+        batsmancount = len([players for players in userplayers if players.get("Type")=='Batsman'])
+        bowlercount = len([players for players in userplayers if players.get("Type")=='Bowler'])
+        keepercount = len([players for players in userplayers if players.get("Type")=='Wicket Keeper'])
+        allroundercount = len([players for players in userplayers if players.get("Type")=='All-Rounder'])
         if keepercount==3:
             availabletypes.remove('Wicket Keeper')
             if batsmancount==2:
