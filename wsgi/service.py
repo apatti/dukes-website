@@ -191,7 +191,7 @@ def getIplAvailablePlayersApi():
     return jsonify(getIplAvailablePlayers()),200
 
 @app.route('/ipl/availableplayers/<username>',methods=['GET'])
-def getIplAvailablePlayersApi(username):
+def getIplAvailableUserPlayersApi(username):
     return jsonify(getIplUserAvailablePlayers(username)),200
 
 
