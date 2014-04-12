@@ -32,7 +32,7 @@ def getNextBidder():
     global users
     global currentBidIndex
     global currentUser
-    global  connection
+    global connection
 
     connection.connect()
     connection.request('GET','/1/classes/iplbidindex','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
@@ -44,7 +44,7 @@ def getNextBidder():
         params = urllib.urlencode({"where":json.dumps({"bidindex":bidindex})})
         connection.connect()
         connection.request('GET','/1/classes/iplfantasy?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-        currentUser = json.loads(connection.getresponse().read()).get("results")[0].get("username")
+        currentUser = json.loads(connection.getresponse().read()).get("results")[0]
         currentBidIndex = bidindex
 
     return currentUser
