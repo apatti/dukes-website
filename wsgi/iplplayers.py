@@ -70,6 +70,7 @@ def getIplUserAvailablePlayers(username):
             if keepercount==1:
                 availabletypes.remove('Wicket Keeper')
 
+    print(availabletypes)
     params = urllib.urlencode({"where":json.dumps({"owner": "","Type":{"$all":availabletypes}}),"order":"Type","limit":300});
     connection.connect()
     connection.request('GET','/1/classes/iplplayers?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
