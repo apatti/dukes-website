@@ -1,12 +1,12 @@
 
 
-Parse.Cloud.afterSave("iplplayers",function(request){
+Parse.Cloud.afterSave("iplplayer",function(request){
     query = new Parse.Query("iplfantasy");
     query.equalTo("username",request.object.get("owner"));
     query.first({
         success:function(user){
             balance = user.get("balance");
-            price = request.object.get("price");
+            price = request.object.get("Price");
             user.set("balance",balance-price);
             user.increment("playercount");
             user.save();
