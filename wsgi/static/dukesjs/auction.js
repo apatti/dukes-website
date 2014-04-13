@@ -101,7 +101,16 @@ function startAuction() {
 		//this should be called only once by whoever has got the turn.
         var oldbid=$("#currentBidAmount").text();
         var bid=$("#bidAmmountTxt").val();
-        console.log("Old Amount " + oldbid);
+        var enteredAmmount = $('#enterAmmoutnTxt').val();
+        if(enteredAmmount != null ){
+            if( parseInt(bid) < parseInt(enteredAmmount) ){
+                bid = enteredAmmount;
+            }
+        }
+
+        alert(bid);
+
+       /* console.log("Old Amount " + oldbid);
         console.log("Current Amount "+ bid);
         var user=fbUserName;
         if(bid <= 0){
@@ -119,7 +128,7 @@ function startAuction() {
             }else{
                 socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
             }
-        }
+        }*/
 		//--------------------
 
     });
