@@ -1,3 +1,5 @@
+var fbUserName='';
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '627120887325860',
@@ -30,12 +32,14 @@ window.fbAsyncInit = function() {
 		   $('#loggedUserDiv').html(response.username);	 
 		   ipl_init();
            registerEventHandlers();
-            updateTeamTable();
+           populateStandings();
+           populateSchedule();
+            populateFreeAgents();
+            populateMyTeam();
 		});
  }
  
- 
-	function ipl_init(){
+function ipl_init(){
         $.get(DOMAIN_NAME+"/users/"+fbUserName,function(data,status){
             var results = JSON.stringify(data.user.results[0]);
             var userData = $.parseJSON(results);
@@ -73,6 +77,33 @@ function registerEventHandlers(){
     });
 }
 
+function populateStandings()
+{
+    $.get("/ipl/standings",function(data,status){
+
+    });
+}
+
+function populateSchedule()
+{
+    $.get("/ipl/schedule",function(data,status){
+
+    });
+}
+
+function populateFreeAgents()
+{
+    $.get("/ipl/availableplayers",function(data,status){
+
+    });
+}
+
+function populateMyTeam()
+{
+    $.get("/ipl/userteams/ashwin.patti",function(data,status){
+
+    });
+}
 
 function updateTeamTable(){
 
