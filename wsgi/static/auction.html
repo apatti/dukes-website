@@ -116,19 +116,22 @@
 				<hr class="hr">
 				<div id="submitBidDiv" class="bidSubmit">
                     <div style="width: 360px;height:80px;float: left;">
-                        <div style="width: 200px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;">Enter Amount : </div>
+                        <div style="width: 200px;float: left;font-size:large;font-family: -webkit-body;font-weight: 700;">Auto Incremented Amount </div>
                         <div style="width: 150px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;">
-							<input id="bidAmmountTxt" size="10" type="text" style="height: 30px;font-size: x-large;"/></div>
+							<input id="bidAmmountTxt" size="4" type="text" style="height: 20px;font-size: large;color: red;font-weight: 900;" disabled/></div>
                         
                         <div>
+                            <!--
                             <input type="radio" name="rd" id="autoCheckBtn" value="1" disabled="true"/>
                             <label for="autoCheckBtn" style="font-size: larger;font-weight: 700;"> Auto Bid</label>
-                            <input type="radio" name="rd" id="noBidBtn" value="1" disabled="true"/>
-                            <label for="noBidBtn" style="font-size: larger;font-weight: 700;"> No More Bid</label>
+                            -->
+                            <label for="enterAmmoutnTxt" style="width: 200px;float: left;font-size: x-large;font-family: -webkit-body;font-weight: 700;"> Enter Ammount</label>
+                            <input id="enterAmmoutnTxt" size="5" type="text" style="height: 30px;font-size: x-large;"/>
+
                         </div>
                     </div>
                     <div style="width: 360px;float: left;">
-						<button id="btn_1" type="button" class="numBtn" style="font-size: 20px;">+1</button>
+						<!--<button id="btn_1" type="button" class="numBtn" style="font-size: 20px;">+1</button>-->
 
                         <button id="btn_cancelSubmit" type="button" class="numBtn" style="font-size: 20px;">Cancel</button>
                         <button id="btn_bidSubmit" type="button" class="numBtn" style="font-size: 20px;">Bid</button>
