@@ -26,7 +26,7 @@ def getIplUserAvailablePlayers(username):
     userplayers = json.loads(connection.getresponse().read()).get("results")
     useravailableplayers = []
     availabletypes=['Batsman','Bowler','Wicket Keeper','All-Rounder']
-    if len(userplayers)==9:
+    if len(userplayers)==11:
         return useravailableplayers
 
     if len(userplayers)>2:
@@ -34,25 +34,25 @@ def getIplUserAvailablePlayers(username):
         bowlercount = len([players for players in userplayers if players.get("Type")=='Bowler'])
         keepercount = len([players for players in userplayers if players.get("Type")=='Wicket Keeper'])
         allroundercount = len([players for players in userplayers if players.get("Type")=='All-Rounder'])
-        if keepercount==3:
+        if keepercount==4:
             availabletypes.remove('Wicket Keeper')
             if batsmancount==2:
                 availabletypes.remove('Batsman')
-            if bowlercount==2:
+            if bowlercount==3:
                 availabletypes.remove('Bowler')
             if allroundercount==2:
                 availabletypes.remove('All-Rounder')
 
-        if batsmancount==4:
+        if batsmancount==5:
             availabletypes.remove('Batsman')
             if keepercount==1:
                 availabletypes.remove('Wicket Keeper')
-            if bowlercount==2:
+            if bowlercount==3:
                 availabletypes.remove('Bowler')
             if allroundercount==2:
                 availabletypes.remove('All-Rounder')
 
-        if bowlercount==4:
+        if bowlercount==6:
             availabletypes.remove('Bowler')
             if batsmancount==2:
                 availabletypes.remove('Batsman')
@@ -61,11 +61,11 @@ def getIplUserAvailablePlayers(username):
             if allroundercount==2:
                 availabletypes.remove('All-Rounder')
 
-        if allroundercount==4:
+        if allroundercount==5:
             availabletypes.remove('All-Rounder')
             if batsmancount==2:
                 availabletypes.remove('Batsman')
-            if bowlercount==2:
+            if bowlercount==3:
                 availabletypes.remove('Bowler')
             if keepercount==1:
                 availabletypes.remove('Wicket Keeper')

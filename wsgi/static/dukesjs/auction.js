@@ -312,7 +312,7 @@ function startAuction() {
             }
             for(var i=0;i<bowlers.length;i++)
             {
-                if(i<2)
+                if(i<3)
                 {
                     team["bowl"+(i+1)]=bowlers[i];
                 }
@@ -375,7 +375,7 @@ function startAuction() {
                         datarow.addRows([["Batsman","",0]]);
                     }
                 }
-                for(var i=0;i<2;i++)
+                for(var i=0;i<3;i++)
                 {
                     if(team["bowl"+(i+1)]!=null)
                     {
@@ -397,7 +397,7 @@ function startAuction() {
                         datarow.addRows([["All-Rounder","",0]]);
                     }
                 }
-                for(var i=0;i<2;i++)
+                for(var i=0;i<3;i++)
                 {
                     if(team["filler"+(i+1)]!=null)
                     {
