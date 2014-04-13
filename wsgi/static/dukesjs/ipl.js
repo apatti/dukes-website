@@ -137,9 +137,9 @@ function populateFreeAgents()
                                     players.results[i].Team,
                                     players.results[i].Type]]);
             }
-            var freeagentsstable = new google.visualization.Table(document.getElementById('freeagentstab'));
+            var freeagentstable = new google.visualization.Table(document.getElementById('freeagentstab'));
             var options = {'height': 300};
-            freeagentsstable.draw(datarow,options);
+            freeagentstable.draw(datarow,options);
         }
     });
 }
