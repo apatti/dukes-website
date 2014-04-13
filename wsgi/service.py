@@ -201,7 +201,7 @@ def getIplStandingApi():
     return jsonify(getIplStanding()),200
 
 @app.route('/ipl/schedule',methods=['GET'])
-def getIplScheduleApi(username):
+def getIplScheduleApi():
     return jsonify(getIplSchedule()),200
 
 
