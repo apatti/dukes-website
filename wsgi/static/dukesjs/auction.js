@@ -110,7 +110,7 @@ function startAuction() {
 
         alert(bid);
 
-       /* console.log("Old Amount " + oldbid);
+        console.log("Old Amount " + oldbid);
         console.log("Current Amount "+ bid);
         var user=fbUserName;
         if(bid <= 0){
@@ -128,7 +128,7 @@ function startAuction() {
             }else{
                 socket.emit("bidentry",{"oldBidAmount":parseInt(oldbid),"newBidAmount":parseInt(bid),"user":user});
             }
-        }*/
+        }
 		//--------------------
 
     });
