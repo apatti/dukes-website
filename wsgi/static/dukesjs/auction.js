@@ -108,8 +108,6 @@ function startAuction() {
             }
         }
 
-        alert(bid);
-
         console.log("Old Amount " + oldbid);
         console.log("Current Amount "+ bid);
         var user=fbUserName;
@@ -187,7 +185,7 @@ function startAuction() {
                         /*$("#iplTeamsDropDown").append('<option id='+this.username+'>'+this.firstname+'</option>');*/
 
                         //Enable Bid button only for currentPlayer
-                       /* if(! bidButtonEnabled){
+                        if(! bidButtonEnabled){
                             if( iscurrentplayer && this.username === fbUserName){
                                 $('#btn_bidSubmit').removeAttr("disabled");
                                 $('#btn_cancelSubmit').removeAttr("disabled");
@@ -200,7 +198,7 @@ function startAuction() {
                                 $('#btn_cancelSubmit').attr("disabled", "disabled");
                                 $('#btn_1').attr("disabled", "disabled");
                             }
-                        }*/
+                        }
                         if(this.username === fbUserName){
                             currentBalance = this.balance;
                             maxbid = currentBalance-(9-this.playercount)+1;
