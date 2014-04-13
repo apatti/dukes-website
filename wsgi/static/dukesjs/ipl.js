@@ -80,7 +80,36 @@ function registerEventHandlers(){
 function populateStandings()
 {
     $.get("/ipl/standings",function(data,status){
-
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Team');
+            datarow.addColumn('string','Owner');
+            datarow.addColumn('string','W-L-T');
+            datarow.addColumn('number','BatPoints');
+            datarow.addColumn('number','BowlPoints');
+            datarow.addColumn('number','FieldPoints');
+            datarow.addColumn('number','MoMPoints');
+            datarow.addColumn('number','WinnersPoints');
+            datarow.addColumn('string','Budget')
+            players = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<players.results.length;i++)
+            {
+                datarow.addRows([[players.results[i].teamname,
+                                    players.results[i].username,
+                                    players.results[i].wins+"-"+players.results[i].loss+"-"+players.results[i].ties,
+                                    players.results[i].battingpoints,
+                                    players.results[i].bowlingpoints,
+                                    players.results[i].fieldingpoints,
+                                    players.results[i].mompoints,
+                                    players.results[i].winnerpoints,
+                                    '$'+players.results[i].balance]]);
+            }
+            var standingstable = new google.visualization.Table(document.getElementById('standingstab'));
+            var options = {'height': 300};
+            standingstable.draw(datarow,options);
+        }
     });
 }
 
@@ -94,14 +123,50 @@ function populateSchedule()
 function populateFreeAgents()
 {
     $.get("/ipl/availableplayers",function(data,status){
-
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Name');
+            datarow.addColumn('string','Team');
+            datarow.addColumn('string','Type');
+            players = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<players.results.length;i++)
+            {
+                datarow.addRows([[players.results[i].Name,
+                                    players.results[i].Team,
+                                    players.results[i].Type]]);
+            }
+            var freeagentsstable = new google.visualization.Table(document.getElementById('freeagentstab'));
+            var options = {'height': 300};
+            freeagentsstable.draw(datarow,options);
+        }
     });
 }
 
 function populateMyTeam()
 {
     $.get("/ipl/userteams/ashwin.patti",function(data,status){
-
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Name');
+            datarow.addColumn('string','Team');
+            datarow.addColumn('string','Type');
+            datarow.addColumn('string','Price');
+            players = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<players.results.length;i++)
+            {
+                datarow.addRows([[players.results[i].Name,
+                                    players.results[i].Team,
+                                    players.results[i].Type,
+                                    '$'+players.results[i].Price]]);
+            }
+            var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
+            var options = {'height': 300};
+            myteamstable.draw(datarow,options);
+        }
     });
 }
 

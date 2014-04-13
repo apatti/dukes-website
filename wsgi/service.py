@@ -8,6 +8,8 @@ from ipluser import getIplUsers, getIplUserTeam, getNextBidder
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
 from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers
+from iplstandings import getIplStanding
+from iplschedule import getIplSchedule
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -193,6 +195,14 @@ def getIplAvailablePlayersApi():
 @app.route('/ipl/availableplayers/<username>',methods=['GET'])
 def getIplAvailableUserPlayersApi(username):
     return jsonify(getIplUserAvailablePlayers(username)),200
+
+@app.route('/ipl/standings',methods=['GET'])
+def getIplStandingApi():
+    return jsonify(getIplStanding()),200
+
+@app.route('/ipl/schedule',methods=['GET'])
+def getIplScheduleApi(username):
+    return jsonify(getIplSchedule()),200
 
 
 @app.route('/ipl/users/<username>',methods=['POST'])
