@@ -112,9 +112,8 @@ function populateStandings()
 
             google.visualization.events.addListener(standingstable, 'select', function() {
 				var selection = standingstable.getSelection();
-                alert(selection);
-                var item = selection[1];
-                alert(item);
+                var player = datarow.getFormattedValue(selection.row, 1);
+                alert(player);
 
 				});
 			}
