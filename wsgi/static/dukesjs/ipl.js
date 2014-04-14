@@ -106,7 +106,7 @@ function populateStandings()
                                     players.results[i].winnerpoints,
                                     '$'+players.results[i].balance]]);
             }
-            var standingstable = new google.visualization.Table(document.getElementById('standingstab'));
+            var standingstable = new google.visualization.Table(document.getElementById('allteamstab'));
             //var options = {'height': 300, };
             standingstable.draw(datarow);
 
