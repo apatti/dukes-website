@@ -109,7 +109,15 @@ function populateStandings()
             var standingstable = new google.visualization.Table(document.getElementById('standingstab'));
             //var options = {'height': 300, };
             standingstable.draw(datarow);
-        }
+
+            google.visualization.events.addListener(standingstable, 'select', function() {
+				var selection = standingstable.getSelection();
+                alert(selection);
+                var item = selection[1];
+                alert(item);
+
+				});
+			}
     });
 }
 
