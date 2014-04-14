@@ -138,8 +138,8 @@ function populateFreeAgents()
                                     players.results[i].Type]]);
             }
             var freeagentstable = new google.visualization.Table(document.getElementById('freeagentstab'));
-            var options = {'height': 300};
-            freeagentstable.draw(datarow,options);
+            //var options = {'height': 300};
+            freeagentstable.draw(datarow);
         }
     });
 }
@@ -164,8 +164,8 @@ function populateMyTeam()
                                     '$'+players.results[i].Price]]);
             }
             var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
-            var options = {'height': 300};
-            myteamstable.draw(datarow,options);
+            //var options = {'height': 300};
+            myteamstable.draw(datarow);
         }
     });
 }
