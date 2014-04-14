@@ -22,7 +22,7 @@ def getIplUsers():
     return json.loads(connection.getresponse().read())
 
 def getIplUserTeam(username):
-    params = urllib.urlencode({"where":json.dumps({"owner":username})})
+    params = urllib.urlencode({"where":json.dumps({"owner":username}),"order":"Type"})
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
