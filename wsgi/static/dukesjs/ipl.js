@@ -112,9 +112,8 @@ function populateStandings()
 
             google.visualization.events.addListener(standingstable, 'select', function() {
 				var selection = standingstable.getSelection();
-                var player = datarow.getFormattedValue(selection.row, 1);
-                alert(player);
-
+                var player = datarow.getFormattedValue(selection[0].row, 1);
+                populateUserTeam(player);
 				});
 			}
     });
@@ -171,6 +170,33 @@ function populateMyTeam()
                                     '$'+players.results[i].Price]]);
             }
             var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
+            //var options = {'height': 300};
+            myteamstable.draw(datarow);
+        }
+    });
+}
+
+
+function populateUserTeam(username)
+{
+    $.get("/ipl/userteams/"+username,function(data,status){
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Name');
+            datarow.addColumn('string','Team');
+            datarow.addColumn('string','Type');
+            datarow.addColumn('string','Price');
+            players = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<players.results.length;i++)
+            {
+                datarow.addRows([[players.results[i].Name,
+                                    players.results[i].Team,
+                                    players.results[i].Type,
+                                    '$'+players.results[i].Price]]);
+            }
+            var myteamstable = new google.visualization.Table(document.getElementById('playerteamdiv'));
             //var options = {'height': 300};
             myteamstable.draw(datarow);
         }
