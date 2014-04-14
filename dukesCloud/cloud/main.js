@@ -8,9 +8,10 @@ Parse.Cloud.afterSave("iplplayer",function(request){
             balance = user.get("balance");
             price = request.object.get("Price");
             user.set("balance",balance-price);
-            user.increment("playercount");
+            //user.increment("playercount");
             user.save();
-            console.log("Saved, now update the bid index");
+            console.log("Saved");
+            /*
             var iplBidIndexQuery = new Parse.Query("iplbidindex");
             iplBidIndexQuery.first({
                 success:function(iplBidIndex){
@@ -25,7 +26,7 @@ Parse.Cloud.afterSave("iplplayer",function(request){
                     error:function(err){
                         console.error("Got an error " +err.code+" : " + err.message);
                     }
-                });
+                });*/
 
         },
         error:function(err){
