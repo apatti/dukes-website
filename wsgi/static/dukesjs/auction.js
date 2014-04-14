@@ -294,7 +294,7 @@ function startAuction() {
                     return true;
             });
             var keepers=jQuery.grep(players.results,function(iplplayer,index){
-                if(iplplayer.Type.toLowerCase().indexOf('wicket keeper')!=-1)
+                if(iplplayer.Type.toLowerCase().indexOf('wicket')!=-1)
                     return true;
             });
             var fillerindex=0;
@@ -357,7 +357,7 @@ function startAuction() {
 
                 if(team.keep!=null)
                     {
-                        datarow.addRows([["Wicket Keeper",team.keep.Name+", "+team.keep.Team,team.keep.price]]);
+                        datarow.addRows([["Wicket Keeper",team.keep.Name+", "+team.keep.Team,team.keep.Price]]);
                     }
                     else
                     {
@@ -368,7 +368,7 @@ function startAuction() {
                 {
                     if(team["bat"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["bat"+(i+1)].Type,team["bat"+(i+1)].Name+", "+team["bat"+(i+1)].Team,team["bat"+(i+1)].price]]);
+                        datarow.addRows([[team["bat"+(i+1)].Type,team["bat"+(i+1)].Name+", "+team["bat"+(i+1)].Team,team["bat"+(i+1)].Price]]);
                     }
                     else
                     {
@@ -379,7 +379,7 @@ function startAuction() {
                 {
                     if(team["bowl"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["bowl"+(i+1)].Type,team["bowl"+(i+1)].Name+", "+team["bowl"+(i+1)].Team,team["bowl"+(i+1)].price]]);
+                        datarow.addRows([[team["bowl"+(i+1)].Type,team["bowl"+(i+1)].Name+", "+team["bowl"+(i+1)].Team,team["bowl"+(i+1)].Price]]);
                     }
                     else
                     {
@@ -390,7 +390,7 @@ function startAuction() {
                 {
                     if(team["all"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["all"+(i+1)].Type,team["all"+(i+1)].Name+", "+team["all"+(i+1)].Team,team["all"+(i+1)].price]]);
+                        datarow.addRows([[team["all"+(i+1)].Type,team["all"+(i+1)].Name+", "+team["all"+(i+1)].Team,team["all"+(i+1)].Price]]);
                     }
                     else
                     {
@@ -401,7 +401,7 @@ function startAuction() {
                 {
                     if(team["filler"+(i+1)]!=null)
                     {
-                        datarow.addRows([[team["filler"+(i+1)].Type,team["filler"+(i+1)].Name+", "+team["filler"+(i+1)].Team,team["filler"+(i+1)].price]]);
+                        datarow.addRows([[team["filler"+(i+1)].Type,team["filler"+(i+1)].Name+", "+team["filler"+(i+1)].Team,team["filler"+(i+1)].Price]]);
                     }
                     else
                     {
