@@ -107,7 +107,7 @@ function populateStandings()
                                     '$'+players.results[i].balance]]);
             }
             var standingstable = new google.visualization.Table(document.getElementById('standingstab'));
-            var options = {'height': 300};
+            //var options = {'height': 300, };
             standingstable.draw(datarow,options);
         }
     });
