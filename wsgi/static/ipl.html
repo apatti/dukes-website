@@ -31,7 +31,10 @@
 		       $('#iplTabPage').puitabview();
                $('#standingstab').puipanel();
 		       $('#rulestab').empty().load('fantasyrules.html');
-               $('#standingspanel').puipanel();
+               $('#playerteampanel').puipanel({
+                                toggleable: true
+                                ,closable: true
+                        });
 
 
         });
@@ -71,13 +74,12 @@
                   <h1>Welcome to 2014 Dukes IPL Fantasy</h1>
               </div>
               <div id="standingstab">
-                  <div id="standingspanel">
                     <div id="allteamstable" title="Graphs">
 
                     </div>
+                  <div id="playerteampanel" title="Team">
+                    <div id="playerteamtable">
                   </div>
-                <div id="playerteamtable" title="Graphs">
-
                 </div>
               </div>
               <div id="scheduletab">
