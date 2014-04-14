@@ -106,7 +106,7 @@ function populateStandings()
                                     players.results[i].winnerpoints,
                                     '$'+players.results[i].balance]]);
             }
-            var standingstable = new google.visualization.Table(document.getElementById('allteamstab'));
+            var standingstable = new google.visualization.Table(document.getElementById('allteamstable'));
             //var options = {'height': 300, };
             standingstable.draw(datarow);
 
@@ -196,7 +196,7 @@ function populateUserTeam(username)
                                     players.results[i].Type,
                                     '$'+players.results[i].Price]]);
             }
-            var myteamstable = new google.visualization.Table(document.getElementById('playerteamdiv'));
+            var myteamstable = new google.visualization.Table(document.getElementById('playerteamtable'));
             //var options = {'height': 300};
             myteamstable.draw(datarow);
         }
