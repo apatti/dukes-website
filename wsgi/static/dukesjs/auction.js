@@ -338,7 +338,7 @@ function startAuction() {
             {
                 if(i<1)
                 {
-                    team["keep"+(i+1)]=batsman[i];
+                    team["keep"+(i+1)]=keepers[i];
                 }
                 else
                 {
