@@ -33,6 +33,7 @@ def getNextBidder():
     global currentUser
     global connection
 
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplbidindex','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read()).get("results")[0]
@@ -41,6 +42,7 @@ def getNextBidder():
     bidindex = bidindex % totalPlayers
     if bidindex != currentBidIndex:
         params = urllib.urlencode({"where":json.dumps({"bidindex":bidindex})})
+        connection = httplib.HTTPSConnection('api.parse.com',443)
         connection.connect()
         connection.request('GET','/1/classes/iplfantasy?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         currentUser = json.loads(connection.getresponse().read()).get("results")[0]
