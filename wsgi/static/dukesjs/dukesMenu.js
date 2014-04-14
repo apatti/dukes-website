@@ -9,7 +9,7 @@
 		dukesMenu = dukesMenu +"<li id='pollTab'> <a href='poll.html' data-icon='ui-icon-document'>Poll</a></li>";
         dukesMenu = dukesMenu +"<li id='pollTab'> <a href='dukesfantasy.html' data-icon='ui-icon-document'>Fantasy</a></li>";
         dukesMenu = dukesMenu +"<li id='iplTab'> <a href='ipl.html' data-icon='ui-icon-document'>IPL</a></li>";
-		dukesMenu = dukesMenu +"<li id='biddingTab'> <a href='auction.html' data-icon='ui-icon-document'>Bidding</a></li>";
+		//dukesMenu = dukesMenu +"<li id='biddingTab'> <a href='auction.html' data-icon='ui-icon-document'>Bidding</a></li>";
 		dukesMenu = dukesMenu +"<li id='adminTab'> <a href='admin.html' data-icon='ui-icon-document'>Admin</a></li>";
 		dukesMenu = dukesMenu +"</ul>";				 
  $("#navigation").html(dukesMenu);  
