@@ -81,9 +81,9 @@ function playingTeam( teamName)
         $.each(player,function (){
 
             teamtablehtml+='<tr><td>'+this.ID+'</td>' +
-                '<tr><td>'+this.Name+'</td>'+
-                '<tr><td>'+this.Team+'</td>'+
-                '<tr><td>'+this.objectId+'</td>'+
+                '<td>'+this.Name+'</td>'+
+                '<td>'+this.Team+'</td>'+
+                '<td>'+this.objectId+'</td>'+
                 '<td><input type="checkbox" id="'+this.ID+'IsMoM"></td></tr>';
         });
         teamtablehtml+='</table>';
