@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dukes XI Fantasy Points</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="themes/flick/theme.css" />
+    <link rel="stylesheet" href="primeui.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu/menu.css" />
+    <link rel="stylesheet" type="text/css" href="dukescss/dukes.css" />
+
+    <script type="text/javascript" src="dukesjs/constants.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+
+    <script type="text/javascript" src="primeui.js"></script>
+    <script type="text/javascript" src="dukesjs/login.js"></script>
+    <script type="text/javascript" src="dukesjs/header.js"></script>
+    <script type="text/javascript" src="dukesjs/dukesMenu.js"></script>
+    <script type="text/javascript" src="dukesjs/iplfantasypoints.js"></script>
+    <script type="text/javascript" src="dukesjs/footer.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('#submitpoints').puibutton();
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+<!-- Begin Wrapper -->
+<div id="wrapper">
+    <!-- Begin Header -->
+    <div id="header">
+        <div id='headerTitleDiv' style="float: left;"><h1></h1></div>
+        <div id="dukesLoginDiv" class="dukesLogin"></div>
+        <div id='loggedUserDiv' class="dukesLogin"></div>
+
+    </div>
+    <!-- End Header -->
+    <!-- Begin Navigation -->
+    <div id="navigation">  <div id="dukesMenuDiv"></div> </div>
+    <!-- End Navigation -->
+    <!-- Begin Left Column -->
+    <div id="centerContent">
+        <div id="dukesFantasyTabPage">
+            <div id="iplScoreSheetDiv">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End Left Column -->
+
+    <!-- Begin Footer -->
+    <div id="footer"> This is the Footer </div>
+    <!-- End Footer -->
+</div>
+<!-- End Wrapper -->
+</body>
+</html>
