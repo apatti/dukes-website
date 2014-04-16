@@ -123,5 +123,4 @@ function playingTeam( teamName)
             });*/
         });
 
-    });
 }
