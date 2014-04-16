@@ -75,3 +75,18 @@ def getIplUserAvailablePlayers(username):
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
+
+
+def getIplTeamPlayers(team):
+    params = urllib.urlencode({"where":{"Team",team},"order":"Type","limit":300});
+    connection.connect()
+    connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    #result = json.loads(connection.getresponse().read())
+    return json.loads(connection.getresponse().read())
+
+def getIplTeamOwnedPlayers(team):
+    params = urllib.urlencode({"where":json.dumps({"Team":team,"owner":{"$ne":""}}),"order":"Type","limit":300});
+    connection.connect()
+    connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    #result = json.loads(connection.getresponse().read())
+    return json.loads(connection.getresponse().read())
