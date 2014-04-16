@@ -72,7 +72,7 @@ function playingTeam( teamName)
     $.get("http://www.dukesxi.co/ipl/players/team/"+teamName,function(data,status){
        var player = data.results;
         var teamtablehtml='<table id="teamTable"><thead><tr>' +
-            '<th>key</th>' +
+            '<th style="display:none;">key</th>' +
             '<th>Name</th>' +
             '<th>Runs</th>' +
             '<th>Sixs</th>' +
@@ -90,7 +90,7 @@ function playingTeam( teamName)
             '</tr></thead>';
         $.each(player,function (){
 
-            teamtablehtml+='<tr><td>'+this.ID+'-'+this.objectId+'-'+this.Team+'</td>' +
+            teamtablehtml+='<tr><td style="display:none;">'+this.ID+'-'+this.objectId+'-'+this.Team+'</td>' +
                 '<td>'+this.Name+'</td>'+
                 '<td><input type="number" id="'+this.Name+'runs" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'sixa" value=0></td>' +
