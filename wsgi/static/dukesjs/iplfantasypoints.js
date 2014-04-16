@@ -103,35 +103,42 @@ function playingTeam( teamName)
                 '<td><input type="number" id="'+this.Name+'stumps" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'directRunOut" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'runOut" value=0></td>' +
-                '<td><input type="checkbox" id="'+this.Name+'IsMoM"></td>' +
-                '<td><input type="checkbox" id="'+this.Name+'IsWinner"></td></tr>';
+                '<td><input type="checkbox" id="'+this.objectId+'IsMoM"></td>' +
+                '<td><input type="checkbox" id="'+this.objectId+'IsWinner"></td></tr>';
         });
         teamtablehtml+='</table>';
         teamtablehtml+='<input type="button" id="submitpoints" value="Submit"/>'
         $('#iplScoreSheetDiv').html(teamtablehtml);
 
-       /* $('#submitpoints').click(function()
+       $('#submitpoints').click(function()
         {
             var teamtable = document.getElementById("teamTable");
             var teamJson=[];
             for(var i=1;i<teamtable.rows.length;i++)
             {
-                var playerJson={};
-                playerJson.player=teamtable.rows[i].cells[0].innerHTML;
-                playerJson.battingRuns=parseInt(teamtable.rows[i].cells[1].children[0].value);
-                playerJson.battingBalls=parseInt(teamtable.rows[i].cells[2].children[0].value);
-                playerJson.notOut=document.getElementById(playerJson.player+"notOut").checked;
-                playerJson.bowlingWickets=parseInt(teamtable.rows[i].cells[4].children[0].value);
-                playerJson.bowlingExtras=parseInt(teamtable.rows[i].cells[5].children[0].value);
-                playerJson.bowlingMaidenOvers=parseInt(teamtable.rows[i].cells[6].children[0].value);
-                playerJson.bowlingEconomy=parseInt(teamtable.rows[i].cells[7].children[0].value);
-                playerJson.fieldingCatches=parseInt(teamtable.rows[i].cells[8].children[0].value);
-                playerJson.fieldingStumping=parseInt(teamtable.rows[i].cells[9].children[0].value);
-                playerJson.fieldingRunOut=parseInt(teamtable.rows[i].cells[10].children[0].value);
-                playerJson.IsMoM=document.getElementById(playerJson.player+"IsMoM").checked;
-                teamJson.push(playerJson);
-            }*/
+                var keyStr = (teamtable.rows[i].cells[0].innerHTML).split('-');
 
+                var playerJson={};
+                playerJson.ID = keyStr[0];
+                playerJson.objectId = keyStr[1];
+                playerJson.Team = keyStr[2];
+                playerJson.Name=teamtable.rows[i].cells[1].innerHTML;
+                playerJson.battingRuns=parseInt(teamtable.rows[i].cells[2].children[0].value);
+                playerJson.sixs=parseInt(teamtable.rows[i].cells[3].children[0].value);
+                playerJson.strikeRate= parseInt(teamtable.rows[i].cells[4].children[0].value);//document.getElementById(playerJson.player+"notOut").checked;
+                playerJson.bowlingWickets=parseInt(teamtable.rows[i].cells[5].children[0].value);
+                playerJson.bowlingMaidenOvers=parseInt(teamtable.rows[i].cells[6].children[0].value);
+                playerJson.runRate=parseInt(teamtable.rows[i].cells[7].children[0].value);
+                playerJson.noOfBalls=parseInt(teamtable.rows[i].cells[8].children[0].value);
+                playerJson.fieldingCatches=parseInt(teamtable.rows[i].cells[9].children[0].value);
+                playerJson.fieldingStumping=parseInt(teamtable.rows[i].cells[10].children[0].value);
+                playerJson.directRunOut=parseInt(teamtable.rows[i].cells[11].children[0].value);
+                playerJson.fieldingRunOut=parseInt(teamtable.rows[i].cells[12].children[0].value);
+                playerJson.IsMoM=document.getElementById(playerJson.objectId+"IsMoM").checked;
+                playerJson.IsMoM=document.getElementById(playerJson.objectId+"IsWinner").checked;
+                teamJson.push(playerJson);
+            }
+            alert(JSON.stringify(teamJson));
            /* $.ajax({
                 type: "PUT",
                 contentType:'application/json',
