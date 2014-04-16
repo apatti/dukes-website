@@ -72,19 +72,39 @@ function playingTeam( teamName)
     $.get("http://www.dukesxi.co/ipl/players/team/"+teamName,function(data,status){
        var player = data.results;
         var teamtablehtml='<table id="teamTable"><thead><tr>' +
-            '<th>ID</th>' +
+            '<th>key</th>' +
             '<th>Name</th>' +
-            '<th>Team</th>' +
-            '<th>ObjectId</th>' +
+            '<th>Runs</th>' +
+            '<th>Sixs</th>' +
+            '<th>Strike Rate</th>' +
+            '<th>Wickets</th>' +
+            '<th>Maiden</th>' +
+            '<th>Run Rate</th>' +
+            '<th>No Of Balls</th>' +
+            '<th>Catches</th>' +
+            '<th>Stumps</th>' +
+            '<th>Direct Run out</th>' +
+            '<th>Run Out</th>' +
             '<th>MOM</th>' +
+            '<th>Winner</th>' +
             '</tr></thead>';
         $.each(player,function (){
 
-            teamtablehtml+='<tr><td>'+this.ID+'</td>' +
+            teamtablehtml+='<tr><td>'+this.ID+'-'+this.objectId+'-'+this.Team+'</td>' +
                 '<td>'+this.Name+'</td>'+
-                '<td>'+this.Team+'</td>'+
-                '<td>'+this.objectId+'</td>'+
-                '<td><input type="checkbox" id="'+this.ID+'IsMoM"></td></tr>';
+                '<td><input type="number" id="'+this.Name+'runs" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'sixa" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'strikeRate" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'wickets" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'maiden" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'runRate" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'noOfBalls" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'catches" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'stumps" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'directRunOut" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+'runOut" value=0></td>' +
+                '<td><input type="checkbox" id="'+this.Name+'IsMoM"></td>' +
+                '<td><input type="checkbox" id="'+this.Name+'IsWinner"></td></tr>';
         });
         teamtablehtml+='</table>';
         teamtablehtml+='<input type="button" id="submitpoints" value="Submit"/>'
