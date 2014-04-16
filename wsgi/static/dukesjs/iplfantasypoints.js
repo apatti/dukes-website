@@ -136,8 +136,9 @@ function playingTeam( teamName)
                playerJson.IsMoM = document.getElementById(playerJson.objectId + "IsWinner").checked;
                teamJson.push(playerJson);
            }
+           alert(JSON.stringify(teamJson));
        });
-            alert(JSON.stringify(teamJson));
+
            /* $.ajax({
                 type: "PUT",
                 contentType:'application/json',
