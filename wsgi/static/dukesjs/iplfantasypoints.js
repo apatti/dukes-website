@@ -102,7 +102,7 @@ function playingTeam()
                 teamJson.push(playerJson);
             }*/
 
-            $.ajax({
+           /* $.ajax({
                 type: "PUT",
                 contentType:'application/json',
                 url: '/fantasyscore/'+pollid,
@@ -112,7 +112,7 @@ function playingTeam()
                     alert("Points updated");
                     location.href="/";
                 }
-            });
+            });*/
         });
 
     });
