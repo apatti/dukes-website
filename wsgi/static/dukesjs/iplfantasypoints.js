@@ -97,7 +97,7 @@ function playingTeam( teamName)
                 '<td><input type="number" id="'+this.Name+'strikeRate" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'wickets" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'maiden" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'runRate" value=0></td>' +
+                '<td><input type="text" id="'+this.Name+'runRate" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'noOfBalls" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'catches" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'stumps" value=0></td>' +
@@ -126,14 +126,14 @@ function playingTeam( teamName)
                playerJson.strikeRate = parseInt(teamtable.rows[i].cells[4].children[0].value);//document.getElementById(playerJson.player+"notOut").checked;
                playerJson.bowlingWickets = parseInt(teamtable.rows[i].cells[5].children[0].value);
                playerJson.bowlingMaidenOvers = parseInt(teamtable.rows[i].cells[6].children[0].value);
-               playerJson.runRate = parseInt(teamtable.rows[i].cells[7].children[0].value);
+               playerJson.runRate = parseFloat(teamtable.rows[i].cells[7].children[0].value);
                playerJson.noOfBalls = parseInt(teamtable.rows[i].cells[8].children[0].value);
                playerJson.fieldingCatches = parseInt(teamtable.rows[i].cells[9].children[0].value);
                playerJson.fieldingStumping = parseInt(teamtable.rows[i].cells[10].children[0].value);
                playerJson.directRunOut = parseInt(teamtable.rows[i].cells[11].children[0].value);
                playerJson.fieldingRunOut = parseInt(teamtable.rows[i].cells[12].children[0].value);
                playerJson.IsMoM = document.getElementById(playerJson.objectId + "IsMoM").checked;
-               playerJson.IsMoM = document.getElementById(playerJson.objectId + "IsWinner").checked;
+               playerJson.IsWinner = document.getElementById(playerJson.objectId + "IsWinner").checked;
                teamJson.push(playerJson);
            }
            alert(JSON.stringify(teamJson));
