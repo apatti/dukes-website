@@ -56,7 +56,7 @@ function loggedIn(){
     });
 }
 
-$('#selectTeamDRopDown')..change(function(){
+$('#selectTeamDRopDown').change(function(){
     var teamID=$(this).children(":selected").attr("id");
 
     if(teamID!='')
