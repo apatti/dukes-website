@@ -47,7 +47,14 @@ function loggedIn(){
         fbUserName = response.username;
         $('#loggedUserDiv').html(response.username);
         if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti'){
-            playingTeam();
+            $('#selectTeamDRopDown').change(function(){
+                var teamID=$(this).children(":selected").attr("id");
+
+                if(teamID!='')
+                {
+                    playingTeam(teamID);
+                }
+            });
             $('#noPermission').hide();
         }else{
             $('#allTeamsDiv').hide();
@@ -56,14 +63,7 @@ function loggedIn(){
     });
 }
 
-$('#selectTeamDRopDown').change(function(){
-    var teamID=$(this).children(":selected").attr("id");
 
-    if(teamID!='')
-    {
-        playingTeam(teamID);
-    }
-});
 
 function playingTeam( teamName)
 {
