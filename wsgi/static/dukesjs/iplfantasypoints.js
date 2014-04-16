@@ -56,9 +56,18 @@ function loggedIn(){
     });
 }
 
-function playingTeam()
+$('#selectTeamDRopDown')..change(function(){
+    var teamID=$(this).children(":selected").attr("id");
+
+    if(teamID!='')
+    {
+        playingTeam(teamID);
+    }
+});
+
+function playingTeam( teamName)
 {
-    $.get("http://www.dukesxi.co/ipl/players",function(data,status){
+    $.get("http://www.dukesxi.co/ipl/players/team/"+teamName,function(data,status){
        var player = data.results;
         var teamtablehtml='<table id="teamTable"><thead><tr>' +
             '<th>ID</th>' +
@@ -68,14 +77,13 @@ function playingTeam()
             '<th>MOM</th>' +
             '</tr></thead>';
         $.each(player,function (){
-        {
 
             teamtablehtml+='<tr><td>'+this.ID+'</td>' +
                 '<tr><td>'+this.Name+'</td>'+
                 '<tr><td>'+this.Team+'</td>'+
                 '<tr><td>'+this.objectId+'</td>'+
                 '<td><input type="checkbox" id="'+this.ID+'IsMoM"></td></tr>';
-        }
+        });
         teamtablehtml+='</table>';
         teamtablehtml+='<input type="button" id="submitpoints" value="Submit"/>'
         $('#iplScoreSheetDiv').html(teamtablehtml);
