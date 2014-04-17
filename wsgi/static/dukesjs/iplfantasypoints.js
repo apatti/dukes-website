@@ -138,7 +138,7 @@ function playingTeam( teamName)
            }
 
            $.ajax({
-                type: "PUT",
+                type: "POST",
                 contentType:'application/json',
                 url: '/ipl/games/score',
                 data: JSON.stringify(teamJson),
