@@ -136,7 +136,19 @@ function playingTeam( teamName)
                playerJson.IsWinner = document.getElementById(playerJson.objectId + "IsWinner").checked;
                teamJson.push(playerJson);
            }
-           alert(JSON.stringify(teamJson));
+
+           $.ajax({
+                type: "PUT",
+                contentType:'application/json',
+                url: '/ipl/games/score',
+                data: JSON.stringify(teamJson),
+                dataType: 'json',
+                success: function(msg) {
+                    alert("Points updated");
+                    location.href="/";
+                }
+            });
+           //alert(JSON.stringify(teamJson));
        });
 
            /* $.ajax({
