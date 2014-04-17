@@ -10,6 +10,7 @@ from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateFantasySco
 from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers
 from iplstandings import getIplStanding
 from iplschedule import getIplSchedule
+from iplfantasyscore import updateFantasyScore
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -209,6 +210,12 @@ def getIplStandingApi():
 def getIplScheduleApi():
     return jsonify(getIplSchedule()),200
 
+@app.route('/ipl/games/score',methods=['POST'])
+def insertIplFantasyScoreApi():
+    reqObj=request.get_json(force=True)
+    result = updateFantasyScore(reqObj)
+
+    return jsonify({'result':result}),201
 
 @app.route('/ipl/users/<username>',methods=['POST'])
 def saveIplUserApi(username):

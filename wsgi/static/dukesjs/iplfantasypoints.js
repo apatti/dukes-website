@@ -76,11 +76,11 @@ function playingTeam( teamName)
             '<th>Name</th>' +
             '<th>Runs</th>' +
             '<th>Sixs</th>' +
-            '<th>Strike Rate</th>' +
+            '<th>Batsman Balls</th>' +
             '<th>Wickets</th>' +
             '<th>Maiden</th>' +
-            '<th>Run Rate</th>' +
-            '<th>No Of Balls</th>' +
+            '<th>Bowling Runs</th>' +
+            '<th>Bowling Balls</th>' +
             '<th>Catches</th>' +
             '<th>Stumps</th>' +
             '<th>Direct Run out</th>' +
@@ -123,10 +123,10 @@ function playingTeam( teamName)
                playerJson.Name = teamtable.rows[i].cells[1].innerHTML;
                playerJson.battingRuns = parseInt(teamtable.rows[i].cells[2].children[0].value);
                playerJson.sixs = parseInt(teamtable.rows[i].cells[3].children[0].value);
-               playerJson.strikeRate = parseInt(teamtable.rows[i].cells[4].children[0].value);//document.getElementById(playerJson.player+"notOut").checked;
+               playerJson.battingBalls = parseInt(teamtable.rows[i].cells[4].children[0].value);//document.getElementById(playerJson.player+"notOut").checked;
                playerJson.bowlingWickets = parseInt(teamtable.rows[i].cells[5].children[0].value);
                playerJson.bowlingMaidenOvers = parseInt(teamtable.rows[i].cells[6].children[0].value);
-               playerJson.runRate = parseFloat(teamtable.rows[i].cells[7].children[0].value);
+               playerJson.bowlingRuns = parseFloat(teamtable.rows[i].cells[7].children[0].value);
                playerJson.noOfBalls = parseInt(teamtable.rows[i].cells[8].children[0].value);
                playerJson.fieldingCatches = parseInt(teamtable.rows[i].cells[9].children[0].value);
                playerJson.fieldingStumping = parseInt(teamtable.rows[i].cells[10].children[0].value);
