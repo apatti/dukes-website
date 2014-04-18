@@ -65,11 +65,11 @@ tent-Type": "application/json"})
         playerScoreObj["winpoints"]=winpoints
         playerScoreObj["week"]=currentweeknumber
         playerScoreObj["fieldingpoints"]=fieldingpoints
-        playerscores.append(json.dumps(playerScoreObj))
+        playerscores.append(playerScoreObj)
         connection.request('POST','/1/classes/iplfantasyplayerscore',json.dumps(playerScoreObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
 
-    print(playerscores);
+    print(playerscores[0]);
     # update user points
     iplusers = ['narashan','srudeep','rama.marri','balachandra.ambiga','vivek.vennam','gopi.k.mamidi','srikanth.kurmana']
     for ipluser in iplusers:
@@ -78,7 +78,7 @@ tent-Type": "application/json"})
         fieldingpoints=0
         mompoints=0
         winpoints=0
-        ipluserscores = [playerscore for playerscore in playerscores if playerscore["owner"]==ipluser]
+        ipluserscores = [playerscore for playerscore in playerscores if playerscore.get("owner")==ipluser]
         for ipluserscore in ipluserscores:
             battingpoints+= ipluserscore["battingpoints"]
             bowlingpoints+= ipluserscore["bowlingpoints"]
