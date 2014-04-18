@@ -20,7 +20,7 @@ tent-Type": "application/json"})
         winpoints = 0
 
         battingpoints += fantasyScore["battingRuns"]
-        battingpoints += fantasyScore["sixs"]
+        battingpoints += fantasyScore["sixs"]*2
 
         if fantasyScore["battingRuns"] >= 25 and fantasyScore["battingRuns"] < 50:
             battingpoints += 25
