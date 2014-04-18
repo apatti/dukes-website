@@ -32,8 +32,8 @@ window.fbAsyncInit = function() {
 		   $('#loggedUserDiv').html(response.username);	 
 		   ipl_init();
            registerEventHandlers();
-           populateStandings();
            populateCurrentWeekDetails();
+           populateStandings();
             populateFreeAgents();
             populateMyTeam();
 		});
@@ -127,8 +127,8 @@ function populateCurrentWeekDetails()
         var games = data.standings.games;
         for(var i=0;i<games.length;i++)
         {
-            gametablehtml+='<tr><td colspan="7" style="text-align: center">Game '+i+'</td> </tr>'
-            gametablehtml+="<tr><td>"+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
+            gametablehtml+='<tr><td  style="border:1px solid black;" colspan="7" style="text-align: center">Game '+i+'</td> </tr>'
+            gametablehtml+='<tr  style="border:1px solid black;" ><td>'+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
                             games[i].team1.loss+"-"+games[0].team1.tie+"</td><td>"+
                             games[i].team1.battingpoints+"</td><td>"+
                             games[i].team1.bowlingpoints+"</td><td>"+
