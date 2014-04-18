@@ -56,7 +56,6 @@ tent-Type": "application/json"})
         connection.connect()
         playerScoreObj ={}
         playerScoreObj["owner"]=fantasyScore["owner"]
-        playerScoreObj["playerId"]=fantasyScore["objectId"]
         playerScoreObj["playerId"]=fantasyScore["ID"]
         playerScoreObj["playerName"]=fantasyScore["Name"]
         playerScoreObj["battingpoints"]=battingpoints
