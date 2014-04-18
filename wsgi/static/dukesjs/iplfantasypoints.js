@@ -90,7 +90,7 @@ function playingTeam( teamName)
             '</tr></thead>';
         $.each(player,function (){
 
-            teamtablehtml+='<tr><td style="display:none;">'+this.ID+'-'+this.objectId+'-'+this.Team+'</td>' +
+            teamtablehtml+='<tr><td style="display:none;">'+this.ID+'-'+this.objectId+'-'+this.Team+'-'+this.owner+'</td>' +
                 '<td>'+this.Name+'</td>'+
                 '<td><input type="number" id="'+this.Name+'runs" value=0></td>' +
                 '<td><input type="number" id="'+this.Name+'sixa" value=0></td>' +
@@ -120,6 +120,7 @@ function playingTeam( teamName)
                playerJson.ID = keyStr[0];
                playerJson.objectId = keyStr[1];
                playerJson.Team = keyStr[2];
+               playerJson.owner = keyStr[3];
                playerJson.Name = teamtable.rows[i].cells[1].innerHTML;
                playerJson.battingRuns = parseInt(teamtable.rows[i].cells[2].children[0].value);
                playerJson.sixs = parseInt(teamtable.rows[i].cells[3].children[0].value);
