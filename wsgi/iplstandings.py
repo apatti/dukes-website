@@ -14,21 +14,20 @@ def getIplStanding():
     standings=[]
     for user in users:
         userscores = [userscore for userscore in usersscores if userscore["owner"]==user]
-        print (userscores)
-        print ([battingpoints for battingpoints in userscores])
+
         standing={}
         standing["owner"]=user
-        standing["battingpoints"]=sum([battingpoints for battingpoints in userscores])
-        standing["bowlingpoints"]=sum([bowlingpoints for bowlingpoints in userscores])
-        standing["fieldingpoints"]=sum([fieldingpoints for fieldingpoints in userscores])
-        standing["mompoints"]=sum([mompoints for mompoints in userscores])
-        standing["winpoints"]=sum([winpoints for winpoints in userscores])
-        standing["win"]=sum([win for win in userscores])
-        standing["loss"]=sum([loss for loss in userscores])
-        standing["tie"]=sum([tie for tie in userscores])
+        standing["battingpoints"]=sum([userscore["battingpoints"] for userscore in userscores])
+        standing["bowlingpoints"]=sum([userscore["bowlingpoints"] for userscore in userscores])
+        standing["fieldingpoints"]=sum([userscore["fieldingpoints"] for userscore in userscores])
+        standing["mompoints"]=sum([userscore["mompoints"] for userscore in userscores])
+        standing["winpoints"]=sum([userscore["winpoints"] for userscore in userscores])
+        standing["win"]=sum([userscore["win"] for userscore in userscores])
+        standing["loss"]=sum([userscore["loss"] for userscore in userscores])
+        standing["tie"]=sum([userscore["tie"] for userscore in userscores])
         standings.append(standing)
 
-
+    #sorted(standings,key=)
     return standings
 
 def getIplCurrentWeekStanding():
