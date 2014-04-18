@@ -96,15 +96,15 @@ function populateStandings()
             players = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<players.standings.length;i++)
             {
-                datarow.addRows([[players.results[i].teamname,
-                                    players.results[i].username,
-                                    players.results[i].wins+"-"+players.results[i].loss+"-"+players.results[i].ties,
-                                    players.results[i].battingpoints,
-                                    players.results[i].bowlingpoints,
-                                    players.results[i].fieldingpoints,
-                                    players.results[i].mompoints,
-                                    players.results[i].winnerpoints,
-                                    '$'+players.results[i].balance]]);
+                datarow.addRows([[players.standings[i].teamname,
+                                    players.standings[i].username,
+                                    players.standings[i].wins+"-"+players.standings[i].loss+"-"+players.standings[i].ties,
+                                    players.standings[i].battingpoints,
+                                    players.standings[i].bowlingpoints,
+                                    players.standings[i].fieldingpoints,
+                                    players.standings[i].mompoints,
+                                    players.standings[i].winnerpoints,
+                                    '$'+players.standings[i].balance]]);
             }
             var standingstable = new google.visualization.Table(document.getElementById('allteamstable'));
             //var options = {'height': 300, };

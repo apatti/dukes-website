@@ -17,7 +17,6 @@ def getIplStanding():
     result = json.loads(connection.getresponse().read())
     users = result.get("results")
 
-    #users = ['narashan','srudeep','rama.marri','balachandra.ambiga','vivek.vennam','gopi.k.mamidi','srikanth.kurmana','sagar.marri']
     standings=[]
     for user in users:
         userscores = [userscore for userscore in usersscores if userscore["owner"]==user["username"]]
@@ -35,6 +34,7 @@ def getIplStanding():
         standings.append(user)
 
     #sorted(standings,key=)
+    standings.sort(key=lambda x:x.wins)
     return standings
 
 def getIplCurrentWeekStanding():
