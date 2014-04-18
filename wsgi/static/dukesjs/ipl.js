@@ -123,7 +123,7 @@ function populateCurrentWeekDetails()
 {
     $.get("/ipl/standings/currentweek",function(data,status){
         $('#weekdetails').html(data.standings.weekname+'  ('+data.standings.weekduration+')');
-        var gametablehtml='<table style="border:1px"><tr><th>Teams</th><th>W-L-T</th><th>BattingPoints</th><th>BowlingPoints</th><th>FieldingPoints</th><th>MoMPoints</th><th>WinnerPoints</th></tr>';
+        var gametablehtml='<table style="border:1px solid black;"><tr><th>Teams</th><th>W-L-T</th><th>BattingPoints</th><th>BowlingPoints</th><th>FieldingPoints</th><th>MoMPoints</th><th>WinnerPoints</th></tr>';
         var games = data.standings.games;
         for(var i=0;i<games.length;i++)
         {
