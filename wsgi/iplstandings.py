@@ -28,10 +28,10 @@ def getIplStanding():
         user["bowlingpoints"]=sum([userscore["bowlingpoints"] for userscore in userscores])
         user["fieldingpoints"]=sum([userscore["fieldingpoints"] for userscore in userscores])
         user["mompoints"]=sum([userscore["mompoints"] for userscore in userscores])
-        user["winpoints"]=sum([userscore["winpoints"] for userscore in userscores])
-        user["win"]=sum([userscore["win"] for userscore in userscores])
+        user["winnerpoints"]=sum([userscore["winpoints"] for userscore in userscores])
+        user["wins"]=sum([userscore["win"] for userscore in userscores])
         user["loss"]=sum([userscore["loss"] for userscore in userscores])
-        user["tie"]=sum([userscore["tie"] for userscore in userscores])
+        user["ties"]=sum([userscore["tie"] for userscore in userscores])
         standings.append(user)
 
     #sorted(standings,key=)
@@ -58,4 +58,21 @@ tent-Type": "application/json"})
     connection.request('GET','/1/classes/iplfantasyuserscore?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     weeklyscores=(json.loads(connection.getresponse().read())).get("results")
 
-    #for game in games:
+    gamesscores=[]
+    for game in games:
+        team1 = game["team1"]
+        team2 = game["team2"]
+
+        team1scores = [userscore for userscore in weeklyscores if userscore["owner"]==team1]
+        team2scores = [userscore for userscore in weeklyscores if userscore["owner"]==team2]
+        gamescore={}
+        gamescore["team1"]={}
+        gamescore["team1"]["owner"]=team1
+        gamescore["team1"]["score"]=team1scores
+        gamescore["team2"]={}
+        gamescore["team2"]["owner"]=team2
+        gamescore["team2"]["score"]=team2scores
+
+        gamesscores.append(gamescore)
+
+    return gamesscores
