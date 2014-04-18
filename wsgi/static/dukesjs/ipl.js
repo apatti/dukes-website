@@ -129,7 +129,7 @@ function populateCurrentWeekDetails()
         {
             gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Game '+(i+1)+'</td> </tr>'
             gametablehtml+='<tr><td>'+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
-                            games[i].team1.loss+"-"+games[0].team1.tie+"</td><td>"+
+                            games[i].team1.loss+"-"+games[i].team1.tie+"</td><td>"+
                             games[i].team1.battingpoints+"</td><td>"+
                             games[i].team1.bowlingpoints+"</td><td>"+
                             games[i].team1.fieldingpoints+"</td><td>"+
@@ -137,7 +137,7 @@ function populateCurrentWeekDetails()
                             games[i].team1.winpoints+"</td><td>"+
                             "</td></tr>";
             gametablehtml+='<tr><td>'+games[i].team2.owner+"</td><td>"+games[i].team2.win+"-"+
-                            games[i].team2.loss+"-"+games[0].team2.tie+"</td><td>"+
+                            games[i].team2.loss+"-"+games[i].team2.tie+"</td><td>"+
                             games[i].team2.battingpoints+"</td><td>"+
                             games[i].team2.bowlingpoints+"</td><td>"+
                             games[i].team2.fieldingpoints+"</td><td>"+
