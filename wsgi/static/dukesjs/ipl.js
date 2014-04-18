@@ -122,7 +122,30 @@ function populateStandings()
 function populateCurrentWeekDetails()
 {
     $.get("/ipl/standings/currentweek",function(data,status){
-        $('#weekdetails').html(data.standings.weekname+'  ('+data.standings.weekduration+')')
+        $('#weekdetails').html(data.standings.weekname+'  ('+data.standings.weekduration+')');
+        var game1tablehtml="<table><tr><th>Teams</th><th>W-L-T</th><th>BattingPoints</th><th>BowlingPoints</th><th>FieldingPoints</th><th>MoMPoints</th><th>WinnerPoints</th></tr>";
+        var games = data.standings.games;
+        for(var i=0;i<games.length;i++)
+        {
+            game1tablehtml+='<tr><td colspan="7">Game '+i+'</td> </tr>'
+            game1tablehtml+="<tr><td>"+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
+                            games[i].team1.loss+"-"+games[0].team1.tie+"</td><td>"+
+                            games[i].team1.battingpoints+"</td><td>"+
+                            games[i].team1.bowlingpoints+"</td><td>"+
+                            games[i].team1.fieldingpoints+"</td><td>"+
+                            games[i].team1.mompoints+"</td><td>"+
+                            games[i].team1.winpoints+"</td><td>"+
+                            "</td></tr>";
+            game1tablehtml+="<tr><td>"+games[i].team2.owner+"</td><td>"+games[i].team2.win+"-"+
+                            games[i].team2.loss+"-"+games[0].team2.tie+"</td><td>"+
+                            games[i].team2.battingpoints+"</td><td>"+
+                            games[i].team2.bowlingpoints+"</td><td>"+
+                            games[i].team2.fieldingpoints+"</td><td>"+
+                            games[i].team2.mompoints+"</td><td>"+
+                            games[i].team2.winpoints+"</td><td>"+
+                            "</td></tr>";
+        }
+        $('#game1standings').html(game1tablehtml);
     });
 }
 

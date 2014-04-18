@@ -77,12 +77,12 @@ tent-Type": "application/json"})
         team1scores = [userscore for userscore in weeklyscores if userscore["owner"]==team1]
         team2scores = [userscore for userscore in weeklyscores if userscore["owner"]==team2]
         gamescore={}
-        gamescore["team1"]={}
-        gamescore["team1"]["owner"]=team1
-        gamescore["team1"]["score"]=team1scores
-        gamescore["team2"]={}
-        gamescore["team2"]["owner"]=team2
-        gamescore["team2"]["score"]=team2scores
+        gamescore["team1"]=team1scores
+        #gamescore["team1"]["owner"]=team1
+        #gamescore["team1"]["score"]=team1scores
+        gamescore["team2"]=team2scores
+        #gamescore["team2"]["owner"]=team2
+        #gamescore["team2"]["score"]=team2scores
 
         gamesscores.append(gamescore)
 
