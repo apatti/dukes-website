@@ -13,6 +13,7 @@ tent-Type": "application/json"})
     currentweeknumber = json.loads(connection.getresponse().read()).get("currentweeknumber")
     playerscores = []
     for fantasyScore in iplTeamScoreObj:
+        print(fantasyScore)
         battingpoints = 0
         bowlingpoints = 0
         fieldingpoints = 0
