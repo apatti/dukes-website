@@ -207,7 +207,7 @@ def getIplStandingApi():
     return jsonify({'standings':getIplStanding()}),200
 
 @app.route('/ipl/standings/currentweek',methods=['GET'])
-def getIplStandingApi():
+def getIplCurrentWeekStandingApi():
     return jsonify({'standings':getIplCurrentWeekStanding()}),200
 
 @app.route('/ipl/schedule',methods=['GET'])
