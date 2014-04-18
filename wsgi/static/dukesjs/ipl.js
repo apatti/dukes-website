@@ -123,12 +123,12 @@ function populateCurrentWeekDetails()
 {
     $.get("/ipl/standings/currentweek",function(data,status){
         $('#weekdetails').html(data.standings.weekname+'  ('+data.standings.weekduration+')');
-        var gametablehtml='<table style="border:1px solid black;"><tr><th   style="border:1px solid black;text-align: center;">Teams</th><th>W-L-T</th><th>BattingPoints</th><th>BowlingPoints</th><th>FieldingPoints</th><th>MoMPoints</th><th>WinnerPoints</th></tr>';
+        var gametablehtml='<table style="border:1px solid black;"><tr><th>Teams</th><th>W-L-T</th><th>BattingPoints</th><th>BowlingPoints</th><th>FieldingPoints</th><th>MoMPoints</th><th>WinnerPoints</th></tr>';
         var games = data.standings.games;
         for(var i=0;i<games.length;i++)
         {
-            gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Game '+i+'</td> </tr>'
-            gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;">'+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
+            gametablehtml+='<tr><td  style="border:2px solid black;text-align: center;" colspan="7">Game '+i+'</td> </tr>'
+            gametablehtml+='<tr><td>'+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
                             games[i].team1.loss+"-"+games[0].team1.tie+"</td><td>"+
                             games[i].team1.battingpoints+"</td><td>"+
                             games[i].team1.bowlingpoints+"</td><td>"+
@@ -136,7 +136,7 @@ function populateCurrentWeekDetails()
                             games[i].team1.mompoints+"</td><td>"+
                             games[i].team1.winpoints+"</td><td>"+
                             "</td></tr>";
-            gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;">'+games[i].team2.owner+"</td><td>"+games[i].team2.win+"-"+
+            gametablehtml+='<tr><td>'+games[i].team2.owner+"</td><td>"+games[i].team2.win+"-"+
                             games[i].team2.loss+"-"+games[0].team2.tie+"</td><td>"+
                             games[i].team2.battingpoints+"</td><td>"+
                             games[i].team2.bowlingpoints+"</td><td>"+
