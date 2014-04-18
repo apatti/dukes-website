@@ -116,7 +116,7 @@ tent-Type": "application/json"})
         connection.connect()
         connection.request(operation, url, json.dumps(userpoints), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
-        userpoints["objectId"]=result.get("results")[0].get("objectId")
+        userpoints["objectId"]=result.get("objectId")
         userspoints.append(userpoints)
 
     #get the current schedule
