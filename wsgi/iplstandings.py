@@ -14,6 +14,8 @@ def getIplStanding():
     standings=[]
     for user in users:
         userscores = [userscore for userscore in usersscores if userscore["owner"]==user]
+        print (userscores)
+        print ([battingpoints for battingpoints in userscores])
         standing={}
         standing["owner"]=user
         standing["battingpoints"]=sum([battingpoints for battingpoints in userscores])
