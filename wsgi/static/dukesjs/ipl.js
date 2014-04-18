@@ -94,7 +94,7 @@ function populateStandings()
             datarow.addColumn('number','WinnersPoints');
             datarow.addColumn('string','Budget')
             players = $.parseJSON(JSON.stringify(data));
-            for(var i=0;i<players.results.length;i++)
+            for(var i=0;i<players.standings.length;i++)
             {
                 datarow.addRows([[players.results[i].teamname,
                                     players.results[i].username,
