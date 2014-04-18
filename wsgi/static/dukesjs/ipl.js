@@ -33,7 +33,7 @@ window.fbAsyncInit = function() {
 		   ipl_init();
            registerEventHandlers();
            populateStandings();
-           populateSchedule();
+           populateCurrentWeekDetails();
             populateFreeAgents();
             populateMyTeam();
 		});
@@ -119,10 +119,10 @@ function populateStandings()
     });
 }
 
-function populateSchedule()
+function populateCurrentWeekDetails()
 {
-    $.get("/ipl/schedule",function(data,status){
-
+    $.get("/ipl/standings/currentweek",function(data,status){
+        $('#weekdetails').html(data.standings.weekname+'  ('+data.standings.weekduration+')')
     });
 }
 
