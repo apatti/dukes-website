@@ -27,6 +27,7 @@ def getIplStanding():
         standing["tie"]=sum([userscore["tie"] for userscore in userscores])
         standings.append(standing)
 
+    print standings
     #sorted(standings,key=)
     return standings
 
