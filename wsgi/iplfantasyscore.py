@@ -69,9 +69,9 @@ tent-Type": "application/json"})
         connection.request('POST','/1/classes/iplfantasyplayerscore',json.dumps(playerScoreObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
 
-    print(playerscores[0]);
     # update user points
-    iplusers = ['narashan','srudeep','rama.marri','balachandra.ambiga','vivek.vennam','gopi.k.mamidi','srikanth.kurmana']
+    iplusers = ['narashan','srudeep','rama.marri','balachandra.ambiga','vivek.vennam','gopi.k.mamidi','srikanth.kurmana','sagar.marri']
+    userspoints=[]
     for ipluser in iplusers:
         battingpoints=0
         bowlingpoints=0
@@ -86,14 +86,14 @@ tent-Type": "application/json"})
             mompoints+= ipluserscore["mompoints"]
             winpoints+= ipluserscore["winpoints"]
 
-        userscore = {}
-        userscore["owner"]=ipluser
-        userscore["week"]=currentweeknumber
-        userscore["battingpoints"]=battingpoints
-        userscore["bowlingpoints"]=bowlingpoints
-        userscore["fieldingpoints"]=fieldingpoints
-        userscore["mompoints"]=mompoints
-        userscore["winpoints"]=winpoints
+        userpoints = {}
+        userpoints["owner"]=ipluser
+        userpoints["week"]=currentweeknumber
+        userpoints["battingpoints"]=battingpoints
+        userpoints["bowlingpoints"]=bowlingpoints
+        userpoints["fieldingpoints"]=fieldingpoints
+        userpoints["mompoints"]=mompoints
+        userpoints["winpoints"]=winpoints
 
         params = urllib.urlencode({"where": json.dumps({"owner": ipluser, "week": currentweeknumber})})
         connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -102,18 +102,102 @@ tent-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
         if len(result.get("results")) > 0:
             operation = 'PUT'
-            userscore["battingpoints"]+=result.get("results")[0].get("battingpoints")
-            userscore["bowlingpoints"]+=result.get("results")[0].get("bowlingpoints")
-            userscore["fieldingpoints"]+=result.get("results")[0].get("fieldingpoints")
-            userscore["mompoints"]+=result.get("results")[0].get("mompoints")
-            userscore["winpoints"]+=result.get("results")[0].get("winpoints")
+            userpoints["battingpoints"]+=result.get("results")[0].get("battingpoints")
+            userpoints["bowlingpoints"]+=result.get("results")[0].get("bowlingpoints")
+            userpoints["fieldingpoints"]+=result.get("results")[0].get("fieldingpoints")
+            userpoints["mompoints"]+=result.get("results")[0].get("mompoints")
+            userpoints["winpoints"]+=result.get("results")[0].get("winpoints")
             url = '/1/classes/iplfantasyuserscore/%s' % result.get("results")[0].get("objectId")
         else:
             operation = 'POST'
             url = '/1/classes/iplfantasyuserscore'
 
+        connection = httplib.HTTPSConnection('api.parse.com',443)
         connection.connect()
-        connection.request(operation, url, json.dumps(userscore), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        connection.request(operation, url, json.dumps(userpoints), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        result = json.loads(connection.getresponse().read())
+        userpoints["objectId"]=result.get("results")[0].get("objectId")
+        userspoints.append(userpoints)
+
+    #get the current schedule
+    params = urllib.urlencode({"where": json.dumps({"week": currentweeknumber})})
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('GET', '/1/classes/dukesiplfantasyschedule?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    games = (json.loads(connection.getresponse().read())).get("results")
+    for game in games:
+        team1 = game["team1"]
+        team2 = game["team2"]
+        team1point = [userpoint for userpoint in userspoints if userpoint["owner"]==team1][0]
+        team2point = [userpoint for userpoint in userspoints if userpoint["owner"]==team2][0]
+
+        team1win =0
+        team1loss=0
+        team2win =0
+        team2loss=0
+        team1tie=0
+        team2tie=0
+
+        if team1point["battingpoints"]>team2point["battingpoints"]:
+            team1win+=1
+            team2loss+=1
+        if team1point["battingpoints"]<team2point["battingpoints"]:
+            team2win+=1
+            team1loss+=1
+        if team1point["battingpoints"]==team2point["battingpoints"]:
+            team1tie+=1
+            team2tie+=1
+
+        if team1point["bowlingpoints"]>team2point["bowlingpoints"]:
+            team1win+=1
+            team2loss+=1
+        if team1point["bowlingpoints"]<team2point["bowlingpoints"]:
+            team2win+=1
+            team1loss+=1
+        if team1point["bowlingpoints"]==team2point["bowlingpoints"]:
+            team1tie+=1
+            team2tie+=1
+
+        if team1point["fieldingpoints"]>team2point["fieldingpoints"]:
+            team1win+=1
+            team2loss+=1
+        if team1point["fieldingpoints"]<team2point["fieldingpoints"]:
+            team2win+=1
+            team1loss+=1
+        if team1point["fieldingpoints"]==team2point["fieldingpoints"]:
+            team1tie+=1
+            team2tie+=1
+
+        if team1point["mompoints"]>team2point["mompoints"]:
+            team1win+=1
+            team2loss+=1
+        if team1point["mompoints"]<team2point["mompoints"]:
+            team2win+=1
+            team1loss+=1
+        if team1point["mompoints"]==team2point["mompoints"]:
+            team1tie+=1
+            team2tie+=1
+
+        if team1point["winpoints"]>team2point["winpoints"]:
+            team1win+=1
+            team2loss+=1
+        if team1point["winpoints"]<team2point["winpoints"]:
+            team2win+=1
+            team1loss+=1
+        if team1point["winpoints"]==team2point["winpoints"]:
+            team1tie+=1
+            team2tie+=1
+
+        scorejsonobj = {"win":team1win,"loss":team1loss,"tie":team1tie}
+        connection = httplib.HTTPSConnection('api.parse.com',443)
+        connection.connect()
+        connection.request('PUT', '/1/classes/iplfantasyuserscore/%s'%team1point["objectId"], json.dumps(scorejsonobj), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        result = json.loads(connection.getresponse().read())
+
+        scorejsonobj = {"win":team2win,"loss":team2loss,"tie":team2tie}
+        connection = httplib.HTTPSConnection('api.parse.com',443)
+        connection.connect()
+        connection.request('PUT', '/1/classes/iplfantasyuserscore/%s'%team2point["objectId"], json.dumps(scorejsonobj), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
 
     return result
