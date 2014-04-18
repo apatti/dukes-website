@@ -34,7 +34,7 @@ def getIplStanding():
         standings.append(user)
 
     #sorted(standings,key=)
-    standings.sort(key=lambda x:x.wins)
+    standings.sort(key=lambda x:x["wins"])
     return standings
 
 def getIplCurrentWeekStanding():
