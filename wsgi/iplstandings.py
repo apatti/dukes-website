@@ -47,7 +47,10 @@ def getIplCurrentWeekStanding():
     connection.connect()
     connection.request('GET','/1/classes/iplfantasycurrentweek/mJkDqrQ19R','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
 tent-Type": "application/json"})
-    currentweeknumber = json.loads(connection.getresponse().read()).get("currentweeknumber")
+    weekresult =json.loads(connection.getresponse().read())
+    currentweeknumber = weekresult.get("currentweeknumber")
+    weekname = weekresult.get("weekname")
+    weekduration=weekresult.get("Duration")
 
     #get the current schedule
     params = urllib.urlencode({"where": json.dumps({"fantasyweek": currentweeknumber})})
@@ -62,8 +65,12 @@ tent-Type": "application/json"})
     connection.request('GET','/1/classes/iplfantasyuserscore?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     weeklyscores=(json.loads(connection.getresponse().read())).get("results")
 
+    currentSchedule={}
+    currentSchedule["weekname"]=weekname
+    currentSchedule["weekduration"]=weekduration
     gamesscores=[]
     for game in games:
+        weekname=game["fantasyweekname"]
         team1 = game["team1"]
         team2 = game["team2"]
 
@@ -79,4 +86,6 @@ tent-Type": "application/json"})
 
         gamesscores.append(gamescore)
 
-    return gamesscores
+    currentSchedule["games"]=gamesscores
+    return currentSchedule
+

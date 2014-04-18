@@ -1,7 +1,5 @@
 __author__ = 'apatti'
 import json,httplib,urllib
-import urllib2
-import requests
 
 connection = httplib.HTTPSConnection('api.parse.com',443)
 
