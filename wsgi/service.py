@@ -204,7 +204,7 @@ def getIplAvailableUserPlayersApi(username):
 
 @app.route('/ipl/standings',methods=['GET'])
 def getIplStandingApi():
-    return jsonify(getIplStanding()),200
+    return jsonify({'standings':getIplStanding()}),200
 
 @app.route('/ipl/schedule',methods=['GET'])
 def getIplScheduleApi():
