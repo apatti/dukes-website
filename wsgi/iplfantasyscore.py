@@ -13,7 +13,6 @@ tent-Type": "application/json"})
     currentweeknumber = json.loads(connection.getresponse().read()).get("currentweeknumber")
     playerscores = []
     for fantasyScore in iplTeamScoreObj:
-        print(fantasyScore)
         battingpoints = 0
         bowlingpoints = 0
         fieldingpoints = 0
@@ -125,6 +124,7 @@ tent-Type": "application/json"})
     connection.connect()
     connection.request('GET', '/1/classes/dukesiplfantasyschedule?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     games = (json.loads(connection.getresponse().read())).get("results")
+    print(games)
     for game in games:
         team1 = game["team1"]
         team2 = game["team2"]
