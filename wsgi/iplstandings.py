@@ -71,19 +71,41 @@ tent-Type": "application/json"})
     currentSchedule["weekduration"]=weekduration
     gamesscores=[]
     for game in games:
-        weekname=game["fantasyweekname"]
         team1 = game["team1"]
         team2 = game["team2"]
 
         team1scores = [userscore for userscore in weeklyscores if userscore["owner"]==team1]
         team2scores = [userscore for userscore in weeklyscores if userscore["owner"]==team2]
         gamescore={}
-        gamescore["team1"]=team1scores[0]
-        #gamescore["team1"]["owner"]=team1
-        #gamescore["team1"]["score"]=team1scores
-        gamescore["team2"]=team2scores[0]
-        #gamescore["team2"]["owner"]=team2
-        #gamescore["team2"]["score"]=team2scores
+        if team1scores.count()>0:
+            gamescore["team1"]=team1scores[0]
+        else:
+            blankscoreobj={}
+            blankscoreobj["owner"]=team1
+            blankscoreobj["battingpoints"]=0
+            blankscoreobj["bowlingpoints"]=0
+            blankscoreobj["fieldingpoints"]=0
+            blankscoreobj["mompoints"]=0
+            blankscoreobj["winpoints"]=0
+            blankscoreobj["tie"]=0
+            blankscoreobj["loss"]=0
+            blankscoreobj["win"]=0
+            gamescore["team1"]=blankscoreobj
+
+        if team2scores.count()>0:
+            gamescore["team2"]=team2scores[0]
+        else:
+            blankscoreobj={}
+            blankscoreobj["owner"]=team2
+            blankscoreobj["battingpoints"]=0
+            blankscoreobj["bowlingpoints"]=0
+            blankscoreobj["fieldingpoints"]=0
+            blankscoreobj["mompoints"]=0
+            blankscoreobj["winpoints"]=0
+            blankscoreobj["tie"]=0
+            blankscoreobj["loss"]=0
+            blankscoreobj["win"]=0
+            gamescore["team1"]=blankscoreobj
 
         gamesscores.append(gamescore)
 
