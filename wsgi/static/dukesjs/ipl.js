@@ -169,6 +169,37 @@ function populateFreeAgents()
             var freeagentstable = new google.visualization.Table(document.getElementById('freeagentstab'));
             //var options = {'height': 300};
             freeagentstable.draw(datarow);
+
+            google.visualization.events.addListener(freeagentstable, 'select', function() {
+                var selection = freeagentstable.getSelection();
+                var dialogDiv = "<div id='biddingPopupId' class='userDialog'>";
+                var dropDownStr ='<select class="selectgame">';
+                dropDownStr += '<option id="total">Select a Player</option>';
+                //+fbUserName
+                $.get(DOMAIN_NAME+"/ipl/userteams/vivek.vennam",function(data,status){
+                  var  players = $.parseJSON(JSON.stringify(data));
+
+                    $.each( players,function () {
+                        dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.name+"</option>";
+                    });
+                    dialogDiv = dialogDiv + dropDownStr;
+                    dialogDiv = dialogDiv + "</div>";
+
+                    $( ".userDialog" ).dialog({
+                        autoOpen: false,
+                        show: {
+                            effect: "blind",
+                            duration: 1000
+                        },
+                        hide: {
+                            effect: "explode",
+                            duration: 1000
+                        }
+                    });
+                    $('#biddingPopupId').dialog( "open" );
+                });
+
+            });
         }
     });
 }
