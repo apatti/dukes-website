@@ -77,7 +77,7 @@ tent-Type": "application/json"})
         team1scores = [userscore for userscore in weeklyscores if userscore["owner"]==team1]
         team2scores = [userscore for userscore in weeklyscores if userscore["owner"]==team2]
         gamescore={}
-        if team1scores.count()>0:
+        if len(team1scores)>0:
             gamescore["team1"]=team1scores[0]
         else:
             blankscoreobj={}
@@ -92,7 +92,7 @@ tent-Type": "application/json"})
             blankscoreobj["win"]=0
             gamescore["team1"]=blankscoreobj
 
-        if team2scores.count()>0:
+        if len(team2scores)>0:
             gamescore["team2"]=team2scores[0]
         else:
             blankscoreobj={}
