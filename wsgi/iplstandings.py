@@ -105,7 +105,7 @@ tent-Type": "application/json"})
             blankscoreobj["tie"]=0
             blankscoreobj["loss"]=0
             blankscoreobj["win"]=0
-            gamescore["team1"]=blankscoreobj
+            gamescore["team2"]=blankscoreobj
 
         gamesscores.append(gamescore)
 
