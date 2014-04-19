@@ -50,7 +50,7 @@ tent-Type": "application/json"})
     weekresult =json.loads(connection.getresponse().read())
     currentweeknumber = weekresult.get("currentweeknumber")
     weekname = weekresult.get("weekname")
-    weekduration=weekresult.get("Duration")
+    weekduration = weekresult.get("Duration")
 
     #get the current schedule
     params = urllib.urlencode({"where": json.dumps({"fantasyweek": currentweeknumber})})
@@ -64,7 +64,8 @@ tent-Type": "application/json"})
     connection.connect()
     connection.request('GET','/1/classes/iplfantasyuserscore?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     weeklyscores=(json.loads(connection.getresponse().read())).get("results")
-
+    print("Week:"+currentweeknumber);
+    print(weeklyscores);
     currentSchedule={}
     currentSchedule["weekname"]=weekname
     currentSchedule["weekduration"]=weekduration
