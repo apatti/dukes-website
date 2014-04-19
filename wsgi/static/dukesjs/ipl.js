@@ -164,7 +164,9 @@ function populateFreeAgents()
             players = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<players.results.length;i++)
             {
-                datarow.addRows([[players.results[i].ID,players.results[i].objectId,players.results[i].Name,
+                datarow.addRows([[  players.results[i].ID,
+                                    players.results[i].objectId,
+                                    players.results[i].Name,
                                     players.results[i].Team,
                                     players.results[i].Type]]);
             }
@@ -203,7 +205,7 @@ function populateFreeAgents()
                             duration: 1000
                         }
                     });
-                    $('#submitBid').click(function () {
+                   /* $('#submitBid').click(function () {
 
                             var item = selection[0];
                             var id = datarow.getFormattedValue(item.row, 0);
@@ -211,7 +213,7 @@ function populateFreeAgents()
                             var playerName = datarow.getFormattedValue(item.row, 2);
 
                         alert(id+' '+objectId+' '+playerName);
-                    });
+                    });*/
                     $('#biddingPopupId').dialog( "open" );
 
                 });
