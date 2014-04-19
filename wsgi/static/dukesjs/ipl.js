@@ -172,18 +172,17 @@ function populateFreeAgents()
 
             google.visualization.events.addListener(freeagentstable, 'select', function() {
                 var selection = freeagentstable.getSelection();
-                var dialogDiv = "<div id='biddingPopupId' class='userDialog'>";
+
                 var dropDownStr ='<select class="selectgame">';
                 dropDownStr += '<option id="total">Select a Player</option>';
                 //+fbUserName
                 $.get(DOMAIN_NAME+"/ipl/userteams/vivek.vennam",function(data,status){
-                  var  players = $.parseJSON(JSON.stringify(data));
+                  var  players = $.parseJSON(JSON.stringify(data.results));
 
                     $.each( players,function () {
                         dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.name+"</option>";
                     });
-                    dialogDiv = dialogDiv + dropDownStr;
-                    dialogDiv = dialogDiv + "</div>";
+                 $('#biddingPopupId').append(dropDownStr);
 
                     $( ".userDialog" ).dialog({
                         autoOpen: false,
