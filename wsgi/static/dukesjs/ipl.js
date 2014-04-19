@@ -175,7 +175,8 @@ function populateFreeAgents()
                 var dialogDiv = "<div id='biddingPopupId' class='userDialog'>";
                 var dropDownStr ='<select class="selectgame">';
                 dropDownStr += '<option id="total">Select a Player</option>';
-                $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
+                //+fbUserName
+                $.get(DOMAIN_NAME+"/ipl/userteams/vivek.vennam",function(data,status){
                   var  players = $.parseJSON(JSON.stringify(data));
 
                     $.each( players,function () {
