@@ -193,7 +193,7 @@ function populateFreeAgents()
                     dialogContent = dialogContent + bidAmount;
                     dialogContent = dialogContent + buttonStr;
 
-                 $('#biddingPopupId').append(dialogContent);
+                 $('#biddingPopupId').html(dialogContent);
 
                     $( ".userDialog" ).dialog({
                         autoOpen: false,
