@@ -186,11 +186,12 @@ function populateFreeAgents()
                     $.each( players,function () {
                         dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.Name+"</option>";
                     });
-                    var bidAmount = '<div><input type="number" id="'+this.Name+'stumps" value=0></div>';
+                    var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
 
                     dialogContent = dialogContent + dropDownStr;
                     dialogContent = dialogContent + bidAmount;
+                    dialogContent = dialogContent + buttonStr;
 
                  $('#biddingPopupId').append(dialogContent);
 
