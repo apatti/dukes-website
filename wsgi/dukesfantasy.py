@@ -23,7 +23,7 @@ def getAllFantasyTeams(gameid):
 
     return result
 
-def updateFantasyScore(gameid,fantasyTeamScoreObj):
+def updateDukesFantasyScore(gameid,fantasyTeamScoreObj):
     for fantasyScore in fantasyTeamScoreObj:
         battingpoints = 0
         battingbonuspoints = 0

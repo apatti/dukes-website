@@ -6,7 +6,7 @@ from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import getIplUsers, getIplUserTeam, getNextBidder
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
-from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
+from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateDukesFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
 from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers
 from iplstandings import getIplStanding,getIplCurrentWeekStanding
 from iplschedule import getIplSchedule
@@ -158,7 +158,7 @@ def updateFantasyScoreApi(game_id):
         abort(400)
 
     reqObj = request.get_json(force=True)
-    result = updateFantasyScore(game_id, reqObj)
+    result = updateDukesFantasyScore(game_id, reqObj)
     return jsonify({'result': result}), 201
 
 @app.route('/superbowl',methods=['POST'])
