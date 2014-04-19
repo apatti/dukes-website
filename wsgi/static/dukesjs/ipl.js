@@ -176,9 +176,9 @@ function populateFreeAgents()
                 var dropDownStr ='<select class="selectgame">';
                 dropDownStr += '<option id="total">Select a Player</option>';
                 $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
-                    players = $.parseJSON(JSON.stringify(data));
+                  var  players = $.parseJSON(JSON.stringify(data));
 
-                    $.each( uData,function () {
+                    $.each( players,function () {
                         dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.name+"</option>";
                     });
                 });
