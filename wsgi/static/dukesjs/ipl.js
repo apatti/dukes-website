@@ -172,7 +172,29 @@ function populateFreeAgents()
 
             google.visualization.events.addListener(freeagentstable, 'select', function() {
                 var selection = freeagentstable.getSelection();
-                alert(selection);
+                var dialogDiv = "<div id="+dialogId+" class='userDialog'>";
+                var dropDownStr ='<select class="selectgame">';
+                dropDownStr += '<option id="total">Select a Player</option>';
+                $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
+                    players = $.parseJSON(JSON.stringify(data));
+
+                    $.each( uData,function () {
+                        dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.name+"</option>";
+                    });
+                });
+                dialogDiv = dialogDiv + dropDownStr;
+                dialogDiv = dialogDiv + "</div>";
+               $( ".userDialog" ).dialog({
+                    autoOpen: false,
+                    show: {
+                        effect: "blind",
+                        duration: 1000
+                    },
+                    hide: {
+                        effect: "explode",
+                        duration: 1000
+                    }
+                });
             });
         }
     });
