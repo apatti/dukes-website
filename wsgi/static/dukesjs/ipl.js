@@ -166,7 +166,7 @@ function populateFreeAgents()
                                     players.results[i].Team,
                                     players.results[i].Type]]);
             }
-            var freeagentstable = new google.visualization.Table(document.getElementById('freeagentstab'));
+            var freeagentstable = new google.visualization.Table(document.getElementById('freeagentsDiv'));
             //var options = {'height': 300};
             freeagentstable.draw(datarow);
 
@@ -180,7 +180,7 @@ function populateFreeAgents()
                   var  players = $.parseJSON(JSON.stringify(data.results));
 
                     $.each( players,function () {
-                        dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.name+"</option>";
+                        dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.Name+"</option>";
                     });
                  $('#biddingPopupId').append(dropDownStr);
 
