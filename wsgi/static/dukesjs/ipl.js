@@ -156,7 +156,7 @@ function populateFreeAgents()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('string','Id');
+            datarow.addColumn('number','Id');
             datarow.addColumn('string','ObjectId');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
@@ -205,7 +205,7 @@ function populateFreeAgents()
                             duration: 1000
                         }
                     });
-                   /* $('#submitBid').click(function () {
+                    $('#submitBid').click(function () {
 
                             var item = selection[0];
                             var id = datarow.getFormattedValue(item.row, 0);
@@ -213,7 +213,7 @@ function populateFreeAgents()
                             var playerName = datarow.getFormattedValue(item.row, 2);
 
                         alert(id+' '+objectId+' '+playerName);
-                    });*/
+                    });
                     $('#biddingPopupId').dialog( "open" );
 
                 });
