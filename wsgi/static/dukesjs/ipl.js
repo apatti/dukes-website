@@ -156,7 +156,7 @@ function populateFreeAgents()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('string','Id');
+            datarow.addColumn('number','Id');
             datarow.addColumn('string','ObjectId');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
@@ -164,7 +164,9 @@ function populateFreeAgents()
             players = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<players.results.length;i++)
             {
-                datarow.addRows([[players.results[i].ID,players.results[i].objectId,players.results[i].Name,
+                datarow.addRows([[  players.results[i].ID,
+                                    players.results[i].objectId,
+                                    players.results[i].Name,
                                     players.results[i].Team,
                                     players.results[i].Type]]);
             }
@@ -184,13 +186,14 @@ function populateFreeAgents()
                     $.each( players,function () {
                         dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.Name+"</option>";
                     });
-                    var bidAmount = '<div><input type="number" id="'+this.Name+'stumps" value=0></div>';
+                    var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
 
                     dialogContent = dialogContent + dropDownStr;
                     dialogContent = dialogContent + bidAmount;
+                    dialogContent = dialogContent + buttonStr;
 
-                 $('#biddingPopupId').append(dialogContent);
+                 $('#biddingPopupId').html(dialogContent);
 
                     $( ".userDialog" ).dialog({
                         autoOpen: false,
