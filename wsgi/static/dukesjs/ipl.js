@@ -156,13 +156,15 @@ function populateFreeAgents()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Id');
+            datarow.addColumn('string','ObjectId');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
             datarow.addColumn('string','Type');
             players = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<players.results.length;i++)
             {
-                datarow.addRows([[players.results[i].Name,
+                datarow.addRows([[players.results[i].ID,players.results[i].objectId,players.results[i].Name,
                                     players.results[i].Team,
                                     players.results[i].Type]]);
             }
@@ -172,7 +174,7 @@ function populateFreeAgents()
 
             google.visualization.events.addListener(freeagentstable, 'select', function() {
                 var selection = freeagentstable.getSelection();
-
+                var dialogContent = '';
                 var dropDownStr ='<select class="selectgame">';
                 dropDownStr += '<option id="total">Select a Player</option>';
                 //+fbUserName
@@ -182,7 +184,13 @@ function populateFreeAgents()
                     $.each( players,function () {
                         dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.Name+"</option>";
                     });
-                 $('#biddingPopupId').append(dropDownStr);
+                    var bidAmount = '<div><input type="number" id="'+this.Name+'stumps" value=0></div>';
+                    var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
+
+                    dialogContent = dialogContent + dropDownStr;
+                    dialogContent = dialogContent + bidAmount;
+
+                 $('#biddingPopupId').append(dialogContent);
 
                     $( ".userDialog" ).dialog({
                         autoOpen: false,
@@ -195,7 +203,17 @@ function populateFreeAgents()
                             duration: 1000
                         }
                     });
+                    $('#submitBid').click(function () {
+
+                            var item = selection[0];
+                            var id = datarow.getFormattedValue(item.row, 0);
+                            var objectId = datarow.getFormattedValue(item.row, 1);
+                            var playerName = datarow.getFormattedValue(item.row, 2);
+
+                        alert(id+' '+objectId+' '+playerName);
+                    });
                     $('#biddingPopupId').dialog( "open" );
+
                 });
 
             });
