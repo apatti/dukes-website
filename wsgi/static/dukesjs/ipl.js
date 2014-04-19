@@ -169,6 +169,11 @@ function populateFreeAgents()
             var freeagentstable = new google.visualization.Table(document.getElementById('freeagentstab'));
             //var options = {'height': 300};
             freeagentstable.draw(datarow);
+
+            google.visualization.events.addListener(freeagentstable, 'select', function() {
+                var selection = freeagentstable.getSelection();
+                alert(selection);
+            });
         }
     });
 }
