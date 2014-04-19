@@ -172,7 +172,7 @@ function populateFreeAgents()
 
             google.visualization.events.addListener(freeagentstable, 'select', function() {
                 var selection = freeagentstable.getSelection();
-                var dialogDiv = "<div id="+dialogId+" class='userDialog'>";
+                var dialogDiv = "<div id='biddingPopupId' class='userDialog'>";
                 var dropDownStr ='<select class="selectgame">';
                 dropDownStr += '<option id="total">Select a Player</option>';
                 $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
@@ -184,7 +184,8 @@ function populateFreeAgents()
                 });
                 dialogDiv = dialogDiv + dropDownStr;
                 dialogDiv = dialogDiv + "</div>";
-               $( ".userDialog" ).dialog({
+
+                $( ".userDialog" ).dialog({
                     autoOpen: false,
                     show: {
                         effect: "blind",
@@ -195,6 +196,7 @@ function populateFreeAgents()
                         duration: 1000
                     }
                 });
+                $('#biddingPopupId').dialog( "open" );
             });
         }
     });
