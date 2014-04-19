@@ -182,22 +182,23 @@ function populateFreeAgents()
                     $.each( players,function () {
                         dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.name+"</option>";
                     });
-                });
-                dialogDiv = dialogDiv + dropDownStr;
-                dialogDiv = dialogDiv + "</div>";
+                    dialogDiv = dialogDiv + dropDownStr;
+                    dialogDiv = dialogDiv + "</div>";
 
-                $( ".userDialog" ).dialog({
-                    autoOpen: false,
-                    show: {
-                        effect: "blind",
-                        duration: 1000
-                    },
-                    hide: {
-                        effect: "explode",
-                        duration: 1000
-                    }
+                    $( ".userDialog" ).dialog({
+                        autoOpen: false,
+                        show: {
+                            effect: "blind",
+                            duration: 1000
+                        },
+                        hide: {
+                            effect: "explode",
+                            duration: 1000
+                        }
+                    });
+                    $('#biddingPopupId').dialog( "open" );
                 });
-                $('#biddingPopupId').dialog( "open" );
+
             });
         }
     });
