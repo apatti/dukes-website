@@ -178,7 +178,7 @@ function populateFreeAgents()
                 var selection = freeagentstable.getSelection();
                 var dialogContent = '';
                 var dropDownStr ='<select id = "selectedTeamMemberId" class="selectgame">';
-                dropDownStr += '<option id="total">Select a Player</option>';
+                dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
                 //+fbUserName
                 $.get(DOMAIN_NAME+"/ipl/userteams/vivek.vennam",function(data,status){
                   var  players = $.parseJSON(JSON.stringify(data.results));
@@ -210,11 +210,20 @@ function populateFreeAgents()
 
                     $('#submitBid').click(function () {
 
+                        if( parseInt($('#bidAmountTxt').val()) <= 0 ){
+                            alert("Bid Amount Should be more thank ZERO !!!");
+                            return;
+                        }
+                        var toBeDroppedID=$('#selectedTeamMemberId').children(":selected").attr("id");
+                        if( toBeDroppedID === 'selectPlayerId'){
+                            alert("Select a player to dropped off..");
+                            return;
+                        }
                         var item = selection[0];
                         var id = datarow.getFormattedValue(item.row, 0);
                         var objectId = datarow.getFormattedValue(item.row, 1);
                         var playerName = datarow.getFormattedValue(item.row, 2);
-                        var toBeDroppedID=$('#selectedTeamMemberId').children(":selected").attr("id");
+
                         var droppedPlayer = toBeDroppedID.split('%');
 
                         var jsonData ={};
