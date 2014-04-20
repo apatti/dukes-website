@@ -180,7 +180,7 @@ function populateFreeAgents()
                 var dropDownStr ='<select id = "selectedTeamMemberId" class="selectgame">';
                 dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
                 //+fbUserName
-                $.get(DOMAIN_NAME+"/ipl/userteams/vivek.vennam",function(data,status){
+                $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
                   var  players = $.parseJSON(JSON.stringify(data.results));
 
                     $.each( players,function () {
