@@ -220,10 +220,12 @@ function populateFreeAgents()
                         var jsonData ={};
                         jsonData.username = fbUserName;
                         jsonData.bidAmount = $('#bidAmountTxt').val();
+                        jsonData.playerTobeDropped ={};
                         jsonData.playerTobeDropped.ID = droppedPlayer[0];
                         jsonData.playerTobeDropped.objectId = droppedPlayer[1];
                         jsonData.playerTobeDropped.Type = droppedPlayer[2];
 
+                        jsonData.newPlayer = {};
                         jsonData.newPlayer.ID = datarow.getFormattedValue(item.row, 0);
                         jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 1);
                         jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 4);
