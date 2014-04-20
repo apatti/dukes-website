@@ -206,8 +206,9 @@ function populateFreeAgents()
                             duration: 1000
                         }
                     });
-                   /* $("#iplTeamsDropDown").change(function(){
-                        var teamId=$(this).children(":selected").attr("id");
+                   /* var playerToBeDropped = '';
+                    $("#selectedTeamMemberId").change(function(){
+                        playerToBeDropped = $(this).children(":selected").attr("id");
 
                     });*/
                     $('#submitBid').click(function () {
@@ -216,7 +217,7 @@ function populateFreeAgents()
                             var id = datarow.getFormattedValue(item.row, 0);
                             var objectId = datarow.getFormattedValue(item.row, 1);
                             var playerName = datarow.getFormattedValue(item.row, 2);
-                            var teamId=$('#').children(":selected").attr("id");
+                            var teamId=$('#selectedTeamMemberId').children(":selected").attr("id");
 
                         alert(id+' '+objectId+' '+playerName +' '+teamId);
                     });
