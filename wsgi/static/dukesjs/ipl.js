@@ -206,20 +206,20 @@ function populateFreeAgents()
                             duration: 1000
                         }
                     });
-                   /* var playerToBeDropped = '';
+                    var playerToBeDropped = '';
                     $("#selectedTeamMemberId").change(function(){
                         playerToBeDropped = $(this).children(":selected").attr("id");
 
-                    });*/
+                    });
                     $('#submitBid').click(function () {
 
                             var item = selection[0];
                             var id = datarow.getFormattedValue(item.row, 0);
                             var objectId = datarow.getFormattedValue(item.row, 1);
                             var playerName = datarow.getFormattedValue(item.row, 2);
-                            var teamId=$('#selectedTeamMemberId').children(":selected").attr("id");
+                           // var teamId=$('#selectedTeamMemberId').children(":selected").attr("id");
 
-                        alert(id+' '+objectId+' '+playerName +' '+teamId);
+                        alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
                     });
                     $('#biddingPopupId').dialog( "open" );
 
