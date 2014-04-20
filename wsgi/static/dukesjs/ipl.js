@@ -210,15 +210,16 @@ function populateFreeAgents()
 
                     $('#submitBid').click(function () {
 
+                        var toBeDroppedID=$('#selectedTeamMemberId').children(":selected").attr("id");
+                        if( toBeDroppedID === 'selectPlayerId'){
+                            alert("Select a player to drop off..");
+                            return;
+                        }
                         if( parseInt($('#bidAmountTxt').val()) <= 0 ){
                             alert("Bid Amount Should be more thank ZERO !!!");
                             return;
                         }
-                        var toBeDroppedID=$('#selectedTeamMemberId').children(":selected").attr("id");
-                        if( toBeDroppedID === 'selectPlayerId'){
-                            alert("Select a player to dropped off..");
-                            return;
-                        }
+
                         var item = selection[0];
                         var id = datarow.getFormattedValue(item.row, 0);
                         var objectId = datarow.getFormattedValue(item.row, 1);
