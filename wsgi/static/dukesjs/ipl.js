@@ -230,7 +230,8 @@ function populateFreeAgents()
                         jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 1);
                         jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 4);
                             //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
-                        alert(JSON.stringify(jsonData));
+                        console.log(JSON.stringify(jsonData));
+                        $('#biddingPopupId').dialog( "close" );
                     });
                     $('#biddingPopupId').dialog( "open" );
 
