@@ -206,20 +206,29 @@ function populateFreeAgents()
                             duration: 1000
                         }
                     });
-                   /* var playerToBeDropped = '';
-                    $("#selectedTeamMemberId").change(function(){
-                        playerToBeDropped = $(this).children(":selected").attr("id");
 
-                    });*/
+
                     $('#submitBid').click(function () {
 
-                            var item = selection[0];
-                            var id = datarow.getFormattedValue(item.row, 0);
-                            var objectId = datarow.getFormattedValue(item.row, 1);
-                            var playerName = datarow.getFormattedValue(item.row, 2);
-                          var playerToBeDropped=$('#selectedTeamMemberId').children(":selected").attr("id");
+                        var item = selection[0];
+                        var id = datarow.getFormattedValue(item.row, 0);
+                        var objectId = datarow.getFormattedValue(item.row, 1);
+                        var playerName = datarow.getFormattedValue(item.row, 2);
+                        var toBeDroppedID=$('#selectedTeamMemberId').children(":selected").attr("id");
+                        var droppedPlayer = toBeDroppedDetails.split('%');
 
-                        alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
+                        var jsonData ={};
+                        jsonData.username = fbUserName;
+                        jsonData.bidAmount = $('#bidAmountTxt').val();
+                        jsonData.playerTobeDropped.ID = droppedPlayer[0];
+                        jsonData.playerTobeDropped.objectId = droppedPlayer[1];
+                        jsonData.playerTobeDropped.Type = droppedPlayer[2];
+
+                        jsonData.newPlayer.ID = datarow.getFormattedValue(item.row, 0);
+                        jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 1);
+                        jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 4);
+                            //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
+                        alert(JSON.stringify(jsonData));
                     });
                     $('#biddingPopupId').dialog( "open" );
 
