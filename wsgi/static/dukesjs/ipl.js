@@ -177,14 +177,14 @@ function populateFreeAgents()
             google.visualization.events.addListener(freeagentstable, 'select', function() {
                 var selection = freeagentstable.getSelection();
                 var dialogContent = '';
-                var dropDownStr ='<select class="selectgame">';
+                var dropDownStr ='<select id = "selectedTeamMemberId" class="selectgame">';
                 dropDownStr += '<option id="total">Select a Player</option>';
                 //+fbUserName
                 $.get(DOMAIN_NAME+"/ipl/userteams/vivek.vennam",function(data,status){
                   var  players = $.parseJSON(JSON.stringify(data.results));
 
                     $.each( players,function () {
-                        dropDownStr = dropDownStr + "<option value='"+this.objectId+"'>"+this.Name+"</option>";
+                        dropDownStr = dropDownStr + "<option value='"+this.ID+'%'+this.objectId+'%'+this.Type+"'>"+this.Name+"</option>";
                     });
                     var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
@@ -212,8 +212,9 @@ function populateFreeAgents()
                             var id = datarow.getFormattedValue(item.row, 0);
                             var objectId = datarow.getFormattedValue(item.row, 1);
                             var playerName = datarow.getFormattedValue(item.row, 2);
+                            var teamId=$('#selectedTeamMemberId').children(":selected").attr("id");
 
-                        alert(id+' '+objectId+' '+playerName);
+                        alert(id+' '+objectId+' '+playerName +' '+teamId);
                     });
                     $('#biddingPopupId').dialog( "open" );
 
