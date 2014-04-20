@@ -215,7 +215,7 @@ function populateFreeAgents()
                         var objectId = datarow.getFormattedValue(item.row, 1);
                         var playerName = datarow.getFormattedValue(item.row, 2);
                         var toBeDroppedID=$('#selectedTeamMemberId').children(":selected").attr("id");
-                        var droppedPlayer = toBeDroppedDetails.split('%');
+                        var droppedPlayer = toBeDroppedID.split('%');
 
                         var jsonData ={};
                         jsonData.username = fbUserName;
