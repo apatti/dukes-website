@@ -184,7 +184,7 @@ function populateFreeAgents()
                   var  players = $.parseJSON(JSON.stringify(data.results));
 
                     $.each( players,function () {
-                        dropDownStr = dropDownStr + "<option value='"+this.ID+'%'+this.objectId+'%'+this.Type+"'>"+this.Name+"</option>";
+                        dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+"'>"+this.Name+"</option>";
                     });
                     var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
@@ -206,18 +206,18 @@ function populateFreeAgents()
                             duration: 1000
                         }
                     });
-                    var playerToBeDropped = '';
+                   /* var playerToBeDropped = '';
                     $("#selectedTeamMemberId").change(function(){
                         playerToBeDropped = $(this).children(":selected").attr("id");
 
-                    });
+                    });*/
                     $('#submitBid').click(function () {
 
                             var item = selection[0];
                             var id = datarow.getFormattedValue(item.row, 0);
                             var objectId = datarow.getFormattedValue(item.row, 1);
                             var playerName = datarow.getFormattedValue(item.row, 2);
-                           // var teamId=$('#selectedTeamMemberId').children(":selected").attr("id");
+                          var playerToBeDropped=$('#selectedTeamMemberId').children(":selected").attr("id");
 
                         alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
                     });
