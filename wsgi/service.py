@@ -7,7 +7,7 @@ from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import getIplUsers, getIplUserTeam, getNextBidder
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateDukesFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
-from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers
+from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers,enterFABid
 from iplstandings import getIplStanding,getIplCurrentWeekStanding
 from iplschedule import getIplSchedule
 from iplfantasyscore import updateFantasyScore
@@ -193,6 +193,14 @@ def getIplPlayersApi():
 def getIplTeamPlayersApi(team):
     return jsonify(getIplTeamOwnedPlayers(team)),200
 
+@app.route('/ipl/fabid', methods=['POST'])
+def updateFABideApi():
+    if not request.get_json:
+        abort(400)
+
+    reqObj = request.get_json(force=True)
+    result = enterFABid(reqObj)
+    return jsonify({'result': result}), 201
 
 @app.route('/ipl/availableplayers',methods=['GET'])
 def getIplAvailablePlayersApi():

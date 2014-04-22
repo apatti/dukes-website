@@ -246,6 +246,21 @@ function populateFreeAgents()
                         jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 4);
                             //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
                         console.log(JSON.stringify(jsonData));
+                        var bidJSON  = JSON.stringify(jsonData);
+                        $.ajax({
+                            type: 'POST',
+                            url: DOMAIN_NAME +'/ipl/bid',
+                            dataType: 'json',
+                            contentType:'application/json',
+                            data:bidJSON,
+                            success: function(res,status,jqXHR){
+                               alert("Your bid has been registered");
+                            },
+                            error: function(jqXHR, textStatus, errorThrown){
+                                alert(textStatus, errorThrown);
+                            }
+
+                        });
                         $('#biddingPopupId').dialog( "close" );
                     });
                     $('#biddingPopupId').dialog( "open" );
