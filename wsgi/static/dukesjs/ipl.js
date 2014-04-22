@@ -184,7 +184,7 @@ function populateFreeAgents()
                   var  players = $.parseJSON(JSON.stringify(data.results));
 
                     $.each( players,function () {
-                        dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+"'>"+this.Name+"</option>";
+                        dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
                     });
                     var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
@@ -224,6 +224,7 @@ function populateFreeAgents()
                         var id = datarow.getFormattedValue(item.row, 0);
                         var objectId = datarow.getFormattedValue(item.row, 1);
                         var playerName = datarow.getFormattedValue(item.row, 2);
+                        var teamName = datarow.getFormattedValue(item.row,3);
 
                         var droppedPlayer = toBeDroppedID.split('%');
 
@@ -234,10 +235,14 @@ function populateFreeAgents()
                         jsonData.playerTobeDropped.ID = droppedPlayer[0];
                         jsonData.playerTobeDropped.objectId = droppedPlayer[1];
                         jsonData.playerTobeDropped.Type = droppedPlayer[2];
+                        jsonData.playerTobeDropped.Name = droppedPlayer[3];
+                        jsonData.playerTobeDropped.Team = droppedPlayer[4];
 
                         jsonData.newPlayer = {};
                         jsonData.newPlayer.ID = datarow.getFormattedValue(item.row, 0);
                         jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 1);
+                        jsonData.newPlayer.Name = playerName;
+                        jsonData.newPlayer.Team = teamName;
                         jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 4);
                             //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
                         console.log(JSON.stringify(jsonData));

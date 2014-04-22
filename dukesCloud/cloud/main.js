@@ -34,3 +34,19 @@ Parse.Cloud.afterSave("iplplayer",function(request){
         }
     });
 });
+
+
+Parse.Cloud.afterSave("iplfantasybids",function(request){
+    var BidEntryTable = Parse.Object.extend("bidhistory");
+    var bidentry = new BidEntryTable();
+    bidentry = request.object;
+    bidentry.save({
+        success:function(){
+            console.log("Saved")
+        },
+        error:function(err){
+            console.error("Got an error "+ err.code + " : " +err.message )
+        }
+    });
+
+});

@@ -93,14 +93,25 @@ def getIplTeamOwnedPlayers(team):
 
 #Update the bid for the FA player
 def enterFABid(bid):
-    username = bid.get("username")
-    playerToAdd = bid.get("newPlayer").get("objectId")
-    playerToDrop = bid.get("playerTobeDropped").get("objectId")
+    bidentry={}
+    bidentry["username"]=bid.get("username")
+    bidentry["playertoaddobjectid"]=bid.get("newPlayer").get("objectId")
+    bidentry["playertoaddid"]=bid.get("newPlayer").get("ID")
+    bidentry["playertoaddname"]=bid.get("newPlayer").get("name")
+    bidentry["playertoaddtype"]=bid.get("newPlayer").get("Type")
+    bidentry["playertodropobjectid"]=bid.get("playerTobeDropped").get("objectId")
+    bidentry["playertodropid"]=bid.get("playerTobeDropped").get("ID")
+    bidentry["playertodropname"]=bid.get("playerTobeDropped").get("name")
+    bidentry["playertodroptype"]=bid.get("playerTobeDropped").get("Type")
+    bidentry["bidamount"]=bid.get("bidAmount")
+    bidentry["playertodropteam"]=bid.get("playerTobeDropped").get("Team")
+    bidentry["playertoaddteam"]=bid.get("playertoaddteam").get("Team")
+
     if(bid.get("bidAmount")<=0):
         print("negative bid amount!!")
         return;
 
-    params = urllib.urlencode({"where": json.dumps({"owner": username, "playerToAdd": playerToAdd,"playerToDrop":playerToDrop})})
+    params = urllib.urlencode({"where": json.dumps({"username": bidentry["username"], "playertoaddobjectid": bidentry["playertoaddobjectid"],"playertodropobjectid":bidentry["playertodropobjectid"]})})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET', '/1/classes/iplfantasybids?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
@@ -114,7 +125,7 @@ def enterFABid(bid):
 
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
-    connection.request(operation, url, json.dumps(bid), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.request(operation, url, json.dumps(bidentry), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
 
     return "Bid Updated"
