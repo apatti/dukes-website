@@ -256,7 +256,7 @@ function populateFreeAgents()
                             data:bidJSON,
                             success: function(res,status,jqXHR){
                                alert("Your bid has been registered");
-                                location.reload();
+                                //location.reload();
                             },
                             error: function(jqXHR, textStatus, errorThrown){
                                 alert(textStatus, errorThrown);
