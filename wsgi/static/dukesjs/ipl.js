@@ -247,7 +247,7 @@ function populateFreeAgents()
                             //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
                         console.log(JSON.stringify(jsonData));
                         var bidJSON  = JSON.stringify(jsonData);
-                       /* $.ajax({
+                        $.ajax({
                             type: 'POST',
                             url: DOMAIN_NAME +'/ipl/bid',
                             dataType: 'json',
@@ -260,7 +260,7 @@ function populateFreeAgents()
                                 alert(textStatus, errorThrown);
                             }
 
-                        });*/
+                        });
                         $('#biddingPopupId').dialog( "close" );
                     });
                     $('#biddingPopupId').dialog( "open" );
