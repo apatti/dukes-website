@@ -231,16 +231,16 @@ function populateFreeAgents()
                         var jsonData ={};
                        // jsonData.username = fbUserName;
                         jsonData.username = "srudeep";
-                        jsonData.bidAmount = $('#bidAmountTxt').val();
+                        jsonData.bidAmount = parseInt($('#bidAmountTxt').val());
                         jsonData.playerTobeDropped ={};
-                        jsonData.playerTobeDropped.ID = droppedPlayer[0];
+                        jsonData.playerTobeDropped.ID = parseInt(droppedPlayer[0]);
                         jsonData.playerTobeDropped.objectId = droppedPlayer[1];
                         jsonData.playerTobeDropped.Type = droppedPlayer[2];
                         jsonData.playerTobeDropped.Name = droppedPlayer[3];
                         jsonData.playerTobeDropped.Team = droppedPlayer[4];
 
                         jsonData.newPlayer = {};
-                        jsonData.newPlayer.ID = datarow.getFormattedValue(item.row, 0);
+                        jsonData.newPlayer.ID = parseInt(datarow.getFormattedValue(item.row, 0));
                         jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 1);
                         jsonData.newPlayer.Name = playerName;
                         jsonData.newPlayer.Team = teamName;
