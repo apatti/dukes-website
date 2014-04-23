@@ -180,7 +180,7 @@ function populateFreeAgents()
                 var dropDownStr ='<select id = "selectedTeamMemberId" class="selectgame">';
                 dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
                 //+fbUserName
-                $.get(DOMAIN_NAME+"/ipl/userteams/srudeep",function(data,status){
+                $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
                   var  players = $.parseJSON(JSON.stringify(data.results));
 
                     $.each( players,function () {
@@ -229,8 +229,8 @@ function populateFreeAgents()
                         var droppedPlayer = toBeDroppedID.split('%');
 
                         var jsonData ={};
-                       // jsonData.username = fbUserName;
-                        jsonData.username = "srudeep";
+                        jsonData.username = fbUserName;
+
                         jsonData.bidAmount = parseInt($('#bidAmountTxt').val());
                         jsonData.playerTobeDropped ={};
                         jsonData.playerTobeDropped.ID = parseInt(droppedPlayer[0]);
