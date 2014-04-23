@@ -97,11 +97,11 @@ def enterFABid(bid):
     bidentry["username"]=bid.get("username")
     bidentry["playertoaddobjectid"]=bid.get("newPlayer").get("objectId")
     bidentry["playertoaddid"]=bid.get("newPlayer").get("ID")
-    bidentry["playertoaddname"]=bid.get("newPlayer").get("name")
+    bidentry["playertoaddname"]=bid.get("newPlayer").get("Name")
     bidentry["playertoaddtype"]=bid.get("newPlayer").get("Type")
     bidentry["playertodropobjectid"]=bid.get("playerTobeDropped").get("objectId")
     bidentry["playertodropid"]=bid.get("playerTobeDropped").get("ID")
-    bidentry["playertodropname"]=bid.get("playerTobeDropped").get("name")
+    bidentry["playertodropname"]=bid.get("playerTobeDropped").get("Name")
     bidentry["playertodroptype"]=bid.get("playerTobeDropped").get("Type")
     bidentry["bidamount"]=bid.get("bidAmount")
     bidentry["playertodropteam"]=bid.get("playerTobeDropped").get("Team")
@@ -123,10 +123,7 @@ def enterFABid(bid):
         operation = 'POST'
         url = '/1/classes/iplfantasybids'
 
-    print operation
-    print url
-    print bid
-    print bidentry
+    
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request(operation, url, json.dumps(bidentry), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
