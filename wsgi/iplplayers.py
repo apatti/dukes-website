@@ -105,7 +105,7 @@ def enterFABid(bid):
     bidentry["playertodroptype"]=bid.get("playerTobeDropped").get("Type")
     bidentry["bidamount"]=bid.get("bidAmount")
     bidentry["playertodropteam"]=bid.get("playerTobeDropped").get("Team")
-    bidentry["playertoaddteam"]=bid.get("playertoaddteam").get("Team")
+    bidentry["playertoaddteam"]=bid.get("newPlayer").get("Team")
 
     if(bid.get("bidAmount")<=0):
         print("negative bid amount!!")
