@@ -230,7 +230,7 @@ function populateFreeAgents()
 
                         var jsonData ={};
                        // jsonData.username = fbUserName;
-                        jsonData.username = srudeep;
+                        jsonData.username = "srudeep";
                         jsonData.bidAmount = $('#bidAmountTxt').val();
                         jsonData.playerTobeDropped ={};
                         jsonData.playerTobeDropped.ID = droppedPlayer[0];
