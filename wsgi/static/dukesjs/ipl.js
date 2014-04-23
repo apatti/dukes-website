@@ -229,7 +229,8 @@ function populateFreeAgents()
                         var droppedPlayer = toBeDroppedID.split('%');
 
                         var jsonData ={};
-                        jsonData.username = fbUserName;
+                       // jsonData.username = fbUserName;
+                        jsonData.username = srudeep;
                         jsonData.bidAmount = $('#bidAmountTxt').val();
                         jsonData.playerTobeDropped ={};
                         jsonData.playerTobeDropped.ID = droppedPlayer[0];
@@ -255,6 +256,7 @@ function populateFreeAgents()
                             data:bidJSON,
                             success: function(res,status,jqXHR){
                                alert("Your bid has been registered");
+                                location.reload();
                             },
                             error: function(jqXHR, textStatus, errorThrown){
                                 alert(textStatus, errorThrown);
