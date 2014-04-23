@@ -38,8 +38,13 @@ Parse.Cloud.afterSave("iplplayer",function(request){
 
 Parse.Cloud.afterSave("iplfantasybids",function(request){
     var BidEntryTable = Parse.Object.extend("bidhistory");
-    var bidentry = new BidEntryTable();
-    bidentry = request.object;
+    bidentry = new BidEntryTable();
+    bidentry.set("owner",request.object.get("username"));
+    bidentry.set("playertoaddid",request.object.get("playertoaddobjectid"));
+    bidentry.set("playertoaddname",request.object.get("playertoaddname"));
+    bidentry.set("playertodropid",request.object.get("playertodropobjectid"));
+    bidentry.set("playertodropname",request.object.get("playertodropname"));
+    bidentry.set("amount",request.object.get("bidamount"));
     bidentry.save({
         success:function(){
             console.log("Saved")

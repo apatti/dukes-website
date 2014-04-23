@@ -123,6 +123,9 @@ def enterFABid(bid):
         operation = 'POST'
         url = '/1/classes/iplfantasybids'
 
+    print operation
+    print url
+    
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request(operation, url, json.dumps(bidentry), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
