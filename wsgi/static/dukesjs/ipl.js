@@ -192,6 +192,7 @@ function populateFreeAgents()
 
                     dialogContent = dialogContent + dropDownStr;
                     dialogContent = dialogContent + bidAmount;
+                    dialogContent = dialogContent + priority;
                     dialogContent = dialogContent + buttonStr;
 
                  $('#biddingPopupId').html(dialogContent);
