@@ -104,12 +104,13 @@ def enterFABid(bid):
     bidentry["playertodropname"]=bid.get("playerTobeDropped").get("Name")
     bidentry["playertodroptype"]=bid.get("playerTobeDropped").get("Type")
     bidentry["bidamount"]=bid.get("bidAmount")
+    bidentry["priority"]=bid.get("priority")
     bidentry["playertodropteam"]=bid.get("playerTobeDropped").get("Team")
     bidentry["playertoaddteam"]=bid.get("newPlayer").get("Team")
     print bid.get("bidAmount")
     if(bid.get("bidAmount")<=0):
         print("negative bid amount!!")
-        return;
+        return
 
     params = urllib.urlencode({"where": json.dumps({"username": bidentry["username"], "playertoaddobjectid": bidentry["playertoaddobjectid"],"playertodropobjectid":bidentry["playertodropobjectid"]})})
     connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -123,7 +124,7 @@ def enterFABid(bid):
         operation = 'POST'
         url = '/1/classes/iplfantasybids'
 
-    
+
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request(operation, url, json.dumps(bidentry), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
