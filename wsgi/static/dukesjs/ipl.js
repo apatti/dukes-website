@@ -177,7 +177,7 @@ function populateFreeAgents()
             google.visualization.events.addListener(freeagentstable, 'select', function() {
                 var selection = freeagentstable.getSelection();
                 var dialogContent = '';
-                var dropDownStr ='<select id = "selectedTeamMemberId" class="selectgame">';
+                var dropDownStr ='Current Team : <select id = "selectedTeamMemberId" class="selectgame">';
                 dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
                 //+fbUserName
                 $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
@@ -186,8 +186,8 @@ function populateFreeAgents()
                     $.each( players,function () {
                         dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
                     });
-                    var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0></div>';
-                    var priority = '<div><input type="number" id="priorityTxt" value=0></div>';
+                    var bidAmount = '<div>Bid Amount : <input type="number" id="bidAmountTxt" value=0></div>';
+                    var priority = '<div>Priority : <input type="number" id="priorityTxt" value=0></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
 
                     dialogContent = dialogContent + dropDownStr;
