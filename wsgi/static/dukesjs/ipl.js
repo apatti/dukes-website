@@ -255,7 +255,7 @@ function populateFreeAgents()
                         var bidJSON  = JSON.stringify(jsonData);
                         $.ajax({
                             type: 'POST',
-                            url: DOMAIN_NAME +'/ipl/fabid',
+                            url: DOMAIN_NAME +'/ipl/bids/fabid',
                             dataType: 'json',
                             contentType:'application/json',
                             data:bidJSON,

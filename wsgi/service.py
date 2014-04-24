@@ -7,10 +7,11 @@ from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import getIplUsers, getIplUserTeam, getNextBidder
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateDukesFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
-from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers,enterFABid
+from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers
 from iplstandings import getIplStanding,getIplCurrentWeekStanding
 from iplschedule import getIplSchedule
 from iplfantasyscore import updateFantasyScore
+from iplbids import viewAllBids,viewUserBids,enterFABid
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -193,7 +194,7 @@ def getIplPlayersApi():
 def getIplTeamPlayersApi(team):
     return jsonify(getIplTeamOwnedPlayers(team)),200
 
-@app.route('/ipl/fabid', methods=['POST'])
+@app.route('/ipl/bids/fabid', methods=['POST'])
 def updateFABideApi():
     if not request.get_json:
         abort(400)
@@ -201,6 +202,14 @@ def updateFABideApi():
     reqObj = request.get_json(force=True)
     result = enterFABid(reqObj)
     return jsonify({'result': result}), 201
+
+@app.route('/ipl/bids',methods=['GET'])
+def getBidHistory():
+    return jsonify(viewAllBids()),200
+
+@app.route('/ipl/bids/<username>',methods=['GET'])
+def getUserBidsApi(username):
+    return jsonify(viewUserBids(username)),200
 
 @app.route('/ipl/availableplayers',methods=['GET'])
 def getIplAvailablePlayersApi():

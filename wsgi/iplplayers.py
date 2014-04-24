@@ -7,6 +7,7 @@ connection = httplib.HTTPSConnection('api.parse.com',443)
 
 def getIplPlayers():
     params = urllib.urlencode({"order":"Type","limit":300});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     #result = json.loads(connection.getresponse().read())
@@ -14,6 +15,7 @@ def getIplPlayers():
 
 def getIplAvailablePlayers():
     params = urllib.urlencode({"where":json.dumps({"owner": ""}),"order":"Type","limit":300});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
@@ -21,6 +23,7 @@ def getIplAvailablePlayers():
 
 def getIplUserAvailablePlayers(username):
     params = urllib.urlencode({"where":json.dumps({"owner": username}),"order":"Type","limit":300});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     userplayers = json.loads(connection.getresponse().read()).get("results")
@@ -79,6 +82,7 @@ def getIplUserAvailablePlayers(username):
 
 def getIplTeamPlayers(team):
     params = urllib.urlencode({"where":{"Team",team},"order":"Type","limit":300});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     #result = json.loads(connection.getresponse().read())
@@ -86,6 +90,7 @@ def getIplTeamPlayers(team):
 
 def getIplTeamOwnedPlayers(team):
     params = urllib.urlencode({"where":json.dumps({"Team":team,"owner":{"$ne":""}}),"order":"Type","limit":300});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     #result = json.loads(connection.getresponse().read())
