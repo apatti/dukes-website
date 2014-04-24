@@ -187,6 +187,7 @@ function populateFreeAgents()
                         dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
                     });
                     var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0></div>';
+                    var priority = '<div><input type="number" id="priorityTxt" value=0></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
 
                     dialogContent = dialogContent + dropDownStr;
@@ -230,6 +231,7 @@ function populateFreeAgents()
 
                         var jsonData ={};
                         jsonData.username = fbUserName;
+                        jsonData.priority = parseInt($('#priorityTxt').val());
 
                         jsonData.bidAmount = parseInt($('#bidAmountTxt').val());
                         jsonData.playerTobeDropped ={};
