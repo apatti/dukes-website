@@ -177,7 +177,7 @@ function populateFreeAgents()
             google.visualization.events.addListener(freeagentstable, 'select', function() {
                 var selection = freeagentstable.getSelection();
                 var dialogContent = '';
-                var dropDownStr ='Current Team : <select id = "selectedTeamMemberId" class="selectgame">';
+                var dropDownStr =' <select id = "selectedTeamMemberId" class="selectgame">';
                 dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
                 //+fbUserName
                 $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
@@ -186,14 +186,16 @@ function populateFreeAgents()
                     $.each( players,function () {
                         dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
                     });
-                    var bidAmount = '<div>Bid Amount: <input type="number" id="bidAmountTxt" value=0/></div>';
-                    var priority = '<div>Priority : <input type="number" id="priorityTxt" value=0/></div>';
+                    var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0/></div>';
+                    var priority = '<div><input type="number" id="priorityTxt" value=0/></div>';
                     var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
-
-                    dialogContent = dialogContent + dropDownStr;
-                    dialogContent = dialogContent + bidAmount;
-                    dialogContent = dialogContent + priority;
-                    dialogContent = dialogContent + buttonStr;
+                    dialogContent = '<table>';
+                    dialogContent = dialogContent + '<tr><td>Current Team : </td><td>'+dropDownStr+'</td></tr>';
+                    dialogContent = dialogContent + '<tr><td>Bid Amount : </td><td>'+bidAmount+'</td></tr>';
+                    dialogContent = dialogContent + '<tr><td>Priority : </td><td>'+priority+'</td></tr>';
+                    dialogContent = dialogContent + '<tr><td colspan="2">'+buttonStr+'</td></tr>';
+                   
+                    dialogContent = dialogContent + '<table>';
 
                  $('#biddingPopupId').html(dialogContent);
 
