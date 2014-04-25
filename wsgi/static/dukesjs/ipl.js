@@ -343,7 +343,7 @@ function populateUserBids(username)
             var datarow = new google.visualization.DataTable();
             datarow.addColumn('string','Add');
             datarow.addColumn('string','Drop');
-            datarow.addColumn('string','Priority');
+            datarow.addColumn('integer','Priority');
             datarow.addColumn('string','Price');
             playerBids = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<playerBids.results.length;i++)
@@ -371,7 +371,7 @@ function populateBidHistory()
             datarow.addColumn('string','User');
             datarow.addColumn('string','Add');
             datarow.addColumn('string','Drop');
-            datarow.addColumn('string','Priority');
+            datarow.addColumn('integer','Priority');
             datarow.addColumn('string','Price');
             playerBids = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<playerBids.results.length;i++)
