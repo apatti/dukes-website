@@ -362,7 +362,7 @@ function populateUserBids(username)
 
 function populateBidHistory()
 {
-    $.get("/ipl/bids/",function(data,status){
+    $.get("/ipl/bids",function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
