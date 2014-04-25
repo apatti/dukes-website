@@ -36,6 +36,7 @@ window.fbAsyncInit = function() {
            populateStandings();
             populateFreeAgents();
             populateMyTeam();
+            populateBidHistory()
 		});
  }
  
@@ -301,6 +302,7 @@ function populateMyTeam()
             var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
             //var options = {'height': 300};
             myteamstable.draw(datarow);
+            populateUserBids(fbUserName);
         }
     });
 }
@@ -331,6 +333,64 @@ function populateUserTeam(username)
         }
     });
 }
+
+function populateUserBids(username)
+{
+    $.get("/ipl/bids/"+username,function(data,status){
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Add');
+            datarow.addColumn('string','Drop');
+            datarow.addColumn('string','Priority');
+            datarow.addColumn('string','Price');
+            playerBids = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<playerBids.results.length;i++)
+            {
+                datarow.addRows([[playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
+                                    playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
+                                    playerBids.results[i].priority,
+                                    '$'+playerBids.results[i].bidamount]]);
+            }
+            var myteambidtable = new google.visualization.Table(document.getElementById('playerbidtable'));
+            //var options = {'height': 300};
+            myteambidtable.draw(datarow);
+        }
+    });
+}
+
+function populateBidHistory()
+{
+    $.get("/ipl/bids/",function(data,status){
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Date');
+            datarow.addColumn('string','User');
+            datarow.addColumn('string','Add');
+            datarow.addColumn('string','Drop');
+            datarow.addColumn('string','Priority');
+            datarow.addColumn('string','Price');
+            playerBids = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<playerBids.results.length;i++)
+            {
+                var date = new Date(playerBids.results[i].createdAt+' UTC');
+                datarow.addRows([[  date.toString(),
+                                    playerBids.results[i].owner,
+                                    playerBids.results[i].playertoaddname,
+                                    playerBids.results[i].playertodropname,
+                                    playerBids.results[i].priority,
+                                    '$'+playerBids.results[i].amount]]);
+            }
+            var bidtable = new google.visualization.Table(document.getElementById('bidsDiv'));
+            //var options = {'height': 300};
+            bidtable.draw(datarow);
+        }
+    });
+}
+
 
 function updateTeamTable(){
 

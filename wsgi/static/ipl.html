@@ -35,7 +35,11 @@
                                 toggleable: true
                                 ,closable: true
                         });
-
+                $('#myteamtab').puipanel();
+                $('#playerbidpanel').puipanel({
+                                toggleable: true
+                                ,closable: true
+                        });
 
         });
 
@@ -68,6 +72,8 @@
               <li><a href="#freeagentstab">Free Agents</a></li>
               <li><a href="#markettab">Market</a></li>
              <li><a href="#rulestab">Rules</a></li>
+             <li><a href="#bidstab">Bid History</a></li>
+
           </ul>
 
           <div>
@@ -121,7 +127,7 @@
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs MallyaXI - The King of Good Times</td>
+                                              <td>Masti-Kirikiri Vs MallyaXI - The King of Good Times</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -144,7 +150,7 @@
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs Foster Pros</td>
+                                              <td>Masti-Kirikiri Vs Foster Pros</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -167,7 +173,7 @@
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs Telangana Thunder</td>
+                                              <td>Masti-Kirikiri Vs Telangana Thunder</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -190,7 +196,7 @@
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs Sherkhan</td>
+                                              <td>Masti-Kirikiri Vs Sherkhan</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -202,19 +208,19 @@
                                       <table>
                                           <tr>
                                               <td>1</td>
-                                              <td>Steyn Gun Vs MallyaXI - The King of Good Times</td>
+                                              <td>Steyn Gun Vs CricketFreak</td>
                                           </tr>
                                           <tr>
                                               <td>2</td>
-                                              <td>CricketFreak Vs Foster Pros</td>
+                                              <td>Sherkhan Vs Foster Pros</td>
                                           </tr>
                                           <tr>
                                               <td>3</td>
-                                              <td>Whistleblowers Vs Telangana Thunder</td>
+                                              <td>Whistleblowers Vs MallyaXI - The King of Good Times</td>
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs Sherkhan</td>
+                                              <td>Masti-Kirikiri Vs Telangana Thunder</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -226,19 +232,19 @@
                                       <table>
                                           <tr>
                                               <td>1</td>
-                                              <td>Steyn Gun Vs MallyaXI - The King of Good Times</td>
+                                              <td>Steyn Gun Vs Masti-Kirikiri</td>
                                           </tr>
                                           <tr>
                                               <td>2</td>
-                                              <td>CricketFreak Vs Foster Pros</td>
+                                              <td>CricketFreak Vs Whistleblowers</td>
                                           </tr>
                                           <tr>
                                               <td>3</td>
-                                              <td>Whistleblowers Vs Telangana Thunder</td>
+                                              <td>MallyaXI - The King of Good Times Vs Foster Pros</td>
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs Sherkhan</td>
+                                              <td>Telangana Thunder Vs Sherkhan</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -250,19 +256,19 @@
                                       <table>
                                           <tr>
                                               <td>1</td>
-                                              <td>Steyn Gun Vs MallyaXI - The King of Good Times</td>
+                                              <td>Steyn Gun Vs Whistleblowers</td>
                                           </tr>
                                           <tr>
                                               <td>2</td>
-                                              <td>CricketFreak Vs Foster Pros</td>
+                                              <td>CricketFreak Vs Masti-Kirikiri</td>
                                           </tr>
                                           <tr>
                                               <td>3</td>
-                                              <td>Whistleblowers Vs Telangana Thunder</td>
+                                              <td>Foster Pros Vs Telangana Thunder</td>
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs Sherkhan</td>
+                                              <td>MallyaXI - The King of Good Times Vs Sherkhan</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -274,19 +280,19 @@
                                       <table>
                                           <tr>
                                               <td>1</td>
-                                              <td>Steyn Gun Vs MallyaXI - The King of Good Times</td>
+                                              <td>Steyn Gun Vs CricketFreak</td>
                                           </tr>
                                           <tr>
                                               <td>2</td>
-                                              <td>CricketFreak Vs Foster Pros</td>
+                                              <td>Sherkhan Vs Foster Pros</td>
                                           </tr>
                                           <tr>
                                               <td>3</td>
-                                              <td>Whistleblowers Vs Telangana Thunder</td>
+                                              <td>MallyaXI - The King of Good Times Vs Telangana Thunder</td>
                                           </tr>
                                           <tr>
                                               <td>4</td>
-                                              <td>Masti-IX Vs Sherkhan</td>
+                                              <td>Masti-Kirikiri Vs Whistleblowers</td>
                                           </tr>
                                       </table>
                                   </td>
@@ -299,7 +305,11 @@
                   </div>
               </div>
               <div id="myteamtab">
-
+                <br/><br/>
+                  <div id="playerbidpanel" title="Current Bids">
+                    <div id="playerbidtable">
+                  </div>
+                </div>
               </div>
 
               <div id="freeagentstab">
@@ -312,8 +322,8 @@
               <div id="rulestab">
               </div>
 
-               <div id="teamstab">
-
+               <div id="bidstab">
+                    <div id='bidsDiv'></div>
               </div>
           </div>
           <div id='biddingPopupId' class='userDialog'></div>
