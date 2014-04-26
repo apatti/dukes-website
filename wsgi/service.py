@@ -11,7 +11,7 @@ from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailabl
 from iplstandings import getIplStanding,getIplCurrentWeekStanding
 from iplschedule import getIplSchedule
 from iplfantasyscore import updateFantasyScore
-from iplbids import viewAllBids,viewUserBids,enterFABid
+from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -202,6 +202,16 @@ def updateFABideApi():
     reqObj = request.get_json(force=True)
     result = enterFABid(reqObj)
     return jsonify({'result': result}), 201
+
+@app.route('/ipl/bids/fabid', methods=['PUT'])
+def processFABideApi():
+    if not request.get_json:
+        abort(400)
+
+    reqObj = request.get_json(force=True)
+    result = processFABids()
+    return jsonify({'result': result}), 200
+
 
 @app.route('/ipl/bids',methods=['GET'])
 def getBidHistory():

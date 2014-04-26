@@ -67,3 +67,16 @@ def enterFABid(bid):
     result = json.loads(connection.getresponse().read())
 
     return "Bid Updated"
+
+def processFABids():
+    #get the open bids
+    params = urllib.urlencode({"order":"priority,playertoaddname"});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    bidresults = json.loads(connection.getresponse().read())
+    if len(bidresults.get("results"))<=0:
+        return
+    openbids = bidresults.get("results")
+
+    return openbids
