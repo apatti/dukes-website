@@ -205,10 +205,6 @@ def updateFABideApi():
 
 @app.route('/ipl/bids/fabid', methods=['PUT'])
 def processFABideApi():
-    if not request.get_json:
-        abort(400)
-
-    reqObj = request.get_json(force=True)
     result = processFABids()
     return jsonify({'result': result}), 200
 
