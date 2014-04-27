@@ -36,7 +36,8 @@ window.fbAsyncInit = function() {
            populateStandings();
             populateFreeAgents();
             populateMyTeam();
-            populateBidHistory()
+            populateBidHistory();
+            populateIplSchedule();
 		});
  }
  
