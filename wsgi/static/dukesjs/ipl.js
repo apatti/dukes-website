@@ -391,35 +391,30 @@ function populateBidHistory()
     });
 }
 
-
-function updateTeamTable(){
-
-
-    $.get("/ipl/users",function(data,status){
-        
-        $('#teamstab').puidatatable({
-            lazy: true,
-            caption: 'Registered IPL Teams',
-
-            columns: [
-                {field:'name', headerText: 'OWNER', sortable:true},
-                {field:'iplteam', headerText: 'TEAM', sortable:true},
-                {field:'email', headerText: 'EMAIL', sortable:true}
-
-            ],
-            datasource: function(callback, ui) {
-
-                var pData = data.results;
-                callback.call(this, $.makeArray(pData));
-            },
-            selectionMode: 'single',
-            rowSelect: function(event, data) {
-                $('#teamstab').puigrowl('show', [{severity:'info', summary: 'Row Selected', detail: (data.brand + ' ' + data.vin)}]);
-            },
-            rowUnselect: function(event, data) {
-                $('#teamstab').puigrowl('show', [{severity:'info', summary: 'Row Unselected', detail: (data.brand + ' ' + data.vin)}]);
+function populateIplSchedule()
+{
+    $.get("/ipl/schedule",function(data,status){
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Date');
+            datarow.addColumn('string','Fantasy Week');
+            datarow.addColumn('string','Match');
+            datarow.addColumn('string','Time');
+            datarow.addColumn('string','Venue');
+            schedule = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<schedule.results.length;i++)
+            {
+                datarow.addRows([[schedule.results[i].date,
+                                    schedule.results[i].fantasyweek,
+                                    schedule.results[i].match,
+                                    schedule.results[i].time,
+                                    schedule.results[i].venue]]);
             }
-        });
+            var scheduletable = new google.visualization.Table(document.getElementById('iplscheduleDiv'));
+            //var options = {'height': 300};
+            scheduletable.draw(datarow);
+        }
     });
-
 }
