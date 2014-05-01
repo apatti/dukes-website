@@ -80,7 +80,13 @@ def processFABids():
 
     openbids = bidresults.get("results")
 
-    allplayers = [openbid["playertoaddname"] for openbid in openbids]
-    players = list(set([openbid["playertoaddname"] for openbid in openbids]))
-    players = sorted(players)
-    return players
+    completed=[]
+    backlog = list(set([openbid["playertoaddname"] for openbid in openbids]))
+
+    for openbid in openbids:
+        if openbid["playertoaddname"] in completed:
+            continue
+        #check if any other bid
+        otherbids = [bid for bid in openbids if bid.get("playertoaddname")==openbid["playertoaddname"] ]
+
+    return [openbid["playertoaddname"] for openbid in openbids]
