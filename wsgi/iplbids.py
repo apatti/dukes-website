@@ -80,6 +80,7 @@ def processFABids():
 
     openbids = bidresults.get("results")
 
+    allplayers = [openbid["playertoaddname"] for openbid in openbids]
     players = list(set([openbid["playertoaddname"] for openbid in openbids]))
 
-    return players.sort()
+    return allplayers
