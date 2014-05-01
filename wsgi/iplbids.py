@@ -82,4 +82,4 @@ def processFABids():
 
     players = list(set([openbid["playertoaddname"] for openbid in openbids]))
 
-    return players
+    return players.sort()
