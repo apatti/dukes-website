@@ -198,6 +198,14 @@ tent-Type": "application/json"})
             team1tie+=1
             team2tie+=1
 
+        if currentweeknumber==5:
+            team1win*=2
+            team1loss*=2
+            team1tie*=2
+            team2win*=2
+            team2loss*=2
+            team2tie*=2
+            
         scorejsonobj = {"win":team1win,"loss":team1loss,"tie":team1tie}
         connection = httplib.HTTPSConnection('api.parse.com',443)
         connection.connect()
