@@ -45,7 +45,7 @@ tent-Type": "application/json"})
         fieldingpoints += fantasyScore["fieldingCatches"]*10
         fieldingpoints += fantasyScore["fieldingStumping"]*15
         fieldingpoints += fantasyScore["directRunOut"]*15
-        fieldingpoints += fantasyScore["fieldingRunOut"]*15
+        fieldingpoints += fantasyScore["fieldingRunOut"]*10
 
         if fantasyScore["IsMoM"] is True:
             mompoints += 1
@@ -205,7 +205,7 @@ tent-Type": "application/json"})
             team2win*=2
             team2loss*=2
             team2tie*=2
-            
+
         scorejsonobj = {"win":team1win,"loss":team1loss,"tie":team1tie}
         connection = httplib.HTTPSConnection('api.parse.com',443)
         connection.connect()
