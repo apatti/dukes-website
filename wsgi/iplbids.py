@@ -95,3 +95,20 @@ def processFABids():
 
 
     return [openbid["playertoaddname"] for openbid in openbids]
+
+def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
+
+    if playerAddType == playerDropType:
+        replacePlayer(userId,playerAddId,playerDropId,price)
+
+
+def replacePlayer(userId,playerAddId,playerdropId,price):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('PUT','/1/classes/polloptions/%s'%playerAddId,json.dumps({"owner":userId,"Price":price}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('PUT','/1/classes/polloptions/%s'%playerdropId,json.dumps({"owner":"","Price":0}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())

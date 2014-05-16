@@ -55,7 +55,7 @@ window.fbAsyncInit = function() {
 
 function playingTeam()
 {
-    $.get("http://www.dukesxi.co/playingteam",function(data,status){
+    $.get("http://www.dukesxi.co/fantasyteam/zR1SI0BrKv",function(data,status){
         var pollid= data.team.results[0].pollid;
         var team = data.team.results[0].team;
         var teamtablehtml='<table id="teamTable"><thead><tr>' +
