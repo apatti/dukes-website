@@ -35,7 +35,7 @@ def createPlayingTeam(playingTeamObj):
 
 def getPlayingTeam():
     params = urllib.urlencode(
-        {"order": "-updatedAt", "limit": 1
+        {"where":json.dumps({"objectId": "zR1SI0BrKv"}),"order": "-updatedAt", "limit": 1
         })
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
