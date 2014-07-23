@@ -20,7 +20,7 @@ $(document).ready(function()
 			    var match=data.results[i].Match;
                 var location = data.results[i].location;
 			    var status=data.results[i].status;
-		  	    datarow.addRows([[user,date.toString(),year,match,location,status]]);
+		  	    datarow.addRows([[user,date,year.toString(),match,location,status]]);
 			}
 		    //var batroptions={ title:'Bets','height':600,vAxis:{title:'Runs'}};
 		    var umpiretable = new google.visualization.Table(document.getElementById('umpires_chart_div'));
