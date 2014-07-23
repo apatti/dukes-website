@@ -12,6 +12,7 @@ from iplstandings import getIplStanding,getIplCurrentWeekStanding
 from iplschedule import getIplSchedule
 from iplfantasyscore import updateFantasyScore
 from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids
+from umpiring import getUmpireList
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -161,6 +162,10 @@ def updateFantasyScoreApi(game_id):
     reqObj = request.get_json(force=True)
     result = updateDukesFantasyScore(game_id, reqObj)
     return jsonify({'result': result}), 201
+
+@app.route('/umpirelist',methods=['GET'])
+def getUmpireListApi():
+    return jsonify(getUmpireList()),200
 
 @app.route('/superbowl',methods=['POST'])
 def insertSuperBowlApi():
