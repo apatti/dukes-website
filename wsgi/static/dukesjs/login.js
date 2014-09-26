@@ -1,11 +1,11 @@
 $(document).ready(function(){
 	 $('#dukesLoginDiv').html("<div id='signinButton'>"+
   "<span class='g-signin' " +
-    "data-callback='signinCallback'"+
+    "data-callback='googleSigninCallback'"+
     "data-clientid='319656721002-ppajmfotulboinl39ic9vq19ql60m0nq.apps.googleusercontent.com'"+
     "data-cookiepolicy='single_host_origin'"+
     "data-requestvisibleactions='http://schema.org/AddAction'"+
-    "data-scope='https://www.googleapis.com/auth/plus.login'"+
+    "data-scope='email'"+
     "data-width='200'"+
     "data-height='short'>"+
     "</span></div>");
@@ -20,11 +20,23 @@ $(document).ready(function(){
    var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   }(document));
 
-    function signinCallback(authResult){
+    function googleSigninCallback(authResult){
         if(authResult['access_token'])
         {
-              alert("Logged in with Google");
-            document.getElementById('dukesLoginDiv').setAttribute('style', 'display: none');
+            gapi.client.load('plus','v1',function(){
+                gapi.client.plus.people.get({userId:'me'}).execute(function(resp){
+                    var primaryEmail='';
+                    for(var i=0;i<resp.emails.length;i++)
+                    {
+                        if(resp.emails[i].type==='account')
+                        {
+                            primaryEmail=resp.emails[i].value;
+                            document.getElementById('dukesLoginDiv').html(primaryEmail);
+                            break;
+                        }
+                    }
+                });
+            });
         }
         else
         {
