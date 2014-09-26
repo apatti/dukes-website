@@ -24,7 +24,7 @@ $(document).ready(function(){
         if(authResult['access_token'])
         {
               alert("Logged in with Google");
-              $('#dukesLoginDiv').setAttribute('style', 'display: none');
+            document.getElementById('dukesLoginDiv').setAttribute('style', 'display: none');
         }
         else
         {
