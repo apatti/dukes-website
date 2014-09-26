@@ -30,7 +30,8 @@ $(document).ready(function(){
                         if(resp.emails[i].type==='account')
                         {
                             primaryEmail=resp.emails[i].value;
-                            document.getElementById('dukesLoginDiv').html(primaryEmail);
+                            $('#dukesLoginDiv').html(primaryEmail);
+                            localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(resp));
                             break;
                         }
                     }
