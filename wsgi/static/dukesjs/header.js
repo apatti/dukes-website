@@ -8,6 +8,6 @@
     "data-scope='https://www.googleapis.com/auth/plus.login'"+
     "data-width='200'"+
     "data-height='short'>"+
-    "</span><span><fb:login-button autologoutlink='true' width='200' max-rows='1'></fb:login-button></span></div>");
+    "</span></div><div id='fbroot'><fb:login-button autologoutlink='true' width='200' max-rows='1'></fb:login-button></div>");
 
  });
