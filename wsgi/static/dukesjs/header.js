@@ -6,6 +6,7 @@
     "data-cookiepolicy='single_host_origin'"+
     "data-requestvisibleactions='http://schema.org/AddAction'"+
     "data-scope='https://www.googleapis.com/auth/plus.login'>"+
-  "</span><fb:login-button autologoutlink='true' width='200' max-rows='1'></fb:login-button></div>");
+    "data-width=200"+
+    "</span><fb:login-button autologoutlink='true' width='200' max-rows='1'></fb:login-button></div>");
 
  });
