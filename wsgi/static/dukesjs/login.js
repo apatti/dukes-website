@@ -40,7 +40,7 @@ $(document).ready(function(){
         }
         else
         {
-            alert("Not logged in");
+            $('#centerContent').html("<h6>Member Area, please login to access the page.</h6>")
         }
     }
 
