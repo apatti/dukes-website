@@ -26,7 +26,8 @@ window.fbAsyncInit = function() {
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-      loginSuccessAPI();
+      AuthStates.facebook=response;
+        chooseAuthProvider();
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
       // FB.login() to prompt them to do so. 
@@ -51,6 +52,11 @@ window.fbAsyncInit = function() {
   });
   };
 
+var AuthStates = {
+    google: null,
+    facebook: null
+  }
+
    $(document).ready(function(){
 	 $('#dukesLoginDiv').html("<div id='signinButton'>"+
   "<span class='g-signin' " +
@@ -62,7 +68,6 @@ window.fbAsyncInit = function() {
     "data-width='200'"+
     "data-height='short'>"+
     "</span></div><div id='fbroot'><fb:login-button autologoutlink='true' width='200' max-rows='1'></fb:login-button></div>");
-
  });
 
   // Load the SDK asynchronously
@@ -79,9 +84,36 @@ window.fbAsyncInit = function() {
    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   }(document));
 
+   function chooseAuthProvider()
+   {
+        if(AuthStates.google && AuthStates.facebook)
+        {
+            if(AuthStates.google['access_token'])
+            {
+                alert("Logged in with Google");
+                $('#dukesLoginDiv').setAttribute('style', 'display: none');
+            }
+            else if (AuthStates.facebook.authResponse){
+                alert("Logged in with FB");
+                $('#dukesLoginDiv').setAttribute('style', 'display: none');
+                loginFacebookSuccessAPI();
+            }
+            else
+            {
+                alert("Not logged in");
+            }
+
+        }
+   }
+
+    function signinCallback(authResult){
+        AuthStates.google=authResult;
+        chooseAuthProvider();
+    }
+
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
-  function loginSuccessAPI() {
+  function loginFacebookSuccessAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');	  
