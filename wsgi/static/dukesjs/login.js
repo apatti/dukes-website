@@ -30,7 +30,7 @@ $(document).ready(function(){
                         if(profile.emails[i].type==='account')
                         {
                             primaryEmail=profile.emails[i].value;
-                            $('#dukesLoginDiv').html('<p>'+profile.displayName+'&nbsp&nbsp<img src="'+profile.image.url+'"</p>');
+                            $('#dukesLoginDiv').html(profile.displayName+'&nbsp&nbsp<img src="'+profile.image.url+'"');
                             localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(profile));
                             break;
                         }
