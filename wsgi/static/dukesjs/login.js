@@ -50,7 +50,21 @@ window.fbAsyncInit = function() {
     }
   });
   };
-  
+
+   $(document).ready(function(){
+	 $('#dukesLoginDiv').html("<div id='signinButton'>"+
+  "<span class='g-signin' " +
+    "data-callback='signinCallback'"+
+    "data-clientid='319656721002-ppajmfotulboinl39ic9vq19ql60m0nq.apps.googleusercontent.com'"+
+    "data-cookiepolicy='single_host_origin'"+
+    "data-requestvisibleactions='http://schema.org/AddAction'"+
+    "data-scope='https://www.googleapis.com/auth/plus.login'"+
+    "data-width='200'"+
+    "data-height='short'>"+
+    "</span></div><div id='fbroot'><fb:login-button autologoutlink='true' width='200' max-rows='1'></fb:login-button></div>");
+
+ });
+
   // Load the SDK asynchronously
   (function(d){
    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
