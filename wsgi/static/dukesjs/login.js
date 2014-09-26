@@ -23,15 +23,15 @@ $(document).ready(function(){
         if(authResult['access_token'])
         {
             gapi.client.load('plus','v1',function(){
-                gapi.client.plus.people.get({userId:'me'}).execute(function(resp){
+                gapi.client.plus.people.get({userId:'me'}).execute(function(profile){
                     var primaryEmail='';
-                    for(var i=0;i<resp.emails.length;i++)
+                    for(var i=0;i<profile.emails.length;i++)
                     {
-                        if(resp.emails[i].type==='account')
+                        if(profile.emails[i].type==='account')
                         {
-                            primaryEmail=resp.emails[i].value;
-                            $('#dukesLoginDiv').html(primaryEmail);
-                            localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(resp));
+                            primaryEmail=profile.emails[i].value;
+                            $('#dukesLoginDiv').html('<p>profile.displayName</p><p><img src="'+profile.image.url+'"</p>');
+                            localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(profile));
                             break;
                         }
                     }
@@ -40,7 +40,7 @@ $(document).ready(function(){
         }
         else
         {
-            $('#centerContent').html("<h6>Member Area, please login to access the page.</h6>")
+            $('#centerContent').html("<h3>Member Area, please login to access the page.</h3>")
         }
     }
 
