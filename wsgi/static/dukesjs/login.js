@@ -58,6 +58,11 @@ window.fbAsyncInit = function() {
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
+   var po = document.createElement('script');
+   po.type = 'text/javascript';
+   po.async = true;
+   po.src = 'https://apis.google.com/js/client:plusone.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   }(document));
 
   // Here we run a very simple test of the Graph API after login is successful. 
