@@ -31,7 +31,7 @@ $(document).ready(function(){
                         {
                             primaryEmail=profile.emails[i].value;
                             $('#loggedUserDiv').html(profile.displayName+'&nbsp&nbsp<img src="'+profile.image.url+'">');
-                            $('#d').html('<a id="googleSignOut">signout</a>')
+                            $('#dukesLoginDiv').html('<a id="googleSignOut">signout</a>')
                             localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(profile));
                             break;
                         }
