@@ -30,8 +30,7 @@ $(document).ready(function(){
                         if(profile.emails[i].type==='account')
                         {
                             primaryEmail=profile.emails[i].value;
-                            $('#loggedUserDiv').html(profile.displayName+'&nbsp&nbsp<img src="'+profile.image.url+'">');
-                            $('#dukesLoginDiv').html('<p><a id="googleSignOut">signout</a></p>')
+                            $('#loggedUserDiv').html('<p>'+profile.displayName+'</p><p><a id="googleSignOut" href="#" onclick="onClickSignOut();return false;">signout</a></p>');
                             localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(profile));
                             break;
                         }
@@ -44,6 +43,12 @@ $(document).ready(function(){
             $('#centerContent').html("<h3>Member Area, please login to access the page.</h3>")
         }
     }
+
+  function onClickSignOut()
+  {
+      gapi.auth.signOut();
+      localStorage.removeItem('USER_GOOGLE_INFO');
+  }
 
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
