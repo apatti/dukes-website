@@ -38,16 +38,13 @@ function loggedIn(){
     var userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
     $('#nameDiv').html("<h3>Name : </h>"+userData.displayName);
 			$('#fNameDiv').html("<h3>First Name : </h>"+userData.name.givenName);
-			$('#lNameDiv').html("<h3>Last Name : </h>"+userData.name.lastName);
-			$('#fbLinkDiv').html("<h3>Google+ Link : </h>"+userData.url);
+			$('#lNameDiv').html("<h3>Last Name : </h>"+userData.name.familyName);
+			$('#profileLinkDiv').html("<h3>Google+ Link : </h>"+userData.url);
 			Email :
-			$('#fbLinkDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value=userData.emails[0].value>");
-			$('#fbProfileImg').html("<img src="+userData.image.url+" class='image' width='100px' height='100px'/>");
+			$('#emailTxtDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value="+userData.emails[0].value+">");
+			$('#profileImg').html("<img src="+userData.image.url+" class='image' width='100px' height='100px'/>");
 
 			updateTeamDropdown(response.username);
- FB.api('/me', function(response) {
-
- });
 }   
 
 function updateTeamDropdown(username){
