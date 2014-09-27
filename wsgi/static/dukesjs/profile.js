@@ -31,6 +31,10 @@
 		 });
 		 applyCSSToPageComponents();
  };
+
+ $(document).ready(function(){
+	 alert("Good");
+ });
 	   
 function loggedIn(){
  FB.api('/me', function(response) {
