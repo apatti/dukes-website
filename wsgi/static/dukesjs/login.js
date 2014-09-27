@@ -32,7 +32,7 @@ $(document).ready(function(){
                             primaryEmail=profile.emails[i].value;
                             $('#loggedUserDiv').html('<p>'+profile.displayName+'</p><p><a id="googleSignOut" href="#" onclick="onClickSignOut();return false;">signout</a></p>');
                             localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(profile));
-                            document.getElementById('dukesLoginDiv').setAttribute('display','none');
+                            document.getElementById('dukesLoginDiv').setAttribute('style', 'display: none');
                             break;
                         }
                     }
@@ -49,9 +49,9 @@ $(document).ready(function(){
   {
       gapi.auth.signOut();
       localStorage.removeItem('USER_GOOGLE_INFO');
-      document.getElementById('dukesLoginDiv').setAttribute('display','');
-      document.getElementById('loggedUserDiv').setAttribute('display','none');
-      document.getElementById('googleSignOut').setAttribute('display','none');
+      document.getElementById('dukesLoginDiv').setAttribute('style', 'display: ');
+      document.getElementById('loggedUserDiv').setAttribute('style', 'display: none');
+      document.getElementById('googleSignOut').setAttribute('style', 'display: none');
   }
 
   // Here we run a very simple test of the Graph API after login is successful. 
