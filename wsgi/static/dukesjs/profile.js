@@ -32,11 +32,11 @@
 		 applyCSSToPageComponents();
  };
 
- $(document).ready(function(){
-	 alert("Good");
- });
+$(document).bind('login_complete', loggedIn);
 	   
 function loggedIn(){
+    alert("Goog");
+    return;
  FB.api('/me', function(response) {
 	//var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
 	$('#loggedUserDiv').html(response.username);

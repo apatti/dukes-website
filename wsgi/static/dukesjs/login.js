@@ -34,6 +34,7 @@ $(document).ready(function(){
                             localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(profile));
                             document.getElementById('dukesLoginDiv').setAttribute('style', 'display: none');
                             document.getElementById('loggedUserDiv').removeAttribute('style');
+                            $(document).trigger('login_complete');
                             break;
                         }
                     }
