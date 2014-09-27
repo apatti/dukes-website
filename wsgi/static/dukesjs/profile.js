@@ -35,20 +35,18 @@
 $(document).bind('login_complete', loggedIn);
 	   
 function loggedIn(){
-    alert("Goog");
-    return;
- FB.api('/me', function(response) {
-	//var userData = $.parseJSON(localStorage.getItem('USER_FB_INFO'));
-	$('#loggedUserDiv').html(response.username);
-			$('#nameDiv').html("<h3>Name : </h>"+response.name);
-			$('#fNameDiv').html("<h3>First Name : </h>"+response.first_name);
-			$('#lNameDiv').html("<h3>Last Name : </h>"+response.last_name);
-			$('#fbLinkDiv').html("<h3>FB Link : </h>"+response.link);
-			Email : 
-			$('#fbLinkDiv').html("<h3>Email : </h><input id='emailTxt' type='text' />");
-			$('#fbProfileImg').html("<img src='https://graph.facebook.com/"+response.username+"/picture?type=normal' class='image' width='100px' height='100px'/>");
-			
+    var userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
+    $('#nameDiv').html("<h3>Name : </h>"+userData.displayName);
+			$('#fNameDiv').html("<h3>First Name : </h>"+userData.name.givenName);
+			$('#lNameDiv').html("<h3>Last Name : </h>"+userData.name.lastName);
+			$('#fbLinkDiv').html("<h3>Google+ Link : </h>"+userData.url);
+			Email :
+			$('#fbLinkDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value=userData.emails[0].value>");
+			$('#fbProfileImg').html("<img src="+userData.image.url+" class='image' width='100px' height='100px'/>");
+
 			updateTeamDropdown(response.username);
+ FB.api('/me', function(response) {
+
  });
 }   
 
