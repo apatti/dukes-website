@@ -2,6 +2,7 @@
 $(document).bind('login_complete', loggedIn);
 	   
 function loggedIn(){
+    alert("Profile.js");
     var userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
     $('#nameDiv').html("<h3>Name : </h>"+userData.displayName);
 			$('#fNameDiv').html("<h3>First Name : </h>"+userData.name.givenName);
