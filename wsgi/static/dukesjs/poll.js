@@ -6,19 +6,11 @@ $(document).bind('login_complete', loggedIn);
  function loggedIn(){
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
      $.get("http://www.dukesxi.co/users/"+userData.id,function(data,status){
-            alert(data);
+            polling();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Cricket team member area, please request to join Dukes Cricket Team to access the page.</h3>")
          });
-	 FB.api('/me', function(response) {
-		  console.log('Good to see you, ' + response.name + '.');	  
-		  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
-		
-		   fbUserName = response.username;
-		   $('#loggedUserDiv').html(response.username);	 
-		   polling();
-		});
  }
  
  
