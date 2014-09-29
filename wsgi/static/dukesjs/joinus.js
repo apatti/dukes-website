@@ -14,6 +14,11 @@ function loggedIn(){
             applyCSSToPageComponents();
 }
 
+function onClickSaveBtn()
+{
+    alert("Save");
+}
+
 function applyCSSToPageComponents(){
 	$('#default').puipanel();
 	$('#dukesTeamSelect').puidropdown();
