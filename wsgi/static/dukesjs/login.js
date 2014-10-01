@@ -30,8 +30,17 @@ $(document).ready(function(){
                         if(profile.emails[i].type==='account')
                         {
                             primaryEmail=profile.emails[i].value;
+                            var user_google_data={
+                                name: profile.displayName,
+                                id:profile.id,
+                                username: profile.id,
+                                imagelink:profile.image.url,
+                                first_name:profile.name.givenName,
+                                last_name:profile.name.familyName,
+                                email: primaryEmail
+                            };
                             $('#loggedUserDiv').html('<p>'+profile.displayName+'</p><p><a id="googleSignOut" href="#" onclick="onClickSignOut();return false;">signout</a></p>');
-                            localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(profile));
+                            localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(user_google_data));
                             document.getElementById('dukesLoginDiv').setAttribute('style', 'display: none');
                             document.getElementById('loggedUserDiv').removeAttribute('style');
                             $(document).trigger('login_complete');

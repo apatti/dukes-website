@@ -164,7 +164,7 @@ def updateFantasyScoreApi(game_id):
     return jsonify({'result': result}), 201
 
 @app.route('/umpirelist',methods=['GET'])
-def getUmpireListApi():
+def getSuperBowlApi():
     return jsonify(getUmpireList()),200
 
 @app.route('/superbowl',methods=['POST'])

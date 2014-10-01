@@ -7,12 +7,12 @@ var userData="";
 
 function loggedIn(){
     userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
-    $('#nameDiv').html("<h3>Name : </h>"+userData.displayName);
-			$('#fNameDiv').html("<h3>First Name : </h>"+userData.name.givenName);
-			$('#lNameDiv').html("<h3>Last Name : </h>"+userData.name.familyName);
+    $('#nameDiv').html("<h3>Name : </h>"+userData.name);
+			$('#fNameDiv').html("<h3>First Name : </h>"+userData.first_name);
+			$('#lNameDiv').html("<h3>Last Name : </h>"+userData.last_name);
 			Email :
-			$('#emailTxtDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value="+userData.emails[0].value+">");
-			$('#profileImg').html("<img src="+userData.image.url+" class='image' width='100px' height='100px'/>");
+			$('#emailTxtDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value="+userData.email+">");
+			$('#profileImg').html("<img src="+userData.imagelink+" class='image' width='100px' height='100px'/>");
             applyCSSToPageComponents();
 }
 
