@@ -19,7 +19,7 @@ function loggedIn(){
 function onClickSaveBtn()
 {
     var data="";
-    $.post("http://dukesxi.co/users",userData,function(){
+    $.post("http://www.dukesxi.co/users",userData,function(){
         alert("Information saved!!")
     })
         .fail(function(){
