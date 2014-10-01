@@ -3,8 +3,10 @@
  */
 $(document).bind('login_complete', loggedIn);
 
+var userData="";
+
 function loggedIn(){
-    var userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
+    userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
     $('#nameDiv').html("<h3>Name : </h>"+userData.displayName);
 			$('#fNameDiv').html("<h3>First Name : </h>"+userData.name.givenName);
 			$('#lNameDiv').html("<h3>Last Name : </h>"+userData.name.familyName);
@@ -16,7 +18,13 @@ function loggedIn(){
 
 function onClickSaveBtn()
 {
-    alert("Save");
+    var data="";
+    $.post("http://dukesxi.co/users",userData,function(){
+        alert("Information saved!!")
+    })
+        .fail(function(){
+           alert("Failed");
+        });
 }
 
 function applyCSSToPageComponents(){
