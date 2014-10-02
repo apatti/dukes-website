@@ -9,7 +9,6 @@ function loggedIn(){
 			Email :
 			$('#emailTxtDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value="+userData.email+">");
 			$('#profileImg').html("<img src="+userData.imagelink+" class='image' width='100px' height='100px'/>");
-            location.reload();
             applyCSSToPageComponents();
 }   
 
