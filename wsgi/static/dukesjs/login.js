@@ -53,7 +53,7 @@ $(document).ready(function(){
         }
         else
         {
-            $('#centerContent').html("<h3>Member Area, please login to access the page.</h3>");
+            $('#loginerrorMsg').html("<h3>Member Area, please login to access the page.</h3>");
         }
     }
 
