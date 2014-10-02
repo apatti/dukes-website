@@ -27,7 +27,12 @@ function loggedIn(){
 
 function onClickSaveBtn()
 {
-    var data="";
+    userData.email = $('#emailTxt').val();
+    if($('#cricketCheckBox').is(":checked"))
+    {
+        userData.tca_associated=-1;
+    }
+
     $.post("http://www.dukesxi.co/users",userData,function(){
         alert("Information saved!!")
     })
