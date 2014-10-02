@@ -43,7 +43,7 @@ $(document).ready(function(){
                             localStorage.setItem('USER_GOOGLE_INFO',JSON.stringify(user_google_data));
                             document.getElementById('dukesLoginDiv').setAttribute('style', 'display: none');
                             document.getElementById('loggedUserDiv').removeAttribute('style');
-                            $('#centerContent').html("");
+                            $('#loginerrorMsg').html("");
                             $(document).trigger('login_complete');
                             break;
                         }
