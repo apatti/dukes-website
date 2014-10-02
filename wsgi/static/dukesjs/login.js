@@ -63,37 +63,6 @@ $(document).ready(function(){
       localStorage.removeItem('USER_GOOGLE_INFO');
       document.getElementById('dukesLoginDiv').removeAttribute('style');
       document.getElementById('loggedUserDiv').setAttribute('style', 'display: none');
+      location.href="/";
   }
 
-  // Here we run a very simple test of the Graph API after login is successful. 
-  // This testAPI() function is only called in those cases. 
-  function loginFacebookSuccessAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Good to see you, ' + response.name + '.');	  
-      localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
-	
-	   fbUserName = response.username;
-	   $('#loggedUserDiv').html(response.username);
-	   //Post FB data to dukes service
-	   var jsonObj ='';
-	   var dataTobesent ={ 'name':response.name,'first_name': response.first_name,'last_name':response.last_name, 'username':response.username,'fb_id':response.id,'link':response.link,'tca_id':'','email':''} ;
-	   //alert(JSON.stringify(dataTobesent));
-	   $.ajax({
-			  type: 'POST',
-			  url: DOMAIN_NAME +'/users/',
-			  dataType: 'json',
-			  contentType:'application/json',
-			  data:JSON.stringify(dataTobesent),			  
-			  success: function(res,status,jqXHR){
-				jsonObj = JSON.stringify(res.result.results[0]);
-				localStorage.setItem('USER_FB_INFO',jsonObj);			
-			  },
-			  error: function(jqXHR, textStatus, errorThrown){
-                    alert(textStatus, errorThrown);
-                }
-			 
-			});
-});
-    
-  }

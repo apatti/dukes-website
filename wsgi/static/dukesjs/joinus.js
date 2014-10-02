@@ -1,6 +1,12 @@
 /**
  * Created by apatti on 9/28/14.
  */
+
+$(function()
+{
+    $('#saveDiv').hide();
+});
+
 $(document).bind('login_complete', loggedIn);
 
 var userData="";
@@ -13,6 +19,7 @@ function loggedIn(){
 			Email :
 			$('#emailTxtDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value="+userData.email+">");
 			$('#profileImg').html("<img src="+userData.imagelink+" class='image' width='100px' height='100px'/>");
+            $('#saveDiv').show();
             applyCSSToPageComponents();
 }
 
