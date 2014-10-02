@@ -33,7 +33,7 @@ function onClickSaveBtn()
         userData.tca_associated=-1;
     }
 
-    $.post("http://www.dukesxi.co/users",userData,function(){
+    $.post("/users",userData,function(){
         alert("Information saved!!")
     })
         .fail(function(){
