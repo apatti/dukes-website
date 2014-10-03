@@ -35,7 +35,7 @@ function onClickSaveBtn()
 
     $.post("/users",userData,function(){
         alert("Information saved!!")
-    })
+    },"json")
         .fail(function(){
            alert("Failed");
         });
