@@ -33,12 +33,20 @@ function onClickSaveBtn()
         userData.tca_associated=-1;
     }
 
-    $.post("/users",userData,function(){
-        alert("Information saved!!")
-    },"json")
-        .fail(function(){
-           alert("Failed");
-        });
+    $.ajax({
+			type: "POST",
+			contentType:'application/json',
+			url: '/users',
+			data: userData,
+			dataType: 'json',
+			success: function(msg) {
+			   alert("Information saved");
+			   location.href="/";
+		   },
+            error: function(errmsg){
+                alert(errmsg);
+            }
+		});
 }
 
 function applyCSSToPageComponents(){
