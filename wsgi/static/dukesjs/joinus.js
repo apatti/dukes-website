@@ -36,7 +36,7 @@ function onClickSaveBtn()
     $.ajax({
 			type: "POST",
 			contentType:'application/json',
-			url: '/users',
+			url: '/users/',
 			data: userData,
 			dataType: 'json',
 			success: function(msg) {
