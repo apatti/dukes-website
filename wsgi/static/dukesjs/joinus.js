@@ -37,7 +37,7 @@ function onClickSaveBtn()
 			type: "POST",
 			contentType:'application/json',
 			url: '/users/',
-			data: userData,
+			data: JSON.stringify(userData),
 			dataType: 'json',
 			success: function(msg) {
 			   alert("Information saved");
