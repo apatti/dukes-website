@@ -7,6 +7,9 @@ def saveUser(userObj):
     connection.connect()
     connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
+    if userObj["tca_associated"] == "-1" :
+        name=userObj["name"]
+        send_mail("%s is requesting to join the Dukes XI Cricket Team" % (name),"cricketadmin@dukesxi.co",userObj.get("email"),"Permission to join Dukes XI Cricket Team")
     return result
 
 def getUser(userName):
