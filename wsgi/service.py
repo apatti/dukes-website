@@ -31,11 +31,12 @@ def insertUserApi():
     reqObj = request.get_json(force=True)
     userObj ={}
     userObj["username"]=reqObj.get("username")
-    userObj["fb_id"] = reqObj.get("id")
-    userObj["link"] = reqObj.get("link")
+    userObj["id"] = reqObj.get("id")
+    userObj["imagelink"] = reqObj.get("imagelink")
     userObj["name"] = reqObj.get("name")
     userObj["first_name"]=reqObj.get("first_name")
     userObj["last_name"] = reqObj.get("last_name")
+    userObj["email"] = reqObj.get("email")
     userObj["tca_associated"]=0
     result = getUser(userObj["username"])
     if not result.get("results"):
