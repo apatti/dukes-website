@@ -14,16 +14,32 @@ var userData="";
 
 function loggedIn(){
     userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
+        $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
+            setProfileUIData(data);
+     })
+        .fail(function(){
+             setProfileUIData(userData);
+         });
+
+}
+
+function setUserUIData(userData)
+{
     $('#nameDiv').html("<h3>Name : </h>"+userData.name);
 			$('#fNameDiv').html("<h3>First Name : </h>"+userData.first_name);
 			$('#lNameDiv').html("<h3>Last Name : </h>"+userData.last_name);
 			Email :
 			$('#emailTxtDiv').html("<h3>Email : </h><input id='emailTxt' type='text' value="+userData.email+">");
 			$('#profileImg').html("<img src="+userData.imagelink+" class='image' width='100px' height='100px'/>");
+            if(userData.tca_associated==1)
+            {
+                $('#cricketCheckBox').prop('checked',true);
+            }
             $('#saveDiv').show();
             $('#roleDiv').show();
             applyCSSToPageComponents();
 }
+
 
 function onClickSaveBtn()
 {

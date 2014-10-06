@@ -1,12 +1,13 @@
-var fbUserName='';
+var userName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
 
 $(document).bind('login_complete', loggedIn);
 
  function loggedIn(){
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
-     $.get("http://www.dukesxi.co/users/"+userData.id,function(data,status){
-            polling();
+     $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
+         userName=data.email.substr(0,data.email.indexOf('@'));
+         polling();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Cricket team member area, please request to join Dukes Cricket Team to access the page.</h3>")
@@ -28,7 +29,7 @@ $(document).bind('login_complete', loggedIn);
 					
 					//Open Polls
 					if(this['isClosed'] == 0 ){
-						if(this['username'] === fbUserName ){
+						if(this['username'] === userName ){
 						}else{
 						}
 						var objId = this['objectId'] ;
@@ -55,7 +56,7 @@ $(document).bind('login_complete', loggedIn);
 								$.each( uData,function () {
                                  // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
                                   usersTable = usersTable + "<tr><td style='background-color: greenyellow;font-family: monospace;'>"+this+"</td></tr>"
-                                  if(this.toString() === fbUserName){
+                                  if(this.toString() === userName){
                                   hasPollTaken = 'yes';
                                   checkedValue = true;
                                   previousOptionId = optionId;
@@ -184,7 +185,7 @@ $(document).bind('login_complete', loggedIn);
 						type: "PUT",
 						contentType:'application/json',
 						url: '/polls/'+pollid,
-						data: JSON.stringify({'current_option_id':currentRadio,'prev_option_id':previousOptionId,'username':fbUserName} ),
+						data: JSON.stringify({'current_option_id':currentRadio,'prev_option_id':previousOptionId,'username':userName} ),
 						dataType: 'json',
 						success: function(msg) {
 						   alert("Thank you for Taking Poll.");
@@ -242,7 +243,7 @@ function updatePollDetails(pollId,noOfPolls ){
 					var userCount = 0;
 					$.each( uData,function () {
 						dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
-						if(this.toString() === fbUserName){
+						if(this.toString() === userName){
 							hasPollTaken='yes';
 							checkedValue =true;
 							previousOptionId = optionId;
