@@ -36,7 +36,7 @@ function setProfileUIData(userData)
             $('#roleDiv').show();
             if(userData.tca_associated==1)
             {
-                $('#cricketCheckBox').prop('checked',true).checkboxradio("refresh");
+                $('#cricketCheckBox').prop('checked',true);
             }
             applyCSSToPageComponents();
 }
