@@ -3,7 +3,7 @@ $(document).bind('login_complete', loggedIn);
 	   
 function loggedIn(){
     var userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
-    $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
+    $.get("http://www.dukesxi.co/users/"+userData.id,function(data,status){
             setProfileUIData(data);
      })
         .fail(function(){
