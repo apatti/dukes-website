@@ -1,55 +1,29 @@
-var fbUserName='';
+var userName='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '627120887325860',
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-  });
-   FB.Event.subscribe('auth.logout', function(response) {
 
-	   logout();
-       $('#adminTabPanel').hide();
-       $('#noPermission').show();
-	   $('#noPermission').append('Please Login To See Admin Dashboard');
-
-	   location.reload();
-		});
-	FB.Event.subscribe('auth.login', function() {
-		  location.reload();
-	});
-	 FB.getLoginStatus(function(response) {
-		if (response.status === 'connected') {		
-			loggedIn();
-            $( "#datepicker" ).datepicker();
-            $("#gamedate").datepicker();
-
-        }else{
-            $('#adminTabPanel').hide();
-            $('#noPermission').show();
-			$('#noPermission').append('Please Login To See Admin Dashboard');
-		}
-	});
-	
-};
+$(document).bind('login_complete',loggedIn);
+       
  function loggedIn(){
-	 FB.api('/me', function(response) {
-		  console.log('Good to see you, ' + response.name + '.');	  
-		  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
-		
-		   fbUserName = response.username;
-		   $('#loggedUserDiv').html(response.username);	 
-		   if(fbUserName === 'pram.gottiganti' || fbUserName === 'ashwin.patti' || fbUserName === 'surendra.batchu'){
-			    pollCreation();
-                selectTeam();
-               $('#adminTabPanel').show();
-               $('#noPermission').hide();
-		   }else{
-               $('#adminTabPanel').hide();
-				$('#noPermission').show();
-		   }
-		});
+     var userData=$.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
+     $.get(DOMAIN_NAME+"/users/"+userData.id,function(data,status){
+	     if(data.user.results[0].isAdmin==1)
+		 {
+		     userName=data.user.results[0].name;
+		     pollCreation();
+		     selectTeam();
+		     $('#adminTabPanel').show();
+		     $('#noPermission').hide();
+		 }
+	     else
+		 {
+		     $('#adminTabPanel').hide();
+		     $('#noPermission').show();
+		 }
+	 })
+	 .fail(function(){
+		 $('#adminTabPanel').hide();
+		 $('#noPermission').show();
+	     });
  }
 
 /*
@@ -157,7 +131,7 @@ function selectTeam()
 						options.push(jsonArg1);
 					})
         var pollData={};
-        pollData.username = fbUserName;
+        pollData.username = userName;
         pollData.closeMethod ='manual';
         pollData.question = pollSubj;
         pollData.endDate = $("#datepicker").val();
