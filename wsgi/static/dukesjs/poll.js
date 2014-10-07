@@ -1,4 +1,5 @@
 var userName='';
+var userId='';
 var DOMAIN_NAME = 'http://www.dukesxi.co';
 
 $(document).bind('login_complete', loggedIn);
@@ -7,6 +8,7 @@ $(document).bind('login_complete', loggedIn);
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
      $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
          userName=data.user.results[0].email.substr(0,data.user.results[0].email.indexOf('@'));
+	 userId=data.user.results[0].username;
          polling();
      })
          .fail(function(){
@@ -185,7 +187,7 @@ $(document).bind('login_complete', loggedIn);
 						type: "PUT",
 						contentType:'application/json',
 						url: '/polls/'+pollid,
-						data: JSON.stringify({'current_option_id':currentRadio,'prev_option_id':previousOptionId,'username':userName} ),
+						    data: JSON.stringify({'current_option_id':currentRadio,'prev_option_id':previousOptionId,'username':userName,'userId':userId} ),
 						dataType: 'json',
 						success: function(msg) {
 						   alert("Thank you for Taking Poll.");

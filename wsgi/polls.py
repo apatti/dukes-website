@@ -66,8 +66,8 @@ tent-Type": "application/json"})
     
     return "deleted" 
 
-def takePoll(poll_id,username,optid,prev_optid):
-    userskill = getUserSkill(username)
+def takePoll(poll_id,username,userid,optid,prev_optid):
+    userskill = getUserSkill(userid)
     username= username + " (" + userskill + ")"
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
