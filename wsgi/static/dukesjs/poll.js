@@ -6,7 +6,7 @@ $(document).bind('login_complete', loggedIn);
  function loggedIn(){
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
      $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
-         userName=data.user.results[0].email.substr(0,data.email.indexOf('@'));
+         userName=data.user.results[0].email.substr(0,data.user.results[0].email.indexOf('@'));
          polling();
      })
          .fail(function(){
