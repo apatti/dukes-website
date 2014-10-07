@@ -74,6 +74,7 @@ def takePoll(poll_id,username,userid,optid,prev_optid):
     if not prev_optid or prev_optid != '':
         #handle the old option.
         #TODO: Should handle this properly later on.
+        print 'Removing '+username+' from '+prev_optid
         connection.request('PUT','/1/classes/polloptions/%s'%prev_optid,json.dumps({"users":{"__op":"Remove","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
     
