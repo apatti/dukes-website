@@ -31,9 +31,6 @@ $(document).bind('login_complete', loggedIn);
 					
 					//Open Polls
 					if(this['isClosed'] == 0 ){
-						if(this['username'] === userName ){
-						}else{
-						}
 						var objId = this['objectId'] ;
 						var localPollStr = "";
 						localPollStr = localPollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
@@ -58,10 +55,10 @@ $(document).bind('login_complete', loggedIn);
 								$.each( uData,function () {
                                  // dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
                                   usersTable = usersTable + "<tr><td style='background-color: greenyellow;font-family: monospace;'>"+this+"</td></tr>"
-                                  if(this.toString() === userName){
-                                  hasPollTaken = 'yes';
-                                  checkedValue = true;
-                                  previousOptionId = optionId;
+				      if(this.toString().replace(/\((.*)\)/,'').trim() === userName){
+				      hasPollTaken = 'yes';
+				      checkedValue = true;
+				      previousOptionId = optionId;
                                   }
                                   userCount ++;
                                   });
@@ -245,7 +242,7 @@ function updatePollDetails(pollId,noOfPolls ){
 					var userCount = 0;
 					$.each( uData,function () {
 						dropDownStr = dropDownStr + "<option value='"+userCount+"'>"+this+"</option>";
-						if(this.toString() === userName){
+						if(this.toString().replace(/\((.*)\)/,'').trim() === userName){
 							hasPollTaken='yes';
 							checkedValue =true;
 							previousOptionId = optionId;
