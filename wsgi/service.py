@@ -172,15 +172,15 @@ def getUmpireListApi():
     return jsonify(getUmpireList()),200
 
 @app.route('/bets',methods=['GET'])
-def getBets():
+def getBetsAPI():
     return jsonify(getBets()),200
 
 @app.route('/bets/<betid>',methods=['GET'])
-def getBet(betid):
+def getBetAPI(betid):
     return jsonify(getBet(betid)),200
 
 @app.route('/bets/<betid>',methods=['PUT'])
-def placeBet(betid):
+def placeBetAPI(betid):
     if not request.get_json:
         abort(400)
 
