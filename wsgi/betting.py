@@ -13,7 +13,7 @@ tent-Type": "application/json"})
 def placeBet(bet_id,username,betNumber):
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
-    userBet = username+":"+betNumber
+    userBet = username+":"+str(betNumber)
     connection.request('PUT','/1/classes/bets/%s'%bet_id,json.dumps({"users":{"__op":"AddUnique","objects":[userBet]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"}) 
     result = json.loads(connection.getresponse().read())
     

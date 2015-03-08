@@ -174,7 +174,7 @@ def getUmpireListApi():
 @app.route('/bets',methods=['GET'])
 def getBetsAPI():
     result = getBets()
-    return jsonify({'result':result}),200
+    return result,200
 
 @app.route('/bets/<betid>',methods=['GET'])
 def getBetAPI(betid):
