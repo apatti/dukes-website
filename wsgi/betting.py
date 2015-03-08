@@ -20,6 +20,7 @@ def placeBet(bet_id,username,betNumber):
     return result
 
 def getBets():
+    print "TESTTT"
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/bets','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
