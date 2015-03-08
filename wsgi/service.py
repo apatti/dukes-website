@@ -13,6 +13,7 @@ from iplschedule import getIplSchedule
 from iplfantasyscore import updateFantasyScore
 from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids
 from umpiring import getUmpireList
+from betting import getBet,placeBet,getBets
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -122,6 +123,8 @@ def takePollApi(poll_id):
     result = takePoll(poll_id,reqObj.get("username"),reqObj.get("userId"),reqObj.get("current_option_id"),reqObj.get("prev_option_id"))
     return jsonify({'result':result}),201
 
+
+
 @app.route('/playingteam',methods=['POST'])
 def insertPlayingTeam():
     reqObj = request.get_json(force=True)
@@ -167,6 +170,23 @@ def updateFantasyScoreApi(game_id):
 @app.route('/umpirelist',methods=['GET'])
 def getUmpireListApi():
     return jsonify(getUmpireList()),200
+
+@app.route('/bets',methods=['GET'])
+def getBets():
+    return jsonify(getBets()),200
+
+@app.route('/bets/<betid>',methods=['GET'])
+def getBet(betid):
+    return jsonify(getBet(betid)),200
+
+@app.route('/bets/<betid>',methods=['PUT'])
+def placeBet(betid):
+    if not request.get_json:
+        abort(400)
+
+    reqObj = request.get_json(force=True)
+    result = placeBet(betid,reqObj.get("username"),reqObj.get("bet"))
+    return jsonify({'result':result}),201
 
 @app.route('/superbowl',methods=['POST'])
 def insertSuperBowlApi():
