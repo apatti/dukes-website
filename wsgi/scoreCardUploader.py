@@ -101,12 +101,19 @@ class ScoreCard:
             else:
                 player['fieldPoints']=1
 
+        
+
         for player in playerList:
             totalPoints = player['batstats']['runPoints']+player['batstats']['runBonus']
-            if 'bowlstats' in player:
-                totalPoints += player['bowlstats']['wicketPoints']+player['bowlstats']['maidenPoints']+player['bowlstats']['wicketBonus']
             if 'fieldPoints' in player:
                 totalPoints += player['fieldPoints']
+
+            if 'bowlstats' in player:
+                bowlingPoints = player['bowlstats']['wicketPoints']+player['bowlstats']['maidenPoints']+player['bowlstats']['wicketBonus']
+                totalPoints += bowlingPoints
+                if bowlingPoints*player['batstats']['runPoints']>0:
+                    totalPoints += totalPoints
+
             player['totalPoints']=totalPoints
             
         return playerList
