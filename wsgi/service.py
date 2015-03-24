@@ -14,7 +14,7 @@ from iplfantasyscore import updateFantasyScore
 from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids
 from umpiring import getUmpireList
 from betting import getBet,placeBet,getBets
-
+from scoreCardUploader import getScoreCard
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
 connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -79,7 +79,6 @@ def updateUserApi(username):
 @app.route('/team/stats',methods=['GET'])
 def getTeamStats():
     return jsonify(getTeamWL()),200
-
 
 @app.route('/polls',methods=['POST'])
 def createPollApi():
@@ -153,6 +152,10 @@ def updateFantasyTeamScoreApi(game_id):
 @app.route('/fantasyscore/<game_id>', methods=['GET'])
 def getFantasyScoreApi(game_id):
     return json.dumps(getFantasyTeamScores(game_id)), 200
+
+@app.route('/fantasy/scorecard/<game_id>',methods=['GET'])
+def getFantasyScoreCard(game_id):
+    return json.dumps(getScoreCard(game_id)),200
 
 @app.route('/cricketgames/', methods=['GET'])
 def getCricketGamesMetaApi():
