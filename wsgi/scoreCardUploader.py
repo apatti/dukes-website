@@ -35,10 +35,9 @@ class ScoreCard:
         connection.request('GET',url)
         result =json.loads(connection.getresponse().read())
         battingCard = result['results']
-        if 'srr' in battingCard[0]:
-            batsmanList = [{'name':batsman.get('name/_text'),'balls':int(batsman.get('balls')),'sixes':int(batsman.get('sixes')),'fours':int(batsman.get('fours')),'runs':int(batsman.get('runs')),'srr':batsman.get('srr')} for batsman in battingCard if 'runs' in batsman]
-        else:
-            batsmanList = [{'name':batsman.get('name/_text'),'balls':int(batsman.get('minutes')),'sixes':int(batsman.get('fours')),'fours':int(batsman.get('balls')),'runs':int(batsman.get('runs')),'srr':batsman.get('sixes')} for batsman in battingCard if 'runs' in batsman]
+        //if 'srr' in battingCard[0]:
+        batsmanList = [{'name':batsman.get('name/_text'),'balls':int(batsman.get('balls')),'sixes':int(batsman.get('sixes')),'fours':int(batsman.get('fours')),'runs':int(batsman.get('runs')),'srr':batsman.get('srr')} for batsman in battingCard if 'runs' in batsman and 'srr' in batsman]
+        batsmanList.extend([{'name':batsman.get('name/_text'),'balls':int(batsman.get('minutes')),'sixes':int(batsman.get('fours')),'fours':int(batsman.get('balls')),'runs':int(batsman.get('runs')),'srr':batsman.get('sixes')} for batsman in battingCard if 'runs' in batsman and 'srr' not in batsman])
         #print batsmanList
         dnbBatsman = [batsman.get('dnb/_text') for batsman in battingCard if 'dnb' in batsman]
         if len(dnbBatsman)>1:
