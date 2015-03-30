@@ -375,7 +375,7 @@ function populateIplFantasySchedule()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('integer','Week Number');
+            datarow.addColumn('number','Week Number');
             datarow.addColumn('string','Fantasy Week');
             datarow.addColumn('string','Games');
             schedule = $.parseJSON(JSON.stringify(data));
