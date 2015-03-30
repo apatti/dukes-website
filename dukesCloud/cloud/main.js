@@ -58,3 +58,4 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
 
 });
 
+//Parse.Cloud.define("getIplFantasySchedule",function(request,response))

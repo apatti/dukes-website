@@ -4,9 +4,10 @@ $(document).bind('login_complete', loggedIn);
  function loggedIn(){
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
      $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
-         userName=data.user.results[0].email.substr(0,data.user.results[0].email.indexOf('@'));
-         userId=data.user.results[0].name;
-         userData= $.parseJSON(data.user.results[0]);
+         userData= data.user.results[0];
+         userName=userData.email.substr(0,userData.email.indexOf('@'));
+         userId=userData.name;
+
             var email = userData.email;
             var iplTeamName = userData.iplteam;
          $('#iplTeamNameTxt').val(iplTeamName);
