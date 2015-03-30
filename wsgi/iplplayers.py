@@ -25,8 +25,12 @@ def getIplAvailablePlayers(leagueid):
     return json.loads(connection.getresponse().read())
 
 
-def getIplUserAvailablePlayers(username):
-    params = urllib.urlencode({"where":json.dumps({"owner": username}),"order":"Type","limit":300});
+def getIplUserAvailablePlayers(username,leagueid):
+    if leagueid=="1":
+        owner="owner1"
+    else:
+        owner="owner2"
+    params = urllib.urlencode({"where":json.dumps({owner: username}),"order":"Type","limit":300});
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})

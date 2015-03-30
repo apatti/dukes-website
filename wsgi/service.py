@@ -251,9 +251,9 @@ def getUserBidsApi(username):
 def getIplAvailablePlayersApi(leagueid):
     return jsonify(getIplAvailablePlayers(leagueid)),200
 
-@app.route('/ipl/availableplayers/<username>',methods=['GET'])
-def getIplAvailableUserPlayersApi(username):
-    return jsonify(getIplUserAvailablePlayers(username)),200
+@app.route('/ipl/league/<leagueid>/availableplayers/<username>',methods=['GET'])
+def getIplAvailableUserPlayersApi(leagueid,username):
+    return jsonify(getIplUserAvailablePlayers(username,leagueid)),200
 
 @app.route('/ipl/standings',methods=['GET'])
 def getIplStandingApi():
