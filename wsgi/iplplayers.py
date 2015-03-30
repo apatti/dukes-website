@@ -14,7 +14,7 @@ def getIplPlayers():
     return json.loads(connection.getresponse().read())
 
 def getIplAvailablePlayers(leagueid):
-    if leagueid==1:
+    if leagueid=="1":
         owner="owner1"
     else:
         owner="owner2"
