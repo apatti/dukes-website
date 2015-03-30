@@ -36,53 +36,53 @@ def getIplUserAvailablePlayers(username,leagueid):
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     userplayers = json.loads(connection.getresponse().read()).get("results")
     useravailableplayers = []
-    availabletypes=['Batsman','Bowler','Wicket Keeper','All-Rounder']
+    availabletypes=['Bat','Bowl','WK','AR']
     if len(userplayers)==11:
         return useravailableplayers
 
     if len(userplayers)>2:
-        batsmancount = len([players for players in userplayers if players.get("Type")=='Batsman'])
-        bowlercount = len([players for players in userplayers if players.get("Type")=='Bowler'])
-        keepercount = len([players for players in userplayers if players.get("Type")=='Wicket Keeper'])
-        allroundercount = len([players for players in userplayers if players.get("Type")=='All-Rounder'])
-        if keepercount==4:
-            availabletypes.remove('Wicket Keeper')
+        batsmancount = len([players for players in userplayers if players.get("Type")=='Bat'])
+        bowlercount = len([players for players in userplayers if players.get("Type")=='Bowl'])
+        keepercount = len([players for players in userplayers if players.get("Type")=='WK'])
+        allroundercount = len([players for players in userplayers if players.get("Type")=='AR'])
+        if keepercount==5:
+            availabletypes.remove('WK')
             if batsmancount==2:
-                availabletypes.remove('Batsman')
-            if bowlercount==3:
-                availabletypes.remove('Bowler')
+                availabletypes.remove('Bat')
+            if bowlercount==2:
+                availabletypes.remove('Bowl')
             if allroundercount==2:
-                availabletypes.remove('All-Rounder')
+                availabletypes.remove('AR')
 
-        if batsmancount==5:
-            availabletypes.remove('Batsman')
+        if batsmancount==6:
+            availabletypes.remove('Bat')
             if keepercount==1:
-                availabletypes.remove('Wicket Keeper')
-            if bowlercount==3:
-                availabletypes.remove('Bowler')
+                availabletypes.remove('WK')
+            if bowlercount==2:
+                availabletypes.remove('Bowl')
             if allroundercount==2:
-                availabletypes.remove('All-Rounder')
+                availabletypes.remove('AR')
 
         if bowlercount==6:
-            availabletypes.remove('Bowler')
+            availabletypes.remove('Bowl')
             if batsmancount==2:
-                availabletypes.remove('Batsman')
+                availabletypes.remove('Bat')
             if keepercount==1:
-                availabletypes.remove('Wicket Keeper')
+                availabletypes.remove('WK')
             if allroundercount==2:
-                availabletypes.remove('All-Rounder')
+                availabletypes.remove('AR')
 
-        if allroundercount==5:
-            availabletypes.remove('All-Rounder')
+        if allroundercount==6:
+            availabletypes.remove('AR')
             if batsmancount==2:
-                availabletypes.remove('Batsman')
-            if bowlercount==3:
-                availabletypes.remove('Bowler')
+                availabletypes.remove('Bat')
+            if bowlercount==2:
+                availabletypes.remove('Bowl')
             if keepercount==1:
-                availabletypes.remove('Wicket Keeper')
+                availabletypes.remove('WK')
 
     print(availabletypes)
-    params = urllib.urlencode({"where":json.dumps({"owner": "","Type":{"$in":availabletypes}}),"order":"Type","limit":300});
+    params = urllib.urlencode({"where":json.dumps({owner: "","Type":{"$in":availabletypes}}),"order":"Type","limit":300});
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
