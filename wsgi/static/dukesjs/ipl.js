@@ -375,6 +375,7 @@ function populateIplFantasySchedule()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
+            datarow.addColumn('integer','Week Number');
             datarow.addColumn('string','Fantasy Week');
             datarow.addColumn('string','Games');
             schedule = $.parseJSON(JSON.stringify(data));
@@ -393,7 +394,7 @@ function populateIplFantasySchedule()
                     matchTitle='Finals'
                 }
                 gamesText = matchTitle + " - "+schedule.results[i].team1+" v "+schedule.results[i].team2;
-                datarow.addRows([[schedule.results[i].fantasyweekname,
+                datarow.addRows([[schedule.results[i].fantasyweek,schedule.results[i].fantasyweekname,
                                     gamesText]]);
             }
             var scheduletable = new google.visualization.Table(document.getElementById('iplfantasyscheduleDiv'));
