@@ -1,61 +1,36 @@
-var fbUserName='';
 
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '627120887325860',
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-  });
-   FB.Event.subscribe('auth.logout', function(response) {
-	   logout();
-	   location.reload();
-		});
-	FB.Event.subscribe('auth.login', function() {
-		  location.reload();
-	});
-	 FB.getLoginStatus(function(response) {
-		if (response.status === 'connected') {		
-			loggedIn();					
-		}else{
-			//$('#pollsDiv').append('Please Login To See Poll');
-		}
-	});
-	
-};
+$(document).bind('login_complete', loggedIn);
+
  function loggedIn(){
-	 FB.api('/me', function(response) {
-		  console.log('Good to see you, ' + response.name + '.');	  
-		  localStorage.setItem('USER_FB_INFO',JSON.stringify(response));
-		
-		   fbUserName = response.username;
-		   $('#loggedUserDiv').html(response.username);	 
-		   ipl_init();
-           registerEventHandlers();
-           populateCurrentWeekDetails();
-           populateStandings();
-            populateFreeAgents();
-            populateMyTeam();
-            populateBidHistory();
-            populateIplSchedule();
-		});
- }
- 
-function ipl_init(){
-        $.get(DOMAIN_NAME+"/users/"+fbUserName,function(data,status){
-            var results = JSON.stringify(data.user.results[0]);
-            var userData = $.parseJSON(results);
+     var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
+     $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
+         userName=data.user.results[0].email.substr(0,data.user.results[0].email.indexOf('@'));
+         userId=data.user.results[0].name;
+         userData= $.parseJSON(data.user.results[0]);
             var email = userData.email;
             var iplTeamName = userData.iplteam;
-            $('#iplTeamNameTxt').val(iplTeamName);
+         $('#iplTeamNameTxt').val(iplTeamName);
             if(email != ''){
 
 
                $('#emailTxt').val(email);
                 //$('#emailTxt').attr('readonly');
             }
-        });
-	}
+
+        //registerEventHandlers();
+        //populateCurrentWeekDetails();
+        //populateStandings();
+        //populateFreeAgents();
+        //populateMyTeam();
+        //populateBidHistory();
+        populateIplFantasySchedule();
+        //populateIplSchedule();
+     })
+         .fail(function(){
+             $('#centerContent').html("<h3>Please sign in.</h3>")
+         });
+ }
+
 function registerEventHandlers(){
     $('#teamNameSubmitBtn').click(function (){
         var iplTeamObj = {};
