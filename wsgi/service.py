@@ -9,7 +9,7 @@ from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateDukesFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
 from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers
 from iplstandings import getIplStanding,getIplCurrentWeekStanding
-from iplschedule import getIplSchedule
+from iplschedule import getIplSchedule,getIplFantasySchedule
 from iplfantasyscore import updateFantasyScore
 from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids
 from umpiring import getUmpireList
@@ -262,6 +262,10 @@ def getIplStandingApi():
 @app.route('/ipl/standings/currentweek',methods=['GET'])
 def getIplCurrentWeekStandingApi():
     return jsonify({'standings':getIplCurrentWeekStanding()}),200
+
+@app.route('/ipl/schedule',methods=['GET'])
+def getIplFantasyScheduleApi():
+    return jsonify(getIplFantasySchedule()),200
 
 @app.route('/ipl/schedule',methods=['GET'])
 def getIplScheduleApi():
