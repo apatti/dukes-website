@@ -392,6 +392,41 @@ function populateBidHistory()
     });
 }
 
+function populateIplFantasySchedule()
+{
+    $.get("/ipl/fantasyschedule",function(data,status){
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Fantasy Week');
+            datarow.addColumn('string','Games');
+            schedule = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<schedule.results.length;i++)
+            {
+                if(schedule.results[i].league==1)
+                {
+                    matchTitle='Pool A'
+                }
+                if(schedule.results[i].league==2)
+                {
+                    matchTitle='Pool B'
+                }
+                if(schedule.results[i].league==0)
+                {
+                    matchTitle='Finals'
+                }
+                gamesText = matchTitle + " - "+schedule.results[i].team1+" v "+schedule.results[i].team2;
+                datarow.addRows([[schedule.results[i].fantasyweekname,
+                                    gamesText]]);
+            }
+            var scheduletable = new google.visualization.Table(document.getElementById('iplfantasyscheduleDiv'));
+            //var options = {'height': 300};
+            scheduletable.draw(datarow);
+        }
+    });
+}
+
 function populateIplSchedule()
 {
     $.get("/ipl/schedule",function(data,status){
