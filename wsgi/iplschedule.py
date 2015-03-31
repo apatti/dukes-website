@@ -13,6 +13,6 @@ def getIplSchedule():
 def getIplFantasySchedule():
     params = urllib.urlencode({"order":"fantasyweek"});
     connection.connect()
-    connection.request('GET','/1/classes/iplfantasyschedule?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.request('POST','/1/functions/getIplFantasySchedule',json.dumps({}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
 

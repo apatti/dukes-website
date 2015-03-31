@@ -58,4 +58,51 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
 
 });
 
-//Parse.Cloud.define("getIplFantasySchedule",function(request,response))
+Parse.Cloud.define("getIplFantasySchedule",function(request,response){
+    var userObject = Parse.Object.extend("user");
+    var userQuery = new Parse.Query(userObject);
+    userQuery.exists("iplteam");
+    userQuery.find().then(function(results){
+        var userIplTeamNames = {};
+        for(var i=0;i<results.length;i++)
+        {
+            userIplTeamNames[results[i].get('first_name')]=results[i].get('iplteam');
+        }
+
+        var scheduleObject = Parse.Object.extend("iplfantasyschedule");
+        var scheduleQuery = new Parse.Query(scheduleObject);
+        scheduleQuery.ascending('fantasyweek');
+        scheduleQuery.find().then(function(scheduleResults){
+            var finalSchedule=[];
+           for(var i=0;i<scheduleResults.length;i++)
+           {
+               var sched={};
+               sched['fantasyweek']=scheduleResults[i].get('fantasyweek');
+               sched['fantasyweekname']=scheduleResults[i].get('fantasyweekname');
+               sched['league']=scheduleResults[i].get('league');
+               var team1=scheduleResults[i].get('team1');
+               var team2=scheduleResults[i].get('team2');
+               if(team1 in userIplTeamNames)
+               {
+                   sched['team1'] =userIplTeamNames[team1];
+               }
+               else
+               {
+                   sched['team1'] =team1;
+               }
+               if(team2 in userIplTeamNames)
+               {
+                   sched['team2']=userIplTeamNames[team2];
+               }
+               else
+               {
+                   sched['team2']=team2;
+               }
+               finalSchedule.push(sched);
+           }
+            response.success(finalSchedule);
+        });
+        //response.success(userIplTeamNames);
+    });
+
+});
