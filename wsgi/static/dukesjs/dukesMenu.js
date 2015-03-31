@@ -12,6 +12,7 @@
 		//dukesMenu = dukesMenu +"<li id='biddingTab'> <a href='auction.html' data-icon='ui-icon-document'>Bidding</a></li>";
 		dukesMenu = dukesMenu +"<li id='adminTab'> <a href='admin.html' data-icon='ui-icon-locked'>Admin</a></li>";
 		dukesMenu = dukesMenu +"<li id='joinTab'> <a href='joinus.html' data-icon='ui-icon-plusthick'>Join Us</a></li>";
+		dukesMenu = dukesMenu +"<li id='iplTab'> <a href='ipl.html' data-icon='ui-icon-locked'>IPL Fantasy</a></li>";
 		dukesMenu = dukesMenu +"</ul>";				 
  $("#navigation").html(dukesMenu);  
   $('#mb1').puimenubar();
