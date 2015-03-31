@@ -106,3 +106,17 @@ Parse.Cloud.define("getIplFantasySchedule",function(request,response){
     });
 
 });
+
+Parse.Cloud.define("getIplUsers",function(request,response){
+    var userObject = Parse.Object.extend("user");
+    var userQuery = new Parse.Query(userObject);
+    userQuery.exists("iplteam");
+    userQuery.find().then(function(results){
+        var userIplTeamNames = {};
+        for(var i=0;i<results.length;i++)
+        {
+            userIplTeamNames[results[i].get('first_name')]=results[i].get('iplteam');
+        }
+        response.success(userIplTeamNames);
+    });
+})

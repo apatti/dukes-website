@@ -25,7 +25,7 @@ $(document).bind('login_complete', loggedIn);
         //populateMyTeam();
         //populateBidHistory();
         populateIplFantasySchedule();
-        //populateIplSchedule();
+        populateIplSchedule();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Please sign in.</h3>")
@@ -412,6 +412,7 @@ function populateIplSchedule()
         {
             var datarow = new google.visualization.DataTable();
             datarow.addColumn('string','Date');
+            datarow.addColumn('number','Match Id');
             datarow.addColumn('string','Fantasy Week');
             datarow.addColumn('string','Match');
             datarow.addColumn('string','Time');
@@ -420,6 +421,7 @@ function populateIplSchedule()
             for(var i=0;i<schedule.results.length;i++)
             {
                 datarow.addRows([[schedule.results[i].date,
+                                    schedule.results[i].matchid,
                                     schedule.results[i].fantasyweek,
                                     schedule.results[i].match,
                                     schedule.results[i].time,
