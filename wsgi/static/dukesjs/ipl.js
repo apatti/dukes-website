@@ -379,7 +379,7 @@ function populateIplFantasySchedule()
             datarow.addColumn('string','Fantasy Week');
             datarow.addColumn('string','Games');
             schedule = $.parseJSON(JSON.stringify(data));
-            for(var i=0;i<schedule.results.length;i++)
+            for(var i=0;i<schedule.result.length;i++)
             {
                 if(schedule.results[i].league==1)
                 {
