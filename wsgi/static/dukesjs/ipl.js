@@ -18,6 +18,7 @@ $(document).bind('login_complete', loggedIn);
                 //$('#emailTxt').attr('readonly');
             }
 
+    $('#link_standingtab').show();
         //registerEventHandlers();
         //populateCurrentWeekDetails();
         //populateStandings();
@@ -31,6 +32,7 @@ $(document).bind('login_complete', loggedIn);
  }
 
 $(document).ready(function(){
+    $('#link_standingtab').hide();
     populateIplFantasySchedule();
     populateIplSchedule();
 });
