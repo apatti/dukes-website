@@ -24,13 +24,16 @@ $(document).bind('login_complete', loggedIn);
         //populateFreeAgents();
         //populateMyTeam();
         //populateBidHistory();
-        populateIplFantasySchedule();
-        populateIplSchedule();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Please sign in.</h3>")
          });
  }
+
+$(document).ready(function(){
+    populateIplFantasySchedule();
+    populateIplSchedule();
+});
 
 function registerEventHandlers(){
     $('#teamNameSubmitBtn').click(function (){
