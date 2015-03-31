@@ -63,6 +63,7 @@ $(document).ready(function(){
       localStorage.removeItem('USER_GOOGLE_INFO');
       document.getElementById('dukesLoginDiv').removeAttribute('style');
       document.getElementById('loggedUserDiv').setAttribute('style', 'display: none');
+      $(document).trigger('logout_complete');
       location.href="/";
   }
 

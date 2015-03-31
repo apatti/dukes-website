@@ -1,5 +1,13 @@
 
 $(document).bind('login_complete', loggedIn);
+$(document).bind('logout_complete', loggedOut);
+
+function loggedOut(){
+    $('#link_standingtab').hide();
+    $('#link_myteamtab').hide();
+    $('#link_freeagentstab').hide();
+    $('#link_bidstab').hide();
+}
 
  function loggedIn(){
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
@@ -18,7 +26,11 @@ $(document).bind('login_complete', loggedIn);
                 //$('#emailTxt').attr('readonly');
             }
 
-    $('#link_standingtab').show();
+        $('#link_standingtab').show();
+        $('#link_standingtab').show();
+        $('#link_myteamtab').show();
+        $('#link_freeagentstab').show();
+        $('#link_bidstab').show();
         //registerEventHandlers();
         //populateCurrentWeekDetails();
         //populateStandings();
@@ -32,7 +44,7 @@ $(document).bind('login_complete', loggedIn);
  }
 
 $(document).ready(function(){
-    $('#link_standingtab').hide();
+    loggedOut();
     populateIplFantasySchedule();
     populateIplSchedule();
 });
