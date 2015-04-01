@@ -75,7 +75,7 @@ function registerEventHandlers(){
 function populateStandings()
 {
     populateStandingsLeague(1,"leagueAteamstable");
-    populateStandingsLeague(1,"leagueBteamstable");
+    populateStandingsLeague(2,"leagueBteamstable");
 }
 
 function populateStandingsLeague(leagueId,elementName)

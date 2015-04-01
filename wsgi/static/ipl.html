@@ -31,6 +31,14 @@
 		       $('#iplTabPage').puitabview();
                $('#standingstab').puipanel();
 		       $('#rulestab').empty().load('fantasyrules.html');
+               $('#leagueAStandingsPanel').puipanel({
+                                toggleable: true
+                                ,closable: true
+                        });
+               $('#leagueBStandingsPanel').puipanel({
+                                toggleable: true
+                                ,closable: true
+                        });
                $('#playerteampanel').puipanel({
                                 toggleable: true
                                 ,closable: true
@@ -88,12 +96,16 @@
               </div>
 
               <div id="standingstab">
+                  <div id="leagueAStandingsPanel" title="League A">
                     <div id="leagueAteamstable" title="League A">
 
                     </div>
-                  <div id="leagueBteamstable" title="League B">
+                  </div>
+                  <div id="leagueBStandingsPanel" title="League B">
+                    <div id="leagueBteamstable" title="League B">
 
                     </div>
+                  </div>
                   <br/><br/>
                   <div id="playerteampanel" title="Team">
                     <div id="playerteamtable">
