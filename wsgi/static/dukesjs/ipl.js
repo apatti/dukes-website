@@ -12,6 +12,8 @@ function loggedOut(){
  function loggedIn(){
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
      $.get("http://www.dukesxi.co/ipl/users/"+userData.username,function(data,status){
+         if(data.results.length==0)
+            return;
          userData= data.results[0];
          userName=userData.email.substr(0,userData.email.indexOf('@'));
          userId=userData.name;
