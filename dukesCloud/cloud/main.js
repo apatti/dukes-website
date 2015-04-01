@@ -106,6 +106,29 @@ Parse.Cloud.define("getIplFantasySchedule",function(request,response){
 
 });
 
+Parse.Cloud.define("getIplUserTeam",function(request,response){
+    var userObject = Parse.Object.extend("iplfantasy");
+    var userTeamQuery = new Parse.Query(userObject);
+    userTeamQuery.equalTo("name",request.params.name);
+    userTeamQuery.find().then(function(userResults){
+        console.log(userResults.length);
+        if(userResults.length==0) {
+            response.success({"userData": [], "userTeam": []});
+        }
+        else {
+            var playerObject = Parse.Object.extend("iplplayer");
+            var playerQuery = new Parse.Query(playerObject);
+            if (userResults.get("league") == 1)
+                playerQuery.equalTo("owner1", request.params.name);
+            else
+                playerQuery.equalTo("owner2", request.params.name);
+            playerQuery.find().then(function (playerResults) {
+                response.success({"userData": userResults, "userTeam": playerResults});
+            });
+        }
+    });
+});
+
 Parse.Cloud.define("getIplUsers",function(request,response){
     var userObject = Parse.Object.extend("iplfantasy");
     var userQuery = new Parse.Query(userObject);
@@ -117,4 +140,4 @@ Parse.Cloud.define("getIplUsers",function(request,response){
         }
         response.success(userIplTeamNames);
     });
-})
+});
