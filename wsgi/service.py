@@ -208,7 +208,7 @@ def getIplUsersApi():
     return jsonify(getIplUsers()),200
 
 @app.route('/ipl/users/<username>',methods=['GET'])
-def getIplUsersApi(username):
+def getIplUserApi(username):
     return jsonify(getIplUser(username)),200
 
 @app.route('/ipl/users/nextbidder',methods=['GET'])
