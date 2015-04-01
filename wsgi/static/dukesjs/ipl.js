@@ -16,7 +16,7 @@ function loggedOut(){
             return;
          userData= data.results[0];
          userName=userData.email.substr(0,userData.email.indexOf('@'));
-         userId=userData.name;
+         userId=userData.first_name;
 
             var email = userData.email;
             var iplTeamName = userData.iplteam;
