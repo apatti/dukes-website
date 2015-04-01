@@ -315,21 +315,23 @@ function populateUserTeam(username)
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Image');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
             datarow.addColumn('string','Type');
             datarow.addColumn('string','Price');
             players = $.parseJSON(JSON.stringify(data));
-            for(var i=0;i<players.results.length;i++)
+            for(var i=0;i<players.result.length;i++)
             {
-                datarow.addRows([[players.results[i].Name,
-                                    players.results[i].Team,
-                                    players.results[i].Type,
-                                    '$'+players.results[i].Price]]);
+                datarow.addRows([[players.result[i].image,
+                                    players.result[i].Name,
+                                    players.result[i].Team,
+                                    players.result[i].Type,
+                                    '$'+players.result[i].Price]]);
             }
             var myteamstable = new google.visualization.Table(document.getElementById('playerteamtable'));
             //var options = {'height': 300};
-            myteamstable.draw(datarow);
+            myteamstable.draw(datarow,{allowHtml:true});
         }
     });
 }
