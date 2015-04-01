@@ -3,7 +3,6 @@ import json,httplib,urllib
 import urllib2
 import requests
 
-connection = httplib.HTTPSConnection('api.parse.com',443)
 
 def getIplPlayers():
     params = urllib.urlencode({"order":"Type","limit":300});

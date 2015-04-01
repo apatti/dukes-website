@@ -98,7 +98,7 @@ function populateStandingsLeague(leagueId,elementName)
             for(var i=0;i<players.standings.length;i++)
             {
                 datarow.addRows([[players.standings[i].teamname,
-                                    players.standings[i].username,
+                                    players.standings[i].name,
                                     players.standings[i].wins+"-"+players.standings[i].loss+"-"+players.standings[i].ties,
                                     players.standings[i].battingpoints,
                                     players.standings[i].bowlingpoints,

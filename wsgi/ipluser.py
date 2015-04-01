@@ -7,7 +7,6 @@ users = ["cxau7SUk30","cQyLG8Hfcx","S09xDQIAwx","cVludKMtrM","ifknpQHlOZ","FTi5d
 currentBidIndex = -1
 currentUser = ""
 
-connection = httplib.HTTPSConnection('api.parse.com',443)
 def saveIPLUser(userName,userTeam,userEmail):
     userObj = {}
     userObj["iplteam"]=userTeam
@@ -16,6 +15,7 @@ def saveIPLUser(userName,userTeam,userEmail):
 
 def getIplUsers():
     params = urllib.urlencode({"order" : "-createdAt"})
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplfantasy?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     #result = json.loads(connection.getresponse().read())
@@ -23,6 +23,7 @@ def getIplUsers():
 
 def getIplUserTeam(username):
     params = urllib.urlencode({"where":json.dumps({"owner":username}),"order":"Type"})
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('POST','/1/functions/getIplUserTeam',json.dumps({'name':username}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
