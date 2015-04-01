@@ -323,11 +323,11 @@ function populateUserTeam(username)
             players = $.parseJSON(JSON.stringify(data)).result.userTeam;
             for(var i=0;i<players.length;i++)
             {
-                datarow.addRows([[players.result[i].image,
-                                    players.result[i].Name,
-                                    players.result[i].Team,
-                                    players.result[i].Type,
-                                    '$'+players.result[i].Price]]);
+                datarow.addRows([[players[i].image,
+                                    players[i].Name,
+                                    players[i].Team,
+                                    players[i].Type,
+                                    '$'+players[i].Price]]);
             }
             var myteamstable = new google.visualization.Table(document.getElementById('playerteamtable'));
             //var options = {'height': 300};
