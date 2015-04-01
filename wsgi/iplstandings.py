@@ -14,7 +14,7 @@ def getIplStanding(leagueId):
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     params = urllib.urlencode({"where":json.dumps({"league":leagueId})})
-    connection.request('GET','/1/classes/iplfantasy?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.request('GET','/1/classes/iplfantasy?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     users = result.get("results")
 
