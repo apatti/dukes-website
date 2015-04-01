@@ -188,10 +188,13 @@ function populateFreeAgents()
                         var dialogContent = '';
                         var dropDownStr =' <select id = "selectedTeamMemberId" class="selectgame">';
                         dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
-                        //+fbUserName
-                        $.get(DOMAIN_NAME+"/ipl/userteams/"+fbUserName,function(data,status){
-                          var  players = $.parseJSON(JSON.stringify(data.results));
 
+                        $.get(DOMAIN_NAME+"/ipl/userteams/"+userId,function(data,status){
+                          var  players = $.parseJSON(JSON.stringify(data.result.userTeam));
+                            if(players.length==0)
+                            {
+                                return;
+                            }
                             $.each( players,function () {
                                 dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
                             });
