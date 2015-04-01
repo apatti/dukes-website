@@ -4,7 +4,7 @@ from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
 from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
-from ipluser import getIplUsers, getIplUserTeam, getNextBidder
+from ipluser import getIplUsers, getIplUserTeam, getNextBidder,saveIPLUser
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateDukesFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
 from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers
@@ -255,9 +255,9 @@ def getIplAvailablePlayersApi(leagueid):
 def getIplAvailableUserPlayersApi(leagueid,username):
     return jsonify(getIplUserAvailablePlayers(username,leagueid)),200
 
-@app.route('/ipl/standings',methods=['GET'])
-def getIplStandingApi():
-    return jsonify({'standings':getIplStanding()}),200
+@app.route('/ipl/league/<leagueid>/standings',methods=['GET'])
+def getIplStandingApi(leagueid):
+    return jsonify({'standings':getIplStanding(leagueid)}),200
 
 @app.route('/ipl/standings/currentweek',methods=['GET'])
 def getIplCurrentWeekStandingApi():

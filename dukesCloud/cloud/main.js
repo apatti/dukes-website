@@ -113,17 +113,17 @@ Parse.Cloud.define("getIplUserTeam",function(request,response){
     userTeamQuery.find().then(function(userResults){
         console.log(userResults.length);
         if(userResults.length==0) {
-            response.success({"userData": [], "userTeam": []});
+            response.success({"userData": {}, "userTeam": []});
         }
         else {
             var playerObject = Parse.Object.extend("iplplayer");
             var playerQuery = new Parse.Query(playerObject);
-            if (userResults.get("league") == 1)
+            if (userResults[0].get("league") == 1)
                 playerQuery.equalTo("owner1", request.params.name);
             else
                 playerQuery.equalTo("owner2", request.params.name);
             playerQuery.find().then(function (playerResults) {
-                response.success({"userData": userResults, "userTeam": playerResults});
+                response.success({"userData": userResults[0], "userTeam": playerResults});
             });
         }
     });
