@@ -80,7 +80,7 @@ function populateStandings()
 
 function populateStandingsLeague(leagueId,elementName)
 {
-    $.get("/ipl/league/"+leagueId+"standings",function(data,status){
+    $.get("/ipl/league/"+leagueId+"/standings",function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
