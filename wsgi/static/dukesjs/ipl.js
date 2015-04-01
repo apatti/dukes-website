@@ -3,7 +3,7 @@ $(document).bind('login_complete', loggedIn);
 $(document).bind('logout_complete', loggedOut);
 
 function loggedOut(){
-    $('#link_standingtab').hide();
+    //$('#link_standingtab').hide();
     $('#link_myteamtab').hide();
     $('#link_freeagentstab').hide();
     $('#link_bidstab').hide();
@@ -27,7 +27,6 @@ function loggedOut(){
             }
 
         $('#link_standingtab').show();
-        $('#link_standingtab').show();
         $('#link_myteamtab').show();
         $('#link_freeagentstab').show();
         $('#link_bidstab').show();
@@ -45,6 +44,7 @@ function loggedOut(){
 
 $(document).ready(function(){
     loggedOut();
+    populateStandings();
     populateIplFantasySchedule();
     populateIplSchedule();
 });
@@ -74,7 +74,13 @@ function registerEventHandlers(){
 
 function populateStandings()
 {
-    $.get("/ipl/standings",function(data,status){
+    populateStandingsLeague(1,"leagueAteamstable");
+    populateStandingsLeague(1,"leagueBteamstable");
+}
+
+function populateStandingsLeague(leagueId,elementName)
+{
+    $.get("/ipl/league/"+leagueId+"standings",function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
@@ -101,7 +107,7 @@ function populateStandings()
                                     players.standings[i].winnerpoints,
                                     '$'+players.standings[i].balance]]);
             }
-            var standingstable = new google.visualization.Table(document.getElementById('allteamstable'));
+            var standingstable = new google.visualization.Table(document.getElementById(elementName));
             //var options = {'height': 300, };
             standingstable.draw(datarow);
 
