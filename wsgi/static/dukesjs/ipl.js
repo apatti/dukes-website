@@ -323,7 +323,7 @@ function populateUserTeam(username)
             players = $.parseJSON(JSON.stringify(data)).result.userTeam;
             for(var i=0;i<players.length;i++)
             {
-                datarow.addRows([[players[i].image,
+                datarow.addRows([['<img src="'+players[i].image+"'/>",
                                     players[i].Name,
                                     players[i].Team,
                                     players[i].Type,
