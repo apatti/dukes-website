@@ -4,7 +4,7 @@ from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
 from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
 from superbowl import getSuperBowl,insertSuperBowl
-from ipluser import getIplUsers, getIplUserTeam, getNextBidder,saveIPLUser
+from ipluser import getIplUsers, getIplUserTeam, getNextBidder,saveIPLUser,getIplUser
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
 from dukesfantasy import createFantasyTeam, getAllFantasyTeams, updateDukesFantasyScore, calculateFantasyTeamScores, getFantasyTeamScores
 from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailablePlayers,getIplTeamPlayers,getIplTeamOwnedPlayers
@@ -207,6 +207,9 @@ def getSuperBowlApi():
 def getIplUsersApi():
     return jsonify(getIplUsers()),200
 
+@app.route('/ipl/users/<username>',methods=['GET'])
+def getIplUsersApi(username):
+    return jsonify(getIplUser(username)),200
 
 @app.route('/ipl/users/nextbidder',methods=['GET'])
 def getNextIplUsersApi():

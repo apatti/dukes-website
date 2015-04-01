@@ -21,6 +21,14 @@ def getIplUsers():
     #result = json.loads(connection.getresponse().read())
     return json.loads(connection.getresponse().read())
 
+def getIplUser(username):
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    params = urllib.urlencode({"where":json.dumps({"username":username,"iplAccess":True})})
+    connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    return result
+
 def getIplUserTeam(username):
     params = urllib.urlencode({"where":json.dumps({"owner":username}),"order":"Type"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
