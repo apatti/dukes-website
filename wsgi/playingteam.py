@@ -14,6 +14,7 @@ def getPlayingTeamMessage(playingTeamObj):
             index=index+1
 
         message=message+"\nVenue:\n\t\t%s\n" % playingTeamObj.get("ground")
+        message = message+"Date:\t\t%s\n" % playingTeamObj.get("gamedate")
         message = message+"Time:\t\t%s\n" % playingTeamObj.get("time")
         message = message+"\n%s\n" % playingTeamObj.get("message")
         message = message+"\n--\nDukes XI Management"
