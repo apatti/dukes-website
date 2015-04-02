@@ -34,9 +34,8 @@ function loggedOut(){
         $('#link_bidstab').show();
         //registerEventHandlers();
         //populateCurrentWeekDetails();
-        //populateStandings();
         populateFreeAgents();
-        //populateMyTeam();
+        populateMyTeam();
         //populateBidHistory();
      })
          .fail(function(){
