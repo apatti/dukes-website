@@ -301,17 +301,17 @@ function populateMyTeam()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
             datarow.addColumn('string','Type');
-            datarow.addColumn('string','Price');
             players = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<players.results.length;i++)
             {
-                datarow.addRows([[players.results[i].Name,
+                datarow.addRows([[ '<img src="'+players[i].image+'"/>',
+                                    players.results[i].Name,
                                     players.results[i].Team,
-                                    players.results[i].Type,
-                                    '$'+players.results[i].Price]]);
+                                    players.results[i].Type]]);
             }
             var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
             //var options = {'height': 300};
