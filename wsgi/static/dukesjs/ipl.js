@@ -304,7 +304,7 @@ function populateMyTeam()
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
             datarow.addColumn('string','Type');
-            players = $.parseJSON(JSON.stringify(data));
+            players = $.parseJSON(JSON.stringify(data)).result.userTeam;
             for(var i=0;i<players.results.length;i++)
             {
                 datarow.addRows([[ '<img src="'+players[i].image+'"/>',
