@@ -305,17 +305,17 @@ function populateMyTeam()
             datarow.addColumn('string','Team');
             datarow.addColumn('string','Type');
             players = $.parseJSON(JSON.stringify(data)).result.userTeam;
-            for(var i=0;i<players.results.length;i++)
+            for(var i=0;i<players.length;i++)
             {
                 datarow.addRows([[ '<img src="'+players[i].image+'"/>',
-                                    players.results[i].Name,
-                                    players.results[i].Team,
-                                    players.results[i].Type]]);
+                                    players[i].Name,
+                                    players[i].Team,
+                                    players[i].Type]]);
             }
             var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
             //var options = {'height': 300};
             myteamstable.draw(datarow);
-            populateUserBids(fbUserName);
+            populateUserBids(userId);
         }
     });
 }
