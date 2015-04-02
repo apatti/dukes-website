@@ -296,7 +296,7 @@ function populateFreeAgents()
 
 function populateMyTeam()
 {
-    $.get("/ipl/userteams/"+fbUserName,function(data,status){
+    $.get("/ipl/userteams/"+userId,function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
