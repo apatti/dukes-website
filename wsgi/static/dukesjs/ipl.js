@@ -364,7 +364,7 @@ function populateMyTeam()
             populateUserBids(userId,userLeague);
 
             google.visualization.events.addListener(myteamstable,'select',function(){
-                var selection = freeagentstable.getSelection();
+                var selection = myteamstable.getSelection();
                 var dialogContent = '';
                 var marketAmount = '<div><input type="number" id="marketAmountTxt" value=0/></div>';
                 var buttonStr = '<div><input type="button" id="submitMarket" value="Put on market"/> </div>'
