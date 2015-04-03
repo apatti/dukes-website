@@ -239,6 +239,7 @@ function populateFreeAgents()
                                 var id = datarow.getFormattedValue(item.row, 1);
                                 var objectId = datarow.getFormattedValue(item.row, 2);
                                 var playerName = datarow.getFormattedValue(item.row, 3);
+                                playerName=playerName.substring(playerName.indexOf('>')+1,playerName.indexOf('</a'));
                                 var teamName = datarow.getFormattedValue(item.row,4);
 
                                 var droppedPlayer = toBeDroppedID.split('%');
