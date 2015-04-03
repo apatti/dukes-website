@@ -329,7 +329,7 @@ function populateMarket()
                             '$' + marketPlayers.results[i].marketPrice,
                             marketPlayers.results[i].username]]);
                     }
-                    var marketTable = new google.visualization.Table(document.getElementById('bidsDiv'));
+                    var marketTable = new google.visualization.Table(document.getElementById('marketPlayersDiv'));
                     //var options = {'height': 300};
                     marketTable.draw(datarow,{allowHtml:true});
                     google.visualization.events.addListener(marketTable, 'select', function() {
