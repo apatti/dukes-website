@@ -29,7 +29,7 @@ def viewUserBids(username,league):
 
 
 #Update the bid for the FA player
-def enterFABid(bid,league):
+def enterFABid(bid,league,marketbid=0):
     bidentry={}
     bidentry["username"]=bid.get("username")
     bidentry["playertoaddobjectid"]=bid.get("newPlayer").get("objectId")
@@ -45,6 +45,7 @@ def enterFABid(bid,league):
     bidentry["playertodropteam"]=bid.get("playerTobeDropped").get("Team")
     bidentry["playertoaddteam"]=bid.get("newPlayer").get("Team")
     bidentry["league"]=bid.get("league")
+    bidentry["marketbid"]=marketbid
     print bid.get("bidAmount")
     if(bid.get("bidAmount")<=0):
         print("negative bid amount!!")

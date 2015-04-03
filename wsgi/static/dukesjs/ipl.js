@@ -313,6 +313,7 @@ function populateMarket()
                 function drawTable() {
                     var datarow = new google.visualization.DataTable();
                     datarow.addColumn('string', '');
+                    datarow.addColumn('string','ObjectId');
                     datarow.addColumn('string', 'Name');
                     datarow.addColumn('string', 'Team');
                     datarow.addColumn('string', 'Type');
@@ -321,6 +322,7 @@ function populateMarket()
                     marketPlayers = $.parseJSON(JSON.stringify(data));
                     for (var i = 0; i < marketPlayers.results.length; i++) {
                         datarow.addRows([[marketPlayers.results[i].playerImageLink,
+                            marketPlayers.results[i].playerObjectId,
                             marketPlayers.results[i].playername,
                             marketPlayers.results[i].playerTeam,
                             marketPlayers.results[i].playerType,
@@ -330,6 +332,112 @@ function populateMarket()
                     var marketTable = new google.visualization.Table(document.getElementById('bidsDiv'));
                     //var options = {'height': 300};
                     marketTable.draw(datarow,{allowHtml:true});
+                    google.visualization.events.addListener(freeagentstable, 'select', function() {
+                        var selection = marketTable.getSelection();
+                        var dialogContent = '';
+                        var dropDownStr =' <select id = "selectedTeamMemberId" class="selectgame">';
+                        dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
+
+                        $.get(DOMAIN_NAME+"/ipl/userteams/"+userId,function(data,status){
+                          var  players = $.parseJSON(JSON.stringify(data.result.userTeam));
+                            if(players.length==0)
+                            {
+                                return;
+                            }
+                            $.each( players,function () {
+                                dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
+                            });
+                            var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0/></div>';
+                            var priority = '<div><input type="number" id="priorityTxt" value=0/></div>';
+                            var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
+                            dialogContent = '<table>';
+                            dialogContent = dialogContent + '<tr><td>Current Team : </td><td>'+dropDownStr+'</td></tr>';
+                            dialogContent = dialogContent + '<tr><td>Bid Amount : </td><td>'+bidAmount+'</td></tr>';
+                            dialogContent = dialogContent + '<tr><td>Priority : </td><td>'+priority+'</td></tr>';
+                            dialogContent = dialogContent + '<tr><td colspan="2">'+buttonStr+'</td></tr>';
+
+                            dialogContent = dialogContent + '<table>';
+
+                         $('#biddingPopupId').html(dialogContent);
+
+                            $( ".userDialog" ).dialog({
+                                autoOpen: false,
+                                show: {
+                                    effect: "blind",
+                                    duration: 1000
+                                },
+                                hide: {
+                                    effect: "explode",
+                                    duration: 1000
+                                }
+                            });
+
+
+                            $('#submitBid').click(function () {
+
+                                var toBeDroppedID=$('#selectedTeamMemberId').children(":selected").attr("id");
+                                if( toBeDroppedID === 'selectPlayerId'){
+                                    alert("Select a player to drop off..");
+                                    return;
+                                }
+                                if( parseInt($('#bidAmountTxt').val()) <= 0 ){
+                                    alert("Bid Amount Should be more thank ZERO !!!");
+                                    return;
+                                }
+
+                                var item = selection[0];
+                                var id = datarow.getFormattedValue(item.row, 1);
+                                var objectId = datarow.getFormattedValue(item.row, 1);
+                                var playerName = datarow.getFormattedValue(item.row, 2);
+                                playerName=playerName.substring(playerName.indexOf('>')+1,playerName.indexOf('</a'));
+                                var teamName = datarow.getFormattedValue(item.row,3);
+
+                                var droppedPlayer = toBeDroppedID.split('%');
+
+                                var jsonData ={};
+                                jsonData.league = leagueid;
+                                jsonData.username = userId;
+                                jsonData.priority = parseInt($('#priorityTxt').val());
+
+                                jsonData.bidAmount = parseInt($('#bidAmountTxt').val());
+                                jsonData.playerTobeDropped ={};
+                                jsonData.playerTobeDropped.ID = parseInt(droppedPlayer[0]);
+                                jsonData.playerTobeDropped.objectId = droppedPlayer[1];
+                                jsonData.playerTobeDropped.Type = droppedPlayer[2];
+                                jsonData.playerTobeDropped.Name = droppedPlayer[3];
+                                jsonData.playerTobeDropped.Team = droppedPlayer[4];
+
+                                jsonData.newPlayer = {};
+                                jsonData.newPlayer.ID = parseInt(datarow.getFormattedValue(item.row, 1));
+                                jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 1);
+                                jsonData.newPlayer.Name = playerName;
+                                jsonData.newPlayer.Team = teamName;
+                                jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 4);
+                                    //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
+                                console.log(JSON.stringify(jsonData));
+                                var bidJSON  = JSON.stringify(jsonData);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: DOMAIN_NAME +'/ipl/league/'+leagueid+'/bids/marketbid',
+                                    dataType: 'json',
+                                    contentType:'application/json',
+                                    data:bidJSON,
+                                    success: function(res,status,jqXHR){
+                                       alert("Your bid has been registered");
+                                        //location.reload();
+                                    },
+                                    error: function(jqXHR, textStatus, errorThrown){
+                                        alert(textStatus, errorThrown);
+                                    }
+
+                                });
+                                $('#biddingPopupId').dialog( "close" );
+                            });
+                            $('#biddingPopupId').dialog( "open" );
+
+                        });
+
+                    });
                 }
             });
         }
@@ -408,7 +516,7 @@ function populateMyTeam()
                     var marketJSON  = JSON.stringify(jsonData);
                     $.ajax({
                         type: 'POST',
-                        url: DOMAIN_NAME +'/ipl/league/'+leagueid+'/market',
+                        url: DOMAIN_NAME +'/ipl/league/'+userLeague+'/market',
                         dataType: 'json',
                         contentType:'application/json',
                         data:marketJSON,

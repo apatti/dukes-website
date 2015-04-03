@@ -238,6 +238,15 @@ def updateFABideApi(leagueid):
     return jsonify({'result': result}), 201
 
 
+@app.route('/ipl/league/<leagueid>/bids/marketbid', methods=['POST'])
+def updateMarketBidApi(leagueid):
+    if not request.get_json:
+        abort(400)
+
+    reqObj = request.get_json(force=True)
+    result = enterFABid(reqObj,leagueid,marketbid=1)
+    return jsonify({'result': result}), 201
+
 @app.route('/ipl/league/<leagueid>/market', methods=['POST'])
 def updateMarketApi(leagueid):
     if not request.get_json:

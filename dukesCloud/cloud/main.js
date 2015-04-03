@@ -47,6 +47,7 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
     bidentry.set("amount",request.object.get("bidamount"));
     bidentry.set("priority",request.object.get("priority"));
     bidentry.set("league",request.object.get("league"));
+    bidentry.set("marketbid",request.object.get("marketbid"));
     bidentry.set("bidobjectid",request.object.id);
     bidentry.save({
         success:function(){
