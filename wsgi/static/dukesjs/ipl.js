@@ -623,7 +623,7 @@ function populateBidHistory()
                             playerBids.results[i].playertoaddname,
                             playerBids.results[i].playertodropname,
                             playerBids.results[i].priority,
-                            '$' + playerBids.results[i].amount,,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid']]);
+                            '$' + playerBids.results[i].amount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid']]);
                     }
                     var bidtable = new google.visualization.Table(document.getElementById('bidsDiv'));
                     //var options = {'height': 300};
