@@ -3,7 +3,7 @@ import json,httplib,urllib
 
 def viewAllMarket(league):
     params = urllib.urlencode({"where":json.dumps({
-        "league":league
+        "league":int(league)
     }),"order":"-createdAt","limit":300});
 
     connection = httplib.HTTPSConnection('api.parse.com',443)
