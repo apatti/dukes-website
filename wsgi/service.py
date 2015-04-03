@@ -12,6 +12,7 @@ from iplstandings import getIplStanding,getIplCurrentWeekStanding
 from iplschedule import getIplSchedule,getIplFantasySchedule
 from iplfantasyscore import updateFantasyScore
 from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids
+from iplmarket import enterMarket,viewAllMarket
 from umpiring import getUmpireList
 from betting import getBet,placeBet,getBets
 from scoreCardUploader import getScoreCard
@@ -234,6 +235,16 @@ def updateFABideApi(leagueid):
 
     reqObj = request.get_json(force=True)
     result = enterFABid(reqObj,leagueid)
+    return jsonify({'result': result}), 201
+
+
+@app.route('/ipl/league/<leagueid>/market', methods=['POST'])
+def updateMarketApi(leagueid):
+    if not request.get_json:
+        abort(400)
+
+    reqObj = request.get_json(force=True)
+    result = enterMarket(reqObj,leagueid)
     return jsonify({'result': result}), 201
 
 @app.route('/ipl/league/<leagueid>/bids/fabid', methods=['PUT'])

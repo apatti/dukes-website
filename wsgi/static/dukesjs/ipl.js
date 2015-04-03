@@ -7,6 +7,7 @@ function loggedOut(){
     $('#link_myteamtab').hide();
     $('#link_freeagentstab').hide();
     $('#link_bidstab').hide();
+        $('#link_markettab').hide();
 }
 
  function loggedIn(){
@@ -32,11 +33,13 @@ function loggedOut(){
         $('#link_myteamtab').show();
         $('#link_freeagentstab').show();
         $('#link_bidstab').show();
+        $('#link_markettab').show();
         //registerEventHandlers();
         //populateCurrentWeekDetails();
         populateFreeAgents();
         populateMyTeam();
         populateBidHistory();
+         populateMarket();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Please sign in.</h3>")
@@ -295,6 +298,44 @@ function populateFreeAgents()
 
 }
 
+function populateMarket()
+{
+
+    $("#marketselectleague").change(function() {
+        var leagueid = $(this).children(":selected").attr("id");
+        if (leagueid != "market_default") {
+            if(leagueid=="market_1")
+                leagueid="1";
+            if(leagueid=="market_2")
+                leagueid="2";
+            $.get("/ipl/league/"+leagueid+"/market", function (data, status) {
+                google.load('visualization', '1.0', {'packages': ['table'], callback: drawTable});
+                function drawTable() {
+                    var datarow = new google.visualization.DataTable();
+                    datarow.addColumn('string', '');
+                    datarow.addColumn('string', 'Name');
+                    datarow.addColumn('string', 'Team');
+                    datarow.addColumn('string', 'Type');
+                    datarow.addColumn('string', 'Price');
+                    datarow.addColumn('string', 'Owner');
+                    marketPlayers = $.parseJSON(JSON.stringify(data));
+                    for (var i = 0; i < marketPlayers.results.length; i++) {
+                        datarow.addRows([[marketPlayers.results[i].playerImageLink,
+                            marketPlayers.results[i].playername,
+                            marketPlayers.results[i].playerTeam,
+                            marketPlayers.results[i].playerType,
+                            '$' + marketPlayers.results[i].marketPrice,
+                            marketPlayers.results[i].username]]);
+                    }
+                    var marketTable = new google.visualization.Table(document.getElementById('bidsDiv'));
+                    //var options = {'height': 300};
+                    marketTable.draw(datarow,{allowHtml:true});
+                }
+            });
+        }
+    });
+}
+
 function populateMyTeam()
 {
     $.get("/ipl/userteams/"+userId,function(data,status){
@@ -303,6 +344,7 @@ function populateMyTeam()
         {
             var datarow = new google.visualization.DataTable();
             datarow.addColumn('string','');
+            datarow.addColumn('string','ObjectId');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
             datarow.addColumn('string','Type');
@@ -311,7 +353,8 @@ function populateMyTeam()
             for(var i=0;i<players.length;i++)
             {
                 datarow.addRows([[ '<img src="'+players[i].image+'"/>',
-                                    players[i].Name,
+                                    players[i].objectId,
+                                    '<a href="'+players.results[i].link+'">'+players.results[i].Name+'</a>',,
                                     players[i].Team,
                                     players[i].Type]]);
             }
@@ -319,6 +362,72 @@ function populateMyTeam()
             //var options = {'height': 300};
             myteamstable.draw(datarow,{allowHtml:true});
             populateUserBids(userId,userLeague);
+
+            google.visualization.events.addListener(myteamstable,'select',function(){
+                var selection = freeagentstable.getSelection();
+                var dialogContent = '';
+                var marketAmount = '<div><input type="number" id="marketAmountTxt" value=0/></div>';
+                var buttonStr = '<div><input type="button" id="submitMarket" value="Put on market"/> </div>'
+                dialogContent = '<table>';
+                dialogContent = dialogContent + '<tr><td>Market Price : </td><td>'+marketAmount+'</td></tr>';
+                dialogContent = dialogContent + '<tr><td colspan="2">'+buttonStr+'</td></tr>';
+                dialogContent = dialogContent + '</table>';
+                $('#marketPopupId').html(dialogContent);
+
+                $( ".userDialog" ).dialog({
+                    autoOpen: false,
+                    show: {
+                        effect: "blind",
+                        duration: 1000
+                    },
+                    hide: {
+                        effect: "explode",
+                        duration: 1000
+                    }
+                });
+
+                $('#submitMarket').click(function () {
+                    var item = selection[0];
+                    var playerImageLink = datarow.getFormattedValue(item.row,0);
+                    var objectId = datarow.getFormattedValue(item.row, 1);
+                    var playerNameLink = datarow.getFormattedValue(item.row, 2);
+                    playerName=playerNameLink.substring(playerNameLink.indexOf('>')+1,playerNameLink.indexOf('</a'));
+                    var teamName = datarow.getFormattedValue(item.row,3);
+
+                    var jsonData ={};
+                    jsonData.league=userLeague;
+                    jsonData.username = userId;
+                    jsonData.playername=playerName;
+                    jsonData.playerObjectId=objectId;
+                    jsonData.playerTeam = teamName;
+                    jsonData.playerType=datarow.getFormattedValue(item.row, 4);
+                    jsonData.playerImageLink=playerImageLink;
+                    jsonData.playerNameLink=playerNameLink;
+                    jsonData.marketPrice= parseInt($('#marketAmountTxt').val());
+                    console.log(JSON.stringify(jsonData));
+                    var marketJSON  = JSON.stringify(jsonData);
+                    $.ajax({
+                        type: 'POST',
+                        url: DOMAIN_NAME +'/ipl/league/'+leagueid+'/market',
+                        dataType: 'json',
+                        contentType:'application/json',
+                        data:marketJSON,
+                        success: function(res,status,jqXHR){
+                           alert("Your market entry has been registered");
+                            //location.reload();
+                        },
+                        error: function(jqXHR, textStatus, errorThrown){
+                            alert(textStatus, errorThrown);
+                        }
+
+                    });
+                    $('#marketPopupId').dialog( "close" );
+                });
+
+                $('#marketPopupId').dialog( "open" );
+
+            });
+
         }
     });
 }

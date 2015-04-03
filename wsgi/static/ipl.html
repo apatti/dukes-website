@@ -82,6 +82,7 @@
               <li id="link_scheduletab"><a href="#scheduletab">Schedule</a></li>
               <li id="link_myteamtab"><a href="#myteamtab">My Team</a></li>
               <li id="link_freeagentstab"><a href="#freeagentstab">Free Agents</a></li>
+              <li id="link_markettab"><a href="#markettab">Market Players</a></li>
               <li id="link_iplscheduletab"><a href="#iplscheduletab">IPL Schedule</a></li>
              <li id="link_rulestab"><a href="#rulestab">Rules</a></li>
              <li id="link_bidstab"><a href="#bidstab">Bid History</a></li>
@@ -142,6 +143,19 @@
                   </div>
                </div>
 
+              <div id="markettab">
+                  <div id="marketDivMain">
+                      <select id="marketselectleague" name="marketselectleague">
+                        <option id="market_default">Select the Group</option>
+                        <option id="market_1">Group A</option>
+                        <option id="market_2">Group B</option>
+                      </select>
+                      <div id='marketPlayersDiv'>
+
+                      </div>
+                  </div>
+               </div>
+
               <div id="iplscheduletab">
                 <div id="iplscheduleDiv"></div>
               </div>
@@ -160,6 +174,7 @@
               </div>
           </div>
           <div id='biddingPopupId' class='userDialog'></div>
+          <div id="marketPopupId" class="userDialog"></div>
       </div>
    </div>
   <!-- End Left Column -->
