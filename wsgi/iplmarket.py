@@ -24,7 +24,7 @@ def enterMarket(market,league):
     marketentry["playerImageLink"]=market.get("playerImageLink")
     marketentry["playerNameLink"]=market.get("playerNameLink")
 
-    params = urllib.urlencode({"where": json.dumps({"username": market["username"], "playertoaddobjectid": market["playertoaddobjectid"]})})
+    params = urllib.urlencode({"where": json.dumps({"username": market["username"], "playerObjectId": market["playerObjectId"]})})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET', '/1/classes/iplmarket?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
