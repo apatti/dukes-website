@@ -36,7 +36,7 @@ function loggedOut(){
         //populateCurrentWeekDetails();
         populateFreeAgents();
         populateMyTeam();
-        //populateBidHistory();
+        populateBidHistory();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Please sign in.</h3>")
@@ -268,7 +268,7 @@ function populateFreeAgents()
                                 var bidJSON  = JSON.stringify(jsonData);
                                 $.ajax({
                                     type: 'POST',
-                                    url: DOMAIN_NAME +'/ipl/bids/fabid',
+                                    url: DOMAIN_NAME +'/ipl/league/'+leagueid+'/bids/fabid',
                                     dataType: 'json',
                                     contentType:'application/json',
                                     data:bidJSON,
@@ -306,6 +306,7 @@ function populateMyTeam()
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
             datarow.addColumn('string','Type');
+            userLeague =$.parseJSON(JSON.stringify(data)).result.userData.league;
             players = $.parseJSON(JSON.stringify(data)).result.userTeam;
             for(var i=0;i<players.length;i++)
             {
@@ -317,7 +318,7 @@ function populateMyTeam()
             var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
             //var options = {'height': 300};
             myteamstable.draw(datarow,{allowHtml:true});
-            populateUserBids(userId);
+            populateUserBids(userId,userLeague);
         }
     });
 }
@@ -349,9 +350,9 @@ function populateUserTeam(username)
     });
 }
 
-function populateUserBids(username)
+function populateUserBids(username,leagueid)
 {
-    $.get("/ipl/bids/"+username,function(data,status){
+    $.get("/ipl/league/"+leagueid+"/bids/"+username,function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
@@ -377,31 +378,38 @@ function populateUserBids(username)
 
 function populateBidHistory()
 {
-    $.get("/ipl/bids",function(data,status){
-        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
-        function drawTable()
-        {
-            var datarow = new google.visualization.DataTable();
-            datarow.addColumn('string','Date');
-            datarow.addColumn('string','User');
-            datarow.addColumn('string','Add');
-            datarow.addColumn('string','Drop');
-            datarow.addColumn('number','Priority');
-            datarow.addColumn('string','Price');
-            playerBids = $.parseJSON(JSON.stringify(data));
-            for(var i=0;i<playerBids.results.length;i++)
-            {
-                var date = new Date(playerBids.results[i].createdAt);
-                datarow.addRows([[  date.toString(),
-                                    playerBids.results[i].owner,
-                                    playerBids.results[i].playertoaddname,
-                                    playerBids.results[i].playertodropname,
-                                    playerBids.results[i].priority,
-                                    '$'+playerBids.results[i].amount]]);
-            }
-            var bidtable = new google.visualization.Table(document.getElementById('bidsDiv'));
-            //var options = {'height': 300};
-            bidtable.draw(datarow);
+    $("#bidselectleague").change(function() {
+        var leagueid = $(this).children(":selected").attr("id");
+        if (leagueid != "bid_default") {
+            if(leagueid=="bid_1")
+                leagueid="1";
+            if(leagueid=="bid_2")
+                leagueid="2";
+            $.get("/ipl/league/"+leagueid+"/bids", function (data, status) {
+                google.load('visualization', '1.0', {'packages': ['table'], callback: drawTable});
+                function drawTable() {
+                    var datarow = new google.visualization.DataTable();
+                    datarow.addColumn('string', 'Date');
+                    datarow.addColumn('string', 'User');
+                    datarow.addColumn('string', 'Add');
+                    datarow.addColumn('string', 'Drop');
+                    datarow.addColumn('number', 'Priority');
+                    datarow.addColumn('string', 'Price');
+                    playerBids = $.parseJSON(JSON.stringify(data));
+                    for (var i = 0; i < playerBids.results.length; i++) {
+                        var date = new Date(playerBids.results[i].createdAt);
+                        datarow.addRows([[date.toString(),
+                            playerBids.results[i].owner,
+                            playerBids.results[i].playertoaddname,
+                            playerBids.results[i].playertodropname,
+                            playerBids.results[i].priority,
+                            '$' + playerBids.results[i].amount]]);
+                    }
+                    var bidtable = new google.visualization.Table(document.getElementById('bidsDiv'));
+                    //var options = {'height': 300};
+                    bidtable.draw(datarow);
+                }
+            });
         }
     });
 }

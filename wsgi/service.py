@@ -227,28 +227,28 @@ def getIplPlayersApi():
 def getIplTeamPlayersApi(team):
     return jsonify(getIplTeamOwnedPlayers(team)),200
 
-@app.route('/ipl/bids/fabid', methods=['POST'])
-def updateFABideApi():
+@app.route('/ipl/league/<leagueid>/bids/fabid', methods=['POST'])
+def updateFABideApi(leagueid):
     if not request.get_json:
         abort(400)
 
     reqObj = request.get_json(force=True)
-    result = enterFABid(reqObj)
+    result = enterFABid(reqObj,leagueid)
     return jsonify({'result': result}), 201
 
-@app.route('/ipl/bids/fabid', methods=['PUT'])
-def processFABideApi():
+@app.route('/ipl/league/<leagueid>/bids/fabid', methods=['PUT'])
+def processFABideApi(leagueid):
     result = processFABids()
     return jsonify({'result': result}), 200
 
 
-@app.route('/ipl/bids',methods=['GET'])
-def getBidHistory():
-    return jsonify(viewAllBids()),200
+@app.route('/ipl/league/<leagueid>/bids',methods=['GET'])
+def getBidHistory(leagueid):
+    return jsonify(viewAllBids(leagueid)),200
 
-@app.route('/ipl/bids/<username>',methods=['GET'])
-def getUserBidsApi(username):
-    return jsonify(viewUserBids(username)),200
+@app.route('/ipl/league/<leagueid>/bids/<username>',methods=['GET'])
+def getUserBidsApi(username,leagueid):
+    return jsonify(viewUserBids(username,leagueid)),200
 
 @app.route('/ipl/league/<leagueid>/availableplayers/',methods=['GET'])
 def getIplAvailablePlayersApi(leagueid):

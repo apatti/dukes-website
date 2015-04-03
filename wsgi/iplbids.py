@@ -1,7 +1,7 @@
 __author__ = 'apatti'
 import json,httplib,urllib
 
-def viewAllBids():
+def viewAllBids(league):
     params = urllib.urlencode({"where":json.dumps({
         "bidobjectid":{
             "$dontSelect": {
@@ -10,7 +10,7 @@ def viewAllBids():
                 },
                 "key": "objectId"
             }
-        }
+        },"league":int(league)
     }),"order":"-createdAt","limit":300});
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
@@ -18,8 +18,8 @@ def viewAllBids():
     #result = json.loads(connection.getresponse().read())
     return json.loads(connection.getresponse().read())
 
-def viewUserBids(username):
-    params = urllib.urlencode({"where":json.dumps({"username": username}),"order":"priority"});
+def viewUserBids(username,league):
+    params = urllib.urlencode({"where":json.dumps({"username": username,"league":int(league)}),"order":"priority"});
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
@@ -28,7 +28,7 @@ def viewUserBids(username):
 
 
 #Update the bid for the FA player
-def enterFABid(bid):
+def enterFABid(bid,league):
     bidentry={}
     bidentry["username"]=bid.get("username")
     bidentry["playertoaddobjectid"]=bid.get("newPlayer").get("objectId")
