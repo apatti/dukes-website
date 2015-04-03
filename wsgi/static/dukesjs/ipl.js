@@ -245,6 +245,7 @@ function populateFreeAgents()
                                 var droppedPlayer = toBeDroppedID.split('%');
 
                                 var jsonData ={};
+                                jsonData.league = leagueid;
                                 jsonData.username = userId;
                                 jsonData.priority = parseInt($('#priorityTxt').val());
 
