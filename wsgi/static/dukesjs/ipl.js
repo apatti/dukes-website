@@ -354,7 +354,7 @@ function populateMyTeam()
             {
                 datarow.addRows([[ '<img src="'+players[i].image+'"/>',
                                     players[i].objectId,
-                                    '<a href="'+players.results[i].link+'">'+players.results[i].Name+'</a>',,
+                                    '<a href="'+players[i].link+'">'+players[i].Name+'</a>',,
                                     players[i].Team,
                                     players[i].Type]]);
             }
