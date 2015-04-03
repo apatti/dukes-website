@@ -332,7 +332,7 @@ function populateMarket()
                     var marketTable = new google.visualization.Table(document.getElementById('bidsDiv'));
                     //var options = {'height': 300};
                     marketTable.draw(datarow,{allowHtml:true});
-                    google.visualization.events.addListener(freeagentstable, 'select', function() {
+                    google.visualization.events.addListener(marketTable, 'select', function() {
                         var selection = marketTable.getSelection();
                         var dialogContent = '';
                         var dropDownStr =' <select id = "selectedTeamMemberId" class="selectgame">';
