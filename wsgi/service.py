@@ -247,6 +247,11 @@ def updateMarketApi(leagueid):
     result = enterMarket(reqObj,leagueid)
     return jsonify({'result': result}), 201
 
+
+@app.route('/ipl/league/<leagueid>/market',methods=['GET'])
+def getMarket(leagueid):
+    return jsonify(viewAllMarket(leagueid)),200
+
 @app.route('/ipl/league/<leagueid>/bids/fabid', methods=['PUT'])
 def processFABideApi(leagueid):
     result = processFABids()
