@@ -315,7 +315,7 @@ function populateMyTeam()
                                     players[i].Team,
                                     players[i].Type]]);
             }
-            var myteamstable = new google.visualization.Table(document.getElementById('myteamtab'));
+            var myteamstable = new google.visualization.Table(document.getElementById('myteamplayers'));
             //var options = {'height': 300};
             myteamstable.draw(datarow,{allowHtml:true});
             populateUserBids(userId,userLeague);
