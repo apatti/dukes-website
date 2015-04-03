@@ -578,13 +578,15 @@ function populateUserBids(username,leagueid)
             datarow.addColumn('string','Drop');
             datarow.addColumn('number','Priority');
             datarow.addColumn('string','Price');
+            datarow.addColumn('string','Type of Bid');
             playerBids = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<playerBids.results.length;i++)
             {
                 datarow.addRows([[playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
                                     playerBids.results[i].priority,
-                                    '$'+playerBids.results[i].bidamount]]);
+                                    '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid'
+                                    ]]);
             }
             var myteambidtable = new google.visualization.Table(document.getElementById('playerbidtable'));
             //var options = {'height': 300};
@@ -612,6 +614,7 @@ function populateBidHistory()
                     datarow.addColumn('string', 'Drop');
                     datarow.addColumn('number', 'Priority');
                     datarow.addColumn('string', 'Price');
+                    datarow.addColumn('string', 'Bid Type');
                     playerBids = $.parseJSON(JSON.stringify(data));
                     for (var i = 0; i < playerBids.results.length; i++) {
                         var date = new Date(playerBids.results[i].createdAt);
@@ -620,7 +623,7 @@ function populateBidHistory()
                             playerBids.results[i].playertoaddname,
                             playerBids.results[i].playertodropname,
                             playerBids.results[i].priority,
-                            '$' + playerBids.results[i].amount]]);
+                            '$' + playerBids.results[i].amount,,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid']]);
                     }
                     var bidtable = new google.visualization.Table(document.getElementById('bidsDiv'));
                     //var options = {'height': 300};
