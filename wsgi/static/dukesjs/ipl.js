@@ -323,7 +323,7 @@ function populateMarket()
                     for (var i = 0; i < marketPlayers.results.length; i++) {
                         datarow.addRows([[marketPlayers.results[i].playerImageLink,
                             marketPlayers.results[i].playerObjectId,
-                            marketPlayers.results[i].playername,
+                            marketPlayers.results[i].playerNameLink,
                             marketPlayers.results[i].playerTeam,
                             marketPlayers.results[i].playerType,
                             '$' + marketPlayers.results[i].marketPrice,
