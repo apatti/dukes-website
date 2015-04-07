@@ -185,7 +185,7 @@ function populateFreeAgents()
                         controlType: 'StringFilter',
                         containerId: 'freeagentssearch',
                         options:{
-                            filterColumnIndex: 0,
+                            filterColumnIndex: 3,
                             matchType: 'any',
                             caseSensitive: false,
                             ui:{
@@ -196,9 +196,13 @@ function populateFreeAgents()
 
                     //var freeagentstable = new google.visualization.Table(document.getElementById('freeagentsDiv'));
                     var freeagentstable = new google.visualization.ChartWrapper({
-                        'chartType':'Table',
-                        'containerId':'freeagentsDiv'
+                        chartType:'Table',
+                        containerId:'freeagentsDiv',
+                        options:{
+                            allowHtml: true
+                        }
                     });
+
                     var freeagentsdb = new google.visualization.Dashboard(document.getElementById('freeagentsdb'));
                     freeagentsdb.bind(filter,freeagentstable);
                     //var options = {'height': 300};
