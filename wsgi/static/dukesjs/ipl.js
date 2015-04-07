@@ -161,7 +161,7 @@ function populateFreeAgents()
         if(leagueid!="default")
         {
             $.get("/ipl/league/"+leagueid+"/availableplayers",function(data,status){
-                google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+                google.load('visualization','1.0',{'packages':['controls'],callback:drawTable});
                 function drawTable()
                 {
                     var datarow = new google.visualization.DataTable();
@@ -181,9 +181,24 @@ function populateFreeAgents()
                                             players.results[i].Team,
                                             players.results[i].Type]]);
                     }
+                    var filter = new google.visualization.ControlWrapper({
+                        controlType: 'StringFilter',
+                        containerId: 'freeagentssearch',
+                        options:{
+                            filterColumnIndex: 0,
+                            matchType: 'any',
+                            caseSensitive: false,
+                            ui:{
+                                label:'Search:'
+                            }
+                        }
+                    });
+
                     var freeagentstable = new google.visualization.Table(document.getElementById('freeagentsDiv'));
+                    var freeagentsdb = new google.visualization.Dashboard(document.getElementById('freeagentsdb'));
+                    freeagentsdb.bind([filter],[freeagentstable]);
                     //var options = {'height': 300};
-                    freeagentstable.draw(datarow,{allowHtml:true});
+                    freeagentsdb.draw(datarow,{allowHtml:true});
 
                     google.visualization.events.addListener(freeagentstable, 'select', function() {
                         var selection = freeagentstable.getSelection();
@@ -576,21 +591,21 @@ function populateUserBids(username,leagueid)
             var datarow = new google.visualization.DataTable();
             datarow.addColumn('string','Add');
             datarow.addColumn('string','Drop');
-            datarow.addColumn('number','Priority');
             datarow.addColumn('string','Price');
             datarow.addColumn('string','Type of Bid');
+            datarow.addColumn('number','Priority');
             playerBids = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<playerBids.results.length;i++)
             {
                 datarow.addRows([[playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
-                                    playerBids.results[i].priority,
-                                    '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid'
+                                    '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid',
+                                    playerBids.results[i].priority
                                     ]]);
             }
             var myteambidtable = new google.visualization.Table(document.getElementById('playerbidtable'));
             //var options = {'height': 300};
-            myteambidtable.draw(datarow);
+            myteambidtable.draw(datarow,{allowHtml:true});
         }
     });
 }

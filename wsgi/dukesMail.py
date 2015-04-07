@@ -24,4 +24,3 @@ def send_mail_cricket(message,cc,subject):
     emailList =",".join([res['email'] for res in result.get("results")])
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"text":message})
 
-

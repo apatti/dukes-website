@@ -35,7 +35,6 @@ Parse.Cloud.afterSave("iplplayer",function(request){
     });
 });
 
-
 Parse.Cloud.afterSave("iplfantasybids",function(request){
     var BidEntryTable = Parse.Object.extend("bidhistory");
     bidentry = new BidEntryTable();
@@ -48,6 +47,7 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
     bidentry.set("priority",request.object.get("priority"));
     bidentry.set("league",request.object.get("league"));
     bidentry.set("marketbid",request.object.get("marketbid"));
+    //bidentry.set("won",request.object.get("won"));
     bidentry.set("bidobjectid",request.object.id);
     bidentry.save({
         success:function(){
@@ -57,6 +57,11 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
             console.error("Got an error "+ err.code + " : " +err.message )
         }
     });
+
+});
+
+Parse.Cloud.define("processBids",function(request){
+
 
 });
 
