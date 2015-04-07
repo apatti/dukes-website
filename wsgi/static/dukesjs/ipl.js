@@ -196,7 +196,7 @@ function populateFreeAgents()
 
                     var freeagentstable = new google.visualization.Table(document.getElementById('freeagentsDiv'));
                     var freeagentsdb = new google.visualization.Dashboard(document.getElementById('freeagentsdb'));
-                    freeagentsdb.bind([filter],[freeagentstable]);
+                    freeagentsdb.bind(filter,freeagentstable);
                     //var options = {'height': 300};
                     freeagentsdb.draw(datarow,{allowHtml:true});
 
