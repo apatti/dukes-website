@@ -194,7 +194,11 @@ function populateFreeAgents()
                         }
                     });
 
-                    var freeagentstable = new google.visualization.Table(document.getElementById('freeagentsDiv'));
+                    //var freeagentstable = new google.visualization.Table(document.getElementById('freeagentsDiv'));
+                    var freeagentstable = new google.visualization.ChartWrapper({
+                        'chartType':'Table',
+                        'containerId':'freeagentsDiv'
+                    });
                     var freeagentsdb = new google.visualization.Dashboard(document.getElementById('freeagentsdb'));
                     freeagentsdb.bind(filter,freeagentstable);
                     //var options = {'height': 300};
