@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/ipl.html" afterPath="$PROJECT_DIR$/wsgi/static/ipl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/service.py" afterPath="$PROJECT_DIR$/wsgi/service.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="scoreCardUploader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1550" max-vertical-offset="2175">
-              <caret line="125" column="44" selection-start-line="125" selection-start-column="44" selection-end-line="125" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1775" max-vertical-offset="2175">
+              <caret line="136" column="24" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="24" />
               <folding>
                 <element signature="e#20#46#0" expanded="true" />
               </folding>
@@ -54,8 +53,8 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.148149" vertical-offset="2336" max-vertical-offset="3765">
-              <caret line="700" column="96" selection-start-line="700" selection-start-column="85" selection-end-line="700" selection-end-column="96" />
+            <state vertical-scroll-proportion="-3.4814816" vertical-offset="2321" max-vertical-offset="3765">
+              <caret line="687" column="32" selection-start-line="687" selection-start-column="32" selection-end-line="687" selection-end-column="32" />
               <folding>
                 <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
                 <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
@@ -73,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ipl.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ipl.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/ipl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6762178" vertical-offset="2479" max-vertical-offset="3045">
+            <state vertical-scroll-proportion="-4.627451" vertical-offset="2479" max-vertical-offset="3045">
               <caret line="181" column="39" selection-start-line="181" selection-start-column="39" selection-end-line="181" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -101,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="service.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="service.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5925927" vertical-offset="2246" max-vertical-offset="5160">
-              <caret line="158" column="34" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.4530831" vertical-offset="2201" max-vertical-offset="5160">
+              <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -131,12 +130,12 @@
         <option value="$PROJECT_DIR$/wsgi/iplstandings.py" />
         <option value="$PROJECT_DIR$/wsgi/iplfantasyscore.py" />
         <option value="$PROJECT_DIR$/wsgi/ipluser.py" />
-        <option value="$PROJECT_DIR$/wsgi/service.py" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js" />
         <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
         <option value="$PROJECT_DIR$/wsgi/scoreCardUploader.py" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
         <option value="$PROJECT_DIR$/wsgi/static/ipl.html" />
+        <option value="$PROJECT_DIR$/wsgi/service.py" />
       </list>
     </option>
   </component>
@@ -925,16 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5925927" vertical-offset="2246" max-vertical-offset="5160">
-          <caret line="158" column="34" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="290" max-vertical-offset="690">
@@ -949,20 +938,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/ipl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1550" max-vertical-offset="2175">
-          <caret line="125" column="44" selection-start-line="125" selection-start-column="44" selection-end-line="125" selection-end-column="44" />
+        <state vertical-scroll-proportion="-4.627451" vertical-offset="2479" max-vertical-offset="3045">
+          <caret line="181" column="39" selection-start-line="181" selection-start-column="39" selection-end-line="181" selection-end-column="39" />
           <folding>
-            <element signature="e#20#46#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.148149" vertical-offset="2336" max-vertical-offset="3765">
-          <caret line="700" column="96" selection-start-line="700" selection-start-column="85" selection-end-line="700" selection-end-column="96" />
+        <state vertical-scroll-proportion="-3.4814816" vertical-offset="2321" max-vertical-offset="3765">
+          <caret line="687" column="32" selection-start-line="687" selection-start-column="32" selection-end-line="687" selection-end-column="32" />
           <folding>
             <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
             <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
@@ -979,12 +968,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/ipl.html">
+    <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6762178" vertical-offset="2479" max-vertical-offset="3045">
-          <caret line="181" column="39" selection-start-line="181" selection-start-column="39" selection-end-line="181" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1775" max-vertical-offset="2175">
+          <caret line="136" column="24" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="24" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#20#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4530831" vertical-offset="2201" max-vertical-offset="5160">
+          <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
