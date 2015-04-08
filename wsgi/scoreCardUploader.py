@@ -80,7 +80,7 @@ class ScoreCard:
                 battingpoints += 100
 
             if batsman["runs"]>batsman["balls"] :
-                battingpoints += (batsman["runs"]-batsman["runs"])
+                battingpoints += (batsman["runs"]-batsman["balls"])
 
             batsman['runPoints']=battingpoints
             batsman['runBonus']=0

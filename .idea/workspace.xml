@@ -31,8 +31,8 @@
       <file leaf-file-name="iplfantasyscore.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.11111" vertical-offset="0" max-vertical-offset="3585">
-              <caret line="48" column="59" selection-start-line="45" selection-start-column="8" selection-end-line="48" selection-end-column="59" />
+            <state vertical-scroll-proportion="-10.0" vertical-offset="225" max-vertical-offset="3585">
+              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -41,8 +41,8 @@
       <file leaf-file-name="scoreCardUploader.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6625" vertical-offset="1400" max-vertical-offset="2175">
-              <caret line="111" column="40" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.45" vertical-offset="1050" max-vertical-offset="2175">
+              <caret line="82" column="64" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
               <folding>
                 <element signature="e#20#46#0" expanded="true" />
               </folding>
@@ -916,14 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.11111" vertical-offset="0" max-vertical-offset="3585">
-          <caret line="48" column="59" selection-start-line="45" selection-start-column="8" selection-end-line="48" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="290" max-vertical-offset="690">
@@ -978,10 +970,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="225" max-vertical-offset="3585">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6625" vertical-offset="1400" max-vertical-offset="2175">
-          <caret line="111" column="40" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.45" vertical-offset="1050" max-vertical-offset="2175">
+          <caret line="82" column="64" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
           <folding>
             <element signature="e#20#46#0" expanded="true" />
           </folding>
