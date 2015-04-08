@@ -139,11 +139,11 @@ function populateCurrentWeekDetails()
                 gameheader ='<tr bgcolor="#daa520"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - A Game ';
             }
             if(games[i].team1.league==2) {
-                gameheader ='<tr bgcolor="#228b22"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - B Game';
+                gameheader ='<tr bgcolor="#228b22"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - B Game ';
             }
             if(games[i].team1.league==0)
             {
-                gameheader ='<tr bgcolor="#d2691e"><td  style="border:1px solid black;text-align: center;" colspan="7">Finals Game';
+                gameheader ='<tr bgcolor="#d2691e"><td  style="border:1px solid black;text-align: center;" colspan="7">Finals Game ';
             }
 
             //gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Group - ' + league+ ' Game '+(((i+1)%3)+1)+'</td> </tr>'
