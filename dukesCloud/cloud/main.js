@@ -183,3 +183,15 @@ Parse.Cloud.define("getIplUsers",function(request,response){
         response.success(userIplTeamNames);
     });
 });
+
+Parse.Cloud.define("getIplScoreCard",function(request,response){
+    Parse.Cloud.httpRequest({
+            url:'http://www.dukesxi.co/fantasy/scorecard/829705',
+            success: function(httpResponse){
+                response.success('showscore',{scores:httpResponse.text});
+            },
+            error:function(httpResponse){
+                console.error("Error, please contact admin "+httpResponse.status);
+            }
+        });
+})

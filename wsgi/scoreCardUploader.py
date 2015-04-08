@@ -3,6 +3,7 @@ import json,httplib,urllib
 import urllib2
 import requests
 import re
+import math
 
 
 class ScoreCard:
@@ -89,9 +90,9 @@ class ScoreCard:
             bowlingpoints = 0
             bowlingpoints += bowler["wickets"]*20
             bowlingpoints += bowler["maidens"]*20
-
-            if bowler["noOfBalls"] > bowler["bowling_runs"]:
-                bowlingpoints += ((bowler["noOfBalls"]-bowler["bowling_runs"])*4)
+            balls = int((bowler["overs"]-math.floor(bowler["overs"]))*10)
+            if balls > bowler["bowling_runs"]:
+                bowlingpoints += ((balls-bowler["bowling_runs"])*4)
             if bowler["wickets"] >= 2:
                 bowlingpoints += bowler["wickets"]*10
 
