@@ -137,6 +137,7 @@ Parse.Cloud.define("getIplUserTeam",function(request,response){
 });
 
 Parse.Cloud.define("getIplUserDropableTeam",function(request,response){
+    var currentWeekObject = Parse.Object.extend("iplfantasycurrentweek");
 
 });
 
