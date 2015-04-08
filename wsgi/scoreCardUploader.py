@@ -49,8 +49,12 @@ class ScoreCard:
         #assuming catches, runout and stumps are equal.
         runOuts = [fielder[fielder.find('(')+1:fielder.find(')')] for fielder in fieldingCard if ' b ' not in fielder]
         runOutsFielders = []
+        #directRunOutsFielders = []
         for fielder in runOuts:
+            #if '/' in fielder:
             runOutsFielders.extend(fielder.split('/'))
+            #else:
+            #    directRunOutsFielders.extend(fielder)
         fieldingCard = [fielder[fielder.find(' ')+1:fielder.find(' b')] for fielder in fieldingCard if ' b' in fielder]
         fieldingCard.extend(runOutsFielders)
         return batsmanList,fieldingCard
@@ -60,35 +64,41 @@ class ScoreCard:
         bowlersList = self.__parseScoreCardBowling()
         playerList=[]
         for batsman in batsmanList:
+            battingpoints = 0
             player={}
-            runs = batsman['runs']
-            runPoints = runs/20
-            runBonus=0
-            if runs>50:
-                runBonus+=1
-            if runs>100:
-                runBonus+=1
-            if runs>150:
-                runBonus+=1
-            #player=batsman
-            batsman['runPoints']=runPoints
-            batsman['runBonus']=runBonus
+            battingpoints += batsman["runs"]
+            battingpoints += batsman["sixes"]*2
+
+            if batsman["runs"] >= 25 and batsman["runs"] < 50:
+                battingpoints += 25
+            if batsman["runs"] >= 50 and batsman["runs"] < 75:
+                battingpoints += 50
+            if batsman["runs"] >= 75 and batsman["runs"] < 100:
+                battingpoints += 75
+            if batsman["runs"] >= 100:
+                battingpoints += 100
+
+            if batsman["runs"]>batsman["balls"] :
+                battingpoints += (batsman["runs"]-batsman["runs"])
+
+            batsman['runPoints']=battingpoints
+            batsman['runBonus']=0
             playerList.append({'name':batsman['name'],'batstats':batsman,'fieldPoints':0})
         
         for bowler in bowlersList:
-            wickets = bowler['wickets']
-            maidens= bowler['maidens']
-            wicketBonus =0
-            if wickets>=3 and wickets <5:
-                wicketBonus+=1
-            if wickets>=5 and wickets <7:
-                wicketBonus+=2
-            if wickets>=7:
-                wicketBonus+=3
+            bowlingpoints = 0
+            bowlingpoints += bowler["wickets"]*20
+            bowlingpoints += bowler["maidens"]*20
+
+            if bowler["noOfBalls"] > bowler["bowling_runs"]:
+                bowlingpoints += ((bowler["noOfBalls"]-bowler["bowling_runs"])*4)
+            if bowler["wickets"] >= 2:
+                bowlingpoints += bowler["wickets"]*10
+
             name = bowler['name']
-            bowler['wicketPoints']=wickets
-            bowler['maidenPoints']=maidens
-            bowler['wicketBonus']=wicketBonus
+            bowler['wicketPoints']=bowlingpoints
+            bowler['maidenPoints']=0
+            bowler['wicketBonus']=0
             player = [player for player in playerList if player['name']==name][0]
             player['bowlstats']=bowler.copy()
             
@@ -99,7 +109,10 @@ class ScoreCard:
                 player['fieldPoints']+=1
             else:
                 player['fieldPoints']=1
-
+            #fieldingpoints += fantasyScore["fieldingCatches"]*10
+            #fieldingpoints += fantasyScore["fieldingStumping"]*15
+            #fieldingpoints += fantasyScore["directRunOut"]*15
+            #fieldingpoints += fantasyScore["fieldingRunOut"]*10
         
 
         for player in playerList:
