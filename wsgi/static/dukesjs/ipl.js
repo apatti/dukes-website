@@ -39,6 +39,7 @@ function loggedOut(){
         populateMyTeam();
         populateBidHistory();
          populateMarket();
+         populateIplScoreView();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Please sign in.</h3>")
@@ -668,6 +669,38 @@ function populateBidHistory()
                     bidtable.draw(datarow);
                 }
             });
+        }
+    });
+}
+
+function populateIplScoreView()
+{
+    $.get("/fantasy/scorecard/829705",function(data,status){
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string','Name');
+            datarow.addColumn('number','Batting Points');
+            datarow.addColumn('number','Bowling Points');
+            datarow.addColumn('number','Fielding Points');
+            datarow.addColumn('number','Total Points');
+            score = $.parseJSON(JSON.stringify(data));
+            for(var i=0;i<score.length;i++)
+            {
+                var batPoints=0;
+                var bowlPoints=0;
+                if(score[i]['batstats'])
+                    batPoints = score[i].batstats.runPoints;
+
+                if(score[i]['bowlstats'])
+                    bowlPoints = score[i].bowlstats.wicketPoints;
+
+                datarow.addRows([[score[i].name,batPoints,bowlPoints,score[i].fieldPoints,score[i].totalPoints]]);
+            }
+            var scoretable = new google.visualization.Table(document.getElementById('iplscoreDiv'));
+            //var options = {'height': 300};
+            scoretable.draw(datarow);
         }
     });
 }
