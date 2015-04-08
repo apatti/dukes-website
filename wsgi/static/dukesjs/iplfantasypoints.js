@@ -72,7 +72,7 @@ function playingTeam( teamName)
                var keyStr = (teamtable.rows[i].cells[0].innerHTML).split('-');
 
                var playerJson = {};
-               playerJson.ID = keyStr[0];
+               playerJson.ID = parseInt(keyStr[0]);
                playerJson.objectId = keyStr[1];
                playerJson.Team = keyStr[2];
                playerJson.owner1 = keyStr[3];

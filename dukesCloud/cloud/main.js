@@ -142,6 +142,7 @@ Parse.Cloud.define("getIplUserDropableTeam",function(request,response){
     currentWeekQuery.get("nw212iKAd4",{
         success: function(currentWeek){
             var currentweekNumber = currentWeek.get("currentweeknumber");
+            console.log("Cr:"+currentweekNumber);
             var userObject = Parse.Object.extend("iplfantasy");
             var userTeamQuery = new Parse.Query(userObject);
             userTeamQuery.equalTo("name",request.params.name);
@@ -152,16 +153,17 @@ Parse.Cloud.define("getIplUserDropableTeam",function(request,response){
                 else {
                     var playerObject = Parse.Object.extend("iplplayer");
                     var playerQuery = new Parse.Query(playerObject);
-                    if (userResults[0].get("league") == 1)
-                        playerQuery.equalTo("owner1", request.params.name);
-                    else
-                        playerQuery.equalTo("owner2", request.params.name);
+                    if (userResults[0].get("league") == 1);
+                        //playerQuery.equalTo("owner1", request.params.name);
+                    else ;
+                        //playerQuery.equalTo("owner2", request.params.name);
 
                     var playedPlayersObject = Parse.Object.extend("iplfantasyplayerscore");
                     var playedPlayersQuery = new Parse.Query(playedPlayersObject);
-                    playedPlayersQuery.equalTo("played",1);
-                    playedPlayersObject.equalTo("week",currentweekNumber);
-                    playerQuery.doesNotMatchKeyInQuery("ID","playerId",playedPlayersQuery);
+                    //playedPlayersQuery.equalTo("played",1);
+                    console.log("CCR:"+currentweekNumber);
+                    playedPlayersQuery.equalTo("week",currentweekNumber);
+                    playerQuery.matchesKeyInQuery("ID","playerId",playedPlayersQuery);
                     playerQuery.find().then(function (playerResults) {
                         response.success({"userData": userResults[0], "userTeam": playerResults});
                     });
