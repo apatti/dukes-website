@@ -27,6 +27,7 @@ function playingTeam( teamName)
         var teamtablehtml='<table id="teamTable"><thead><tr>' +
             '<th style="display:none;">key</th>' +
             '<th>Name</th>' +
+            '<th>Played</th>' +
             '<th>Runs</th>' +
             '<th>Sixs</th>' +
             '<th>Batsman Balls</th>' +
@@ -45,17 +46,18 @@ function playingTeam( teamName)
 
             teamtablehtml+='<tr><td style="display:none;">'+this.ID+'-'+this.objectId+'-'+this.Team+'-'+this.owner1+'-'+this.owner2+'</td>' +
                 '<td>'+this.Name+'</td>'+
-                '<td><input type="number" id="'+this.Name+'runs" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'sixa" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'strikeRate" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'wickets" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'maiden" value=0></td>' +
-                '<td><input type="text" id="'+this.Name+'runRate" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'noOfBalls" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'catches" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'stumps" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'directRunOut" value=0></td>' +
-                '<td><input type="number" id="'+this.Name+'runOut" value=0></td>' +
+                '<td><input type="checkbox" id="'+this.objectId+'IsPlayed"></td>' +
+                '<td><input type="number" id="'+this.Name+' runs" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' sixs" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' strikeRate" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' wickets" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' maiden" value=0></td>' +
+                '<td><input type="text" id="'+this.Name+' runRate" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' noOfBalls" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' catches" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' stumps" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' directRunOut" value=0></td>' +
+                '<td><input type="number" id="'+this.Name+' runOut" value=0></td>' +
                 '<td><input type="checkbox" id="'+this.objectId+'IsMoM"></td>' +
                 '<td><input type="checkbox" id="'+this.objectId+'IsWinner"></td></tr>';
         });
@@ -76,17 +78,17 @@ function playingTeam( teamName)
                playerJson.owner1 = keyStr[3];
                playerJson.owner2 = keyStr[4];
                playerJson.Name = teamtable.rows[i].cells[1].innerHTML;
-               playerJson.battingRuns = parseInt(teamtable.rows[i].cells[2].children[0].value);
-               playerJson.sixs = parseInt(teamtable.rows[i].cells[3].children[0].value);
-               playerJson.battingBalls = parseInt(teamtable.rows[i].cells[4].children[0].value);//document.getElementById(playerJson.player+"notOut").checked;
-               playerJson.bowlingWickets = parseInt(teamtable.rows[i].cells[5].children[0].value);
-               playerJson.bowlingMaidenOvers = parseInt(teamtable.rows[i].cells[6].children[0].value);
-               playerJson.bowlingRuns = parseFloat(teamtable.rows[i].cells[7].children[0].value);
-               playerJson.noOfBalls = parseInt(teamtable.rows[i].cells[8].children[0].value);
-               playerJson.fieldingCatches = parseInt(teamtable.rows[i].cells[9].children[0].value);
-               playerJson.fieldingStumping = parseInt(teamtable.rows[i].cells[10].children[0].value);
-               playerJson.directRunOut = parseInt(teamtable.rows[i].cells[11].children[0].value);
-               playerJson.fieldingRunOut = parseInt(teamtable.rows[i].cells[12].children[0].value);
+               playerJson.battingRuns = parseInt(teamtable.rows[i].cells[3].children[0].value);
+               playerJson.sixs = parseInt(teamtable.rows[i].cells[4].children[0].value);
+               playerJson.battingBalls = parseInt(teamtable.rows[i].cells[5].children[0].value);//document.getElementById(playerJson.player+"notOut").checked;
+               playerJson.bowlingWickets = parseInt(teamtable.rows[i].cells[6].children[0].value);
+               playerJson.bowlingMaidenOvers = parseInt(teamtable.rows[i].cells[7].children[0].value);
+               playerJson.bowlingRuns = parseFloat(teamtable.rows[i].cells[8].children[0].value);
+               playerJson.noOfBalls = parseInt(teamtable.rows[i].cells[9].children[0].value);
+               playerJson.fieldingCatches = parseInt(teamtable.rows[i].cells[10].children[0].value);
+               playerJson.fieldingStumping = parseInt(teamtable.rows[i].cells[11].children[0].value);
+               playerJson.directRunOut = parseInt(teamtable.rows[i].cells[12].children[0].value);
+               playerJson.fieldingRunOut = parseInt(teamtable.rows[i].cells[13].children[0].value);
                playerJson.IsMoM = document.getElementById(playerJson.objectId + "IsMoM").checked;
                playerJson.IsWinner = document.getElementById(playerJson.objectId + "IsWinner").checked;
                teamJson.push(playerJson);

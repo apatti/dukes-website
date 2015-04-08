@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/iplstandings.py" afterPath="$PROJECT_DIR$/wsgi/iplstandings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/iplfantasyscore.py" afterPath="$PROJECT_DIR$/wsgi/iplfantasyscore.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -57,32 +58,32 @@
       <file leaf-file-name="iplfantasyscore.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
-              <caret line="132" column="60" selection-start-line="132" selection-start-column="60" selection-end-line="132" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3525">
+              <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplstandings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="iplstandings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/iplstandings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7" vertical-offset="5" max-vertical-offset="1800">
-              <caret line="21" column="94" selection-start-line="21" selection-start-column="94" selection-end-line="21" selection-end-column="94" />
+            <state vertical-scroll-proportion="-4.5925927" vertical-offset="806" max-vertical-offset="1800">
+              <caret line="64" column="55" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplfantasypoints.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="iplfantasypoints.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1335" max-vertical-offset="1920">
-              <caret line="76" column="43" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.925" vertical-offset="1025" max-vertical-offset="1950">
+              <caret line="93" column="41" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1428472914000" expanded="true" signature="578:591" placeholder="..." />
-                <marker date="1428472914000" expanded="true" signature="1183:1196" placeholder="..." />
+                <marker date="1428476914000" expanded="true" signature="578:591" placeholder="..." />
+                <marker date="1428476914000" expanded="true" signature="1215:1228" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -142,9 +143,9 @@
         <option value="$PROJECT_DIR$/wsgi/static/ipl.html" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
         <option value="$PROJECT_DIR$/wsgi/iplplayers.py" />
-        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js" />
-        <option value="$PROJECT_DIR$/wsgi/iplfantasyscore.py" />
         <option value="$PROJECT_DIR$/wsgi/iplstandings.py" />
+        <option value="$PROJECT_DIR$/wsgi/iplfantasyscore.py" />
+        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js" />
       </list>
     </option>
   </component>
@@ -939,18 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1335" max-vertical-offset="1920">
-          <caret line="76" column="43" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1428472914000" expanded="true" signature="578:591" placeholder="..." />
-            <marker date="1428472914000" expanded="true" signature="1183:1196" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
@@ -965,19 +954,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
+    <entry file="file://$PROJECT_DIR$/wsgi/iplstandings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
-          <caret line="132" column="60" selection-start-line="132" selection-start-column="60" selection-end-line="132" selection-end-column="60" />
+        <state vertical-scroll-proportion="-4.5925927" vertical-offset="806" max-vertical-offset="1800">
+          <caret line="64" column="55" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/iplstandings.py">
+    <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7" vertical-offset="5" max-vertical-offset="1800">
-          <caret line="21" column="94" selection-start-line="21" selection-start-column="94" selection-end-line="21" selection-end-column="94" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3525">
+          <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/iplfantasypoints.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.925" vertical-offset="1025" max-vertical-offset="1950">
+          <caret line="93" column="41" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1428476914000" expanded="true" signature="578:591" placeholder="..." />
+            <marker date="1428476914000" expanded="true" signature="1215:1228" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
