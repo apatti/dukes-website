@@ -82,6 +82,7 @@ tent-Type": "application/json"})
         else:
             blankscoreobj={}
             blankscoreobj["owner"]=team1
+            blankscoreobj["league"]=game["league"]
             blankscoreobj["battingpoints"]=0
             blankscoreobj["bowlingpoints"]=0
             blankscoreobj["fieldingpoints"]=0
@@ -97,6 +98,7 @@ tent-Type": "application/json"})
         else:
             blankscoreobj={}
             blankscoreobj["owner"]=team2
+            blankscoreobj["league"]=game["league"]
             blankscoreobj["battingpoints"]=0
             blankscoreobj["bowlingpoints"]=0
             blankscoreobj["fieldingpoints"]=0
