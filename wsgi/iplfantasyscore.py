@@ -130,7 +130,7 @@ tent-Type": "application/json"})
     params = urllib.urlencode({"where": json.dumps({"fantasyweek": currentweeknumber})})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
-    connection.request('GET', '/1/classes/dukesiplfantasyschedule?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.request('GET', '/1/classes/iplfantasyschedule?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     games = (json.loads(connection.getresponse().read())).get("results")
     for game in games:
         team1 = game["team1"]
