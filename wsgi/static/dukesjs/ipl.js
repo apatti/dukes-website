@@ -686,17 +686,17 @@ function populateIplScoreView()
             datarow.addColumn('number','Fielding Points');
             datarow.addColumn('number','Total Points');
             score = $.parseJSON(JSON.stringify(data));
-            for(var i=0;i<score.length;i++)
+            for(var i=0;i<score.result.length;i++)
             {
                 var batPoints=0;
                 var bowlPoints=0;
                 if(score[i]['batstats'])
-                    batPoints = score[i].batstats.runPoints;
+                    batPoints = score.result[i].batstats.runPoints;
 
                 if(score[i]['bowlstats'])
-                    bowlPoints = score[i].bowlstats.wicketPoints;
+                    bowlPoints = score.result[i].bowlstats.wicketPoints;
 
-                datarow.addRows([[score[i].name,batPoints,bowlPoints,score[i].fieldPoints,score[i].totalPoints]]);
+                datarow.addRows([[score.result[i].name,batPoints,bowlPoints,score.result[i].fieldPoints,score.result[i].totalPoints]]);
             }
             var scoretable = new google.visualization.Table(document.getElementById('iplscoreDiv'));
             //var options = {'height': 300};
