@@ -138,7 +138,37 @@ Parse.Cloud.define("getIplUserTeam",function(request,response){
 
 Parse.Cloud.define("getIplUserDropableTeam",function(request,response){
     var currentWeekObject = Parse.Object.extend("iplfantasycurrentweek");
+    var currentWeekQuery = new Parse.Query(currentWeekObject);
+    currentWeekQuery.get("nw212iKAd4",{
+        success: function(currentWeek){
+            var currentweekNumber = currentWeek.get("currentweeknumber");
+            var userObject = Parse.Object.extend("iplfantasy");
+            var userTeamQuery = new Parse.Query(userObject);
+            userTeamQuery.equalTo("name",request.params.name);
+            userTeamQuery.find().then(function(userResults){
+                if(userResults.length==0) {
+                    response.success({"userData": {}, "userTeam": []});
+                }
+                else {
+                    var playerObject = Parse.Object.extend("iplplayer");
+                    var playerQuery = new Parse.Query(playerObject);
+                    if (userResults[0].get("league") == 1)
+                        playerQuery.equalTo("owner1", request.params.name);
+                    else
+                        playerQuery.equalTo("owner2", request.params.name);
 
+                    var playedPlayersObject = Parse.Object.extend("iplfantasyplayerscore");
+                    var playedPlayersQuery = new Parse.Query(playedPlayersObject);
+                    playedPlayersQuery.equalTo("played",1);
+                    playedPlayersObject.equalTo("week",currentweekNumber);
+                    playerQuery.doesNotMatchKeyInQuery("ID","playerId",playedPlayersQuery);
+                    playerQuery.find().then(function (playerResults) {
+                        response.success({"userData": userResults[0], "userTeam": playerResults});
+                    });
+                }
+            });
+        }
+    });
 });
 
 Parse.Cloud.define("getIplUsers",function(request,response){

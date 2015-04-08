@@ -36,6 +36,14 @@ def getIplUserTeam(username):
     connection.request('POST','/1/functions/getIplUserTeam',json.dumps({'name':username}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return json.loads(connection.getresponse().read())
 
+
+def getIplUserDroppableTeam(username):
+    params = urllib.urlencode({"where":json.dumps({"owner":username}),"order":"Type"})
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('POST','/1/functions/getIplUserDropableTeam',json.dumps({'name':username}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    return json.loads(connection.getresponse().read())
+
 def getNextBidder():
     global users
     global currentBidIndex
