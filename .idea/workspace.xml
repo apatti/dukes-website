@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +41,14 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69437" vertical-offset="1901" max-vertical-offset="11085">
-              <caret line="144" column="136" selection-start-line="144" selection-start-column="136" selection-end-line="144" selection-end-column="136" />
+            <state vertical-scroll-proportion="0.6541555" vertical-offset="1991" max-vertical-offset="11160">
+              <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
               <folding>
-                <marker date="1428468581000" expanded="true" signature="4784:4807" placeholder="..." />
-                <marker date="1428468581000" expanded="true" signature="5389:5431" placeholder="..." />
+                <marker date="1428469021000" expanded="true" signature="4784:4807" placeholder="..." />
+                <marker date="1428469021000" expanded="true" signature="5294:5336" placeholder="..." />
+                <marker date="1428469021000" expanded="true" signature="5488:5530" placeholder="..." />
+                <marker date="1428469021000" expanded="true" signature="5693:5735" placeholder="..." />
+                <marker date="1428469021000" expanded="true" signature="5824:5866" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -53,7 +57,7 @@
       <file leaf-file-name="iplstandings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/iplstandings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1275">
+            <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="1275">
               <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
               <folding>
                 <element signature="e#116#2260#0" expanded="false" />
@@ -846,7 +850,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/iplstandings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="800" max-vertical-offset="1275">
+        <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="1275">
           <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
           <folding>
             <element signature="e#116#2260#0" expanded="false" />
@@ -856,11 +860,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69437" vertical-offset="1901" max-vertical-offset="11085">
-          <caret line="144" column="136" selection-start-line="144" selection-start-column="136" selection-end-line="144" selection-end-column="136" />
+        <state vertical-scroll-proportion="0.6541555" vertical-offset="1991" max-vertical-offset="11160">
+          <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
           <folding>
-            <marker date="1428468581000" expanded="true" signature="4784:4807" placeholder="..." />
-            <marker date="1428468581000" expanded="true" signature="5389:5431" placeholder="..." />
+            <marker date="1428469021000" expanded="true" signature="4784:4807" placeholder="..." />
+            <marker date="1428469021000" expanded="true" signature="5294:5336" placeholder="..." />
+            <marker date="1428469021000" expanded="true" signature="5488:5530" placeholder="..." />
+            <marker date="1428469021000" expanded="true" signature="5693:5735" placeholder="..." />
+            <marker date="1428469021000" expanded="true" signature="5824:5866" placeholder="..." />
           </folding>
         </state>
       </provider>

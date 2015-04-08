@@ -133,16 +133,21 @@ function populateCurrentWeekDetails()
         for(var i=0;i<games.length;i++)
         {
             //Since the group information is inside the game and not in games, the follwing hack.
-            var league='';
+            var gameheader='';
             if(games[i].team1.league==1)
             {
-                league ='A';
+                gameheader ='<tr bgcolor="#dc143c"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - A Game ';
             }
-            else
+            if(games[i].team1.league==2) {
+                gameheader ='<tr bgcolor="#228b22"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - B Game';
+            }
+            if(games[i].team1.league==0)
             {
-                league = 'B';
+                gameheader ='<tr bgcolor="#d2691e"><td  style="border:1px solid black;text-align: center;" colspan="7">Finals Game';
             }
-            gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Group - ' + league+ ' Game '+(i+1)%6+'</td> </tr>'
+
+            //gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Group - ' + league+ ' Game '+(((i+1)%3)+1)+'</td> </tr>'
+            gametablehtml+=gameheader+(((i+1)%3)+1)+'</td> </tr>'
             gametablehtml+='<tr><td>'+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
                             games[i].team1.loss+"-"+games[i].team1.tie+"</td><td>"+
                             games[i].team1.battingpoints+"</td><td>"+
