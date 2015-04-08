@@ -26,7 +26,7 @@ class ScoreCard:
         connection.request('GET',url)
         result =json.loads(connection.getresponse().read())
         bowlingCard = result['results']
-        bowlingCard =[{'name':bowler.get('name/_text'),'overs':bowler.get('overs'),'wickets':bowler.get('wickets'),'maidens':bowler.get('maidens'),'eco':bowler.get('eco'),'bowling_runs':bowler.get('runs')} for bowler in bowlingCard]
+        bowlingCard =[{'name':bowler.get('name/_text'),'overs':bowler.get('overs'),'balls':int((bowler["overs"]-math.floor(bowler["overs"]))*10),'wickets':bowler.get('wickets'),'maidens':bowler.get('maidens'),'eco':bowler.get('eco'),'bowling_runs':bowler.get('runs')} for bowler in bowlingCard]
         return bowlingCard
 
     def __parseScoreCardBatting(self):
