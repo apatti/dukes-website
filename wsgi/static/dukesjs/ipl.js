@@ -132,7 +132,17 @@ function populateCurrentWeekDetails()
         var games = data.standings.games;
         for(var i=0;i<games.length;i++)
         {
-            gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Game '+(i+1)+'</td> </tr>'
+            //Since the group information is inside the game and not in games, the follwing hack.
+            var league='';
+            if(games[i].team1.league==1)
+            {
+                league ='A';
+            }
+            else
+            {
+                league = 'B';
+            }
+            gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Group - ' + league+ ' Game '+(i+1)%6+'</td> </tr>'
             gametablehtml+='<tr><td>'+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
                             games[i].team1.loss+"-"+games[i].team1.tie+"</td><td>"+
                             games[i].team1.battingpoints+"</td><td>"+
