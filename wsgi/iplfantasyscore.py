@@ -8,7 +8,7 @@ def updateFantasyScore(iplTeamScoreObj):
     #get current fantasyweek
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
-    connection.request('GET','/1/classes/iplfantasycurrentweek/mJkDqrQ19R','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
+    connection.request('GET','/1/classes/iplfantasycurrentweek/nw212iKAd4','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
 tent-Type": "application/json"})
     currentweeknumber = json.loads(connection.getresponse().read()).get("currentweeknumber")
     playerscores = []
@@ -55,7 +55,8 @@ tent-Type": "application/json"})
         connection = httplib.HTTPSConnection('api.parse.com', 443)
         connection.connect()
         playerScoreObj ={}
-        playerScoreObj["owner"]=fantasyScore["owner"]
+        playerScoreObj["owner1"]=fantasyScore["owner1"]
+        playerScoreObj["owner2"]=fantasyScore["owner2"]
         playerScoreObj["playerId"]=fantasyScore["ID"]
         playerScoreObj["playerName"]=fantasyScore["Name"]
         playerScoreObj["battingpoints"]=battingpoints
@@ -69,7 +70,8 @@ tent-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
 
     # update user points
-    iplusers = ['narashan','srudeep','rama.marri','balachandra.ambiga','vivek.vennam','gopi.k.mamidi','srikanth.kurmana','sagar.marri']
+    iplusers = ['Nikhil','Srudeep','Rama','Gopi','Srikanth','Chandra Sekhar','balachandra','Vivek','Sagar','Soumen','srinivas','Rajasekhar']
+    iplusersGroupA = ['Nikhil','Srudeep','Rama','Gopi','Srikanth','Chandra Sekhar']
     userspoints=[]
     for ipluser in iplusers:
         battingpoints=0
@@ -77,7 +79,7 @@ tent-Type": "application/json"})
         fieldingpoints=0
         mompoints=0
         winpoints=0
-        ipluserscores = [playerscore for playerscore in playerscores if playerscore.get("owner")==ipluser]
+        ipluserscores = [playerscore for playerscore in playerscores if playerscore.get("owner1")==ipluser or playerscore.get("owner2")==ipluser]
         for ipluserscore in ipluserscores:
             battingpoints+= ipluserscore["battingpoints"]
             bowlingpoints+= ipluserscore["bowlingpoints"]
@@ -86,6 +88,11 @@ tent-Type": "application/json"})
             winpoints+= ipluserscore["winpoints"]
 
         userpoints = {}
+        if ipluser in iplusersGroupA:
+            league=1
+        else:
+            league=2
+
         userpoints["owner"]=ipluser
         userpoints["week"]=currentweeknumber
         userpoints["battingpoints"]=battingpoints
@@ -93,6 +100,7 @@ tent-Type": "application/json"})
         userpoints["fieldingpoints"]=fieldingpoints
         userpoints["mompoints"]=mompoints
         userpoints["winpoints"]=winpoints
+        userpoints["league"]=league
 
         params = urllib.urlencode({"where": json.dumps({"owner": ipluser, "week": currentweeknumber})})
         connection = httplib.HTTPSConnection('api.parse.com',443)
