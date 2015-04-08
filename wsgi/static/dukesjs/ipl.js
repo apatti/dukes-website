@@ -685,7 +685,7 @@ function populateIplScoreView()
             datarow.addColumn('number','Bowling Points');
             datarow.addColumn('number','Fielding Points');
             datarow.addColumn('number','Total Points');
-            score = $.parseJSON(JSON.stringify(data));
+            score = $.parseJSON(data);
             for(var i=0;i<score.result.length;i++)
             {
                 var batPoints=0;
