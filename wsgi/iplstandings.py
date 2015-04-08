@@ -19,7 +19,7 @@ def getIplStanding(leagueId):
 
     standings=[]
     for user in users:
-        userscores = [userscore for userscore in usersscores if userscore["owner"]==user["username"]]
+        userscores = [userscore for userscore in usersscores if userscore["owner"]==user["name"]]
 
         #standing={}
         #standing["owner"]=user
