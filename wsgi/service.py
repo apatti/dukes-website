@@ -156,7 +156,7 @@ def getFantasyScoreApi(game_id):
 
 @app.route('/fantasy/scorecard/<game_id>',methods=['GET'])
 def getFantasyScoreCard(game_id):
-    return getScoreCard(game_id),200
+    return json.dumps({'result':getScoreCard(game_id)}),200
 
 @app.route('/cricketgames/', methods=['GET'])
 def getCricketGamesMetaApi():
