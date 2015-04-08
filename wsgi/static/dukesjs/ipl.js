@@ -229,7 +229,7 @@ function populateFreeAgents()
                         var dropDownStr =' <select id = "selectedTeamMemberId" class="selectgame">';
                         dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
 
-                        $.get(DOMAIN_NAME+"/ipl/userteams/"+userId,function(data,status){
+                        $.get(DOMAIN_NAME+"/ipl/userdroppableteams/"+userId,function(data,status){
                           var  players = $.parseJSON(JSON.stringify(data.result.userTeam));
                             if(players.length==0)
                             {
