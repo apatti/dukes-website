@@ -91,6 +91,7 @@ function playingTeam( teamName)
                playerJson.fieldingRunOut = parseInt(teamtable.rows[i].cells[13].children[0].value);
                playerJson.IsMoM = document.getElementById(playerJson.objectId + "IsMoM").checked;
                playerJson.IsWinner = document.getElementById(playerJson.objectId + "IsWinner").checked;
+               playerJson.Played = document.getElementById(playerJson.objectId + "IsPlayed").checked;
                teamJson.push(playerJson);
            }
 

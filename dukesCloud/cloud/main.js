@@ -136,6 +136,10 @@ Parse.Cloud.define("getIplUserTeam",function(request,response){
     });
 });
 
+Parse.Cloud.define("getIplUserDropableTeam",function(request,response){
+
+});
+
 Parse.Cloud.define("getIplUsers",function(request,response){
     var userObject = Parse.Object.extend("iplfantasy");
     var userQuery = new Parse.Query(userObject);
