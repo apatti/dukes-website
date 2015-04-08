@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -41,8 +40,8 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21179625" vertical-offset="1991" max-vertical-offset="11160">
-              <caret line="138" column="49" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.6541555" vertical-offset="1991" max-vertical-offset="11160">
+              <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="43" />
               <folding>
                 <marker date="1428469187000" expanded="true" signature="4784:4807" placeholder="..." />
                 <marker date="1428469187000" expanded="true" signature="5294:5336" placeholder="..." />
@@ -878,8 +877,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21179625" vertical-offset="1991" max-vertical-offset="11160">
-          <caret line="138" column="49" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.6541555" vertical-offset="1991" max-vertical-offset="11160">
+          <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="43" />
           <folding>
             <marker date="1428469187000" expanded="true" signature="4784:4807" placeholder="..." />
             <marker date="1428469187000" expanded="true" signature="5294:5336" placeholder="..." />
