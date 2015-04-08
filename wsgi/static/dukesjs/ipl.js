@@ -147,7 +147,7 @@ function populateCurrentWeekDetails()
             }
 
             //gametablehtml+='<tr><td  style="border:1px solid black;text-align: center;" colspan="7">Group - ' + league+ ' Game '+(((i+1)%3)+1)+'</td> </tr>'
-            gametablehtml+=gameheader+(((i+1)%3)+1)+'</td> </tr>'
+            gametablehtml+=gameheader+((i+1)%3)+'</td> </tr>'
             gametablehtml+='<tr><td>'+games[i].team1.owner+"</td><td>"+games[i].team1.win+"-"+
                             games[i].team1.loss+"-"+games[i].team1.tie+"</td><td>"+
                             games[i].team1.battingpoints+"</td><td>"+
