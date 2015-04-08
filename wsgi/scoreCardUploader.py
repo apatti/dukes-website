@@ -107,9 +107,9 @@ class ScoreCard:
             player = [player for player in playerList if fielder[1:] in player['name']][0]
             #print player
             if 'fieldPoints' in player:
-                player['fieldPoints']+=1
+                player['fieldPoints']+=10
             else:
-                player['fieldPoints']=1
+                player['fieldPoints']=10
             #fieldingpoints += fantasyScore["fieldingCatches"]*10
             #fieldingpoints += fantasyScore["fieldingStumping"]*15
             #fieldingpoints += fantasyScore["directRunOut"]*15
