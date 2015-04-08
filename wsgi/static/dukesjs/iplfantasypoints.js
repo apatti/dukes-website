@@ -8,9 +8,6 @@
  * Created by apatti on 3/6/14.
  */
 
-$(document).bind('login_complete', loggedIn);
-$(document).bind('logout_complete', loggedOut);
-
 
 $(function (){
     $('#selectTeamDRopDown').change(function(){
