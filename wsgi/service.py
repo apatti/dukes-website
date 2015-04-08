@@ -221,7 +221,7 @@ def getIplUserTeamsApi(username):
     return jsonify(getIplUserTeam(username)),200
 
 @app.route('/ipl/userdroppableteams/<username>',methods=['GET'])
-def getIplUserDropablePlayers(username)
+def getIplUserDropablePlayers(username):
     return jsonify(getIplUserDroppableTeam(username)),200
 
 @app.route('/ipl/players',methods=['GET'])
