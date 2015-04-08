@@ -136,7 +136,7 @@ function populateCurrentWeekDetails()
             var gameheader='';
             if(games[i].team1.league==1)
             {
-                gameheader ='<tr bgcolor="#dc143c"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - A Game ';
+                gameheader ='<tr bgcolor="#daa520"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - A Game ';
             }
             if(games[i].team1.league==2) {
                 gameheader ='<tr bgcolor="#228b22"><td  style="border:1px solid black;text-align: center;" colspan="7">Group - B Game';

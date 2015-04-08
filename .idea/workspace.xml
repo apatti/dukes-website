@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="" />
+    <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -35,26 +38,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.037037" vertical-offset="1991" max-vertical-offset="11160">
-              <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.21179625" vertical-offset="1991" max-vertical-offset="11160">
+              <caret line="138" column="49" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
               <folding>
-                <marker date="1428469021000" expanded="true" signature="4784:4807" placeholder="..." />
-                <marker date="1428469021000" expanded="true" signature="5294:5336" placeholder="..." />
-                <marker date="1428469021000" expanded="true" signature="5488:5530" placeholder="..." />
-                <marker date="1428469021000" expanded="true" signature="5693:5735" placeholder="..." />
-                <marker date="1428469021000" expanded="true" signature="5824:5866" placeholder="..." />
+                <marker date="1428469187000" expanded="true" signature="4784:4807" placeholder="..." />
+                <marker date="1428469187000" expanded="true" signature="5294:5336" placeholder="..." />
+                <marker date="1428469187000" expanded="true" signature="5488:5530" placeholder="..." />
+                <marker date="1428469187000" expanded="true" signature="5693:5735" placeholder="..." />
+                <marker date="1428469187000" expanded="true" signature="5824:5866" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplFantasyPoints.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="iplFantasyPoints.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/iplFantasyPoints.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0744681" vertical-offset="780" max-vertical-offset="1320">
+            <state vertical-scroll-proportion="32.5" vertical-offset="780" max-vertical-offset="1320">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -505,7 +508,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18248175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18248175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2536946" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -865,25 +868,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/iplFantasyPoints.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.037037" vertical-offset="1991" max-vertical-offset="11160">
-          <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
-          <folding>
-            <marker date="1428469021000" expanded="true" signature="4784:4807" placeholder="..." />
-            <marker date="1428469021000" expanded="true" signature="5294:5336" placeholder="..." />
-            <marker date="1428469021000" expanded="true" signature="5488:5530" placeholder="..." />
-            <marker date="1428469021000" expanded="true" signature="5693:5735" placeholder="..." />
-            <marker date="1428469021000" expanded="true" signature="5824:5866" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="32.5" vertical-offset="780" max-vertical-offset="1320">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/iplFantasyPoints.html">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0744681" vertical-offset="780" max-vertical-offset="1320">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.21179625" vertical-offset="1991" max-vertical-offset="11160">
+          <caret line="138" column="49" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
+          <folding>
+            <marker date="1428469187000" expanded="true" signature="4784:4807" placeholder="..." />
+            <marker date="1428469187000" expanded="true" signature="5294:5336" placeholder="..." />
+            <marker date="1428469187000" expanded="true" signature="5488:5530" placeholder="..." />
+            <marker date="1428469187000" expanded="true" signature="5693:5735" placeholder="..." />
+            <marker date="1428469187000" expanded="true" signature="5824:5866" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
