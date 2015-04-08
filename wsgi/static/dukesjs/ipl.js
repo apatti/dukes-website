@@ -209,7 +209,7 @@ function populateFreeAgents()
                     freeagentsdb.draw(datarow,{allowHtml:true});
 
                     google.visualization.events.addListener(freeagentstable, 'select', function() {
-                        var selection = freeagentstable.getSelection();
+                        var selection = freeagentstable.getChart().getSelection();
                         var dialogContent = '';
                         var dropDownStr =' <select id = "selectedTeamMemberId" class="selectgame">';
                         dropDownStr += '<option id="selectPlayerId">Select a Player</option>';
