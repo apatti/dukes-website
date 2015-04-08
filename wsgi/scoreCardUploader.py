@@ -124,8 +124,6 @@ class ScoreCard:
             if 'bowlstats' in player:
                 bowlingPoints = player['bowlstats']['wicketPoints']+player['bowlstats']['maidenPoints']+player['bowlstats']['wicketBonus']
                 totalPoints += bowlingPoints
-                if bowlingPoints*player['batstats']['runPoints']>0:
-                    totalPoints += totalPoints
 
             player['totalPoints']=totalPoints
             
