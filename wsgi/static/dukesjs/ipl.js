@@ -35,7 +35,6 @@ function loggedOut(){
         $('#link_bidstab').show();
         $('#link_markettab').show();
         //registerEventHandlers();
-        //populateCurrentWeekDetails();
         populateFreeAgents();
         populateMyTeam();
         populateBidHistory();
@@ -48,6 +47,7 @@ function loggedOut(){
 
 $(document).ready(function(){
     loggedOut();
+    populateCurrentWeekDetails();
     populateStandings();
     populateIplFantasySchedule();
     populateIplSchedule();
