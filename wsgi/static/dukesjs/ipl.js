@@ -690,10 +690,10 @@ function populateIplScoreView()
             {
                 var batPoints=0;
                 var bowlPoints=0;
-                if(score[i]['batstats'])
+                if(score.result[i]['batstats'])
                     batPoints = score.result[i].batstats.runPoints;
 
-                if(score[i]['bowlstats'])
+                if(score.result[i]['bowlstats'])
                     bowlPoints = score.result[i].bowlstats.wicketPoints;
 
                 datarow.addRows([[score.result[i].name,batPoints,bowlPoints,score.result[i].fieldPoints,score.result[i].totalPoints]]);
