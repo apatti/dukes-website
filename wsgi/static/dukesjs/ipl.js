@@ -278,11 +278,11 @@ function populateFreeAgents()
                                 }
 
                                 var item = selection[0];
-                                var id = datarow.getFormattedValue(item.row, 1);
-                                var objectId = datarow.getFormattedValue(item.row, 2);
-                                var playerName = datarow.getFormattedValue(item.row, 3);
+                                var id = freeagentstable.getDataTable().getFormattedValue(item.row, 1);
+                                var objectId = freeagentstable.getDataTable().getFormattedValue(item.row, 2);
+                                var playerName = freeagentstable.getDataTable().getFormattedValue(item.row, 3);
                                 playerName=playerName.substring(playerName.indexOf('>')+1,playerName.indexOf('</a'));
-                                var teamName = datarow.getFormattedValue(item.row,4);
+                                var teamName = freeagentstable.getDataTable().getFormattedValue(item.row,4);
 
                                 var droppedPlayer = toBeDroppedID.split('%');
 
@@ -300,11 +300,11 @@ function populateFreeAgents()
                                 jsonData.playerTobeDropped.Team = droppedPlayer[4];
 
                                 jsonData.newPlayer = {};
-                                jsonData.newPlayer.ID = parseInt(datarow.getFormattedValue(item.row, 1));
-                                jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 2);
+                                jsonData.newPlayer.ID = parseInt(freeagentstable.getDataTable().getFormattedValue(item.row, 1));
+                                jsonData.newPlayer.objectId = freeagentstable.getDataTable().getFormattedValue(item.row, 2);
                                 jsonData.newPlayer.Name = playerName;
                                 jsonData.newPlayer.Team = teamName;
-                                jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 5);
+                                jsonData.newPlayer.Type = freeagentstable.getDataTable().getFormattedValue(item.row, 5);
                                     //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
                                 console.log(JSON.stringify(jsonData));
                                 var bidJSON  = JSON.stringify(jsonData);

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -31,16 +30,21 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7747989" vertical-offset="1976" max-vertical-offset="3765">
-              <caret line="677" column="36" selection-start-line="677" selection-start-column="36" selection-end-line="677" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.69437" vertical-offset="2321" max-vertical-offset="3900">
+              <caret line="280" column="71" selection-start-line="280" selection-start-column="67" selection-end-line="280" selection-end-column="71" />
               <folding>
+                <element signature="e#1472#1612#0" expanded="false" />
+                <element signature="n#!!block;n#registerEventHandlers#0" expanded="false" />
+                <element signature="n#!!block;n#populateStandingsLeague#0" expanded="false" />
                 <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
-                <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
                 <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
                 <element signature="n#!!block;n#populateUserTeam#0" expanded="false" />
                 <element signature="n#!!block;n#populateUserBids#0" expanded="false" />
                 <element signature="n#!!block;n#populateBidHistory#0" expanded="false" />
+                <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
+                <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
+                <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
                 <marker date="1428557773000" expanded="true" signature="4817:4840" placeholder="..." />
                 <marker date="1428557773000" expanded="true" signature="5327:5369" placeholder="..." />
                 <marker date="1428557773000" expanded="true" signature="5521:5563" placeholder="..." />
@@ -948,16 +952,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7747989" vertical-offset="1976" max-vertical-offset="3765">
-          <caret line="677" column="36" selection-start-line="677" selection-start-column="36" selection-end-line="677" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.69437" vertical-offset="2321" max-vertical-offset="3900">
+          <caret line="280" column="71" selection-start-line="280" selection-start-column="67" selection-end-line="280" selection-end-column="71" />
           <folding>
+            <element signature="e#1472#1612#0" expanded="false" />
+            <element signature="n#!!block;n#registerEventHandlers#0" expanded="false" />
+            <element signature="n#!!block;n#populateStandingsLeague#0" expanded="false" />
             <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
-            <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
             <element signature="n#!!block;n#populateMarket#0" expanded="false" />
             <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
             <element signature="n#!!block;n#populateUserTeam#0" expanded="false" />
             <element signature="n#!!block;n#populateUserBids#0" expanded="false" />
             <element signature="n#!!block;n#populateBidHistory#0" expanded="false" />
+            <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
+            <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
+            <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
             <marker date="1428557773000" expanded="true" signature="4817:4840" placeholder="..." />
             <marker date="1428557773000" expanded="true" signature="5327:5369" placeholder="..." />
             <marker date="1428557773000" expanded="true" signature="5521:5563" placeholder="..." />
