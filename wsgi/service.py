@@ -232,7 +232,7 @@ def getIplPlayersApi():
 def getIplTeamOwnedPlayersApi():
     return jsonify(getIplTeamOwnedPlayers()),200
 
-@app.route('/ipl/players/teams/<team>',methods=['GET'])
+@app.route('/ipl/players/team/<team>',methods=['GET'])
 def getIplTeamPlayersApi(team):
     return jsonify(getIplTeamPlayers(team)),200
 
