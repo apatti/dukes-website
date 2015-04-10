@@ -95,8 +95,8 @@ def getIplTeamPlayers(team):
     #result = json.loads(connection.getresponse().read())
     return json.loads(connection.getresponse().read())
 
-def getIplTeamOwnedPlayers(team):
-    params = urllib.urlencode({"where":json.dumps({"Team":team,"$or":[{"owner1":{"$ne":""}},{"owner2":{"$ne":""}}]}),"order":"Type","limit":300});
+def getIplTeamOwnedPlayers():
+    params = urllib.urlencode({"where":json.dumps({"$or":[{"owner1":{"$ne":""}},{"owner2":{"$ne":""}}]}),"order":"Type","limit":300});
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplplayer?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})

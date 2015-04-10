@@ -8,6 +8,7 @@ function loggedOut(){
     $('#link_freeagentstab').hide();
     $('#link_bidstab').hide();
         $('#link_markettab').hide();
+    $('#link_ownedplayerstab').hide();
 }
 
  function loggedIn(){
@@ -34,12 +35,14 @@ function loggedOut(){
         $('#link_freeagentstab').show();
         $('#link_bidstab').show();
         $('#link_markettab').show();
+        $('#link_ownedplayerstab').show();
         //registerEventHandlers();
         populateFreeAgents();
         populateMyTeam();
         populateBidHistory();
          populateMarket();
          populateIplScoreView();
+         populateOwnedPlayers();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Please sign in.</h3>")
@@ -182,7 +185,7 @@ function populateFreeAgents()
                 {
                     var datarow = new google.visualization.DataTable();
                     datarow.addColumn('string','');
-                    datarow.addColumn('number','ID')
+                    datarow.addColumn('number','ID');
                     datarow.addColumn('string','ObjectId');
                     datarow.addColumn('string','Name');
                     datarow.addColumn('string','Team');
@@ -335,6 +338,57 @@ function populateFreeAgents()
         }
     });
 
+}
+
+function populateOwnedPlayers()
+{
+    $.get("/ipl/ownedplayers",function(data,status) {
+        google.load('visualization', '1.0', {'packages': ['controls'], callback: drawTable});
+        function drawTable() {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string', '');
+            datarow.addColumn('string', 'Name');
+            datarow.addColumn('string', 'Team');
+            datarow.addColumn('string', 'Type');
+            datarow.addColumn('string', 'Group A');
+            datarow.addColumn('string', 'Group B');
+            players = $.parseJSON(JSON.stringify(data));
+            for (var i = 0; i < players.results.length; i++) {
+                datarow.addRows([['<img src="' + players.results[i].image + '"/>',
+                    '<a href="' + players.results[i].link + '">' + players.results[i].Name + '</a>',
+                    players.results[i].Team,
+                    players.results[i].Type,
+                    players.results[i].owner1,
+                    players.results[i].owner2]]);
+            }
+            var filter = new google.visualization.ControlWrapper({
+                controlType: 'StringFilter',
+                containerId: 'ownedplayerssearch',
+                options: {
+                    filterColumnIndex: 1,
+                    matchType: 'any',
+                    caseSensitive: false,
+                    ui: {
+                        label: 'Search:'
+                    }
+                }
+            });
+
+            //var freeagentstable = new google.visualization.Table(document.getElementById('freeagentsDiv'));
+            var ownedplayerstable = new google.visualization.ChartWrapper({
+                chartType: 'Table',
+                containerId: 'ownedplayersDiv',
+                options: {
+                    allowHtml: true
+                }
+            });
+
+            var ownedplayersdb = new google.visualization.Dashboard(document.getElementById('ownedplayerstab'));
+            ownedplayersdb.bind(filter, ownedplayerstable);
+            //var options = {'height': 300};
+            ownedplayersdb.draw(datarow, {allowHtml: true});
+        }
+    });
 }
 
 function populateMarket()

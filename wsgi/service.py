@@ -228,9 +228,9 @@ def getIplUserDropablePlayers(username):
 def getIplPlayersApi():
     return jsonify(getIplPlayers()),200
 
-@app.route('/ipl/players/team/<team>',methods=['GET'])
-def getIplTeamPlayersApi(team):
-    return jsonify(getIplTeamOwnedPlayers(team)),200
+@app.route('/ipl/ownedplayers',methods=['GET'])
+def getIplTeamPlayersApi():
+    return jsonify(getIplTeamOwnedPlayers()),200
 
 @app.route('/ipl/league/<leagueid>/bids/fabid', methods=['POST'])
 def updateFABideApi(leagueid):
