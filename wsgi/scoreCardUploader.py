@@ -46,6 +46,7 @@ class ScoreCard:
             dnbBatsman = dnbBatsman[0].extend(dnbBatsman[1])
         else:
             dnbBatsman = dnbBatsman[0]
+        print dnbBatsman
         batsmanList.extend([{'name':batsman,'balls':0,'sixes':0,'fours':0,'runs':0,'srr':'0.0'} for batsman in dnbBatsman])
         fieldingCard = [batsman.get('howout') for batsman in battingCard if 'runs' in batsman and not (batsman.get('howout').startswith('b') or batsman.get('howout').startswith('n') or batsman.get('howout').startswith('lbw'))]
         #assuming catches, runout and stumps are equal.
