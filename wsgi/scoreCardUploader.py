@@ -44,7 +44,7 @@ class ScoreCard:
         print dnbBatsman[0]
         print dnbBatsman[1]
         if len(dnbBatsman)>1:
-            dnbBatsman = (dnbBatsman[0].append(dnbBatsman[1]))[0]
+            dnbBatsman = dnbBatsman[0].append(dnbBatsman[1])
         else:
             dnbBatsman = dnbBatsman[0]
         print dnbBatsman
