@@ -20,7 +20,7 @@ def viewAllBids(league):
     return json.loads(connection.getresponse().read())
 
 def viewUserBids(username,league):
-    params = urllib.urlencode({"where":json.dumps({"username": username,"league":league, "priority": {"$ne": 1}}),
+    params = urllib.urlencode({"where":json.dumps({"username": username,"league":league, "priority": {"$ne": -1}}),
                                "order": "priority"});
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
