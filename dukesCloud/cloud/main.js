@@ -152,15 +152,20 @@ Parse.Cloud.define("getIplUserDropableTeam",function(request,response){
                 else {
                     var playerObject = Parse.Object.extend("iplplayer");
                     var playerQuery = new Parse.Query(playerObject);
-                    if (userResults[0].get("league") == 1)
-                        playerQuery.equalTo("owner1", request.params.name);
-                    else
-                        playerQuery.equalTo("owner2", request.params.name);
 
                     var playedPlayersObject = Parse.Object.extend("iplfantasyplayerscore");
                     var playedPlayersQuery = new Parse.Query(playedPlayersObject);
-                    playedPlayersQuery.equalTo("played",1);
                     playedPlayersQuery.equalTo("week",currentweekNumber);
+
+                    if (userResults[0].get("league") == 1) {
+                        playerQuery.equalTo("owner1", request.params.name);
+                        playedPlayersQuery.equalTo("owner1played", 1);
+                    }
+                    else {
+                        playerQuery.equalTo("owner2", request.params.name);
+                        playedPlayersQuery.equalTo("owner2played", 1);
+                    }
+
                     playerQuery.doesNotMatchKeyInQuery("ID","playerId",playedPlayersQuery);
                     playerQuery.find().then(function (playerResults) {
                         response.success({"userData": userResults[0], "userTeam": playerResults});

@@ -69,7 +69,8 @@ tent-Type": "application/json"})
         playerScoreObj["winpoints"]=winpoints
         playerScoreObj["week"]=currentweeknumber
         playerScoreObj["fieldingpoints"]=fieldingpoints
-        playerScoreObj["played"]=played
+        playerScoreObj["owner1played"]=played
+        playerScoreObj["owner2played"]=played
         playerscores.append(playerScoreObj)
         connection.request('POST','/1/classes/iplfantasyplayerscore',json.dumps(playerScoreObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())

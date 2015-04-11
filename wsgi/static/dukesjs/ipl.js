@@ -7,8 +7,9 @@ function loggedOut(){
     $('#link_myteamtab').hide();
     $('#link_freeagentstab').hide();
     $('#link_bidstab').hide();
-        $('#link_markettab').hide();
+    $('#link_markettab').hide();
     $('#link_ownedplayerstab').hide();
+    $('#link_scoretab').hide();
 }
 
  function loggedIn(){
@@ -36,6 +37,7 @@ function loggedOut(){
         $('#link_bidstab').show();
         $('#link_markettab').show();
         $('#link_ownedplayerstab').show();
+         $('#link_scoretab').show();
         //registerEventHandlers();
         populateFreeAgents();
         populateMyTeam();
