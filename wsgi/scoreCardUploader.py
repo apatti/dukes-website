@@ -41,8 +41,11 @@ class ScoreCard:
         batsmanList.extend([{'name':batsman.get('name/_text'),'balls':int(batsman.get('minutes')),'sixes':int(batsman.get('fours')),'fours':int(batsman.get('balls')),'runs':int(batsman.get('runs')),'srr':batsman.get('sixes')} for batsman in battingCard if 'runs' in batsman and 'srr' not in batsman])
         #print batsmanList
         dnbBatsman = [batsman.get('dnb/_text') for batsman in battingCard if 'dnb' in batsman]
-        print dnbBatsman[0]
-        print dnbBatsman[1]
+        firstInningsDnB = dnbBatsman[0]
+        secondInningsDnB = dnbBatsman[1]
+        print firstInningsDnB
+        print secondInningsDnB
+        print firstInningsDnB.append(secondInningsDnB)
         if len(dnbBatsman)>1:
             dnbBatsman = dnbBatsman[0].append(dnbBatsman[1])
         else:
