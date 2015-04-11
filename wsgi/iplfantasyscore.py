@@ -53,8 +53,13 @@ tent-Type": "application/json"})
         if fantasyScore["IsWinner"] is True:
             winpoints += 1
 
+        owner1played = 0
+        owner2played = 0
         if fantasyScore["IsPlayed"] is True:
-            played=1
+            if fantasyScore["owner1"] != '':
+                owner1played=1
+            if fantasyScore["owner2"] != '':
+                owner2played=1
 
         connection = httplib.HTTPSConnection('api.parse.com', 443)
         connection.connect()
@@ -69,8 +74,8 @@ tent-Type": "application/json"})
         playerScoreObj["winpoints"]=winpoints
         playerScoreObj["week"]=currentweeknumber
         playerScoreObj["fieldingpoints"]=fieldingpoints
-        playerScoreObj["owner1played"]=played
-        playerScoreObj["owner2played"]=played
+        playerScoreObj["owner1played"]=owner1played
+        playerScoreObj["owner2played"]=owner2played
         playerscores.append(playerScoreObj)
         connection.request('POST','/1/classes/iplfantasyplayerscore',json.dumps(playerScoreObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())

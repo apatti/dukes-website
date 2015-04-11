@@ -200,3 +200,21 @@ Parse.Cloud.define("getIplScoreCard",function(request,response){
             }
         });
 })
+
+Parse.Cloud.define("addColumn", function(request,response){
+    var object = Parse.Object.extend("iplfantasyplayerscore");
+    var query = new Parse.Query(object);
+    query.find().then(function(players){
+        var promises =[];
+        for (var i=0; i< players.length; i++)
+        {
+            var player = players[i];
+            player.set("owner1played",player.get("played"));
+            player.set("owner2played",player.get("played"));
+            promises.push(player.save());
+        }
+        return Parse.Promise.when(promises);
+    }).then(function(){
+        response.success("done");
+    });
+})
