@@ -40,16 +40,12 @@ class ScoreCard:
         batsmanList = [{'name':batsman.get('name/_text'),'balls':int(batsman.get('balls')),'sixes':int(batsman.get('sixes')),'fours':int(batsman.get('fours')),'runs':int(batsman.get('runs')),'srr':batsman.get('srr')} for batsman in battingCard if 'runs' in batsman and 'srr' in batsman]
         batsmanList.extend([{'name':batsman.get('name/_text'),'balls':int(batsman.get('minutes')),'sixes':int(batsman.get('fours')),'fours':int(batsman.get('balls')),'runs':int(batsman.get('runs')),'srr':batsman.get('sixes')} for batsman in battingCard if 'runs' in batsman and 'srr' not in batsman])
         #print batsmanList
-        dnbBatsman = [batsman.get('dnb/_text') for batsman in battingCard if 'dnb' in batsman]
-        firstInningsDnB = dnbBatsman[0]
-        secondInningsDnB = dnbBatsman[1]
-        print firstInningsDnB
-        print secondInningsDnB
-        print firstInningsDnB.append(secondInningsDnB)
-        if len(dnbBatsman)>1:
-            dnbBatsman = dnbBatsman[0].append(dnbBatsman[1])
-        else:
-            dnbBatsman = dnbBatsman[0]
+        dnbBatsmanList = [batsman.get('dnb/_text') for batsman in battingCard if 'dnb' in batsman]
+        dnbBatsman=[]
+        dnbBatsman.append(dnbBatsmanList[0])
+        if len(dnbBatsmanList)>1:
+            dnbBatsman.append(dnbBatsmanList[1])
+
         print dnbBatsman
         batsmanList.extend([{'name':batsman,'balls':0,'sixes':0,'fours':0,'runs':0,'srr':'0.0'} for batsman in dnbBatsman])
         fieldingCard = [batsman.get('howout') for batsman in battingCard if 'runs' in batsman and not (batsman.get('howout').startswith('b') or batsman.get('howout').startswith('n') or batsman.get('howout').startswith('lbw'))]
