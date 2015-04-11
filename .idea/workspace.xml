@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dukesCloud/cloud/main.js" afterPath="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -32,17 +31,17 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22764228" vertical-offset="4821" max-vertical-offset="6405">
+            <state vertical-scroll-proportion="0.10569106" vertical-offset="4866" max-vertical-offset="6405">
               <caret line="733" column="36" selection-start-line="733" selection-start-column="36" selection-end-line="733" selection-end-column="36" />
               <folding>
                 <element signature="e#1652#1792#0" expanded="false" />
                 <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
                 <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
-                <marker date="1428742344000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428742344000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428742344000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428742344000" expanded="true" signature="5907:5949" placeholder="..." />
+                <marker date="1428742528000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428742528000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428742528000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428742528000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -984,17 +983,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22764228" vertical-offset="4821" max-vertical-offset="6405">
+        <state vertical-scroll-proportion="0.10569106" vertical-offset="4866" max-vertical-offset="6405">
           <caret line="733" column="36" selection-start-line="733" selection-start-column="36" selection-end-line="733" selection-end-column="36" />
           <folding>
             <element signature="e#1652#1792#0" expanded="false" />
             <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
             <element signature="n#!!block;n#populateMarket#0" expanded="false" />
             <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
-            <marker date="1428742344000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428742344000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428742344000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428742344000" expanded="true" signature="5907:5949" placeholder="..." />
+            <marker date="1428742528000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428742528000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428742528000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428742528000" expanded="true" signature="5907:5949" placeholder="..." />
           </folding>
         </state>
       </provider>
