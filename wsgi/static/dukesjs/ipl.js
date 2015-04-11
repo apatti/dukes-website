@@ -682,7 +682,7 @@ function populateUserBids(username,leagueid)
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
                                     '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid',
-                                    '<input type="number" name="'+playerBids.results[i].objectId+'" value='+playerBids.results[i].priority+'/>'
+                                    '<input type="number" name="'+playerBids.results[i].objectId+'" value="'+playerBids.results[i].priority+'" />'
                                     ]]);
             }
             var myteambidtable = new google.visualization.Table(document.getElementById('playerbidtable'));

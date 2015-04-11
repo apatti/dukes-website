@@ -31,7 +31,7 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.625" vertical-offset="2630" max-vertical-offset="3810">
+            <state vertical-scroll-proportion="0.4375" vertical-offset="2705" max-vertical-offset="3810">
               <caret line="684" column="142" selection-start-line="684" selection-start-column="142" selection-end-line="684" selection-end-column="142" />
               <folding>
                 <element signature="n#!!block;n#loggedOut#0" expanded="false" />
@@ -46,10 +46,10 @@
                 <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
                 <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
                 <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
-                <marker date="1428793376000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428793376000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428793376000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428793376000" expanded="true" signature="5907:5949" placeholder="..." />
+                <marker date="1428794041000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428794041000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428794041000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428794041000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -999,7 +999,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625" vertical-offset="2630" max-vertical-offset="3810">
+        <state vertical-scroll-proportion="0.4375" vertical-offset="2705" max-vertical-offset="3810">
           <caret line="684" column="142" selection-start-line="684" selection-start-column="142" selection-end-line="684" selection-end-column="142" />
           <folding>
             <element signature="n#!!block;n#loggedOut#0" expanded="false" />
@@ -1014,10 +1014,10 @@
             <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
             <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
             <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
-            <marker date="1428793376000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428793376000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428793376000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428793376000" expanded="true" signature="5907:5949" placeholder="..." />
+            <marker date="1428794041000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428794041000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428794041000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428794041000" expanded="true" signature="5907:5949" placeholder="..." />
           </folding>
         </state>
       </provider>
