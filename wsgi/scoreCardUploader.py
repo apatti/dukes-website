@@ -42,7 +42,7 @@ class ScoreCard:
         #print batsmanList
         dnbBatsmanList = [batsman.get('dnb/_text') for batsman in battingCard if 'dnb' in batsman]
         dnbBatsman=[]
-        dnbBatsman.append(dnbBatsmanList[0])
+        dnbBatsman = dnbBatsmanList[0]
         if len(dnbBatsmanList)>1:
             dnbBatsman.append(dnbBatsmanList[1])
 
