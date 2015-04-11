@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.625" vertical-offset="2630" max-vertical-offset="3810">
-              <caret line="684" column="36" selection-start-line="684" selection-start-column="36" selection-end-line="684" selection-end-column="36" />
+              <caret line="684" column="142" selection-start-line="684" selection-start-column="142" selection-end-line="684" selection-end-column="142" />
               <folding>
                 <element signature="n#!!block;n#loggedOut#0" expanded="false" />
                 <element signature="n#!!block;n#loggedIn#0" expanded="false" />
@@ -45,10 +46,10 @@
                 <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
                 <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
                 <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
-                <marker date="1428792927000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428792927000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428792927000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428792927000" expanded="true" signature="5907:5949" placeholder="..." />
+                <marker date="1428793376000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428793376000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428793376000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428793376000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -999,7 +1000,7 @@
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.625" vertical-offset="2630" max-vertical-offset="3810">
-          <caret line="684" column="36" selection-start-line="684" selection-start-column="36" selection-end-line="684" selection-end-column="36" />
+          <caret line="684" column="142" selection-start-line="684" selection-start-column="142" selection-end-line="684" selection-end-column="142" />
           <folding>
             <element signature="n#!!block;n#loggedOut#0" expanded="false" />
             <element signature="n#!!block;n#loggedIn#0" expanded="false" />
@@ -1013,10 +1014,10 @@
             <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
             <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
             <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
-            <marker date="1428792927000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428792927000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428792927000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428792927000" expanded="true" signature="5907:5949" placeholder="..." />
+            <marker date="1428793376000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428793376000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428793376000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428793376000" expanded="true" signature="5907:5949" placeholder="..." />
           </folding>
         </state>
       </provider>
