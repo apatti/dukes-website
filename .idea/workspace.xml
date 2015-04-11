@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/scoreCardUploader.py" afterPath="$PROJECT_DIR$/wsgi/scoreCardUploader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -28,20 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2580645" vertical-offset="4866" max-vertical-offset="6405">
-              <caret line="733" column="36" selection-start-line="733" selection-start-column="30" selection-end-line="733" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.60655737" vertical-offset="2465" max-vertical-offset="3810">
+              <caret line="681" column="50" selection-start-line="681" selection-start-column="50" selection-end-line="681" selection-end-column="50" />
               <folding>
+                <element signature="n#!!block;n#loggedOut#0" expanded="false" />
+                <element signature="n#!!block;n#loggedIn#0" expanded="false" />
                 <element signature="e#1652#1792#0" expanded="false" />
+                <element signature="n#!!block;n#registerEventHandlers#0" expanded="false" />
+                <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
                 <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
+                <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-                <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
-                <marker date="1428742528000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428742528000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428742528000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428742528000" expanded="true" signature="5907:5949" placeholder="..." />
+                <element signature="n#!!block;n#populateUserTeam#0" expanded="false" />
+                <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
+                <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
+                <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
+                <marker date="1428791595000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428791595000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428791595000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428791595000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -122,16 +130,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scoreCardUploader.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44235924" vertical-offset="465" max-vertical-offset="2145">
-              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -154,8 +152,8 @@
         <option value="$PROJECT_DIR$/wsgi/iplplayers.py" />
         <option value="$PROJECT_DIR$/wsgi/iplfantasyscore.py" />
         <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
-        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
         <option value="$PROJECT_DIR$/wsgi/scoreCardUploader.py" />
+        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
       </list>
     </option>
   </component>
@@ -555,7 +553,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -594,7 +592,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -973,20 +971,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
+    <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2580645" vertical-offset="4866" max-vertical-offset="6405">
-          <caret line="733" column="36" selection-start-line="733" selection-start-column="30" selection-end-line="733" selection-end-column="36" />
-          <folding>
-            <element signature="e#1652#1792#0" expanded="false" />
-            <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
-            <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-            <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
-            <marker date="1428742528000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428742528000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428742528000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428742528000" expanded="true" signature="5907:5949" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.28301886" vertical-offset="465" max-vertical-offset="2145">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -998,11 +987,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/scoreCardUploader.py">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44235924" vertical-offset="465" max-vertical-offset="2145">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-          <folding />
+        <state vertical-scroll-proportion="0.60655737" vertical-offset="2465" max-vertical-offset="3810">
+          <caret line="681" column="50" selection-start-line="681" selection-start-column="50" selection-end-line="681" selection-end-column="50" />
+          <folding>
+            <element signature="n#!!block;n#loggedOut#0" expanded="false" />
+            <element signature="n#!!block;n#loggedIn#0" expanded="false" />
+            <element signature="e#1652#1792#0" expanded="false" />
+            <element signature="n#!!block;n#registerEventHandlers#0" expanded="false" />
+            <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
+            <element signature="n#!!block;n#populateFreeAgents#0" expanded="false" />
+            <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
+            <element signature="n#!!block;n#populateMarket#0" expanded="false" />
+            <element signature="n#!!block;n#populateUserTeam#0" expanded="false" />
+            <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
+            <element signature="n#!!block;n#populateIplFantasySchedule#0" expanded="false" />
+            <element signature="n#!!block;n#populateIplSchedule#0" expanded="false" />
+            <marker date="1428791595000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428791595000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428791595000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428791595000" expanded="true" signature="5907:5949" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

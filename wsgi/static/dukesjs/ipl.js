@@ -669,6 +669,7 @@ function populateUserBids(username,leagueid)
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string', 'Date');
             datarow.addColumn('string','Add');
             datarow.addColumn('string','Drop');
             datarow.addColumn('string','Price');
@@ -677,7 +678,8 @@ function populateUserBids(username,leagueid)
             playerBids = $.parseJSON(JSON.stringify(data));
             for(var i=0;i<playerBids.results.length;i++)
             {
-                datarow.addRows([[playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
+                var date = new Date(playerBids.results[i].createdAt);
+                datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
                                     '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid',
                                     playerBids.results[i].priority
