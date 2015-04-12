@@ -706,9 +706,9 @@ function bidUpBtn(i, data,league)
     {
         return;
     }
-    oldpriority = data[i].priority;
-    data[i].priority=data[i-1].priority;
-    data[i-1].priority=oldpriority;
+
+    data[i].priority=(data[i].priority>1)?data[i].priority--:1;
+    data[i-1].priority++;
     jsonData=[]
     jsonData.push(data[i-1]);
     jsonData.push(data[i]);
@@ -732,13 +732,12 @@ function bidUpBtn(i, data,league)
 
 function bidDownBtn(i, data,league)
 {
-    if(i==data.length||data[i].bidAmount>data[i+1].bidAmount)
+    if(i+1==data.length||data[i].bidAmount>data[i+1].bidAmount)
     {
         return;
     }
-    oldpriority = data[i].priority;
-    data[i].priority=data[i+1].priority;
-    data[i+1].priority=oldpriority;
+    data[i].priority++;
+    data[i+1].priority=(data[i+1].priority>1)?data[i+1].priority--:1;
     jsonData=[]
     jsonData.push(data[i+1]);
     jsonData.push(data[i]);
