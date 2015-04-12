@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.925" vertical-offset="260" max-vertical-offset="2220">
-              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="2220">
+              <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -82,7 +82,7 @@
       <file leaf-file-name="ipl.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/ipl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="13.823529" vertical-offset="1065" max-vertical-offset="2985">
+            <state vertical-scroll-proportion="20.588236" vertical-offset="1410" max-vertical-offset="2985">
               <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -134,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplfantasyscore.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="iplfantasyscore.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.67742" vertical-offset="840" max-vertical-offset="3675">
-              <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.44715446" vertical-offset="30" max-vertical-offset="3675">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -948,14 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.67742" vertical-offset="840" max-vertical-offset="3675">
-          <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.148149" vertical-offset="3647" max-vertical-offset="5370">
@@ -1001,9 +993,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="2220">
+          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/ipl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.823529" vertical-offset="1065" max-vertical-offset="2985">
+        <state vertical-scroll-proportion="20.588236" vertical-offset="1410" max-vertical-offset="2985">
           <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1014,10 +1014,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
+    <entry file="file://$PROJECT_DIR$/wsgi/iplfantasyscore.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.925" vertical-offset="260" max-vertical-offset="2220">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.44715446" vertical-offset="30" max-vertical-offset="3675">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="39" />
           <folding />
         </state>
       </provider>

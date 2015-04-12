@@ -36,8 +36,8 @@ def getBidPrority(username,amount):
     connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     print result
-    if 'priority' in result:
-        priority = result.priority+1
+    if 'priority' in result.results[0]:
+        priority = result.results[0].priority+1
     else:
         priority = 1
     return priority
