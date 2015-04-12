@@ -28,9 +28,22 @@ def viewUserBids(username,league):
     #result = json.loads(connection.getresponse().read())
     return json.loads(connection.getresponse().read())
 
+def getBidCount(username,amount):
+    params = urllib.urlencode({"where":json.dumps({"username": username,"bidamount":amount, "priority": {"$ne": -1}}),
+                               "count": 1,"limit":0});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    return result.count
 
 #Update the bid for the FA player
 def enterFABid(bid,league,marketbid=0):
+    if bid.get("priority") != -1:
+        priority = getBidCount(bid.get("username"),bid.get("bidAmount"))+1
+    else:
+        priority = -1
+
     bidentry={}
     bidentry["username"]=bid.get("username")
     bidentry["playertoaddobjectid"]=bid.get("newPlayer").get("objectId")
@@ -42,7 +55,7 @@ def enterFABid(bid,league,marketbid=0):
     bidentry["playertodropname"]=bid.get("playerTobeDropped").get("Name")
     bidentry["playertodroptype"]=bid.get("playerTobeDropped").get("Type")
     bidentry["bidamount"]=bid.get("bidAmount")
-    bidentry["priority"]=bid.get("priority")
+    bidentry["priority"]=priority
     bidentry["playertodropteam"]=bid.get("playerTobeDropped").get("Team")
     bidentry["playertoaddteam"]=bid.get("newPlayer").get("Team")
     bidentry["league"]=bid.get("league")
