@@ -683,8 +683,8 @@ function populateUserBids(username,leagueid)
                 var date = new Date(playerBids.results[i].createdAt);
                 var updownbtn = "";
                 if(lastbidamount==playerBids.results[i].bidamount) {
-                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results, username,leagueid)" />'+
-                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results, username,leagueid)" />'
+                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results, '+username+','+leagueid+')" />'+
+                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', '+username+','+leagueid+')" />'
                 }
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
