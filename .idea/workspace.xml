@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,10 +40,10 @@
                 <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
                 <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-                <marker date="1428825489000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428825489000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428825489000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428825489000" expanded="true" signature="5907:5949" placeholder="..." />
+                <marker date="1428857174000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428857174000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428857174000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428857174000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1001,10 +1002,10 @@
             <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
             <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
             <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-            <marker date="1428825489000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428825489000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428825489000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428825489000" expanded="true" signature="5907:5949" placeholder="..." />
+            <marker date="1428857174000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428857174000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428857174000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428857174000" expanded="true" signature="5907:5949" placeholder="..." />
           </folding>
         </state>
       </provider>
