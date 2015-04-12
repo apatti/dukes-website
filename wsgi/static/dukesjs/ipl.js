@@ -676,24 +676,39 @@ function populateUserBids(username,leagueid)
             datarow.addColumn('string','Type of Bid');
             datarow.addColumn('string','Priority');
             playerBids = $.parseJSON(JSON.stringify(data));
-            var lastpriority=0;
+            var lastbidamount=0;
             for(var i=0;i<playerBids.results.length;i++)
             {
                 var date = new Date(playerBids.results[i].createdAt);
                 var readonly = "";
-                if(lastpriority!=playerBids.results[i].priority)
+                var updownbtn = "";
+                if(lastbidamount!=playerBids.results[i].bidamount) {
                     readonly = "readonly";
+                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="U+2B06" onclick="bidUpBtn('+i+', playerBids) />'+
+                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="U+2B07" onclick="bidDownBtn('+i+', playerBids) />'
+                }
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
                                     '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid',
                                     '<input type="number" name="'+playerBids.results[i].objectId+'" value="'+playerBids.results[i].priority+'" '+readonly+' />'
                                     ]]);
+                lastbidamount=playerBids.results[i].bidamount;
             }
             var myteambidtable = new google.visualization.Table(document.getElementById('playerbidtable'));
             //var options = {'height': 300};
             myteambidtable.draw(datarow,{allowHtml:true});
         }
     });
+}
+
+function bidUpBtn(i, data)
+{
+    alert("Up:"+i);
+}
+
+function bidDownBtn(i, data)
+{
+    alert("Down:"+i);
 }
 
 function populateBidHistory()
