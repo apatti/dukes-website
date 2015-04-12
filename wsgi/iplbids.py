@@ -28,24 +28,24 @@ def viewUserBids(username,league):
     #result = json.loads(connection.getresponse().read())
     return json.loads(connection.getresponse().read())
 
-def getBidCount(username,amount):
+def getBidPrority(username,amount):
     params = urllib.urlencode({"where":json.dumps({"username": username,"bidamount":amount, "priority": {"$ne": -1}}),
-                               "count": 1,"limit":0});
+                               "order": "priority", "limit":1});
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     print result
-    if 'count' in result:
-        count = result.cout
+    if 'priority' in result:
+        priority = result.priority+1
     else:
-        count = 0
-    return count
+        priority = 1
+    return priority
 
 #Update the bid for the FA player
 def enterFABid(bid,league,marketbid=0):
     if bid.get("priority") != -1:
-        priority = getBidCount(bid.get("username"),bid.get("bidAmount"))+1
+        priority = getBidPrority(bid.get("username"),bid.get("bidAmount"))
     else:
         priority = -1
 
