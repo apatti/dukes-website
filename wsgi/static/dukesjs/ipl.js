@@ -682,10 +682,10 @@ function populateUserBids(username,leagueid)
                 var date = new Date(playerBids.results[i].createdAt);
                 var readonly = "";
                 var updownbtn = "";
-                if(lastbidamount!=playerBids.results[i].bidamount) {
+                if(lastbidamount==playerBids.results[i].bidamount) {
                     readonly = "readonly";
-                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="U+2B06" onclick="bidUpBtn('+i+', playerBids) />'+
-                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="U+2B07" onclick="bidDownBtn('+i+', playerBids) />'
+                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="U+2B06" onclick="bidUpBtn('+i+', playerBids)" />'+
+                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="U+2B07" onclick="bidDownBtn('+i+', playerBids)" />'
                 }
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
