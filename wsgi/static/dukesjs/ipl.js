@@ -707,7 +707,7 @@ function bidUpBtn(i, data,league)
         return;
     }
     var oldPriority=data[i].priority;
-    data[i].priority=data[i].priority-1;
+    data[i].priority=data[i-1].priority;
     data[i-1].priority=oldPriority;
     jsonData=[]
     jsonData.push(data[i-1]);
