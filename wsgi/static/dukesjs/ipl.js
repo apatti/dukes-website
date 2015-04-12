@@ -684,8 +684,8 @@ function populateUserBids(username,leagueid)
                 var updownbtn = "";
                 if(lastbidamount==playerBids.results[i].bidamount) {
                     readonly = "readonly";
-                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="U+2B06" onclick="bidUpBtn('+i+', playerBids)" />'+
-                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="U+2B07" onclick="bidDownBtn('+i+', playerBids)" />'
+                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids)" />'+
+                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids)" />'
                 }
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
@@ -703,7 +703,7 @@ function populateUserBids(username,leagueid)
 
 function bidUpBtn(i, data)
 {
-    alert("Up:"+i);
+    alert("Up:"+data);
 }
 
 function bidDownBtn(i, data)
