@@ -712,7 +712,6 @@ function bidUpBtn(i, data,league)
     jsonData=[]
     jsonData.push(data[i-1]);
     jsonData.push(data[i]);
-    alert("Up:"+data);
     var bidJSON  = JSON.stringify(jsonData);
     $.ajax({
         type: 'PUT',
@@ -733,7 +732,32 @@ function bidUpBtn(i, data,league)
 
 function bidDownBtn(i, data,league)
 {
-    alert("Down:"+i);
+    if(i==data.length||data[i].bidAmount>data[i+1].bidAmount)
+    {
+        return;
+    }
+    oldpriority = data[i].priority;
+    data[i].priority=data[i+1].priority;
+    data[i+1].priority=oldpriority;
+    jsonData=[]
+    jsonData.push(data[i+1]);
+    jsonData.push(data[i]);
+    var bidJSON  = JSON.stringify(jsonData);
+    $.ajax({
+        type: 'PUT',
+        url: DOMAIN_NAME +'/ipl/league/'+league+'/bids',
+        dataType: 'json',
+        contentType:'application/json',
+        data:bidJSON,
+        success: function(res,status,jqXHR){
+            populateUserBids(userId,league)
+            //location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+        }
+
+    });
 }
 
 function populateBidHistory()
