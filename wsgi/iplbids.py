@@ -35,7 +35,12 @@ def getBidCount(username,amount):
     connection.connect()
     connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
-    return result.count
+    print result
+    if 'count' in result:
+        count = result.cout
+    else:
+        count = 0
+    return count
 
 #Update the bid for the FA player
 def enterFABid(bid,league,marketbid=0):
