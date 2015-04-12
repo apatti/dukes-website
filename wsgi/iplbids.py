@@ -11,7 +11,7 @@ def viewAllBids(league):
                 "key": "objectId"
             }
         },"league":league
-    }),"order":"-bidamount,priority,-createdAt","limit":300});
+    }),"order":"-bidamount,priority,-updatedAt","limit":300});
 
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
@@ -21,7 +21,7 @@ def viewAllBids(league):
 
 def viewUserBids(username,league):
     params = urllib.urlencode({"where":json.dumps({"username": username,"league":league, "priority": {"$ne": -1}}),
-                               "order": "-bidamount,priority,-createdAt","limit":100});
+                               "order": "-bidamount,priority,-updatedAt","limit":100});
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
@@ -70,6 +70,13 @@ def enterFABid(bid,league,marketbid=0):
     connection.request(operation, url, json.dumps(bidentry), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
 
+    return "Bid Updated"
+
+def updateBids(bidlist,league):
+    for bid in bidlist:
+        connection = httplib.HTTPSConnection('api.parse.com',443)
+        connection.connect()
+        connection.request('PUT', '/1/classes/iplfantasybids/%s' % bid.get("objectId"), json.dumps(bid), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return "Bid Updated"
 
 def processFABids():

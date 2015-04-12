@@ -681,12 +681,10 @@ function populateUserBids(username,leagueid)
             for(var i=0;i<playerBids.results.length;i++)
             {
                 var date = new Date(playerBids.results[i].createdAt);
-                var readonly = "";
                 var updownbtn = "";
                 if(lastbidamount==playerBids.results[i].bidamount) {
-                    readonly = "readonly";
-                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids)" />'+
-                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids)" />'
+                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results)" />'+
+                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results)" />'
                 }
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
@@ -704,7 +702,33 @@ function populateUserBids(username,leagueid)
 
 function bidUpBtn(i, data)
 {
+    if(i==0)
+    {
+        return;
+    }
+    oldpriority = data[i].priority;
+    data[i].priority=data[i-1].priority;
+    data[i-1].priority=oldpriority;
+    jsonData=[]
+    jsonData.push(data[i-1]);
+    jsonData.push(data[i]);
     alert("Up:"+data);
+    var bidJSON  = JSON.stringify(jsonData);
+    $.ajax({
+        type: 'PUT',
+        url: DOMAIN_NAME +'/ipl/league/'+userLeague+'/bids',
+        dataType: 'json',
+        contentType:'application/json',
+        data:bidJSON,
+        success: function(res,status,jqXHR){
+           alert("Your market entry has been registered");
+            //location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+        }
+
+    });
 }
 
 function bidDownBtn(i, data)
