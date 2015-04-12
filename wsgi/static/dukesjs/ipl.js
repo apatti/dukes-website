@@ -294,7 +294,8 @@ function populateFreeAgents()
                                 var jsonData ={};
                                 jsonData.league = leagueid;
                                 jsonData.username = userId;
-                                jsonData.priority = parseInt($('#priorityTxt').val());
+                                //jsonData.priority = parseInt($('#priorityTxt').val());
+                                jsonData.priority = 1;
 
                                 jsonData.bidAmount = parseInt($('#bidAmountTxt').val());
                                 jsonData.playerTobeDropped ={};
