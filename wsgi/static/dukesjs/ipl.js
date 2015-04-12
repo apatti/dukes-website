@@ -700,7 +700,7 @@ function populateUserBids(username,leagueid)
     });
 }
 
-function bidUpBtn(i, data)
+function bidUpBtn(i, data,username,leagueid)
 {
     if(i==0)
     {
@@ -721,7 +721,7 @@ function bidUpBtn(i, data)
         contentType:'application/json',
         data:bidJSON,
         success: function(res,status,jqXHR){
-            populateUserBids(userName)
+            populateUserBids(username,leagueid)
             //location.reload();
         },
         error: function(jqXHR, textStatus, errorThrown){
