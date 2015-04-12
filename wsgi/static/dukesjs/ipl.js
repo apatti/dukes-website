@@ -40,10 +40,10 @@ function loggedOut(){
          $('#link_scoretab').show();
         //registerEventHandlers();
         populateFreeAgents();
-        populateMyTeam();
+        //populateMyTeam();
         populateBidHistory();
-         populateMarket();
-         populateIplScoreView();
+         //populateMarket();
+         //populateIplScoreView();
          populateOwnedPlayers();
      })
          .fail(function(){
@@ -707,8 +707,8 @@ function bidUpBtn(i, data,league)
         return;
     }
     var oldPriority=data[i].priority;
-    data[i].priority=(data[i].priority>1)?(data[i].priority-1):1;
-    data[i-1].priority++;
+    data[i].priority=data[i].priority-1;
+    data[i-1].priority=oldPriority;
     jsonData=[]
     jsonData.push(data[i-1]);
     jsonData.push(data[i]);
@@ -736,8 +736,9 @@ function bidDownBtn(i, data,league)
     {
         return;
     }
-    data[i].priority++;
-    data[i+1].priority=(data[i+1].priority>1)?(data[i+1].priority-1):1;
+    var oldpriority = data[i].priority;
+    data[i].priority=data[i+1].priority;
+    data[i+1].priority = oldpriority;
     jsonData=[]
     jsonData.push(data[i+1]);
     jsonData.push(data[i]);
