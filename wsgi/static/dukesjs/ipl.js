@@ -683,8 +683,8 @@ function populateUserBids(username,leagueid)
                 var date = new Date(playerBids.results[i].createdAt);
                 var updownbtn = "";
                 if(lastbidamount==playerBids.results[i].bidamount) {
-                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results, '+username+','+leagueid+')" />'+
-                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', '+username+','+leagueid+')" />'
+                    updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results,'+leagueid+')" />'+
+                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results,'+leagueid+')" />'
                 }
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
@@ -700,7 +700,7 @@ function populateUserBids(username,leagueid)
     });
 }
 
-function bidUpBtn(i, data,username,leagueid)
+function bidUpBtn(i, data,league)
 {
     if(i==0)
     {
@@ -716,12 +716,12 @@ function bidUpBtn(i, data,username,leagueid)
     var bidJSON  = JSON.stringify(jsonData);
     $.ajax({
         type: 'PUT',
-        url: DOMAIN_NAME +'/ipl/league/'+userLeague+'/bids',
+        url: DOMAIN_NAME +'/ipl/league/'+league+'/bids',
         dataType: 'json',
         contentType:'application/json',
         data:bidJSON,
         success: function(res,status,jqXHR){
-            populateUserBids(username,leagueid)
+            populateUserBids(userId,league)
             //location.reload();
         },
         error: function(jqXHR, textStatus, errorThrown){
@@ -731,7 +731,7 @@ function bidUpBtn(i, data,username,leagueid)
     });
 }
 
-function bidDownBtn(i, data)
+function bidDownBtn(i, data,league)
 {
     alert("Down:"+i);
 }

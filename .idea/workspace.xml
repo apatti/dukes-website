@@ -31,21 +31,20 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37265417" vertical-offset="5591" max-vertical-offset="8175">
-              <caret line="687" column="17" selection-start-line="687" selection-start-column="17" selection-end-line="687" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.73458445" vertical-offset="6701" max-vertical-offset="8730">
+              <caret line="733" column="34" selection-start-line="733" selection-start-column="34" selection-end-line="733" selection-end-column="34" />
               <folding>
                 <element signature="n#!!block;n#loggedOut#0" expanded="false" />
-                <element signature="n#!!block;n#loggedIn#0" expanded="false" />
                 <element signature="e#1652#1792#0" expanded="false" />
                 <element signature="n#!!block;n#registerEventHandlers#0" expanded="false" />
                 <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
                 <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
                 <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
-                <marker date="1428821810000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428821810000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428821810000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428821810000" expanded="true" signature="5907:5949" placeholder="..." />
+                <marker date="1428822097000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428822097000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428822097000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428822097000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -995,21 +994,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37265417" vertical-offset="5591" max-vertical-offset="8175">
-          <caret line="687" column="17" selection-start-line="687" selection-start-column="17" selection-end-line="687" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.73458445" vertical-offset="6701" max-vertical-offset="8730">
+          <caret line="733" column="34" selection-start-line="733" selection-start-column="34" selection-end-line="733" selection-end-column="34" />
           <folding>
             <element signature="n#!!block;n#loggedOut#0" expanded="false" />
-            <element signature="n#!!block;n#loggedIn#0" expanded="false" />
             <element signature="e#1652#1792#0" expanded="false" />
             <element signature="n#!!block;n#registerEventHandlers#0" expanded="false" />
             <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
             <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
             <element signature="n#!!block;n#populateMarket#0" expanded="false" />
             <element signature="n#!!block;n#populateIplScoreView#0" expanded="false" />
-            <marker date="1428821810000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428821810000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428821810000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428821810000" expanded="true" signature="5907:5949" placeholder="..." />
+            <marker date="1428822097000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428822097000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428822097000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428822097000" expanded="true" signature="5907:5949" placeholder="..." />
           </folding>
         </state>
       </provider>
