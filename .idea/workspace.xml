@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" afterPath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48257372" vertical-offset="5460" max-vertical-offset="9045">
-              <caret line="675" column="49" selection-start-line="675" selection-start-column="49" selection-end-line="675" selection-end-column="49" />
+            <state vertical-scroll-proportion="-6.6666665" vertical-offset="5460" max-vertical-offset="9045">
+              <caret line="675" column="45" selection-start-line="675" selection-start-column="45" selection-end-line="675" selection-end-column="45" />
               <folding>
                 <element signature="n#!!block;n#loggedOut#0" expanded="false" />
                 <element signature="n#!!block;n#loggedIn#0" expanded="false" />
@@ -39,10 +41,10 @@
                 <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
                 <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-                <marker date="1428859789000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428859789000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428859789000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428859789000" expanded="true" signature="5907:5949" placeholder="..." />
+                <marker date="1428859899000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428859899000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428859899000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428859899000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -93,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
+              <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -167,8 +169,8 @@
         <option value="$PROJECT_DIR$/wsgi/service.py" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/cacherefresh.js" />
         <option value="$PROJECT_DIR$/wsgi/static/ipl.html" />
-        <option value="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+        <option value="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
       </list>
     </option>
   </component>
@@ -986,14 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1950">
@@ -1004,8 +998,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48257372" vertical-offset="5460" max-vertical-offset="9045">
-          <caret line="675" column="49" selection-start-line="675" selection-start-column="49" selection-end-line="675" selection-end-column="49" />
+        <state vertical-scroll-proportion="-6.6666665" vertical-offset="5460" max-vertical-offset="9045">
+          <caret line="675" column="45" selection-start-line="675" selection-start-column="45" selection-end-line="675" selection-end-column="45" />
           <folding>
             <element signature="n#!!block;n#loggedOut#0" expanded="false" />
             <element signature="n#!!block;n#loggedIn#0" expanded="false" />
@@ -1013,11 +1007,19 @@
             <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
             <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
             <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-            <marker date="1428859789000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428859789000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428859789000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428859789000" expanded="true" signature="5907:5949" placeholder="..." />
+            <marker date="1428859899000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428859899000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428859899000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428859899000" expanded="true" signature="5907:5949" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

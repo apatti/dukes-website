@@ -673,7 +673,7 @@ function populateUserBids(username,leagueid)
             datarow.addColumn('string', 'Date');
             datarow.addColumn('string','Add');
             datarow.addColumn('string','Drop');
-            datarow.addColumn('string','Price ($)');
+            datarow.addColumn('string','Price');
             datarow.addColumn('string','Type of Bid');
             datarow.addColumn('string','Priority');
             playerBids = $.parseJSON(JSON.stringify(data));
