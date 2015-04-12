@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.48257372" vertical-offset="5460" max-vertical-offset="9045">
-              <caret line="675" column="46" selection-start-line="675" selection-start-column="46" selection-end-line="675" selection-end-column="46" />
+              <caret line="675" column="49" selection-start-line="675" selection-start-column="49" selection-end-line="675" selection-end-column="49" />
               <folding>
                 <element signature="n#!!block;n#loggedOut#0" expanded="false" />
                 <element signature="n#!!block;n#loggedIn#0" expanded="false" />
@@ -39,10 +39,10 @@
                 <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
                 <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-                <marker date="1428859747000" expanded="true" signature="4997:5020" placeholder="..." />
-                <marker date="1428859747000" expanded="true" signature="5507:5549" placeholder="..." />
-                <marker date="1428859747000" expanded="true" signature="5701:5743" placeholder="..." />
-                <marker date="1428859747000" expanded="true" signature="5907:5949" placeholder="..." />
+                <marker date="1428859789000" expanded="true" signature="4997:5020" placeholder="..." />
+                <marker date="1428859789000" expanded="true" signature="5507:5549" placeholder="..." />
+                <marker date="1428859789000" expanded="true" signature="5701:5743" placeholder="..." />
+                <marker date="1428859789000" expanded="true" signature="5907:5949" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1005,7 +1005,7 @@
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48257372" vertical-offset="5460" max-vertical-offset="9045">
-          <caret line="675" column="46" selection-start-line="675" selection-start-column="46" selection-end-line="675" selection-end-column="46" />
+          <caret line="675" column="49" selection-start-line="675" selection-start-column="49" selection-end-line="675" selection-end-column="49" />
           <folding>
             <element signature="n#!!block;n#loggedOut#0" expanded="false" />
             <element signature="n#!!block;n#loggedIn#0" expanded="false" />
@@ -1013,10 +1013,10 @@
             <element signature="n#!!block;n#populateCurrentWeekDetails#0" expanded="false" />
             <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
             <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-            <marker date="1428859747000" expanded="true" signature="4997:5020" placeholder="..." />
-            <marker date="1428859747000" expanded="true" signature="5507:5549" placeholder="..." />
-            <marker date="1428859747000" expanded="true" signature="5701:5743" placeholder="..." />
-            <marker date="1428859747000" expanded="true" signature="5907:5949" placeholder="..." />
+            <marker date="1428859789000" expanded="true" signature="4997:5020" placeholder="..." />
+            <marker date="1428859789000" expanded="true" signature="5507:5549" placeholder="..." />
+            <marker date="1428859789000" expanded="true" signature="5701:5743" placeholder="..." />
+            <marker date="1428859789000" expanded="true" signature="5907:5949" placeholder="..." />
           </folding>
         </state>
       </provider>
