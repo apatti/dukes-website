@@ -706,8 +706,8 @@ function bidUpBtn(i, data,league)
     {
         return;
     }
-
-    data[i].priority=(data[i].priority>1)?data[i].priority--:1;
+    var oldPriority=data[i].priority;
+    data[i].priority=(data[i].priority>1)?(data[i].priority-1):1;
     data[i-1].priority++;
     jsonData=[]
     jsonData.push(data[i-1]);
@@ -737,7 +737,7 @@ function bidDownBtn(i, data,league)
         return;
     }
     data[i].priority++;
-    data[i+1].priority=(data[i+1].priority>1)?data[i+1].priority--:1;
+    data[i+1].priority=(data[i+1].priority>1)?(data[i+1].priority-1):1;
     jsonData=[]
     jsonData.push(data[i+1]);
     jsonData.push(data[i]);
