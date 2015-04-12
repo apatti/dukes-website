@@ -676,13 +676,17 @@ function populateUserBids(username,leagueid)
             datarow.addColumn('string','Type of Bid');
             datarow.addColumn('string','Priority');
             playerBids = $.parseJSON(JSON.stringify(data));
+            var lastpriority=0;
             for(var i=0;i<playerBids.results.length;i++)
             {
                 var date = new Date(playerBids.results[i].createdAt);
+                var readonly = "";
+                if(lastpriority!=playerBids.results[i].priority)
+                    readonly = "readonly";
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
                                     '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid',
-                                    '<input type="number" name="'+playerBids.results[i].objectId+'" value="'+playerBids.results[i].priority+'" />'
+                                    '<input type="number" name="'+playerBids.results[i].objectId+'" value="'+playerBids.results[i].priority+'" '+readonly+' />'
                                     ]]);
             }
             var myteambidtable = new google.visualization.Table(document.getElementById('playerbidtable'));
