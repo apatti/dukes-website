@@ -11,7 +11,7 @@ def viewAllBids(league):
                 "key": "objectId"
             }
         },"league":league
-    }),"order":"-bidamount,priority,-updatedAt","limit":300});
+    }),"order":"-updatedAt,-bidamount,priority","limit":300});
 
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
