@@ -739,7 +739,24 @@ function populateUserMarket(username,leagueid)
 
 function marketCancelBtn(i, data, league)
 {
+    jsonData=[]
+    jsonData.push(data[i]);
+    var marketJSON  = JSON.stringify(jsonData);
+    $.ajax({
+        type: 'PUT',
+        url: DOMAIN_NAME +'/ipl/league/'+league+'/market',
+        dataType: 'json',
+        contentType:'application/json',
+        data:marketJSON,
+        success: function(res,status,jqXHR){
+            populateUserMarket(userId,league)
+            //location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+        }
 
+    });
 }
 
 function bidCancelBtn(i, data, league)
