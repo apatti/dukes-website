@@ -76,8 +76,7 @@ tent-Type": "application/json"})
 
         team1scores = [userscore for userscore in weeklyscores if userscore["owner"]==team1]
         team2scores = [userscore for userscore in weeklyscores if userscore["owner"]==team2]
-        print team1scores
-        print team2scores
+
         gamescore={}
         if len(team1scores)>0:
             gamescore["team1"]=team1scores[0]
