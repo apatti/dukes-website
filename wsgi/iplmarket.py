@@ -67,7 +67,7 @@ def enterMarket(market,league):
     message = marketAddMailMessage(market.get("playername"), market.get("playerType"),
                                    market.get("playerTeam"), market.get("username"), market.get("marketPrice"),
                                    league, update)
-
+    print message
     send_mail_ipl(message,"", "Dukes IPL Fantasy - Market Action")
 
     return "Market Updated"

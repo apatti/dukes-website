@@ -30,4 +30,5 @@ def send_mail_ipl(message,cc,subject):
     connection.request('GET','/1/classes/user?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     emailList =",".join([res['email'] for res in result.get("results")])
+    print emailList
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes IPL Fantasy <fantasyadmin@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"text":message})
