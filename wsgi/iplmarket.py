@@ -23,6 +23,14 @@ def viewUserMarket(league,username):
     #result = json.loads(connection.getresponse().read())
     return json.loads(connection.getresponse().read())
 
+
+def cancelMarket(marketlist,league):
+    for market in marketlist:
+        connection = httplib.HTTPSConnection('api.parse.com',443)
+        connection.connect()
+        connection.request('DELETE', '/1/classes/iplmarket/%s' % market.get("objectId"), json.dumps(market), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    return "Market Updated"
+
 def enterMarket(market,league):
     marketentry={}
     marketentry["username"]=market.get("username")
