@@ -245,12 +245,12 @@ function populateFreeAgents()
                                 dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
                             });
                             var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0/></div>';
-                            var priority = '<div><input type="number" id="priorityTxt" value=0/></div>';
+                            //var priority = '<div><input type="number" id="priorityTxt" value=0/></div>';
                             var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
                             dialogContent = '<table>';
                             dialogContent = dialogContent + '<tr><td>Current Team : </td><td>'+dropDownStr+'</td></tr>';
                             dialogContent = dialogContent + '<tr><td>Bid Amount : </td><td>'+bidAmount+'</td></tr>';
-                            dialogContent = dialogContent + '<tr><td>Priority : </td><td>'+priority+'</td></tr>';
+                            //dialogContent = dialogContent + '<tr><td>Priority : </td><td>'+priority+'</td></tr>';
                             dialogContent = dialogContent + '<tr><td colspan="2">'+buttonStr+'</td></tr>';
 
                             dialogContent = dialogContent + '<table>';
@@ -409,6 +409,7 @@ function populateMarket()
                 function drawTable() {
                     var datarow = new google.visualization.DataTable();
                     datarow.addColumn('string', '');
+                    datarow.addColumn('number','ID');
                     datarow.addColumn('string','ObjectId');
                     datarow.addColumn('string', 'Name');
                     datarow.addColumn('string', 'Team');
@@ -418,6 +419,7 @@ function populateMarket()
                     marketPlayers = $.parseJSON(JSON.stringify(data));
                     for (var i = 0; i < marketPlayers.results.length; i++) {
                         datarow.addRows([[marketPlayers.results[i].playerImageLink,
+                            marketPlayers.results[i].ID,
                             marketPlayers.results[i].playerObjectId,
                             marketPlayers.results[i].playerNameLink,
                             marketPlayers.results[i].playerTeam,
@@ -444,12 +446,12 @@ function populateMarket()
                                 dropDownStr = dropDownStr + "<option id='"+this.ID+'%'+this.objectId+'%'+this.Type+'%'+this.Name+'%'+this.Team+"'>"+this.Name+"</option>";
                             });
                             var bidAmount = '<div><input type="number" id="bidAmountTxt" value=0/></div>';
-                            var priority = '<div><input type="number" id="priorityTxt" value=0/></div>';
+                            //var priority = '<div><input type="number" id="priorityTxt" value=0/></div>';
                             var buttonStr = '<div><input type="button" id="submitBid" value="Submit"/> </div>'
                             dialogContent = '<table>';
                             dialogContent = dialogContent + '<tr><td>Current Team : </td><td>'+dropDownStr+'</td></tr>';
                             dialogContent = dialogContent + '<tr><td>Bid Amount : </td><td>'+bidAmount+'</td></tr>';
-                            dialogContent = dialogContent + '<tr><td>Priority : </td><td>'+priority+'</td></tr>';
+                            //dialogContent = dialogContent + '<tr><td>Priority : </td><td>'+priority+'</td></tr>';
                             dialogContent = dialogContent + '<tr><td colspan="2">'+buttonStr+'</td></tr>';
 
                             dialogContent = dialogContent + '<table>';
@@ -483,17 +485,17 @@ function populateMarket()
 
                                 var item = selection[0];
                                 var id = datarow.getFormattedValue(item.row, 1);
-                                var objectId = datarow.getFormattedValue(item.row, 1);
-                                var playerName = datarow.getFormattedValue(item.row, 2);
+                                var objectId = datarow.getFormattedValue(item.row, 2);
+                                var playerName = datarow.getFormattedValue(item.row, 3);
                                 playerName=playerName.substring(playerName.indexOf('>')+1,playerName.indexOf('</a'));
-                                var teamName = datarow.getFormattedValue(item.row,3);
+                                var teamName = datarow.getFormattedValue(item.row,4);
 
                                 var droppedPlayer = toBeDroppedID.split('%');
 
                                 var jsonData ={};
                                 jsonData.league = leagueid;
                                 jsonData.username = userId;
-                                jsonData.priority = parseInt($('#priorityTxt').val());
+                                jsonData.priority = 1;
 
                                 jsonData.bidAmount = parseInt($('#bidAmountTxt').val());
                                 jsonData.playerTobeDropped ={};
@@ -505,10 +507,10 @@ function populateMarket()
 
                                 jsonData.newPlayer = {};
                                 jsonData.newPlayer.ID = parseInt(datarow.getFormattedValue(item.row, 1));
-                                jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 1);
+                                jsonData.newPlayer.objectId = datarow.getFormattedValue(item.row, 2);
                                 jsonData.newPlayer.Name = playerName;
                                 jsonData.newPlayer.Team = teamName;
-                                jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 4);
+                                jsonData.newPlayer.Type = datarow.getFormattedValue(item.row, 5);
                                     //alert(id+' '+objectId+' '+playerName +' '+playerToBeDropped);
                                 console.log(JSON.stringify(jsonData));
                                 var bidJSON  = JSON.stringify(jsonData);
@@ -681,10 +683,11 @@ function populateUserBids(username,leagueid)
             for(var i=0;i<playerBids.results.length;i++)
             {
                 var date = new Date(playerBids.results[i].createdAt);
-                var updownbtn = "";
+                var updownbtn = '<input type="button" name="'+playerBids.results[i].objectId+'+_deletebtn" value="&#x274C" onclick="bidCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
                 if(lastbidamount==playerBids.results[i].bidamount) {
                     updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results,'+leagueid+')" />'+
-                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results,'+leagueid+')" />'
+                                '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results,'+leagueid+')" />'+
+                                updownbtn;
                 }
                 datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
@@ -697,6 +700,29 @@ function populateUserBids(username,leagueid)
             //var options = {'height': 300};
             myteambidtable.draw(datarow,{allowHtml:true});
         }
+    });
+}
+
+function bidCancelBtn(i, data, league)
+{
+    data[i].priority=-1;
+    jsonData=[]
+    jsonData.push(data[i]);
+    var bidJSON  = JSON.stringify(jsonData);
+    $.ajax({
+        type: 'PUT',
+        url: DOMAIN_NAME +'/ipl/league/'+league+'/bids',
+        dataType: 'json',
+        contentType:'application/json',
+        data:bidJSON,
+        success: function(res,status,jqXHR){
+            populateUserBids(userId,league)
+            //location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+        }
+
     });
 }
 
