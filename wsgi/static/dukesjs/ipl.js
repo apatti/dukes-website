@@ -684,7 +684,7 @@ function populateUserBids(username,leagueid)
             for(var i=0;i<playerBids.results.length;i++)
             {
                 var date = new Date(playerBids.results[i].createdAt);
-                var updownbtn = '<input type="button" name="'+playerBids.results[i].objectId+'+_deletebtn" value="&#x274E" onclick="bidCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
+                var updownbtn = '<input type="button" name="'+playerBids.results[i].objectId+'+_deletebtn" value="&#10006" onclick="bidCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
                 if(lastbidamount==playerBids.results[i].bidamount) {
                     updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results,'+leagueid+')" />'+
                                 '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results,'+leagueid+')" />'+
@@ -723,7 +723,7 @@ function populateUserMarket(username,leagueid)
             for(var i=0;i<playerMarket.results.length;i++)
             {
                 var date = new Date(playerMarket.results[i].createdAt);
-                var updownbtn = '<input type="button" name="'+playerMarket.results[i].objectId+'+_mdeletebtn" value="&#x274E" onclick="marketCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
+                var updownbtn = '<input type="button" name="'+playerMarket.results[i].objectId+'+_mdeletebtn" value="&#10006" onclick="marketCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
 
                 datarow.addRows([[date.toString(),playerMarket.results[i].objectId,playerMarket.results[i].playername,playerMarket.results[i].playerTeam,
                                     playerMarket.results[i].playerType,'$'+playerMarket.results[i].marketPrice,
