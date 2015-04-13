@@ -723,7 +723,7 @@ function populateUserMarket(username,leagueid)
             for(var i=0;i<playerMarket.results.length;i++)
             {
                 var date = new Date(playerMarket.results[i].createdAt);
-                var updownbtn = '<input type="button" name="'+playerMarket.results[i].objectId+'+_mdeletebtn" value="&#10006" onclick="marketCancelBtn(playerMarket.results[i].objectId,'+leagueid+')" />';
+                var updownbtn = '<input type="button" name="'+playerMarket.results[i].objectId+'+_mdeletebtn" value="&#10006" onclick="marketCancelBtn('+i+',playerMarket.results,'+leagueid+')" />';
 
                 datarow.addRows([[date.toString(),playerMarket.results[i].objectId,playerMarket.results[i].playername,playerMarket.results[i].playerTeam,
                                     playerMarket.results[i].playerType,'$'+playerMarket.results[i].marketPrice,
@@ -737,12 +737,12 @@ function populateUserMarket(username,leagueid)
     });
 }
 
-function marketCancelBtn(i, league)
+function marketCancelBtn(i,data, league)
 {
     var marketJSON  = JSON.stringify(jsonData);
     $.ajax({
         type: 'PUT',
-        url: DOMAIN_NAME +'/ipl/league/'+league+'/market/'+i,
+        url: DOMAIN_NAME +'/ipl/league/'+league+'/market/'+data[i].objectId,
         dataType: 'json',
         contentType:'application/json',
         data:marketJSON,
