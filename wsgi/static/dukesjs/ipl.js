@@ -568,6 +568,7 @@ function populateMyTeam()
             //var options = {'height': 300};
             myteamstable.draw(datarow,{allowHtml:true});
             populateUserBids(userId,userLeague);
+            populateUserMarket(userId, userLeague);
 
             google.visualization.events.addListener(myteamstable,'select',function(){
                 var selection = myteamstable.getSelection();
@@ -683,7 +684,7 @@ function populateUserBids(username,leagueid)
             for(var i=0;i<playerBids.results.length;i++)
             {
                 var date = new Date(playerBids.results[i].createdAt);
-                var updownbtn = '<input type="button" name="'+playerBids.results[i].objectId+'+_deletebtn" value="&#x274C" onclick="bidCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
+                var updownbtn = '<input type="button" name="'+playerBids.results[i].objectId+'+_deletebtn" value="&#x274E" onclick="bidCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
                 if(lastbidamount==playerBids.results[i].bidamount) {
                     updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results,'+leagueid+')" />'+
                                 '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results,'+leagueid+')" />'+
@@ -701,6 +702,44 @@ function populateUserBids(username,leagueid)
             myteambidtable.draw(datarow,{allowHtml:true});
         }
     });
+}
+
+function populateUserMarket(username,leagueid)
+{
+    $.get("/ipl/league/"+leagueid+"/market/"+username,function(data,status){
+        google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
+        function drawTable()
+        {
+            var datarow = new google.visualization.DataTable();
+            datarow.addColumn('string', 'Date');
+            datarow.addColumn('string','objectId');
+            datarow.addColumn('string','playername');
+            datarow.addColumn('string','playerTeam');
+            datarow.addColumn('string','playerType');
+            datarow.addColumn('number','marketPrice');
+            datarow.addColumn('string','');
+            playerMarket = $.parseJSON(JSON.stringify(data));
+            var lastbidamount=0;
+            for(var i=0;i<playerMarket.results.length;i++)
+            {
+                var date = new Date(playerMarket.results[i].createdAt);
+                var updownbtn = '<input type="button" name="'+playerMarket.results[i].objectId+'+_mdeletebtn" value="&#x274E" onclick="marketCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
+
+                datarow.addRows([[date.toString(),playerMarket.results[i].objectId,playerMarket.results[i].playername,playerMarket.results[i].playerTeam,
+                                    playerMarket.results[i].playerType,'$'+playerMarket.results[i].marketPrice,
+                                    updownbtn
+                                    ]]);
+            }
+            var myteammarkettable = new google.visualization.Table(document.getElementById('playermarkettable'));
+            //var options = {'height': 300};
+            myteammarkettable.draw(datarow,{allowHtml:true});
+        }
+    });
+}
+
+function marketCancelBtn(i, data, league)
+{
+
 }
 
 function bidCancelBtn(i, data, league)
