@@ -739,13 +739,12 @@ function populateUserMarket(username,leagueid)
 
 function marketCancelBtn(i,data, league)
 {
-    var marketJSON  = JSON.stringify(jsonData);
     $.ajax({
         type: 'PUT',
         url: DOMAIN_NAME +'/ipl/league/'+league+'/market/'+data[i].objectId,
         dataType: 'json',
         contentType:'application/json',
-        data:marketJSON,
+        data:'',
         success: function(res,status,jqXHR){
             populateUserMarket(userId,league)
             //location.reload();
