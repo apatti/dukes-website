@@ -274,13 +274,12 @@ def enterMarketApi(leagueid):
     result = enterMarket(reqObj,leagueid)
     return jsonify({'result': result}), 201
 
-@app.route('/ipl/league/<leagueid>/market', methods=['PUT'])
-def updateMarketApi(leagueid):
+@app.route('/ipl/league/<leagueid>/market/<id>', methods=['PUT'])
+def updateMarketApi(leagueid, id):
     if not request.get_json:
         abort(400)
 
-    reqObj = request.get_json(force=True)
-    result = cancelMarket(reqObj,leagueid);
+    result = cancelMarket(id);
     return jsonify({'result': result}), 200
 
 @app.route('/ipl/league/<leagueid>/market',methods=['GET'])
