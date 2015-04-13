@@ -716,7 +716,7 @@ function populateUserMarket(username,leagueid)
             datarow.addColumn('string','playername');
             datarow.addColumn('string','playerTeam');
             datarow.addColumn('string','playerType');
-            datarow.addColumn('number','marketPrice');
+            datarow.addColumn('string','marketPrice');
             datarow.addColumn('string','');
             playerMarket = $.parseJSON(JSON.stringify(data));
             var lastbidamount=0;
