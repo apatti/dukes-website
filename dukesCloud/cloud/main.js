@@ -60,9 +60,41 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
 
 });
 
-Parse.Cloud.define("processBids",function(request){
+Parse.Cloud.define("cleanBids",function(request){
     
 
+});
+
+Parse.Cloud.define("getPlayerDistribution", function(request){
+    var userObject = Parse.Object.extend("iplfantasy");
+    var userTeamQuery = new Parse.Query(userObject);
+    userTeamQuery.equalTo("name",request.params.name);
+    userTeamQuery.find().then(function(userResults) {
+        console.log(userResults.length);
+        var playerObject = Parse.Object.extend("iplplayer");
+        var playerQuery = new Parse.Query(playerObject);
+        if (userResults[0].get("league") == 1)
+            playerQuery.equalTo("owner1", request.params.name);
+        else
+            playerQuery.equalTo("owner2", request.params.name);
+        playerQuery.find().then(function (playerResults) {
+            var bat = 0;
+            var bowl = 0;
+            var wk = 0;
+            var ar = 0;
+            for (var i = 0; i < playerResults.length; i++) {
+                if (playerResults[i].get("Type") == 'Bat')
+                    bat++;
+                if (playerResults[i].get("Type") == 'AR')
+                    ar++;
+                if (playerResults[i].get("Type") == 'Bowl')
+                    bowl++;
+                if (playerResults[i].get("Type") == 'WK')
+                    wk++;
+            }
+            response.success({"Bat": bat, "Bowl": bowl, "AR": ar, "WK": wk});
+        });
+    });
 });
 
 Parse.Cloud.define("getIplFantasySchedule",function(request,response){
