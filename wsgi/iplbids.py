@@ -110,7 +110,16 @@ def processFABids():
     currentStandings = getIplStanding(1)
     rankings = [item.get("name") for item in currentStandings]
     rankings.reverse()
-    return rankings
+
+    #getbids order by amount.
+    params = urllib.urlencode({"where":json.dumps({"league":1}),
+                               "order": "-bidamount, priority"});
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+
+    return result
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
