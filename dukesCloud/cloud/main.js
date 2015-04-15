@@ -61,10 +61,12 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
 });
 
 Parse.Cloud.define("cleanBids",function(request){
+    var _ = require('underscore.js')
     var bidsObject = Parse.Object.extend("iplfantasybids");
     var cancelBidsQuery = new Parse.Query(bidsObject);
     cancelBidsQuery.equalTo("priority",-1);
     cancelBidsQuery.find().then(function(results){
+        console.log(results);
         var promises = [];
         _.each(results, function(result){
             promises.push(result.destroy());

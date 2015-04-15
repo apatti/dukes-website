@@ -98,11 +98,15 @@ def updateBids(bidlist,league):
     return "Bid Updated"
 
 def processFABids():
+
     #clean up the bids.
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('POST','/1/functions/cleanBids','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
+
+    #group A
+
     return "Success"
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
