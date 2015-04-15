@@ -299,7 +299,7 @@ def processFABideApi(leagueid):
 
 
 @app.route('/ipl/league/bids/processfabid', methods=['GET'])
-def processFABidApi(leagueid):
+def processFABidApi():
     result = processFABids()
     return jsonify({'result': result}), 200
 
