@@ -33,14 +33,13 @@ def getIplStanding(leagueId):
         user["ties"]=sum([userscore["tie"] for userscore in userscores])
         standings.append(user)
 
-    print standings
     #sorted(standings,key=)
     standings.sort(key=lambda x:x["mompoints"],reverse=True)
     standings.sort(key=lambda x:x["winnerpoints"],reverse=True)
     standings.sort(key=lambda x:x["ties"],reverse=True)
     standings.sort(key=lambda x:x["loss"])
     standings.sort(key=lambda x:x["wins"],reverse=True)
-    print standings
+
     return standings
 
 def getIplCurrentWeekStanding():
