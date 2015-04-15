@@ -34,11 +34,11 @@ def getIplStanding(leagueId):
         standings.append(user)
 
     #sorted(standings,key=)
-    standings.sort(key=lambda x:x["mompoints"],reverse=True)
-    standings.sort(key=lambda x:x["winnerpoints"],reverse=True)
-    standings.sort(key=lambda x:x["ties"],reverse=True)
+    standings.sort(key=lambda x:x["mompoints"], reverse=True)
+    standings.sort(key=lambda x:x["winnerpoints"], reverse=True)
+    standings.sort(key=lambda x:x["ties"], reverse=True)
     standings.sort(key=lambda x:x["loss"])
-    standings.sort(key=lambda x:x["wins"],reverse=True)
+    standings.sort(key=lambda x:x["wins"], reverse=True)
 
     return standings
 

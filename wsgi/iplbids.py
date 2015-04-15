@@ -1,5 +1,6 @@
 __author__ = 'apatti'
 import json,httplib,urllib
+from iplstandings import getIplStanding
 
 def viewAllBids(league):
     params = urllib.urlencode({"where":json.dumps({
@@ -106,8 +107,11 @@ def processFABids():
     result = json.loads(connection.getresponse().read())
 
     #group A
-
-    return "Success"
+    currentStandings = getIplStanding(1)
+    rankings = []
+    for key in sorted(currentStandings,reverse=True):
+        rankings.append(currentStandings[key])
+    return rankings
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
