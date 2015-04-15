@@ -298,6 +298,12 @@ def processFABideApi(leagueid):
     return jsonify({'result': result}), 200
 
 
+@app.route('/ipl/league/bids/processfabid', methods=['GET'])
+def processFABidApi(leagueid):
+    result = processFABids()
+    return jsonify({'result': result}), 200
+
+
 @app.route('/ipl/league/<leagueid>/bids',methods=['GET'])
 def getBidHistory(leagueid):
     return jsonify(viewAllBids(leagueid)),200

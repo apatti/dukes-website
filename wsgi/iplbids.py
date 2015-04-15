@@ -98,32 +98,12 @@ def updateBids(bidlist,league):
     return "Bid Updated"
 
 def processFABids():
-    #get the open bids
-    params = urllib.urlencode({"order": "priority,playertoaddname"})
-    connection = httplib.HTTPSConnection('api.parse.com', 443)
+    #clean up the bids.
+    connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
-    connection.request('GET', '/1/classes/iplfantasybids?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    bidresults = json.loads(connection.getresponse().read())
-    if len(bidresults.get("results")) <= 0:
-        return
-
-    openbids = bidresults.get("results")
-    resultbids=[]
-    completed=[]
-    backlog = list(set([openbid["playertoaddname"] for openbid in openbids]))
-
-    for openbid in openbids:
-        if openbid["playertoaddname"] in completed:
-            continue
-        #check if any other bid
-        otherbids = [bid for bid in openbids if bid.get("playertoaddname")==openbid["playertoaddname"] ]
-        if len(otherbids)<0:
-            completed.append(openbid["playertoaddname"])
-            resultbids.append(openbid)
-            continue
-
-
-    return [openbid["playertoaddname"] for openbid in openbids]
+    connection.request('POST','/1/functions/cleanBids','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+    return "Success"
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
