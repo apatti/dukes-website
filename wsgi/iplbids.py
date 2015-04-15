@@ -109,8 +109,8 @@ def processFABids():
     #group A
     currentStandings = getIplStanding(1)
     rankings = [item.get("name") for item in currentStandings]
-
-    return rankings.reverse()
+    rankings.reverse()
+    return rankings
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
