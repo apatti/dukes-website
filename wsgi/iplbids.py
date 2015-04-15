@@ -108,9 +108,8 @@ def processFABids():
 
     #group A
     currentStandings = getIplStanding(1)
-    rankings = []
-    for key in sorted(currentStandings,reverse=True):
-        rankings.append(currentStandings[key])
+    rankings = [{item.get("name"):index} for index,item in enumerate(currentStandings)]
+
     return rankings
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
