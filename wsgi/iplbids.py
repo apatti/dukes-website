@@ -108,7 +108,7 @@ def processFABids():
 
     #group A
     currentStandings = getIplStanding(1)
-    rankings = [item.get("name") for item in currentStandings].reverse()
+    rankings = [item.get("name") for item in currentStandings]
 
     return rankings
 
