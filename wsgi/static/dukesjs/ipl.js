@@ -690,7 +690,7 @@ function populateUserBids(username,leagueid)
                                 '<input type="button" name="'+playerBids.results[i].objectId+'_downbtn" value="&#x2B07" onclick="bidDownBtn('+i+', playerBids.results,'+leagueid+')" />'+
                                 updownbtn;
                 }
-                datarow.addRows([[date.toString(),playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
+                datarow.addRows([[date,playerBids.results[i].playertoaddname+'-'+playerBids.results[i].playertoaddteam+'-'+playerBids.results[i].playertoaddtype,
                                     playerBids.results[i].playertodropname+'-'+playerBids.results[i].playertodropteam+'-'+playerBids.results[i].playertodroptype,
                                     '$'+playerBids.results[i].bidamount,(playerBids.results[i].marketbid==1)?'Market Bid':'FA Bid',
                                     updownbtn
@@ -725,7 +725,7 @@ function populateUserMarket(username,leagueid)
                 var date = new Date(playerMarket.results[i].createdAt);
                 var updownbtn = '<input type="button" name="'+playerMarket.results[i].objectId+'+_mdeletebtn" value="&#10006" onclick="marketCancelBtn('+i+',playerMarket.results,'+leagueid+')" />';
 
-                datarow.addRows([[date.toString(),playerMarket.results[i].objectId,playerMarket.results[i].playername,playerMarket.results[i].playerTeam,
+                datarow.addRows([[date,playerMarket.results[i].objectId,playerMarket.results[i].playername,playerMarket.results[i].playerTeam,
                                     playerMarket.results[i].playerType,'$'+playerMarket.results[i].marketPrice,
                                     updownbtn
                                     ]]);
@@ -862,7 +862,7 @@ function populateBidHistory()
                     playerBids = $.parseJSON(JSON.stringify(data));
                     for (var i = 0; i < playerBids.results.length; i++) {
                         var date = new Date(playerBids.results[i].createdAt);
-                        datarow.addRows([[date,
+                        datarow.addRows([["Date(playerBids.results[i].createdAt)",
                             playerBids.results[i].owner,
                             playerBids.results[i].playertoaddname,
                             playerBids.results[i].playertodropname,
@@ -953,7 +953,7 @@ function populateIplSchedule()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('date','Date');
+            datarow.addColumn('string','Date');
             datarow.addColumn('number','Match Id');
             datarow.addColumn('string','Fantasy Week');
             datarow.addColumn('string','Match');
