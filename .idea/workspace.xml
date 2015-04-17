@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" afterPath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,18 +28,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ipl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="51.74074" vertical-offset="13292" max-vertical-offset="13665">
-              <caret line="864" column="196" selection-start-line="864" selection-start-column="196" selection-end-line="864" selection-end-column="196" />
+            <state vertical-scroll-proportion="0.87935656" vertical-offset="11567" max-vertical-offset="13665">
+              <caret line="864" column="68" selection-start-line="864" selection-start-column="68" selection-end-line="864" selection-end-column="68" />
               <folding>
                 <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
                 <element signature="n#!!block;n#populateUserTeam#0" expanded="false" />
-                <marker date="1429249338000" expanded="true" signature="5003:5026" placeholder="..." />
-                <marker date="1429249338000" expanded="true" signature="5513:5555" placeholder="..." />
-                <marker date="1429249338000" expanded="true" signature="5707:5749" placeholder="..." />
-                <marker date="1429249338000" expanded="true" signature="5913:5955" placeholder="..." />
+                <marker date="1429249698000" expanded="true" signature="5003:5026" placeholder="..." />
+                <marker date="1429249698000" expanded="true" signature="5513:5555" placeholder="..." />
+                <marker date="1429249698000" expanded="true" signature="5707:5749" placeholder="..." />
+                <marker date="1429249698000" expanded="true" signature="5913:5955" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -118,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
             </state>
@@ -166,8 +165,8 @@
         <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
         <option value="$PROJECT_DIR$/wsgi/iplstandings.py" />
         <option value="$PROJECT_DIR$/wsgi/iplbids.py" />
-        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
+        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
       </list>
     </option>
   </component>
@@ -567,7 +566,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -996,26 +995,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="51.74074" vertical-offset="13292" max-vertical-offset="13665">
-          <caret line="864" column="196" selection-start-line="864" selection-start-column="196" selection-end-line="864" selection-end-column="196" />
-          <folding>
-            <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
-            <element signature="n#!!block;n#populateUserTeam#0" expanded="false" />
-            <marker date="1429249338000" expanded="true" signature="5003:5026" placeholder="..." />
-            <marker date="1429249338000" expanded="true" signature="5513:5555" placeholder="..." />
-            <marker date="1429249338000" expanded="true" signature="5707:5749" placeholder="..." />
-            <marker date="1429249338000" expanded="true" signature="5913:5955" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.87935656" vertical-offset="11567" max-vertical-offset="13665">
+          <caret line="864" column="68" selection-start-line="864" selection-start-column="68" selection-end-line="864" selection-end-column="68" />
+          <folding>
+            <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
+            <element signature="n#!!block;n#populateUserTeam#0" expanded="false" />
+            <marker date="1429249698000" expanded="true" signature="5003:5026" placeholder="..." />
+            <marker date="1429249698000" expanded="true" signature="5513:5555" placeholder="..." />
+            <marker date="1429249698000" expanded="true" signature="5707:5749" placeholder="..." />
+            <marker date="1429249698000" expanded="true" signature="5913:5955" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
