@@ -673,7 +673,7 @@ function populateUserBids(username,leagueid)
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('string', 'Date');
+            datarow.addColumn('date', 'Date');
             datarow.addColumn('string','Add');
             datarow.addColumn('string','Drop');
             datarow.addColumn('string','Price');
@@ -711,7 +711,7 @@ function populateUserMarket(username,leagueid)
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('string', 'Date');
+            datarow.addColumn('date', 'Date');
             datarow.addColumn('string','objectId');
             datarow.addColumn('string','playername');
             datarow.addColumn('string','playerTeam');
@@ -852,7 +852,7 @@ function populateBidHistory()
                 google.load('visualization', '1.0', {'packages': ['table'], callback: drawTable});
                 function drawTable() {
                     var datarow = new google.visualization.DataTable();
-                    datarow.addColumn('string', 'Date');
+                    datarow.addColumn('date', 'Date');
                     datarow.addColumn('string', 'User');
                     datarow.addColumn('string', 'Add');
                     datarow.addColumn('string', 'Drop');
@@ -880,7 +880,7 @@ function populateBidHistory()
 
 function populateIplScoreView()
 {
-    $.get("/fantasy/scorecard/829727",function(data,status){
+    $.get("/fantasy/scorecard/829729",function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
@@ -953,7 +953,7 @@ function populateIplSchedule()
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('string','Date');
+            datarow.addColumn('date','Date');
             datarow.addColumn('number','Match Id');
             datarow.addColumn('string','Fantasy Week');
             datarow.addColumn('string','Match');
