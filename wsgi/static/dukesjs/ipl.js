@@ -862,8 +862,9 @@ function populateBidHistory()
                     playerBids = $.parseJSON(JSON.stringify(data));
                     for (var i = 0; i < playerBids.results.length; i++) {
                         var date = new Date(playerBids.results[i].createdAt);
+
                         datarow.addRows([[//"Date("+date.getFullYear()+","+date.getMonth()+","+date.getDay()+","+date.getHours()+","+date.getMinutes()+","+date.getSeconds()+","+date.getMilliseconds()+")",
-                            "Date(2015, 3, 5)",
+                            new Date(date.getFullYear(), date.getMonth(), date.getDay(),date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds()),
                             playerBids.results[i].owner,
                             playerBids.results[i].playertoaddname,
                             playerBids.results[i].playertodropname,
