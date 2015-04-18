@@ -882,7 +882,7 @@ function populateBidHistory()
 
 function populateIplScoreView()
 {
-    $.get("/fantasy/scorecard/829729",function(data,status){
+    $.get("/fantasy/scorecard/829733",function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
