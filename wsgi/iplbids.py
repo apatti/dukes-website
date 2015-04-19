@@ -51,21 +51,22 @@ def enterFABid(bid,league,marketbid=0):
         priority = -1
 
     bidentry={}
-    bidentry["username"]=bid.get("username")
-    bidentry["playertoaddobjectid"]=bid.get("newPlayer").get("objectId")
-    bidentry["playertoaddid"]=bid.get("newPlayer").get("ID")
-    bidentry["playertoaddname"]=bid.get("newPlayer").get("Name")
-    bidentry["playertoaddtype"]=bid.get("newPlayer").get("Type")
-    bidentry["playertodropobjectid"]=bid.get("playerTobeDropped").get("objectId")
-    bidentry["playertodropid"]=bid.get("playerTobeDropped").get("ID")
-    bidentry["playertodropname"]=bid.get("playerTobeDropped").get("Name")
-    bidentry["playertodroptype"]=bid.get("playerTobeDropped").get("Type")
-    bidentry["bidamount"]=bid.get("bidAmount")
-    bidentry["priority"]=priority
-    bidentry["playertodropteam"]=bid.get("playerTobeDropped").get("Team")
-    bidentry["playertoaddteam"]=bid.get("newPlayer").get("Team")
-    bidentry["league"]=bid.get("league")
-    bidentry["marketbid"]=marketbid
+    bidentry["username"] = bid.get("username")
+    bidentry["playertoaddobjectid"] = bid.get("newPlayer").get("objectId")
+    bidentry["playertoaddid"] = bid.get("newPlayer").get("ID")
+    bidentry["playertoaddname"] = bid.get("newPlayer").get("Name")
+    bidentry["playertoaddtype"] = bid.get("newPlayer").get("Type")
+    bidentry["playertodropobjectid"] = bid.get("playerTobeDropped").get("objectId")
+    bidentry["playertodropid"] = bid.get("playerTobeDropped").get("ID")
+    bidentry["playertodropname"] = bid.get("playerTobeDropped").get("Name")
+    bidentry["playertodroptype"] = bid.get("playerTobeDropped").get("Type")
+    bidentry["bidamount"] = bid.get("bidAmount")
+    bidentry["priority"] = priority
+    bidentry["playertodropteam"] = bid.get("playerTobeDropped").get("Team")
+    bidentry["playertoaddteam"] = bid.get("newPlayer").get("Team")
+    bidentry["league"] = bid.get("league")
+    bidentry["marketbid"] = marketbid
+    bidentry["bidresult"] = 0
     print bid.get("bidAmount")
     if(bid.get("bidAmount")<=0):
         print("negative bid amount!!")

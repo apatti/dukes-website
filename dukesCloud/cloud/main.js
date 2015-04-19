@@ -36,28 +36,51 @@ Parse.Cloud.afterSave("iplplayer",function(request){
 });
 
 Parse.Cloud.afterSave("iplfantasybids",function(request){
-    var BidEntryTable = Parse.Object.extend("bidhistory");
-    bidentry = new BidEntryTable();
-    bidentry.set("owner",request.object.get("username"));
-    bidentry.set("playertoaddid",request.object.get("playertoaddobjectid"));
-    bidentry.set("playertoaddname",request.object.get("playertoaddname"));
-    bidentry.set("playertodropid",request.object.get("playertodropobjectid"));
-    bidentry.set("playertodropname",request.object.get("playertodropname"));
-    bidentry.set("amount",request.object.get("bidamount"));
-    bidentry.set("priority",request.object.get("priority"));
-    bidentry.set("league",request.object.get("league"));
-    bidentry.set("marketbid",request.object.get("marketbid"));
-    //bidentry.set("won",request.object.get("won"));
-    bidentry.set("bidobjectid",request.object.id);
-    bidentry.save({
-        success:function(){
-            console.log("Saved")
-        },
-        error:function(err){
-            console.error("Got an error "+ err.code + " : " +err.message )
-        }
-    });
-
+    if(request.object.get("bidresult")!=0)
+    {
+        var BidEntryTable = Parse.Object.extend("iplbidresult");
+        bidentry = new BidEntryTable();
+        bidentry.set("owner",request.object.get("username"));
+        bidentry.set("playertoaddname",request.object.get("playertoaddname"));
+        bidentry.set("playertodropname",request.object.get("playertodropname"));
+        bidentry.set("amount",request.object.get("bidamount"));
+        bidentry.set("priority",request.object.get("priority"));
+        bidentry.set("league",request.object.get("league"));
+        bidentry.set("marketbid",request.object.get("marketbid"));
+        bidentry.set("bidresult",request.object.get("bidresult"));
+        bidentry.set("bidobjectid",request.object.id);
+        bidentry.save({
+            success:function(){
+                console.log("Saved")
+            },
+            error:function(err){
+                console.error("Got an error "+ err.code + " : " +err.message )
+            }
+        });
+    }
+    else {
+        var BidEntryTable = Parse.Object.extend("bidhistory");
+        bidentry = new BidEntryTable();
+        bidentry.set("owner", request.object.get("username"));
+        bidentry.set("playertoaddid", request.object.get("playertoaddobjectid"));
+        bidentry.set("playertoaddname", request.object.get("playertoaddname"));
+        bidentry.set("playertodropid", request.object.get("playertodropobjectid"));
+        bidentry.set("playertodropname", request.object.get("playertodropname"));
+        bidentry.set("amount", request.object.get("bidamount"));
+        bidentry.set("priority", request.object.get("priority"));
+        bidentry.set("league", request.object.get("league"));
+        bidentry.set("marketbid", request.object.get("marketbid"));
+        //bidentry.set("won",request.object.get("won"));
+        bidentry.set("bidobjectid", request.object.id);
+        bidentry.save({
+            success: function () {
+                console.log("Saved")
+            },
+            error: function (err) {
+                console.error("Got an error " + err.code + " : " + err.message)
+            }
+        });
+    }
 });
 
 Parse.Cloud.define("cleanBids",function(request){
