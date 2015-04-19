@@ -550,6 +550,7 @@ function populateMyTeam()
         {
             var datarow = new google.visualization.DataTable();
             datarow.addColumn('string','');
+            datarow.addColumn('string','Id');
             datarow.addColumn('string','ObjectId');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
@@ -559,6 +560,7 @@ function populateMyTeam()
             for(var i=0;i<players.length;i++)
             {
                 datarow.addRows([[ '<img src="'+players[i].image+'"/>',
+                                    players[i].ID,
                                     players[i].objectId,
                                     '<a href="'+players[i].link+'">'+players[i].Name+'</a>',
                                     players[i].Team,
@@ -596,18 +598,20 @@ function populateMyTeam()
                 $('#submitMarket').click(function () {
                     var item = selection[0];
                     var playerImageLink = datarow.getFormattedValue(item.row,0);
-                    var objectId = datarow.getFormattedValue(item.row, 1);
-                    var playerNameLink = datarow.getFormattedValue(item.row, 2);
+                    var ID = datarow.getFormattedValue(item.row,1);
+                    var objectId = datarow.getFormattedValue(item.row, 2);
+                    var playerNameLink = datarow.getFormattedValue(item.row, 3);
                     playerName=playerNameLink.substring(playerNameLink.indexOf('>')+1,playerNameLink.indexOf('</a'));
-                    var teamName = datarow.getFormattedValue(item.row,3);
+                    var teamName = datarow.getFormattedValue(item.row,4);
 
                     var jsonData ={};
                     jsonData.league=userLeague;
                     jsonData.username = userId;
                     jsonData.playername=playerName;
                     jsonData.playerObjectId=objectId;
+                    jsonData.ID=ID;
                     jsonData.playerTeam = teamName;
-                    jsonData.playerType=datarow.getFormattedValue(item.row, 4);
+                    jsonData.playerType=datarow.getFormattedValue(item.row, 5);
                     jsonData.playerImageLink=playerImageLink;
                     jsonData.playerNameLink=playerNameLink;
                     jsonData.marketPrice= parseInt($('#marketAmountTxt').val());

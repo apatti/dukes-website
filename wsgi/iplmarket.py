@@ -36,6 +36,7 @@ def enterMarket(market,league):
     marketentry={}
     marketentry["username"]=market.get("username")
     marketentry["playerObjectId"]=market.get("playerObjectId")
+    marketentry["ID"]=market.get("ID")
     marketentry["playername"]=market.get("playername")
     marketentry["playerType"]=market.get("playerType")
     marketentry["marketPrice"]=market.get("marketPrice")
