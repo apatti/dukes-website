@@ -677,7 +677,7 @@ function populateUserBids(username,leagueid)
         function drawTable()
         {
             var datarow = new google.visualization.DataTable();
-            datarow.addColumn('date', 'Date');
+            datarow.addColumn('string', 'Date');
             datarow.addColumn('string','Add');
             datarow.addColumn('string','Drop');
             datarow.addColumn('string','Price');
@@ -687,7 +687,8 @@ function populateUserBids(username,leagueid)
             var lastbidamount=0;
             for(var i=0;i<playerBids.results.length;i++)
             {
-                var date = new Date(playerBids.results[i].createdAt);
+                //var date = new Date(playerBids.results[i].createdAt);
+                var date = playerBids.results[i].createdAt;
                 var updownbtn = '<input type="button" name="'+playerBids.results[i].objectId+'+_deletebtn" value="&#10006" onclick="bidCancelBtn('+i+', playerBids.results,'+leagueid+')" />';
                 if(lastbidamount==playerBids.results[i].bidamount) {
                     updownbtn='<input type="button" name="'+playerBids.results[i].objectId+'_upbtn" value="&#x2B06" onclick="bidUpBtn('+i+', playerBids.results,'+leagueid+')" />'+
