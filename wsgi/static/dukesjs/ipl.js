@@ -864,7 +864,7 @@ function populateBidHistory()
                         var date = new Date(playerBids.results[i].createdAt);
 
                         datarow.addRows([[//"Date("+date.getFullYear()+","+date.getMonth()+","+date.getDay()+","+date.getHours()+","+date.getMinutes()+","+date.getSeconds()+","+date.getMilliseconds()+")",
-                            new Date(date.getFullYear(), date.getMonth(), date.getDay(),date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds()),
+                            new Date(date.getFullYear(), date.getMonth(), date.getDate(),date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds()),
                             playerBids.results[i].owner,
                             playerBids.results[i].playertoaddname,
                             playerBids.results[i].playertodropname,
