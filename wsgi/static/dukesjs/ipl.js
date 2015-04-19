@@ -409,7 +409,7 @@ function populateMarket()
                 function drawTable() {
                     var datarow = new google.visualization.DataTable();
                     datarow.addColumn('string', '');
-                    datarow.addColumn('number','ID');
+                    datarow.addColumn('string','ID');
                     datarow.addColumn('string','ObjectId');
                     datarow.addColumn('string', 'Name');
                     datarow.addColumn('string', 'Team');

@@ -42,13 +42,16 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
         bidentry = new BidEntryTable();
         bidentry.set("owner",request.object.get("username"));
         bidentry.set("playertoaddname",request.object.get("playertoaddname"));
+        bidentry.set("playertoaddteam",request.object.get("playertoaddteam"));
+        bidentry.set("playertoaddtype",request.object.get("playertoaddtype"));
         bidentry.set("playertodropname",request.object.get("playertodropname"));
+        bidentry.set("playertodropteam",request.object.get("playertodropteam"));
+        bidentry.set("playertodroptype",request.object.get("playertodroptype"));
         bidentry.set("amount",request.object.get("bidamount"));
         bidentry.set("priority",request.object.get("priority"));
         bidentry.set("league",request.object.get("league"));
         bidentry.set("marketbid",request.object.get("marketbid"));
         bidentry.set("bidresult",request.object.get("bidresult"));
-        bidentry.set("bidobjectid",request.object.id);
         bidentry.save({
             success:function(){
                 console.log("Saved")
