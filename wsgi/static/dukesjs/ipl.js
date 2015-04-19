@@ -550,7 +550,7 @@ function populateMyTeam()
         {
             var datarow = new google.visualization.DataTable();
             datarow.addColumn('string','');
-            datarow.addColumn('string','Id');
+            datarow.addColumn('number','Id');
             datarow.addColumn('string','ObjectId');
             datarow.addColumn('string','Name');
             datarow.addColumn('string','Team');
