@@ -854,7 +854,7 @@ function populateTransactions()
         if (leagueid != "transaction_default") {
             if(leagueid=="transaction_1")
                 leagueid="1";
-            if(leagueid=="transaction_1")
+            if(leagueid=="transaction_2")
                 leagueid="2";
             $.get("/ipl/league/"+leagueid+"/transactions", function (data, status) {
                 google.load('visualization', '1.0', {'packages': ['table'], callback: drawTable});
