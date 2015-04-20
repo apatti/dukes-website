@@ -864,7 +864,7 @@ function populateTransactions()
                     datarow.addColumn('string', 'Claim');
                     datarow.addColumn('string', 'User');
                     datarow.addColumn('string', 'Bid');
-                    datarow.addColumn('number', 'Result');
+                    datarow.addColumn('string', 'Result');
                     playerBids = $.parseJSON(JSON.stringify(data));
                     for (var i = 0; i < playerBids.results.length; i++) {
                         var date = new Date(playerBids.results[i].createdAt);
