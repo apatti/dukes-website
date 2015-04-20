@@ -10,6 +10,7 @@ function loggedOut(){
     $('#link_markettab').hide();
     $('#link_ownedplayerstab').hide();
     $('#link_scoretab').hide();
+    $('#link_transactionstab').hide();
 }
 
  function loggedIn(){
@@ -37,7 +38,8 @@ function loggedOut(){
         $('#link_bidstab').show();
         $('#link_markettab').show();
         $('#link_ownedplayerstab').show();
-         $('#link_scoretab').show();
+        $('#link_scoretab').show();
+        $('#link_transactionstab').show();
         //registerEventHandlers();
         populateFreeAgents();
         //populateMyTeam();
@@ -45,6 +47,7 @@ function loggedOut(){
          //populateMarket();
          //populateIplScoreView();
          populateOwnedPlayers();
+         populateTransactions();
      })
          .fail(function(){
              $('#centerContent').html("<h3>Please sign in.</h3>")
@@ -844,6 +847,57 @@ function bidDownBtn(i, data,league)
     });
 }
 
+function populateTransactions()
+{
+    $("#transactionselectleague").change(function() {
+        var leagueid = $(this).children(":selected").attr("id");
+        if (leagueid != "transaction_default") {
+            if(leagueid=="transaction_1")
+                leagueid="1";
+            if(leagueid=="transaction_1")
+                leagueid="2";
+            $.get("/ipl/league/"+leagueid+"/transactions", function (data, status) {
+                google.load('visualization', '1.0', {'packages': ['table'], callback: drawTable});
+                function drawTable() {
+                    var datarow = new google.visualization.DataTable();
+                    datarow.addColumn('date', 'Date');
+                    datarow.addColumn('string', 'Claim');
+                    datarow.addColumn('string', 'User');
+                    datarow.addColumn('string', 'Bid');
+                    datarow.addColumn('number', 'Result');
+                    playerBids = $.parseJSON(JSON.stringify(data));
+                    for (var i = 0; i < playerBids.results.length; i++) {
+                        var date = new Date(playerBids.results[i].createdAt);
+                        var claim = playerBids.results[i].playertoaddname +"("+playerBids.results[i].playertoaddteam+" - "+playerBids.results[i].playertoaddtype+")";
+                        var res ="";
+                        switch(playerBids.results[i].bidresult)
+                        {
+                            case 1:
+                                res = '<strong>Added.</strong><br/>Dropped<br/>'+playerBids.results[i].playertodropname+'<br/>('+playerBids.results[i].playertodropteam+' - '+playerBids.results[i].playertodroptype+')';
+                                break;
+                            case 2:
+                                res ='Outbid';
+                                break;
+                            case 3:
+                                res ='Lower waiver priority';
+                                break;
+                        }
+                        datarow.addRows([[//"Date("+date.getFullYear()+","+date.getMonth()+","+date.getDay()+","+date.getHours()+","+date.getMinutes()+","+date.getSeconds()+","+date.getMilliseconds()+")",
+                            new Date(date.getFullYear(), date.getMonth(), date.getDate(),date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds()),
+                            playerBids.results[i].playertoaddname,
+                            playerBids.results[i].owner,
+                            '$'+playerBids.results[i].amount,
+                            res]]);
+                    }
+                    var transactiontable = new google.visualization.Table(document.getElementById('transactionsDiv'));
+                    //var options = {'height': 300};
+                    transactiontable.draw(datarow,{allowHtml:true});
+                }
+            });
+        }
+    });
+}
+
 function populateBidHistory()
 {
     $("#bidselectleague").change(function() {
@@ -887,7 +941,7 @@ function populateBidHistory()
 
 function populateIplScoreView()
 {
-    $.get("/fantasy/scorecard/829733",function(data,status){
+    $.get("/fantasy/scorecard/829739",function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {

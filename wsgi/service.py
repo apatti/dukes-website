@@ -11,7 +11,7 @@ from iplplayers import getIplPlayers, getIplAvailablePlayers, getIplUserAvailabl
 from iplstandings import getIplStanding,getIplCurrentWeekStanding
 from iplschedule import getIplSchedule,getIplFantasySchedule
 from iplfantasyscore import updateFantasyScore
-from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids, updateBids
+from iplbids import viewAllBids,viewUserBids,enterFABid,processFABids, updateBids, viewAllTransactions
 from iplmarket import enterMarket,viewAllMarket, viewUserMarket, cancelMarket
 from umpiring import getUmpireList
 from betting import getBet,placeBet,getBets
@@ -307,6 +307,10 @@ def processFABidApi():
 @app.route('/ipl/league/<leagueid>/bids',methods=['GET'])
 def getBidHistory(leagueid):
     return jsonify(viewAllBids(leagueid)),200
+
+@app.route('/ipl/league/<leagueid>/transactions',methods=['GET'])
+def getAllTransactions(leagueid):
+    return jsonify(viewAllTransactions(leagueid)),200
 
 @app.route('/ipl/league/<leagueid>/bids/<username>',methods=['GET'])
 def getUserBidsApi(username,leagueid):
