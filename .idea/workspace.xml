@@ -76,16 +76,16 @@
       <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8875" vertical-offset="755" max-vertical-offset="1275">
-              <caret line="144" column="23" selection-start-line="144" selection-start-column="23" selection-end-line="144" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.775" vertical-offset="770" max-vertical-offset="1290">
+              <caret line="142" column="50" selection-start-line="142" selection-start-column="50" selection-end-line="142" selection-end-column="50" />
               <folding>
                 <element signature="e#22#48#0" expanded="true" />
                 <element signature="e#1567#2212#0" expanded="false" />
                 <element signature="e#2254#2979#0" expanded="false" />
                 <element signature="e#3059#5531#0" expanded="false" />
                 <element signature="e#5569#5987#0" expanded="false" />
-                <element signature="e#7936#8032#0" expanded="false" />
-                <element signature="e#8097#8946#0" expanded="false" />
+                <element signature="e#7987#8083#0" expanded="false" />
+                <element signature="e#8148#8997#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1007,16 +1007,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8875" vertical-offset="755" max-vertical-offset="1275">
-          <caret line="144" column="23" selection-start-line="144" selection-start-column="23" selection-end-line="144" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.775" vertical-offset="770" max-vertical-offset="1290">
+          <caret line="142" column="50" selection-start-line="142" selection-start-column="50" selection-end-line="142" selection-end-column="50" />
           <folding>
             <element signature="e#22#48#0" expanded="true" />
             <element signature="e#1567#2212#0" expanded="false" />
             <element signature="e#2254#2979#0" expanded="false" />
             <element signature="e#3059#5531#0" expanded="false" />
             <element signature="e#5569#5987#0" expanded="false" />
-            <element signature="e#7936#8032#0" expanded="false" />
-            <element signature="e#8097#8946#0" expanded="false" />
+            <element signature="e#7987#8083#0" expanded="false" />
+            <element signature="e#8148#8997#0" expanded="false" />
           </folding>
         </state>
       </provider>

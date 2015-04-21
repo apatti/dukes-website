@@ -140,6 +140,7 @@ def processFABids():
         result = json.loads(connection.getresponse().read())
         biddingUser["user"] = user
         biddingUser["distribution"]=result.get("results")
+        biddingUser["rank"] = rankings.index(user)
         biddingUsers.append(biddingUser)
 
     return biddingUsers
