@@ -138,8 +138,9 @@ def processFABids():
         connection.connect()
         connection.request('POST','/1/functions/getPlayerDistribution',json.dumps({'name':user}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         result = json.loads(connection.getresponse().read())
+        print result
         biddingUser["user"] = user
-        biddingUser["distribution"]=result.get("results")
+        biddingUser["distribution"]=result
         biddingUser["rank"] = rankings.index(user)
         biddingUsers.append(biddingUser)
 

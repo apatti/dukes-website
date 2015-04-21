@@ -86,7 +86,7 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
     }
 });
 
-Parse.Cloud.define("cleanBids",function(request){
+Parse.Cloud.define("cleanBids",function(request,response){
     response.success("Good");
     var _ = require('underscore.js')
     var bidsObject = Parse.Object.extend("iplfantasybids");
@@ -105,7 +105,7 @@ Parse.Cloud.define("cleanBids",function(request){
 
 });
 
-Parse.Cloud.define("getPlayerDistribution", function(request){
+Parse.Cloud.define("getPlayerDistribution", function(request,response){
     var userObject = Parse.Object.extend("iplfantasy");
     var userTeamQuery = new Parse.Query(userObject);
     userTeamQuery.equalTo("name",request.params.name);

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/iplbids.py" afterPath="$PROJECT_DIR$/wsgi/iplbids.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dukesCloud/cloud/main.js" afterPath="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,16 +78,16 @@
       <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.775" vertical-offset="770" max-vertical-offset="1290">
-              <caret line="142" column="50" selection-start-line="142" selection-start-column="50" selection-end-line="142" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.625" vertical-offset="800" max-vertical-offset="1305">
+              <caret line="140" column="20" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="20" />
               <folding>
                 <element signature="e#22#48#0" expanded="true" />
                 <element signature="e#1567#2212#0" expanded="false" />
                 <element signature="e#2254#2979#0" expanded="false" />
                 <element signature="e#3059#5531#0" expanded="false" />
                 <element signature="e#5569#5987#0" expanded="false" />
-                <element signature="e#7987#8083#0" expanded="false" />
-                <element signature="e#8148#8997#0" expanded="false" />
+                <element signature="e#7993#8089#0" expanded="false" />
+                <element signature="e#8154#9003#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -124,13 +126,14 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="2220">
-              <caret line="110" column="52" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="52" />
+            <state vertical-scroll-proportion="-1.2592592" vertical-offset="56" max-vertical-offset="2175">
+              <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
               <folding>
                 <element signature="e#53#1379#0" expanded="false" />
                 <element signature="e#1439#3852#0" expanded="false" />
-                <element signature="e#5844#7521#0" expanded="false" />
-                <element signature="e#7587#8491#0" expanded="false" />
+                <element signature="e#7605#8509#0" expanded="false" />
+                <element signature="e#8583#10441#0" expanded="false" />
+                <element signature="e#10504#10887#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -183,8 +186,8 @@
         <option value="$PROJECT_DIR$/wsgi/service.py" />
         <option value="$PROJECT_DIR$/wsgi/dukesMail.py" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
-        <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
+        <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
         <option value="$PROJECT_DIR$/wsgi/iplbids.py" />
       </list>
     </option>
@@ -986,13 +989,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="2220">
-          <caret line="110" column="52" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="52" />
+        <state vertical-scroll-proportion="-1.2592592" vertical-offset="56" max-vertical-offset="2175">
+          <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
           <folding>
             <element signature="e#53#1379#0" expanded="false" />
             <element signature="e#1439#3852#0" expanded="false" />
-            <element signature="e#5844#7521#0" expanded="false" />
-            <element signature="e#7587#8491#0" expanded="false" />
+            <element signature="e#7605#8509#0" expanded="false" />
+            <element signature="e#8583#10441#0" expanded="false" />
+            <element signature="e#10504#10887#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1007,16 +1011,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.775" vertical-offset="770" max-vertical-offset="1290">
-          <caret line="142" column="50" selection-start-line="142" selection-start-column="50" selection-end-line="142" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.625" vertical-offset="800" max-vertical-offset="1305">
+          <caret line="140" column="20" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="20" />
           <folding>
             <element signature="e#22#48#0" expanded="true" />
             <element signature="e#1567#2212#0" expanded="false" />
             <element signature="e#2254#2979#0" expanded="false" />
             <element signature="e#3059#5531#0" expanded="false" />
             <element signature="e#5569#5987#0" expanded="false" />
-            <element signature="e#7987#8083#0" expanded="false" />
-            <element signature="e#8148#8997#0" expanded="false" />
+            <element signature="e#7993#8089#0" expanded="false" />
+            <element signature="e#8154#9003#0" expanded="false" />
           </folding>
         </state>
       </provider>
