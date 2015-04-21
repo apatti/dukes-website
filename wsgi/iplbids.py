@@ -134,7 +134,7 @@ def processFABids():
     #for item in result.results:
 
 
-    return biders
+    return result
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
