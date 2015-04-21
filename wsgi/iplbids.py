@@ -119,7 +119,7 @@ def processFABids():
     result = json.loads(connection.getresponse().read())
 
     #group A
-    currentStandings = getIplStanding(1)
+    currentStandings = getIplStanding(2)
     rankings = [item.get("name") for item in currentStandings]
     rankings.reverse()
 
