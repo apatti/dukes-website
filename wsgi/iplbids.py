@@ -131,10 +131,18 @@ def processFABids():
     connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     biders = list(set([item.get("username") for item in result.get("results")]))
-    #for item in result.results:
+    biddingUsers = []
+    for user in biders:
+        biddingUser={}
+        connection = httplib.HTTPSConnection('api.parse.com',443)
+        connection.connect()
+        connection.request('POST','/1/functions/getPlayerDistribution',json.dumps({'name':user}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+        result = json.loads(connection.getresponse().read())
+        biddingUser["user"] = user
+        biddingUser["distribution"]=result.get("results")
+        biddingUsers.append(biddingUser)
 
-
-    return biders
+    return biddingUsers
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
