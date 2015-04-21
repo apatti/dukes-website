@@ -130,7 +130,7 @@ def processFABids():
     connection.connect()
     connection.request('GET','/1/classes/iplfantasybids?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
-    biders = set([item.get("username") for item in result.get("results")])
+    biders = list(set([item.get("username") for item in result.get("results")]))
     #for item in result.results:
 
 
