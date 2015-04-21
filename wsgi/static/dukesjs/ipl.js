@@ -881,6 +881,9 @@ function populateTransactions()
                             case 3:
                                 res ='Lower waiver priority';
                                 break;
+                            case 4:
+                                res ='Player no longer available';
+                                break;
                         }
                         datarow.addRows([[//"Date("+date.getFullYear()+","+date.getMonth()+","+date.getDay()+","+date.getHours()+","+date.getMinutes()+","+date.getSeconds()+","+date.getMilliseconds()+")",
                             new Date(date.getFullYear(), date.getMonth(), date.getDate(),date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds()),

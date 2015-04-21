@@ -5,7 +5,7 @@ from iplstandings import getIplStanding
 def viewAllTransactions(league):
     params = urllib.urlencode({"where":json.dumps({
         "league":league
-    }),"order":"-updatedAt,playertoaddname,bidresult,-amount","limit":300});
+    }),"order":"-amount,-updatedAt,playertoaddname,bidresult","limit":300});
 
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
