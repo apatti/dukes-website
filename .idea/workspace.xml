@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" afterPath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/iplbids.py" afterPath="$PROJECT_DIR$/wsgi/iplbids.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dukesCloud/cloud/main.js" afterPath="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -31,8 +34,8 @@
       <file leaf-file-name="ipl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.148149" vertical-offset="7457" max-vertical-offset="10215">
-              <caret line="884" column="64" selection-start-line="884" selection-start-column="64" selection-end-line="884" selection-end-column="64" />
+            <state vertical-scroll-proportion="-0.5555556" vertical-offset="8700" max-vertical-offset="10215">
+              <caret line="946" column="36" selection-start-line="946" selection-start-column="36" selection-end-line="946" selection-end-column="36" />
               <folding>
                 <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
                 <element signature="n#!!block;n#populateMarket#0" expanded="false" />
@@ -40,10 +43,10 @@
                 <element signature="n#!!block;n#bidCancelBtn#0" expanded="false" />
                 <element signature="n#!!block;n#bidUpBtn#0" expanded="false" />
                 <element signature="n#!!block;n#bidDownBtn#0" expanded="false" />
-                <marker date="1429586742000" expanded="true" signature="5117:5140" placeholder="..." />
-                <marker date="1429586742000" expanded="true" signature="5627:5669" placeholder="..." />
-                <marker date="1429586742000" expanded="true" signature="5821:5863" placeholder="..." />
-                <marker date="1429586742000" expanded="true" signature="6027:6069" placeholder="..." />
+                <marker date="1429600868000" expanded="true" signature="5117:5140" placeholder="..." />
+                <marker date="1429600868000" expanded="true" signature="5627:5669" placeholder="..." />
+                <marker date="1429600868000" expanded="true" signature="5821:5863" placeholder="..." />
+                <marker date="1429600868000" expanded="true" signature="6027:6069" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -74,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.225" vertical-offset="590" max-vertical-offset="1305">
-              <caret line="142" column="38" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="1320">
+              <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
               <folding>
                 <element signature="e#22#48#0" expanded="true" />
                 <element signature="e#1567#2212#0" expanded="false" />
@@ -125,37 +128,25 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2592592" vertical-offset="56" max-vertical-offset="2175">
-              <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+            <state vertical-scroll-proportion="-10.481482" vertical-offset="1787" max-vertical-offset="2160">
+              <caret line="290" column="2" selection-start-line="290" selection-start-column="2" selection-end-line="290" selection-end-column="2" />
               <folding>
                 <element signature="e#53#1379#0" expanded="false" />
                 <element signature="e#1439#3852#0" expanded="false" />
-                <element signature="e#7605#8509#0" expanded="false" />
-                <element signature="e#8583#10441#0" expanded="false" />
-                <element signature="e#10504#10887#0" expanded="false" />
+                <element signature="e#7575#8479#0" expanded="false" />
+                <element signature="e#8553#10411#0" expanded="false" />
+                <element signature="e#10474#10857#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
+              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wsgi/service.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4379" max-vertical-offset="5715">
-              <caret line="302" column="26" selection-start-line="302" selection-start-column="13" selection-end-line="302" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -184,10 +175,10 @@
         <option value="$PROJECT_DIR$/wsgi/static/ipl.html" />
         <option value="$PROJECT_DIR$/wsgi/service.py" />
         <option value="$PROJECT_DIR$/wsgi/dukesMail.py" />
+        <option value="$PROJECT_DIR$/wsgi/iplbids.py" />
+        <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
-        <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
-        <option value="$PROJECT_DIR$/wsgi/iplbids.py" />
       </list>
     </option>
   </component>
@@ -939,25 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.148149" vertical-offset="7457" max-vertical-offset="10215">
-          <caret line="884" column="64" selection-start-line="884" selection-start-column="64" selection-end-line="884" selection-end-column="64" />
-          <folding>
-            <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
-            <element signature="n#!!block;n#populateMarket#0" expanded="false" />
-            <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
-            <element signature="n#!!block;n#bidCancelBtn#0" expanded="false" />
-            <element signature="n#!!block;n#bidUpBtn#0" expanded="false" />
-            <element signature="n#!!block;n#bidDownBtn#0" expanded="false" />
-            <marker date="1429586742000" expanded="true" signature="5117:5140" placeholder="..." />
-            <marker date="1429586742000" expanded="true" signature="5627:5669" placeholder="..." />
-            <marker date="1429586742000" expanded="true" signature="5821:5863" placeholder="..." />
-            <marker date="1429586742000" expanded="true" signature="6027:6069" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/iplmarket.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1575">
@@ -968,34 +940,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4379" max-vertical-offset="5715">
           <caret line="302" column="26" selection-start-line="302" selection-start-column="13" selection-end-line="302" selection-end-column="26" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2592592" vertical-offset="56" max-vertical-offset="2175">
-          <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
-          <folding>
-            <element signature="e#53#1379#0" expanded="false" />
-            <element signature="e#1439#3852#0" expanded="false" />
-            <element signature="e#7605#8509#0" expanded="false" />
-            <element signature="e#8583#10441#0" expanded="false" />
-            <element signature="e#10504#10887#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1010,8 +960,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.225" vertical-offset="590" max-vertical-offset="1305">
-          <caret line="142" column="38" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="1320">
+          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
           <folding>
             <element signature="e#22#48#0" expanded="true" />
             <element signature="e#1567#2212#0" expanded="false" />
@@ -1021,6 +971,47 @@
             <element signature="e#8004#8100#0" expanded="false" />
             <element signature="e#8165#9014#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.481482" vertical-offset="1787" max-vertical-offset="2160">
+          <caret line="290" column="2" selection-start-line="290" selection-start-column="2" selection-end-line="290" selection-end-column="2" />
+          <folding>
+            <element signature="e#53#1379#0" expanded="false" />
+            <element signature="e#1439#3852#0" expanded="false" />
+            <element signature="e#7575#8479#0" expanded="false" />
+            <element signature="e#8553#10411#0" expanded="false" />
+            <element signature="e#10474#10857#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5555556" vertical-offset="8700" max-vertical-offset="10215">
+          <caret line="946" column="36" selection-start-line="946" selection-start-column="36" selection-end-line="946" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!block;n#populateOwnedPlayers#0" expanded="false" />
+            <element signature="n#!!block;n#populateMarket#0" expanded="false" />
+            <element signature="n#!!block;n#populateMyTeam#0" expanded="false" />
+            <element signature="n#!!block;n#bidCancelBtn#0" expanded="false" />
+            <element signature="n#!!block;n#bidUpBtn#0" expanded="false" />
+            <element signature="n#!!block;n#bidDownBtn#0" expanded="false" />
+            <marker date="1429600868000" expanded="true" signature="5117:5140" placeholder="..." />
+            <marker date="1429600868000" expanded="true" signature="5627:5669" placeholder="..." />
+            <marker date="1429600868000" expanded="true" signature="5821:5863" placeholder="..." />
+            <marker date="1429600868000" expanded="true" signature="6027:6069" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

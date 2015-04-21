@@ -944,7 +944,7 @@ function populateBidHistory()
 
 function populateIplScoreView()
 {
-    $.get("/fantasy/scorecard/829739",function(data,status){
+    $.get("/fantasy/scorecard/829741",function(data,status){
         google.load('visualization','1.0',{'packages':['table'],callback:drawTable});
         function drawTable()
         {
