@@ -145,10 +145,12 @@ def processFABids():
         biddingUser["rank"] = rankings.index(user)
         biddingUsers.append(biddingUser)
 
+    bidindex=0
+
     bids.sort(key=operator.itemgetter('bidamount'), reverse=True)
 
 
-    return bids
+    return biddingUsers
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
