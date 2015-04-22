@@ -1,6 +1,7 @@
 __author__ = 'apatti'
 import json,httplib,urllib
 from iplstandings import getIplStanding
+import operator
 
 def viewAllTransactions(league):
     params = urllib.urlencode({"where":json.dumps({
@@ -144,8 +145,10 @@ def processFABids():
         biddingUser["rank"] = rankings.index(user)
         biddingUsers.append(biddingUser)
 
+    bids.sort(key=operator.itemgetter('bidamount'), reverse=True)
 
-    return biddingUsers
+
+    return bids
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
