@@ -124,7 +124,7 @@ def processFABids():
     rankings.reverse()
 
     #getbids order by amount.
-    params = urllib.urlencode({"where":json.dumps({"league":'2'}),
+    params = urllib.urlencode({"where":json.dumps({"league":'2',"marketbid":0}),
                                "order": "-bidamount,priority"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
