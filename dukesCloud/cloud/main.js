@@ -87,7 +87,7 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
 });
 
 Parse.Cloud.define("cleanBids",function(request,response){
-    response.success("good");
+    //response.success("good");
     var _ = require('underscore.js')
     var bidsObject = Parse.Object.extend("iplfantasybids");
     var cancelBidsQuery = new Parse.Query(bidsObject);
