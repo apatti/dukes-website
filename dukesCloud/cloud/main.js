@@ -122,6 +122,7 @@ Parse.Cloud.define("getPlayerDistribution", function(request,response){
             var bowl = 0;
             var wk = 0;
             var ar = 0;
+            var dummy=0;
             for (var i = 0; i < playerResults.length; i++) {
                 if (playerResults[i].get("Type") == 'Bat')
                     bat++;
@@ -131,6 +132,8 @@ Parse.Cloud.define("getPlayerDistribution", function(request,response){
                     bowl++;
                 if (playerResults[i].get("Type") == 'WK')
                     wk++;
+                if (playerResults[i].get("Type") == 'Dummy')
+                    dummy++;
             }
             response.success({"Bat": bat, "Bowl": bowl, "AR": ar, "WK": wk});
         });

@@ -125,7 +125,7 @@ def processFABids():
     rankings.reverse()
 
     #getbids order by amount.
-    params = urllib.urlencode({"where":json.dumps({"league":'2',"marketbid":0}),
+    params = urllib.urlencode({"where":json.dumps({"league":'2',"marketbid":0, "priority":{'$ne': -1}}),
                                "order": "-bidamount,priority"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
@@ -146,11 +146,68 @@ def processFABids():
         biddingUsers.append(biddingUser)
 
     bidindex=0
-
+    bidsresult =[]
     bids.sort(key=operator.itemgetter('bidamount'), reverse=True)
+    while len([item for item in bids if item["bidresult"] == 0]) > 0:
+        bid=bids[0]
+        if bid["bidresult"]!=0:
+            continue
+        similarBids = [item for item in bids if item["bidresult"]==0 and item["bidamount"]==bid["bidamount"]]
+        if len(similarBids) > 1:
+            minrank=rankings.index(bid["username"])
+            for similarBid in similarBids:
+                if rankings.index(similarBid["username"])<minrank:
+                    minrank=rankings.index(similarBid["username"])
+                    bid = similarBid
+                if rankings.index(similarBid["username"])==minrank and similarBid["priority"]<bid["priority"]:
+                    bid = similarBid
+
+        #validate if user can do this bid.
+        if validateUserBid(biddingUsers, bid) == False:
+            bid["bidresult"] = 6
+            bidsresult.append(bid)
+            bids.remove(bid)
+            continue
+        else:
+            bid["bidresult"] = 1
+            bidsresult.append(bid)
+            bids.remove(bid)
+            otherUsersBids = [item for item in bids if item["playertoaddid"] == bid["playertoaddid"] and item["bidresult"]==0 and item["username"] != bid["username"]]
+            for invalidBid in otherUsersBids:
+                if invalidBid["bidamount"] < bid["bidamount"]:
+                    invalidBid["bidresult"] = 2
+                else:
+                    invalidBid["bidresult"] = 3
+                bidsresult.append(invalidBid)
+                bids.remove(invalidBid)
+            userInvalidBids = [item for item in bids if item["playertodropid"] == bid["playertodropid"] and item["bidresult"]==0 and item["username"] == bid["username"] and item["objectId"] != bid["objectId"]]
+            for invalidBid in userInvalidBids:
+                invalidBid["bidresult"] = 5
+                bidsresult.append(invalidBid)
+                bids.remove(invalidBid)
+
+            userInvalidBids = [item for item in bids if item["playertoaddid"] == bid["playertoaddid"] and item["bidresult"]==0 and item["username"] == bid["username"] and item["objectId"] != bid["objectId"]]
+            for invalidBid in userInvalidBids:
+                invalidBid["bidresult"] = 4
+                bidsresult.append(invalidBid)
+                bids.remove(invalidBid)
+
+    return bidsresult
 
 
-    return biddingUsers
+def validateUserBid(biddingUsers, bid):
+
+    if bid["playertoaddtype"] == bid["playertodroptype"]:
+        return True
+
+    userDistribution = [user["distribution"] for user in biddingUsers][0]
+    userDistribution[bid["playertoaddtype"]] += 1
+    userDistribution[bid["playertodroptype"]] -= 1
+
+    if userDistribution["Bat"] > 6 or userDistribution["AR"] > 6 or userDistribution["Bowl"] > 6 or userDistribution["WK"] > 5:
+        return False
+
+    return True
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
