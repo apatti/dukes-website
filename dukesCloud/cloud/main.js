@@ -135,7 +135,7 @@ Parse.Cloud.define("getPlayerDistribution", function(request,response){
                 if (playerResults[i].get("Type") == 'Dummy')
                     dummy++;
             }
-            response.success({"Bat": bat, "Bowl": bowl, "AR": ar, "WK": wk});
+            response.success({"Bat": bat, "Bowl": bowl, "AR": ar, "WK": wk,"Dummy":dummy});
         });
     });
 });

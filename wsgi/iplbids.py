@@ -120,12 +120,12 @@ def processFABids():
     result = json.loads(connection.getresponse().read())
 
     #group A
-    currentStandings = getIplStanding(1)
+    currentStandings = getIplStanding(2)
     rankings = [item.get("name") for item in currentStandings]
     rankings.reverse()
 
     #getbids order by amount.
-    params = urllib.urlencode({"where":json.dumps({"league":'1',"marketbid":0, "bidresult":0, "priority":{'$ne': -1}}),
+    params = urllib.urlencode({"where":json.dumps({"league":'2',"marketbid":0, "bidresult":0, "priority":{'$ne': -1}}),
                                "order": "-bidamount,priority"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
@@ -203,11 +203,13 @@ def validateUserBid(biddingUsers, bid):
     if bid["playertoaddtype"] == bid["playertodroptype"]:
         return True
 
-    userDistribution = [user["distribution"] for user in biddingUsers][0]
+    userDistribution = [user["distribution"] for user in biddingUsers if user["user"]==bid["username"]][0]
     userDistribution[bid["playertoaddtype"]] += 1
     userDistribution[bid["playertodroptype"]] -= 1
 
     if userDistribution["Bat"] > 6 or userDistribution["AR"] > 6 or userDistribution["Bowl"] > 6 or userDistribution["WK"] > 5:
+        userDistribution[bid["playertoaddtype"]] -= 1
+        userDistribution[bid["playertodroptype"]] += 1
         return False
 
     return True
