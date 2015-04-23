@@ -294,13 +294,13 @@ def getUserMarket(leagueid, username):
 
 @app.route('/ipl/league/<leagueid>/bids/fabid', methods=['PUT'])
 def processFABideApi(leagueid):
-    result = processFABids()
+    result = processFABids(leagueid)
     return jsonify({'result': result}), 200
 
 
 @app.route('/ipl/league/bids/processfabid', methods=['GET'])
 def processFABidApi():
-    result = processFABids()
+    result = "wrong api"
     return jsonify({'result': result}), 200
 
 

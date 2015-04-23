@@ -111,7 +111,7 @@ def updateBids(bidlist,league):
         connection.request('PUT', '/1/classes/iplfantasybids/%s' % bid.get("objectId"), json.dumps(bid), {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     return "Bid Updated"
 
-def processFABids():
+def processFABids(league):
 
     #clean up the bids.
     connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -120,12 +120,12 @@ def processFABids():
     result = json.loads(connection.getresponse().read())
 
     #group A
-    currentStandings = getIplStanding(2)
+    currentStandings = getIplStanding(int(league))
     rankings = [item.get("name") for item in currentStandings]
     rankings.reverse()
 
     #getbids order by amount.
-    params = urllib.urlencode({"where":json.dumps({"league":'2',"marketbid":0, "bidresult":0, "priority":{'$ne': -1}}),
+    params = urllib.urlencode({"where":json.dumps({"league":str(league),"marketbid":0, "bidresult":0, "priority":{'$ne': -1}}),
                                "order": "-bidamount,priority"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
@@ -204,7 +204,7 @@ def processFABids():
                 bidsresult.append(invalidBid)
                 bids.remove(invalidBid)
 
-
+    updateResults(bidsresult,currentStandings,int(league))
     return {"BidResult":bidsresult,"Standings":currentStandings}
 
 
@@ -223,6 +223,66 @@ def validateUserBid(biddingUsers, bid):
         return False
 
     return True
+
+def updateResults(bidresults,currentStandings,league):
+    if league==1:
+        owner = "owner1"
+    else:
+        owner = "owner2"
+
+    queryList =[]
+    for bidresult in bidresults:
+        bidresultquery={
+            "method":"PUT",
+            "path":"/1/classes/iplfantasybids/"+bidresult["objectId"],
+            "body":{
+                "bidresult" : bidresult["bidresult"]
+            }
+        }
+
+        queryList.append(bidresultquery)
+
+        if bidresult["bidresult"]==1:
+            bidprocessaddquery={
+                "method":"PUT",
+                "path":"/1/classes/iplplayer/"+bidresult["playertoaddobjectid"],
+                "body":{
+                    owner:bidresult["username"]
+                }
+            }
+            bidprocessremovequery={
+                "method":"PUT",
+                "path":"/1/classes/iplplayer/"+bidresult["playertodropobjectid"],
+                "body":{
+                    owner:""
+                }
+            }
+            queryList.append(bidprocessaddquery)
+            queryList.append(bidprocessremovequery)
+
+    for userStanding in currentStandings:
+        standingquery={
+            "method":"PUT",
+            "path":"/1/classes/iplfantasy/"+userStanding["objectId"],
+            "body":{
+                "balance" : userStanding["balance"]
+            }
+        }
+
+        queryList.append(standingquery)
+
+    for i in range(len(queryList)/50+1):
+        queryToExecute = queryList[i*50:(i+1)*50]
+        connection = httplib.HTTPSConnection('api.parse.com', 443)
+        connection.connect()
+        connection.request('POST', '/1/batch', json.dumps({
+            "requests":queryToExecute}),{
+            "X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M",
+            "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo",
+            "Content-Type": "application/json"
+        })
+        result = json.loads(connection.getresponse().read())
+
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
 
