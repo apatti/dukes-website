@@ -169,11 +169,20 @@ def processFABids():
             bids.remove(bid)
             continue
         else:
+            userFantasyItem = [item for item in currentStandings if item["name"]==bid["username"]][0]
+            if userFantasyItem["balance"] < bid["bidamount"]:
+                bid["bidresult"] = 7
+                bidsresult.append(bid)
+                bids.remove(bid)
+                continue
+
             bid["bidresult"] = 1
+            userFantasyItem["balance"] -= bid["bidamount"]
             bidsresult.append(bid)
             bids.remove(bid)
             rankings.remove(bid["username"])
             rankings.append(bid["username"])
+
 
             otherUsersBids = [item for item in bids if item["playertoaddid"] == bid["playertoaddid"] and item["bidresult"]==0 and item["username"] != bid["username"]]
             for invalidBid in otherUsersBids:
@@ -195,7 +204,8 @@ def processFABids():
                 bidsresult.append(invalidBid)
                 bids.remove(invalidBid)
 
-    return bidsresult
+
+    return {"BidResult":bidsresult,"Standings":currentStandings}
 
 
 def validateUserBid(biddingUsers, bid):
