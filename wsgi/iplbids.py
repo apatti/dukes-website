@@ -225,6 +225,9 @@ def validateUserBid(biddingUsers, bid):
     return True
 
 def updateResults(bidresults,currentStandings,league):
+    if len(bidresults) == 0:
+        return
+
     if league==1:
         owner = "owner1"
     else:

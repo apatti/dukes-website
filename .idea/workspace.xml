@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" afterPath="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/iplbids.py" afterPath="$PROJECT_DIR$/wsgi/iplbids.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -75,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="iplbids.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.296296" vertical-offset="2614" max-vertical-offset="3210">
-              <caret line="275" column="0" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3914209" vertical-offset="2029" max-vertical-offset="3255">
+              <caret line="229" column="4" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
               <folding>
                 <element signature="e#22#48#0" expanded="true" />
                 <element signature="e#1583#2228#0" expanded="false" />
@@ -87,8 +86,8 @@
                 <element signature="e#3075#5547#0" expanded="false" />
                 <element signature="e#5585#6003#0" expanded="false" />
                 <element signature="e#10981#11539#0" expanded="false" />
-                <element signature="e#13629#13725#0" expanded="false" />
-                <element signature="e#13790#14639#0" expanded="false" />
+                <element signature="e#13678#13774#0" expanded="false" />
+                <element signature="e#13839#14688#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -129,10 +128,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dukesipl.appcache" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
             </state>
@@ -174,9 +173,9 @@
         <option value="$PROJECT_DIR$/wsgi/dukesMail.py" />
         <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
         <option value="$PROJECT_DIR$/wsgi/service.py" />
-        <option value="$PROJECT_DIR$/wsgi/iplbids.py" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
+        <option value="$PROJECT_DIR$/wsgi/iplbids.py" />
       </list>
     </option>
   </component>
@@ -921,31 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="5460">
-          <caret line="302" column="23" selection-start-line="302" selection-start-column="23" selection-end-line="302" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.296296" vertical-offset="2614" max-vertical-offset="3210">
-          <caret line="275" column="0" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#48#0" expanded="true" />
-            <element signature="e#1583#2228#0" expanded="false" />
-            <element signature="e#2270#2995#0" expanded="false" />
-            <element signature="e#3075#5547#0" expanded="false" />
-            <element signature="e#5585#6003#0" expanded="false" />
-            <element signature="e#10981#11539#0" expanded="false" />
-            <element signature="e#13629#13725#0" expanded="false" />
-            <element signature="e#13790#14639#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8148148" vertical-offset="8747" max-vertical-offset="10350">
@@ -967,9 +941,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesipl.appcache">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0375" vertical-offset="0" max-vertical-offset="400">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
           <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="5460">
+          <caret line="302" column="23" selection-start-line="302" selection-start-column="23" selection-end-line="302" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/iplbids.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3914209" vertical-offset="2029" max-vertical-offset="3255">
+          <caret line="229" column="4" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
+          <folding>
+            <element signature="e#22#48#0" expanded="true" />
+            <element signature="e#1583#2228#0" expanded="false" />
+            <element signature="e#2270#2995#0" expanded="false" />
+            <element signature="e#3075#5547#0" expanded="false" />
+            <element signature="e#5585#6003#0" expanded="false" />
+            <element signature="e#10981#11539#0" expanded="false" />
+            <element signature="e#13678#13774#0" expanded="false" />
+            <element signature="e#13839#14688#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
