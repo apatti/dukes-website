@@ -271,6 +271,9 @@ def updateResults(bidresults,currentStandings,league):
 
         queryList.append(standingquery)
 
+    if len(queryList)==0:
+        return
+
     for i in range(len(queryList)/50+1):
         queryToExecute = queryList[i*50:(i+1)*50]
         connection = httplib.HTTPSConnection('api.parse.com', 443)
