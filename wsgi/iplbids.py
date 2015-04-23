@@ -125,7 +125,7 @@ def processFABids():
     rankings.reverse()
 
     #getbids order by amount.
-    params = urllib.urlencode({"where":json.dumps({"league":'1',"marketbid":0, "priority":{'$ne': -1}}),
+    params = urllib.urlencode({"where":json.dumps({"league":'1',"marketbid":0, "bidresult":0, "priority":{'$ne': -1}}),
                                "order": "-bidamount,priority"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
@@ -172,6 +172,9 @@ def processFABids():
             bid["bidresult"] = 1
             bidsresult.append(bid)
             bids.remove(bid)
+            rankings.remove(bid["username"])
+            rankings.append(bid["username"])
+
             otherUsersBids = [item for item in bids if item["playertoaddid"] == bid["playertoaddid"] and item["bidresult"]==0 and item["username"] != bid["username"]]
             for invalidBid in otherUsersBids:
                 if invalidBid["bidamount"] < bid["bidamount"]:
