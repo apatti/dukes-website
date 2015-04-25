@@ -86,6 +86,11 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
     }
 });
 
+Parse.Cloud.afterSave("iplmarket", function(request){
+    var Mailgun = require('mailgun');
+    //Mailgun.initialize('dukesxi.co',)
+});
+
 Parse.Cloud.define("cleanBids",function(request,response){
     //response.success("good");
     var _ = require('underscore.js')
@@ -274,7 +279,7 @@ Parse.Cloud.define("getIplScoreCard",function(request,response){
                 console.error("Error, please contact admin "+httpResponse.status);
             }
         });
-})
+});
 
 Parse.Cloud.define("addColumn", function(request,response){
     var object = Parse.Object.extend("iplfantasyplayerscore");
@@ -291,5 +296,29 @@ Parse.Cloud.define("addColumn", function(request,response){
         return Parse.Promise.when(promises);
     }).then(function(){
         response.success("done");
+    });
+});
+
+Parse.Cloud.job("FABidProcessing", function(request, status){
+    status.message("Processing Bids for goup A");
+    Parse.Cloud.httpRequest({
+        method:'PUT',
+        url: 'http://www.dukesxi.co/ipl/league/1/bids/fabid',
+        success: function(httpResonse){
+            status.message("Processing Bids for goup B");
+            Parse.Cloud.httpRequest({
+                method:'PUT',
+                url: 'http://www.dukesxi.co/ipl/league/2/bids/fabid',
+                success: function(httpResonse){
+                    status.success("Bids processed:"+httpResonse.text);
+                },
+                error: function(httpResponse){
+                    status.error('Request failed with response code ' + httpResponse.status);
+                }
+            });
+        },
+        error: function(httpResponse){
+            status.error('Request failed with response code ' + httpResponse.status);
+        }
     });
 })

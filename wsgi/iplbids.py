@@ -217,10 +217,42 @@ def validateUserBid(biddingUsers, bid):
     userDistribution[bid["playertoaddtype"]] += 1
     userDistribution[bid["playertodroptype"]] -= 1
 
-    if userDistribution["Bat"] > 6 or userDistribution["AR"] > 6 or userDistribution["Bowl"] > 6 or userDistribution["WK"] > 5:
-        userDistribution[bid["playertoaddtype"]] -= 1
-        userDistribution[bid["playertodroptype"]] += 1
-        return False
+    if userDistribution["Bat"] < 2:
+        if userDistribution["Dummy"] >= (2-userDistribution["Bat"]):
+            userDistribution["Dummy"] -= (2-userDistribution["Bat"])
+            return True
+        else:
+            userDistribution[bid["playertoaddtype"]] -= 1
+            userDistribution[bid["playertodroptype"]] += 1
+            return False
+
+    if userDistribution["Bowl"] < 2:
+        if userDistribution["Dummy"] >= (2-userDistribution["Bowl"]):
+            userDistribution["Dummy"] -= (2-userDistribution["Bowl"])
+            return True
+        else:
+            userDistribution[bid["playertoaddtype"]] -= 1
+            userDistribution[bid["playertodroptype"]] += 1
+            return False
+
+    if userDistribution["AR"] < 2:
+        if userDistribution["Dummy"] >= (2-userDistribution["AR"]):
+            userDistribution["Dummy"] -= (2-userDistribution["AR"])
+            return True
+        else:
+            userDistribution[bid["playertoaddtype"]] -= 1
+            userDistribution[bid["playertodroptype"]] += 1
+            return False
+
+
+    if userDistribution["WK"] < 1:
+        if userDistribution["Dummy"] >= (1-userDistribution["WK"]):
+            userDistribution["Dummy"] -= (1-userDistribution["WK"])
+            return True
+        else:
+            userDistribution[bid["playertoaddtype"]] -= 1
+            userDistribution[bid["playertodroptype"]] += 1
+            return False
 
     return True
 
