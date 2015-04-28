@@ -116,7 +116,7 @@ def processFABids(league):
     #clean up the bids.
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
-    connection.request('POST','/1/functions/cleanBids','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    connection.request('POST','/1/functions/cleanBids',json.dumps({'postProcessing':False,'marketbid':0}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
 
     #group A
@@ -205,6 +205,11 @@ def processFABids(league):
                 bids.remove(invalidBid)
 
     updateResults(bidsresult,currentStandings,int(league))
+    #clean up the bids.
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('POST','/1/functions/cleanBids',json.dumps({'postProcessing':True,'marketbid':0}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
     return {"BidResult":bidsresult,"Standings":currentStandings}
 
 
@@ -320,6 +325,18 @@ def updateResults(bidresults,currentStandings,league):
             "Content-Type": "application/json"
         })
         result = json.loads(connection.getresponse().read())
+
+def processMarketBids(league):
+    #clean up the bids.
+    connection = httplib.HTTPSConnection('api.parse.com',443)
+    connection.connect()
+    connection.request('POST','/1/functions/cleanBids',json.dumps({'marketbid':1}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
+    result = json.loads(connection.getresponse().read())
+
+    currentStandings = getIplStanding(int(league))
+    rankings = [item.get("name") for item in currentStandings]
+    rankings.reverse()
+
 
 
 def addPlayerToTeam(userId,playerAddId,playerAddType,playerDropId,playerDropType,price):
