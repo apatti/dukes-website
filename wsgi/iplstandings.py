@@ -114,5 +114,6 @@ tent-Type": "application/json"})
         gamesscores.append(gamescore)
 
     currentSchedule["games"]=gamesscores
+
     return currentSchedule
 
