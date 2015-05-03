@@ -98,7 +98,7 @@ Parse.Cloud.define("cleanBids",function(request,response){
     var cancelBidsQuery = new Parse.Query(bidsObject);
     if(request.params.postProcessing)
     {
-        cleanBids.notEqualTo("bidresult",0);
+        cancelBidsQuery.notEqualTo("bidresult",0);
     }
     else {
         cancelBidsQuery.equalTo("priority", -1);

@@ -33,6 +33,7 @@ def cancelMarket(marketid):
     return "Market Updated"
 
 def enterMarket(market,league):
+
     marketentry={}
     marketentry["username"]=market.get("username")
     marketentry["playerObjectId"]=market.get("playerObjectId")
@@ -51,6 +52,8 @@ def enterMarket(market,league):
     connection.request('GET', '/1/classes/iplmarket?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     result = json.loads(connection.getresponse().read())
     if len(result.get("results")) > 0:
+        if market.get("marketPrice") < 0:
+            return cancelMarket(result.get("results")[0].get("objectId"))
         operation = 'PUT'
         url = '/1/classes/iplmarket/%s' % result.get("results")[0].get("objectId")
         update=1

@@ -104,14 +104,17 @@ tent-Type": "application/json"})
         else:
             league=2
 
-        userpoints["owner"]=ipluser
-        userpoints["week"]=currentweeknumber
-        userpoints["battingpoints"]=battingpoints
-        userpoints["bowlingpoints"]=bowlingpoints
-        userpoints["fieldingpoints"]=fieldingpoints
-        userpoints["mompoints"]=mompoints
-        userpoints["winpoints"]=winpoints
-        userpoints["league"]=league
+        userpoints["owner"] = ipluser
+        userpoints["week"] = currentweeknumber
+        userpoints["battingpoints"] = battingpoints
+        userpoints["bowlingpoints"] = bowlingpoints
+        userpoints["fieldingpoints"] = fieldingpoints
+        userpoints["mompoints"] = mompoints
+        userpoints["winpoints"] = winpoints
+        userpoints["league"] = league
+        userpoints["win"] = 0
+        userpoints["loss"] = 0
+        userpoints["tie"] = 0
 
         params = urllib.urlencode({"where": json.dumps({"owner": ipluser, "week": currentweeknumber})})
         connection = httplib.HTTPSConnection('api.parse.com',443)
