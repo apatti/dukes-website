@@ -54,7 +54,7 @@ tent-Type": "application/json"})
     weekduration = weekresult.get("Duration")
 
     #get the current schedule
-    params = urllib.urlencode({"where": json.dumps({"fantasyweek": currentweeknumber})})
+    params = urllib.urlencode({"where": json.dumps({"fantasyweek": currentweeknumber}),"order":"league"})
     connection = httplib.HTTPSConnection('api.parse.com',443)
     connection.connect()
     connection.request('GET', '/1/classes/iplfantasyschedule?%s' % params, '', {"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M", "X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
