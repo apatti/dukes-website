@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/iplstandings.py" afterPath="$PROJECT_DIR$/wsgi/iplstandings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dukesCloud/cloud/main.js" afterPath="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -90,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iplstandings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="iplstandings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/iplstandings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4875" vertical-offset="615" max-vertical-offset="1845">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="1845">
               <caret line="56" column="102" selection-start-line="56" selection-start-column="102" selection-end-line="56" selection-end-column="102" />
               <folding />
             </state>
@@ -110,15 +110,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3333333" vertical-offset="3015" max-vertical-offset="3465">
-              <caret line="312" column="59" selection-start-line="312" selection-start-column="14" selection-end-line="312" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.55764073" vertical-offset="782" max-vertical-offset="3210">
+              <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
               <folding>
-                <element signature="e#6320#7997#0" expanded="false" />
-                <element signature="e#8063#8967#0" expanded="false" />
-                <element signature="e#9041#10899#0" expanded="false" />
+                <element signature="e#53#1379#0" expanded="false" />
+                <element signature="e#7090#8767#0" expanded="false" />
+                <element signature="e#8833#9737#0" expanded="false" />
+                <element signature="e#9811#11669#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -169,12 +170,12 @@
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/ipl.js" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesipl.appcache" />
         <option value="$PROJECT_DIR$/wsgi/dukesMail.py" />
-        <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
         <option value="$PROJECT_DIR$/wsgi/iplmarket.py" />
         <option value="$PROJECT_DIR$/wsgi/iplfantasyscore.py" />
         <option value="$PROJECT_DIR$/wsgi/static/fantasyrules.html" />
         <option value="$PROJECT_DIR$/wsgi/iplbids.py" />
         <option value="$PROJECT_DIR$/wsgi/iplstandings.py" />
+        <option value="$PROJECT_DIR$/dukesCloud/cloud/main.js" />
       </list>
     </option>
   </component>
@@ -551,7 +552,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -893,18 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333" vertical-offset="3015" max-vertical-offset="3465">
-          <caret line="312" column="59" selection-start-line="312" selection-start-column="14" selection-end-line="312" selection-end-column="59" />
-          <folding>
-            <element signature="e#6320#7997#0" expanded="false" />
-            <element signature="e#8063#8967#0" expanded="false" />
-            <element signature="e#9041#10899#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.148148" vertical-offset="4601" max-vertical-offset="5715">
@@ -950,9 +939,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/iplstandings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4875" vertical-offset="615" max-vertical-offset="1845">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="1845">
           <caret line="56" column="102" selection-start-line="56" selection-start-column="102" selection-end-line="56" selection-end-column="102" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dukesCloud/cloud/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55764073" vertical-offset="782" max-vertical-offset="3210">
+          <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
+          <folding>
+            <element signature="e#53#1379#0" expanded="false" />
+            <element signature="e#7090#8767#0" expanded="false" />
+            <element signature="e#8833#9737#0" expanded="false" />
+            <element signature="e#9811#11669#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

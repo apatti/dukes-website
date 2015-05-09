@@ -87,8 +87,24 @@ Parse.Cloud.afterSave("iplfantasybids",function(request){
 });
 
 Parse.Cloud.afterSave("iplmarket", function(request){
-    var Mailgun = require('mailgun');
-    //Mailgun.initialize('dukesxi.co',)
+    var marketBackupTable = Parse.Object.extend("bkpmarket");
+    marketentry = new marketBackupTable();
+    marketentry.set("username",request.object.get("username"));
+    marketentry.set("playername",request.object.get("playername"));
+    marketentry.set("playerObjectId",request.object.get("playerObjectId"));
+    marketentry.set("playerTeam",request.object.get("playerTeam"));
+    marketentry.set("playerType",request.object.get("playerType"));
+    marketentry.set("ID",request.object.get("ID"));
+    marketentry.set("league",request.object.get("league"));
+    marketentry.set("marketPrice",request.object.get("marketPrice"));
+    marketentry.save({
+        success:function(){
+            console.log("Saved")
+        },
+        error:function(err){
+            console.error("Got an error "+ err.code + " : " +err.message )
+        }
+    });
 });
 
 Parse.Cloud.define("cleanBids",function(request,response){
