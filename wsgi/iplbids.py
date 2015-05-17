@@ -163,18 +163,19 @@ def processFABids(league):
                     bid = similarBid
 
         #validate if user can do this bid.
+        userFantasyItem = [item for item in currentStandings if item["name"]==bid["username"]][0]
+        if userFantasyItem["balance"] < bid["bidamount"]:
+            bid["bidresult"] = 7
+            bidsresult.append(bid)
+            bids.remove(bid)
+            continue
+
         if validateUserBid(biddingUsers, bid) == False:
             bid["bidresult"] = 6
             bidsresult.append(bid)
             bids.remove(bid)
             continue
         else:
-            userFantasyItem = [item for item in currentStandings if item["name"]==bid["username"]][0]
-            if userFantasyItem["balance"] < bid["bidamount"]:
-                bid["bidresult"] = 7
-                bidsresult.append(bid)
-                bids.remove(bid)
-                continue
 
             bid["bidresult"] = 1
             userFantasyItem["balance"] -= bid["bidamount"]
