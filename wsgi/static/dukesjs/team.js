@@ -6,8 +6,8 @@ $(document).ready(function(){
          var dataInTable ='';
           $.each(data, function() {
              
-			 dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['pid']+"' ><div id='"+ this['pid'] +"'><img src='https://graph.facebook.com/aaaa/picture?type=normal'  class='image' width='100px' height='100px'/></div></td></tr>"
-              dataInTable = dataInTable + "<tr><td>"+ this['fname'] +"</td><tr>";
+			 dataInTable = dataInTable + "<div class='player_img'>" + "<table><tr><td><a href='player.html?pid="+this['PlayerId']+"' ><div id='"+ this['PlayerId'] +"'><img src='https://graph.facebook.com/aaaa/picture?type=normal'  class='image' width='100px' height='100px'/></div></td></tr>"
+              dataInTable = dataInTable + "<tr><td>"+ this['Name'] +"</td><tr>";
               dataInTable = dataInTable + "</table></div>";
 			  
 			  
