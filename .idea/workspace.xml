@@ -73,10 +73,10 @@
       <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7635135" vertical-offset="636" max-vertical-offset="1590">
-              <caret line="65" column="106" selection-start-line="65" selection-start-column="106" selection-end-line="65" selection-end-column="106" />
+            <state vertical-scroll-proportion="0.6621622" vertical-offset="666" max-vertical-offset="1590">
+              <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
               <folding>
-                <element signature="e#4118#7192#0" expanded="false" />
+                <element signature="e#4124#7198#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -956,10 +956,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7635135" vertical-offset="636" max-vertical-offset="1590">
-          <caret line="65" column="106" selection-start-line="65" selection-start-column="106" selection-end-line="65" selection-end-column="106" />
+        <state vertical-scroll-proportion="0.6621622" vertical-offset="666" max-vertical-offset="1590">
+          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
           <folding>
-            <element signature="e#4118#7192#0" expanded="false" />
+            <element signature="e#4124#7198#0" expanded="false" />
           </folding>
         </state>
       </provider>

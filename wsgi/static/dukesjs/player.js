@@ -61,8 +61,8 @@ var playerId = getParameterByName('pid');
 					var pData = data['Bowling'][0];
 					$('#bestBowlingDiv').html("<h3>Best Bowling :</h3>"+pData['Best']);
                      pData['Extras']=pData['Wide']+pData['Noballs'];
-                     pData['Economy']=((pData['R']/parseFloat(getNumberOfBalls(pData['Overs'])))*6).toFixed(2);
-                     pData['Ave']=(pData['R']/parseFloat(pData['Wickets'])).toFixed(2);
+                     pData['Economy']=((pData['Runs']/parseFloat(getNumberOfBalls(pData['Overs'])))*6).toFixed(2);
+                     pData['Ave']=(pData['Runs']/parseFloat(pData['Wickets'])).toFixed(2);
                      pData['SR']=(getNumberOfBalls(pData['Overs'])/parseFloat(pData['Wickets'])).toFixed(2);
 					callback.call(this, $.makeArray(pData));
 				}         
