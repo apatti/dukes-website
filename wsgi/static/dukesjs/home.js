@@ -17,10 +17,11 @@ $(document).ready(function(){
 				var userData = $.parseJSON(results);
 				
 				var playerOfTheWeek = '';
-				
+				if(userData['imagelink']==undefined)
+                    userData['imagelink']="images/defaultuser.png";
 				//var username ="pram.gottiganti";
 				playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-				playerOfTheWeek = playerOfTheWeek + "<td><img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='75px' height='75px'/></td>";
+				playerOfTheWeek = playerOfTheWeek + "<td><img  src='"+userData['imagelink']+"'  class='image' width='75px' height='75px'/></td>";
 				playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+tca_id+">"+ mom +"</a></h3></td>";
 				playerOfTheWeek = playerOfTheWeek + "</tr></table>";
 				
