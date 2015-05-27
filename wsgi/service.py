@@ -16,6 +16,8 @@ from iplmarket import enterMarket,viewAllMarket, viewUserMarket, cancelMarket
 from umpiring import getUmpireList
 from betting import getBet,placeBet,getBets
 from scoreCardUploader import getScoreCard
+from nextgamedetails import NextGame
+
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
 connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -161,6 +163,11 @@ def getFantasyScoreCard(game_id):
 @app.route('/cricketgames/', methods=['GET'])
 def getCricketGamesMetaApi():
     return json.dumps(getGamesMeta()), 200
+
+@app.route('/dukesgames/', methods=['GET'])
+def getDukesGamesMetaApi():
+    nextGames = NextGame()
+    return json.dumps({'Game':nextGames.playingGame,'Umpiring':nextGames.umpiringGame}), 200
 
 @app.route('/fantasyscore/<game_id>', methods=['PUT'])
 def updateFantasyScoreApi(game_id):
