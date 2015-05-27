@@ -27,7 +27,7 @@ $.get("http://www.dukesxi.co/users/",function(data,status){
 				$.each(aa, function() {	
 					var divId = this.tca_id;
                     if(this.imagelink==undefined)
-                        this.imagelink = "https://graph.facebook.com/aaaa/picture?type=normal";
+                        this.imagelink = "images/defaultuser.png";
 					$('#'+divId).html("<img src='"+this.imagelink+"'  class='image' width='100px' height='100px'/>");
 				});			
 			});
