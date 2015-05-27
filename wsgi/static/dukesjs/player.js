@@ -1,32 +1,30 @@
 $(document).ready(function(){
 var playerId = getParameterByName('pid');
-	$.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getPlayerStats&pid="+playerId+"",function(data,status){
+	$.get("http://tennisballcricket.com/teamplayerscore/player/"+playerId+"",function(data,status){
 	
 	$('#battingStatsDiv').puidatatable({
 			lazy: true,
             caption: 'Batting Stats',           
             columns: [
-                {field:'matches_played', headerText: 'Mat', sortable:true},
-                {field:'notout', headerText: 'NO', sortable:true},
-                {field:'runs_scored', headerText: 'Runs', sortable:true},
-				{field:'balls_faced', headerText: 'BF', sortable:true},
-				{field:'mom', headerText: 'MOM', sortable:true},
-				{field:'highest_score', headerText: 'HS', sortable:true},
-				{field:'fifty', headerText: '50s', sortable:true},
-				{field:'hundred', headerText: '100s', sortable:true},
-				{field:'sixes', headerText: '6s', sortable:true},
-				{field:'fours', headerText: '4s', sortable:true},
-				{field:'batsman_average', headerText: 'Ave', sortable:true},
-				{field:'batsman_strike_rate', headerText: 'SR', sortable:true},
-				{field:'donot_bat', headerText: 'DNB', sortable:true}
+                {field:'P', headerText: 'Mat', sortable:true},
+                {field:'NO', headerText: 'NO', sortable:true},
+                {field:'R', headerText: 'Runs', sortable:true},
+				{field:'B', headerText: 'BF', sortable:true},
+				{field:'Fifty', headerText: '50s', sortable:true},
+				{field:'Hundred', headerText: '100s', sortable:true},
+				{field:'Six', headerText: '6s', sortable:true},
+				{field:'Four', headerText: '4s', sortable:true},
+				{field:'Ave', headerText: 'Ave', sortable:true},
+				{field:'SR', headerText: 'SR', sortable:true},
+				{field:'DNB', headerText: 'DNB', sortable:true}
                ],
 			   datasource: function(callback, ui) {  
 					
-					var pData = $.parseJSON(data);
-					$('#bestScoredDiv').html("<div id='userImgDiv'></div><div id='userNameDiv'></div><h3>Best Scored:</h3>"+pData['BattingStats']['best_score']);						
-					//dataArray = pData['FieldStats'];
-					//dataArray = [{'catches':'30','runouts': 2012, 'stumps':'23'}];						
-					callback.call(this, $.makeArray(pData['BattingStats']));
+					var pData = data['Batting'][0];
+					$('#bestScoredDiv').html("<div id='userImgDiv'></div><div id='userNameDiv'></div><br/><h3>Best Scored:</h3>"+pData['Best']);
+					pData['Ave']=pData[R]/parseFloat(pData['P']-pData['NO']-pData['DNB']);
+                    pData['SR']=(pData[R]/parseFloat(pData['B']))*100;
+					callback.call(this, $.makeArray(pData));
 				}         
         });
 		
@@ -43,50 +41,50 @@ var playerId = getParameterByName('pid');
 			lazy: true,
             caption: 'Bowling Stats',           
             columns: [
-                {field:'overs', headerText: 'Ovr', sortable:true},
-                {field:'maiden', headerText: 'Maiden', sortable:true},
-                {field:'bowling_runs', headerText: 'Runs', sortable:true},
-				{field:'wickets', headerText: 'Wkts', sortable:true},
-				{field:'five_wickets', headerText: '5w', sortable:true},
-				{field:'wides', headerText: 'Wides', sortable:true},
-				{field:'noballs', headerText: 'NoB', sortable:true},
-				{field:'extras', headerText: 'Ext', sortable:true},
-				{field:'economy', headerText: 'Econ', sortable:true},
-				{field:'bowling_average', headerText: 'Ave', sortable:true},
-				{field:'bowling_strike_rate', headerText: 'SR', sortable:true},
-				{field:'best_of_him', headerText: 'BBM', sortable:true}
+                {field:'Overs', headerText: 'Ovr', sortable:true},
+                {field:'Maidens', headerText: 'Maiden', sortable:true},
+                {field:'Runs', headerText: 'Runs', sortable:true},
+				{field:'Wickets', headerText: 'Wkts', sortable:true},
+				{field:'Fifth', headerText: '5w', sortable:true},
+				{field:'Wide', headerText: 'Wides', sortable:true},
+				{field:'Noballs', headerText: 'NoB', sortable:true},
+				{field:'Extras', headerText: 'Ext', sortable:true},
+				{field:'Economy', headerText: 'Econ', sortable:true},
+				{field:'Ave', headerText: 'Ave', sortable:true},
+				{field:'SR', headerText: 'SR', sortable:true}
                ],
 			  /* datasource: [  
                 {'catches':'30','runouts': 2012, 'stumps':'23'}] 
 				*/
 				 datasource: function(callback, ui) {  
 					
-					var pData = $.parseJSON(data);	
-					$('#bestBowlingDiv').html("<h3>Best Bowling :</h3>"+pData['BowlingStats']['best_figures']);											
-					//dataArray = pData['FieldStats'];
-					//dataArray = [{'catches':'30','runouts': 2012, 'stumps':'23'}];						
-					callback.call(this, $.makeArray(pData['BowlingStats']));
+					var pData = data['Bowling'][0];
+					$('#bestBowlingDiv').html("<h3>Best Bowling :</h3>"+pData['Best']);
+                     pData['Extras']=pData['Wide']+pData['Noballs'];
+                     pData['Economy']=0;
+                     pData['Ave']=0.0;
+                     pData['SR']=0;
+					callback.call(this, $.makeArray(pData));
 				}         
         });
 	$('#fieldStatsDiv').puidatatable({
 			lazy: true,
             caption: 'Fielding Stats',           
             columns: [
-                {field:'catches', headerText: 'Catches', sortable:true},
-                {field:'runouts', headerText: 'Runouts', sortable:true},
-                {field:'stumps', headerText: 'Stumps', sortable:true}
+                {field:'C', headerText: 'Catches', sortable:true},
+                {field:'R', headerText: 'Runouts', sortable:true},
+                {field:'S', headerText: 'Stumps', sortable:true}
                ],
 			  /* datasource: [  
                 {'catches':'30','runouts': 2012, 'stumps':'23'}] 
 				*/
 				 datasource: function(callback, ui) {  
 					
-					var pData = $.parseJSON(data);							
-					//dataArray = pData['FieldStats'];
-					//dataArray = [{'catches':'30','runouts': 2012, 'stumps':'23'}];						
-					callback.call(this, $.makeArray(pData['FieldStats']));
+					var pData = data['Fielding'][0];
+					callback.call(this, $.makeArray(pData));
 				}         
         });
+    $.get("http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getPlayerStats&pid="+playerId+"",function(data,status){
 	google.load('visualization','1.0',{'packages':['corechart'],callback:drawChart});
         function drawChart()
 	{
@@ -160,6 +158,7 @@ var playerId = getParameterByName('pid');
 
 	}
 	    });
+    });
 });
 
 
