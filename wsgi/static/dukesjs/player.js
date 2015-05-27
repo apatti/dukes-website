@@ -34,7 +34,7 @@ var playerId = getParameterByName('pid');
 				var results = JSON.stringify(data.user.results[0]);		
 				var userData = $.parseJSON(results);
 				$("#userNameDiv").html("<h3>"+userData['name']+"</br> </h3>");
-				$("#userImgDiv").html("<img  src='https://graph.facebook.com/"+userData['username']+"/picture?type=normal'  class='image' width='75px' height='75px'/>");
+				$("#userImgDiv").html("<img  src='"+userData['imagelink']+"'  class='image' width='75px' height='75px'/>");
 				
 	});
 	$('#bowlingStatsDiv').puidatatable({
