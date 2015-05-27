@@ -39,7 +39,7 @@ $(document).ready(function(){
 		var ucMatch = games['Game'];
         var ucUmpire = games['Umpiring'];
         if(ucMatch.length>0) {
-            var match = "<h4>"+ucMatch[0]['Team1']['TeamName'] + " vs " + ucMatch[0]['Team2']['TeamName'] + "</h4><br/><h5>On " + ucMatch[0]['MatchDate']+"</h5>";
+            var match = "<p><strong>"+ucMatch[0]['Team1']['TeamName'] + " vs " + ucMatch[0]['Team2']['TeamName'] + "</strong></p><h5>On " + ucMatch[0]['MatchDate']+"</h5>";
             var ground = "At <a href='"+ucMatch[0].Link+"'>" + ucMatch[0]['PlaygroundName']+"</a>";
             var umpiresFrom = "Umpires From : " + ucMatch[0]['UmpTeam1']['TeamName'] + " & " + ucMatch[0]['UmpTeam2']['TeamName'];
 
