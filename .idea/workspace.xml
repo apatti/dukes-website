@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,8 +65,18 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6081081" vertical-offset="375" max-vertical-offset="1185">
-              <caret line="43" column="116" selection-start-line="43" selection-start-column="116" selection-end-line="43" selection-end-column="116" />
+            <state vertical-scroll-proportion="0.46043167" vertical-offset="693" max-vertical-offset="1110">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5686274" vertical-offset="1174" max-vertical-offset="1740">
+              <caret line="87" column="20" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -195,6 +206,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dukes11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dukes11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -541,13 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16693164" vertical-offset="600" max-vertical-offset="4800">
           <caret line="47" column="49" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1785">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -901,10 +923,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5686274" vertical-offset="1174" max-vertical-offset="1740">
+          <caret line="87" column="20" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6081081" vertical-offset="375" max-vertical-offset="1185">
-          <caret line="43" column="116" selection-start-line="43" selection-start-column="116" selection-end-line="43" selection-end-column="116" />
+        <state vertical-scroll-proportion="0.46043167" vertical-offset="693" max-vertical-offset="1110">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
           <folding />
         </state>
       </provider>

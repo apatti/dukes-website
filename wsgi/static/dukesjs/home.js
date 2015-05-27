@@ -31,37 +31,32 @@ $(document).ready(function(){
 			});
 		};
 		upcomingMatch();
-		upcomingUmpireTask();
 	});
 
 	function upcomingMatch(){
 		$.get("dukesgames",function(data,status){
-				
-		var ucMatch = data['Game'];
+		var games = $.parseJSON(data);
+		var ucMatch = games['Game'];
+        var ucUmpire = games['Umpiring'];
+        if(ucMatch.length>0) {
+            var match = ucMatch[0]['Team1']['TeamName'] + " vs " + ucMatch[0]['Team2']['TeamName'] + " On " + ucMatch[0]['MatchDate'];
+            var ground = "At " + ucMatch[0]['PlaygroundName'];
+            var umpiresFrom = "Umpires From : " + ucMatch[0]['UmpTeam1']['TeamName'] + " & " + ucMatch[0]['UmpTeam2']['TeamName'];
 
-		var match = ucMatch[0]['Team1']['TeamName'] + " vs " + ucMatch[0]['Team2']['TeamName'] + " On " + ucMatch[0]['MatchDate'];
-		var ground = "At " + ucMatch[0]['PlaygroundName'];
-				var umpiresFrom = "Umpires From : "+ucMatch[0]['UmpTeam1']['TeamName'] +" & " + ucMatch[0]['UmpTeam2']['TeamName'];
-				
-				$("#matchDiv").append(match);
-				$("#groundAddressDiv").append(ground);
-				$("#umpiresFromDiv").append(umpiresFrom);
-			});
-	}
-
-	function upcomingUmpireTask(){
-		$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamUmpireGamesDetails&tid=184",function(data,status){
-				
-		var ucMatch = $.parseJSON(data);
-				
-		var match = ucMatch[0].team1name + " vs " + ucMatch[0].team2name + " On " + formatedDate(ucMatch[0].match_date);	
-		var ground = "At " + ucMatch[0].groundname +"</br>"+ucMatch[0].ground_address + " " + ucMatch[0].groundcity + " "+  ucMatch[0].ground_zip;
-				var umpiresFrom = "Umpires From : "+ucMatch[0].umpireteam1name +" & " + ucMatch[0].umpireteam2name;
-				
-				$("#umpiringForDiv").append("<h5>"+match+"</h5>");
-				$("#teamsForUmpringDiv").append("<h5>"+ground+"</h5>");
-				$("#umpiringAddressDiv").append("<h5>"+umpiresFrom+"</h5>");
-			});
+            $("#matchDiv").append(match);
+            $("#groundAddressDiv").append(ground);
+            $("#umpiresFromDiv").append(umpiresFrom);
+        }
+        if(ucUmpire.length>0)
+        {
+            var match = ucUmpire[0]['Team1']['TeamName'] + " vs " + ucUmpire[0]['Team2']['TeamName'] + " On " + ucUmpire[0]['MatchDate'];
+            var ground = "At " + ucUmpire[0]['PlaygroundName'];
+            var umpiresFrom = "Umpires From : " + ucUmpire[0]['UmpTeam1']['TeamName'] + " & " + ucUmpire[0]['UmpTeam2']['TeamName'];
+            $("#umpiringForDiv").append("<h5>"+match+"</h5>");
+			$("#teamsForUmpringDiv").append("<h5>"+ground+"</h5>");
+			$("#umpiringAddressDiv").append("<h5>"+umpiresFrom+"</h5>");
+        }
+        });
 	}
 
 function formatedDate(dd){
