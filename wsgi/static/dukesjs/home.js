@@ -35,13 +35,13 @@ $(document).ready(function(){
 	});
 
 	function upcomingMatch(){
-		$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamNextGame&tid=184",function(data,status){
+		$.get("dukesgames",function(data,status){
 				
-		var ucMatch = $.parseJSON(data);
-				
-		var match = ucMatch[0].team1name + " vs " + ucMatch[0].team2name + " On " + ucMatch[0].match_date;	
-		var ground = "At " + ucMatch[0].groundname +","+ucMatch[0].ground_address + " " + ucMatch[0].groundcity +" " +  ucMatch[0].ground_zip;
-				var umpiresFrom = "Umpires From : "+ucMatch[0].umpireteam1name +" & " + ucMatch[0].umpireteam2name;
+		var ucMatch = data['Game'];
+
+		var match = ucMatch[0]['Team1']['TeamName'] + " vs " + ucMatch[0]['Team2']['TeamName'] + " On " + ucMatch[0]['MatchDate'];
+		var ground = "At " + ucMatch[0]['PlaygroundName'];
+				var umpiresFrom = "Umpires From : "+ucMatch[0]['UmpTeam1']['TeamName'] +" & " + ucMatch[0]['UmpTeam2']['TeamName'];
 				
 				$("#matchDiv").append(match);
 				$("#groundAddressDiv").append(ground);
