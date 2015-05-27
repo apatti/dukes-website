@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/player.html" afterPath="$PROJECT_DIR$/wsgi/static/player.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/player.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,10 +72,10 @@
       <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6959459" vertical-offset="936" max-vertical-offset="1500">
-              <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.5945946" vertical-offset="111" max-vertical-offset="1500">
+              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
               <folding>
-                <element signature="e#3896#6970#0" expanded="false" />
+                <element signature="e#3899#6973#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -957,10 +955,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6959459" vertical-offset="936" max-vertical-offset="1500">
-          <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.5945946" vertical-offset="111" max-vertical-offset="1500">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
           <folding>
-            <element signature="e#3896#6970#0" expanded="false" />
+            <element signature="e#3899#6973#0" expanded="false" />
           </folding>
         </state>
       </provider>

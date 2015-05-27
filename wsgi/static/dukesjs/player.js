@@ -21,9 +21,9 @@ var playerId = getParameterByName('pid');
 			   datasource: function(callback, ui) {  
 					
 					var pData = data['Batting'][0];
-					$('#bestScoredDiv').html("<div id='userImgDiv'></div><div id='userNameDiv'></div><br/><h3>Best Scored:</h3>"+pData['Best']);
-					pData['Ave']=pData[R]/parseFloat(pData['P']-pData['NO']-pData['DNB']);
-                    pData['SR']=(pData[R]/parseFloat(pData['B']))*100;
+					$('#bestScoredDiv').html("<div id='userImgDiv'></div><div id='userNameDiv'></div><br/><h3>Best Score:</h3>"+pData['Best']);
+					pData['Ave']=pData['R']/parseFloat(pData['P']-pData['NO']-pData['DNB']);
+                    pData['SR']=(pData['R']/parseFloat(pData['B']))*100;
 					callback.call(this, $.makeArray(pData));
 				}         
         });
