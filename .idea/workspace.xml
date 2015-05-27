@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,8 +64,8 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74820143" vertical-offset="453" max-vertical-offset="1110">
-              <caret line="51" column="163" selection-start-line="51" selection-start-column="163" selection-end-line="51" selection-end-column="163" />
+            <state vertical-scroll-proportion="0.8561151" vertical-offset="408" max-vertical-offset="1110">
+              <caret line="51" column="115" selection-start-line="51" selection-start-column="115" selection-end-line="51" selection-end-column="115" />
               <folding />
             </state>
           </provider>
@@ -933,8 +932,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74820143" vertical-offset="453" max-vertical-offset="1110">
-          <caret line="51" column="163" selection-start-line="51" selection-start-column="163" selection-end-line="51" selection-end-column="163" />
+        <state vertical-scroll-proportion="0.8561151" vertical-offset="408" max-vertical-offset="1110">
+          <caret line="51" column="115" selection-start-line="51" selection-start-column="115" selection-end-line="51" selection-end-column="115" />
           <folding />
         </state>
       </provider>

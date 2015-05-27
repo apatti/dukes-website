@@ -39,7 +39,7 @@ $(document).ready(function(){
 		var ucMatch = games['Game'];
         var ucUmpire = games['Umpiring'];
         if(ucMatch.length>0) {
-            var match = "<h3>"+ucMatch[0]['Team1']['TeamName'] + " vs " + ucMatch[0]['Team2']['TeamName'] + "</h3><br/> On " + ucMatch[0]['MatchDate'];
+            var match = "<h4>"+ucMatch[0]['Team1']['TeamName'] + " vs " + ucMatch[0]['Team2']['TeamName'] + "</h4><br/><h5>On " + ucMatch[0]['MatchDate']+"</h5>";
             var ground = "At <a href='"+ucMatch[0].Link+"'>" + ucMatch[0]['PlaygroundName']+"</a>";
             var umpiresFrom = "Umpires From : " + ucMatch[0]['UmpTeam1']['TeamName'] + " & " + ucMatch[0]['UmpTeam2']['TeamName'];
 
@@ -49,7 +49,7 @@ $(document).ready(function(){
         }
         if(ucUmpire.length>0)
         {
-            var match = "<h3>"+ucUmpire[0]['Team1']['TeamName'] + " vs " + ucUmpire[0]['Team2']['TeamName'] + "</h3><br/><h4>On " + ucUmpire[0]['MatchDate']+"</h4>";
+            var match = "<h4>"+ucUmpire[0]['Team1']['TeamName'] + " vs " + ucUmpire[0]['Team2']['TeamName'] + "</h4><br/><h5>On " + ucUmpire[0]['MatchDate']+"</h5>";
             var ground = "At <a href='"+ucUmpire[0].Link+"'>" + ucUmpire[0]['PlaygroundName']+"</a>";
             var umpiresFrom = "Umpires From : " + ucUmpire[0]['UmpTeam1']['TeamName'] + " & " + ucUmpire[0]['UmpTeam2']['TeamName'];
             $("#umpiringForDiv").append("<h5>"+match+"</h5>");
