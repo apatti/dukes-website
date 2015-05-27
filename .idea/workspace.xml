@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/player.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/player.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,10 +73,10 @@
       <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5945946" vertical-offset="111" max-vertical-offset="1500">
-              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.7635135" vertical-offset="636" max-vertical-offset="1590">
+              <caret line="65" column="106" selection-start-line="65" selection-start-column="106" selection-end-line="65" selection-end-column="106" />
               <folding>
-                <element signature="e#3899#6973#0" expanded="false" />
+                <element signature="e#4118#7192#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -955,10 +956,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5945946" vertical-offset="111" max-vertical-offset="1500">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.7635135" vertical-offset="636" max-vertical-offset="1590">
+          <caret line="65" column="106" selection-start-line="65" selection-start-column="106" selection-end-line="65" selection-end-column="106" />
           <folding>
-            <element signature="e#3899#6973#0" expanded="false" />
+            <element signature="e#4118#7192#0" expanded="false" />
           </folding>
         </state>
       </provider>

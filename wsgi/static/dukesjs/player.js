@@ -22,8 +22,8 @@ var playerId = getParameterByName('pid');
 					
 					var pData = data['Batting'][0];
 					$('#bestScoredDiv').html("<div id='userImgDiv'></div><div id='userNameDiv'></div><br/><h3>Best Score:</h3>"+pData['Best']);
-					pData['Ave']=pData['R']/parseFloat(pData['P']-pData['NO']-pData['DNB']);
-                    pData['SR']=(pData['R']/parseFloat(pData['B']))*100;
+					pData['Ave']=(pData['R']/parseFloat(pData['P']-pData['NO']-pData['DNB'])).toFixed(2);
+                    pData['SR']=((pData['R']/parseFloat(pData['B']))*100).toFixed(2);
 					callback.call(this, $.makeArray(pData));
 				}         
         });
@@ -61,9 +61,9 @@ var playerId = getParameterByName('pid');
 					var pData = data['Bowling'][0];
 					$('#bestBowlingDiv').html("<h3>Best Bowling :</h3>"+pData['Best']);
                      pData['Extras']=pData['Wide']+pData['Noballs'];
-                     pData['Economy']=0;
-                     pData['Ave']=0.0;
-                     pData['SR']=0;
+                     pData['Economy']=((pData['R']/parseFloat(getNumberOfBalls(pData['Overs'])))*6).toFixed(2);
+                     pData['Ave']=(pData['R']/parseFloat(pData['Wickets'])).toFixed(2);
+                     pData['SR']=(getNumberOfBalls(pData['Overs'])/parseFloat(pData['Wickets'])).toFixed(2);
 					callback.call(this, $.makeArray(pData));
 				}         
         });
@@ -165,4 +165,10 @@ var playerId = getParameterByName('pid');
 function getParameterByName(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function getNumberOfBalls(over){
+    var overCount = Math.floor(over);
+    var ballCount = over - Math.floor(over);
+    return overCount*6+ballCount;
 }
