@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="bag_of_words" />
+    <orderEntry type="module" module-name="contours" />
+    <orderEntry type="module" module-name="neural_networks" />
   </component>
 </module>
-
