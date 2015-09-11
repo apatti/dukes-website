@@ -35,7 +35,7 @@ $(document).ready(function(){
                 batsmanImage=batsmanData['imagelink'];
             }
             var playerOfTheWeek = '';
-            playerOfTheWeek = playerOfTheWeek + "<table><tr>";
+            playerOfTheWeek = playerOfTheWeek + "<table cellspacing='0px'><tr>";
             playerOfTheWeek = playerOfTheWeek + "<td rowspan='2'><img  src='"+batsmanImage+"'  class='image' width='75px' height='75px'/></td>";
             playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ batsman.FirstName +" "+batsman.LastName+"</a></h3></td>";
             playerOfTheWeek = playerOfTheWeek + "<tr><td>("+batsman.RunScored +" of "+ batsman.BallFaced+")</td></tr>";
