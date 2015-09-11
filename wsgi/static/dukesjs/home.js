@@ -13,6 +13,35 @@ $(document).ready(function(){
 		});
 		
 		updatePlayerOfTheWeekDiv = function(tca_id,batsman){
+            userData = getPlayerRecord(tca_id);
+            if(userData!=null)
+            {
+                mom = userData.name;
+				var playerOfTheWeek = '';
+				if(userData['imagelink']==undefined)
+                    userData['imagelink']="images/defaultuser.png";
+				//var username ="pram.gottiganti";
+				playerOfTheWeek = playerOfTheWeek + "<table><tr>";
+				playerOfTheWeek = playerOfTheWeek + "<td><img  src='"+userData['imagelink']+"'  class='image' width='75px' height='75px'/></td>";
+				playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+tca_id+">"+ mom +"</a></h3></td>";
+				playerOfTheWeek = playerOfTheWeek + "</tr></table>";
+
+				$("#playerOfTheWeekDiv").append(playerOfTheWeek);
+            }
+            batsmanData = getPlayerRecord(batsman.PlayerId);
+            batsmanImage = "images/defaultuser.png";
+            if (batsmanData!=null && batsmanData['imagelink']!=undefined)
+            {
+                batsmanImage=batsmanData['imagelink'];
+            }
+            var playerOfTheWeek = '';
+            playerOfTheWeek = playerOfTheWeek + "<table><tr>";
+            playerOfTheWeek = playerOfTheWeek + "<td><img  src='images/defaultuser.png'  class='image' width='75px' height='75px'/></td>";
+            playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ batsman.FirstName +" "+batsman.LastName+"</a></h3></td>";
+            playerOfTheWeek = playerOfTheWeek + "<td>("+batsman.RunScored +" of "+ batsman.BallFaced+")</td>";
+            playerOfTheWeek = playerOfTheWeek + "</tr></table>";
+            $("#playerOfTheWeekDiv").append(playerOfTheWeek);
+            /*
 			$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
 				var results = JSON.stringify(momData.user.results[0]);		
 				var userData = $.parseJSON(results);
@@ -35,14 +64,28 @@ $(document).ready(function(){
                     var playerOfTheWeek = '';
                     playerOfTheWeek = playerOfTheWeek + "<table><tr>";
 				    playerOfTheWeek = playerOfTheWeek + "<td><img  src='images/defaultuser.png'  class='image' width='75px' height='75px'/></td>";
-				    playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ battingRecord +"</a></h3></td>";
+				    playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ batsman.FirstName +" "+batsman.LastName+"</a></h3></td>";
+                    playerOfTheWeek = playerOfTheWeek + "<td>("+batsman.RunScored +" of "+ batsman.BallFaced+")</td>";
 				    playerOfTheWeek = playerOfTheWeek + "</tr></table>";
                     $("#playerOfTheWeekDiv").append(playerOfTheWeek);
 
                 });
+                */
 		};
 		upcomingMatch();
 	});
+
+    function getPlayerRecord(playerId)
+    {
+        $.get("http://www.dukesxi.co/users/tca/"+playerId,function(momData,status){
+				var results = JSON.stringify(momData.user.results[0]);
+				var userData = $.parseJSON(results);
+                return userData;
+			})
+            .fail(function(){
+                return null;
+            });
+    }
 
 	function upcomingMatch(){
 		$.get("dukesgames",function(data,status){
