@@ -6,8 +6,8 @@ $(document).ready(function(){
 			var tca_id ='';
 			var mom='';
 			var pData = $.parseJSON(JSON.stringify(data));
-			tca_id = pData[0].MoM;
-            batsman = pData[0].Batsman;
+			tca_id = pData.MoM;
+            batsman = pData.Batsman;
 			//mom = pData.name;
 			updatePlayerOfTheWeekDiv(tca_id,batsman);
 		});
