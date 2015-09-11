@@ -51,7 +51,7 @@ $(document).ready(function(){
             var playerOfTheWeek = '';
             playerOfTheWeek = playerOfTheWeek + "<table cellspacing='0px'><tr>";
             playerOfTheWeek = playerOfTheWeek + "<td><img  src='"+bowlerImage+"'  class='image' width='75px' height='75px'/></td>";
-            playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+bowler.PlayerId+">"+ bowler.FirstName +" "+bowler.LastName+"</a></h3><br/>";
+            playerOfTheWeek = playerOfTheWeek + "<td><a href=/player.html?pid="+bowler.PlayerId+">"+ bowler.FirstName +" "+bowler.LastName+"</a><br/>";
             playerOfTheWeek = playerOfTheWeek + "("+bowler.Overs +"-"+ bowler.Maidens+"-"+bowler.Runs+"-"+bowler.Wickets+")</td></tr>";
             playerOfTheWeek = playerOfTheWeek + "</table>";
             $("#playerOfTheWeekDiv").append(playerOfTheWeek);
