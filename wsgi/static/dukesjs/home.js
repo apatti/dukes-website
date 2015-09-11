@@ -37,8 +37,8 @@ $(document).ready(function(){
             var playerOfTheWeek = '';
             playerOfTheWeek = playerOfTheWeek + "<table><tr>";
             playerOfTheWeek = playerOfTheWeek + "<td><img  src='images/defaultuser.png'  class='image' width='75px' height='75px'/></td>";
-            playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ batsman.FirstName +" "+batsman.LastName+"</a></h3></td>";
-            playerOfTheWeek = playerOfTheWeek + "<td>("+batsman.RunScored +" of "+ batsman.BallFaced+")</td>";
+            playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ batsman.FirstName +" "+batsman.LastName+"</a></h3><p>";
+            playerOfTheWeek = playerOfTheWeek + "("+batsman.RunScored +" of "+ batsman.BallFaced+")</p></td>";
             playerOfTheWeek = playerOfTheWeek + "</tr></table>";
             $("#playerOfTheWeekDiv").append(playerOfTheWeek);
             /*
