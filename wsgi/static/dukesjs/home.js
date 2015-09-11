@@ -8,11 +8,12 @@ $(document).ready(function(){
 			var pData = $.parseJSON(JSON.stringify(data));
 			tca_id = pData.MoM;
             batsman = pData.Batsman;
+            bowler = pData.Bowler;
 			//mom = pData.name;
-			updatePlayerOfTheWeekDiv(tca_id,batsman);
+			updatePlayerOfTheWeekDiv(tca_id,batsman,bowler);
 		});
 		
-		updatePlayerOfTheWeekDiv = function(tca_id,batsman){
+		updatePlayerOfTheWeekDiv = function(tca_id,batsman,bowler){
             userData = getPlayerRecord(tca_id);
             if(userData!=null)
             {
@@ -39,6 +40,19 @@ $(document).ready(function(){
             playerOfTheWeek = playerOfTheWeek + "<td rowspan='2'><img  src='"+batsmanImage+"'  class='image' width='75px' height='75px'/></td>";
             playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ batsman.FirstName +" "+batsman.LastName+"</a></h3></td>";
             playerOfTheWeek = playerOfTheWeek + "<tr><td>("+batsman.RunScored +" of "+ batsman.BallFaced+")</td></tr>";
+            playerOfTheWeek = playerOfTheWeek + "</tr></table>";
+            $("#playerOfTheWeekDiv").append(playerOfTheWeek);
+            bowlerData = getPlayerRecord(bowler.PlayerId);
+            bowlerImage = "images/defaultuser.png";
+            if (bowlerData!=null && bowlerData['imagelink']!=undefined)
+            {
+                bowlerImage=batsmanData['imagelink'];
+            }
+            var playerOfTheWeek = '';
+            playerOfTheWeek = playerOfTheWeek + "<table cellspacing='0px'><tr>";
+            playerOfTheWeek = playerOfTheWeek + "<td rowspan='2'><img  src='"+bowlerImage+"'  class='image' width='75px' height='75px'/></td>";
+            playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+bowler.PlayerId+">"+ bowler.FirstName +" "+bowler.LastName+"</a></h3></td>";
+            playerOfTheWeek = playerOfTheWeek + "<tr><td>("+bowler.Overs +"-"+ bowler.Maidens+"-"+bowler.Runs+"-"+bowler.Wickets+"-"+bowler.Wides+"w,"+bowler.Noballs+"n )</td></tr>";
             playerOfTheWeek = playerOfTheWeek + "</tr></table>";
             $("#playerOfTheWeekDiv").append(playerOfTheWeek);
             /*
