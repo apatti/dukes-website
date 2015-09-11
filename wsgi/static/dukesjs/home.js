@@ -30,7 +30,7 @@ $(document).ready(function(){
 				$("#playerOfTheWeekDiv").append(playerOfTheWeek);
 				
 			})
-                .always(function(batsman){
+                .always(function(error){
                     battingRecord = batsman.FirstName+" "+batsman.LastName+" "+batsman.RunScored+" ("+batsman.BallFaced+")";
                     var playerOfTheWeek = '';
                     playerOfTheWeek = playerOfTheWeek + "<table><tr>";
