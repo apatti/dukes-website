@@ -2,11 +2,11 @@
  
 $(document).ready(function(){
 
-	$.get("http://tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamLastMoM&tid=184",function(data,status){
+	$.get("http://tennisballcricket.com/bestteamplayers/184",function(data,status){
 			var tca_id ='';
 			var mom='';
 			var pData = $.parseJSON(data);
-			tca_id = pData.man_of_match;
+			tca_id = pData.MOM;
 			mom = pData.name;
 			updatePlayerOfTheWeekDiv(tca_id,mom);
 		});
