@@ -69,10 +69,10 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5743243" vertical-offset="555" max-vertical-offset="1770">
-              <caret line="54" column="169" selection-start-line="54" selection-start-column="169" selection-end-line="54" selection-end-column="169" />
+            <state vertical-scroll-proportion="0.4054054" vertical-offset="540" max-vertical-offset="1770">
+              <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
               <folding>
-                <element signature="e#3131#4811#0" expanded="false" />
+                <element signature="e#3091#4771#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1059,10 +1059,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5743243" vertical-offset="555" max-vertical-offset="1770">
-          <caret line="54" column="169" selection-start-line="54" selection-start-column="169" selection-end-line="54" selection-end-column="169" />
+        <state vertical-scroll-proportion="0.4054054" vertical-offset="540" max-vertical-offset="1770">
+          <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
           <folding>
-            <element signature="e#3131#4811#0" expanded="false" />
+            <element signature="e#3091#4771#0" expanded="false" />
           </folding>
         </state>
       </provider>

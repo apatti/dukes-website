@@ -46,13 +46,13 @@ $(document).ready(function(){
             bowlerImage = "images/defaultuser.png";
             if (bowlerData!=null && bowlerData['imagelink']!=undefined)
             {
-                bowlerImage=batsmanData['imagelink'];
+                bowlerImage=bowlerData['imagelink'];
             }
             var playerOfTheWeek = '';
             playerOfTheWeek = playerOfTheWeek + "<table cellspacing='0px'><tr>";
             playerOfTheWeek = playerOfTheWeek + "<td rowspan='2'><img  src='"+bowlerImage+"'  class='image' width='75px' height='75px'/></td>";
             playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+bowler.PlayerId+">"+ bowler.FirstName +" "+bowler.LastName+"</a></h3></td>";
-            playerOfTheWeek = playerOfTheWeek + "<tr><td>("+bowler.Overs +"-"+ bowler.Maidens+"-"+bowler.Runs+"-"+bowler.Wickets+"-"+bowler.Wides+"w,"+bowler.Noballs+"n )</td></tr>";
+            playerOfTheWeek = playerOfTheWeek + "<tr><td>("+bowler.Overs +"-"+ bowler.Maidens+"-"+bowler.Runs+"-"+bowler.Wickets+")</td></tr>";
             playerOfTheWeek = playerOfTheWeek + "</tr></table>";
             $("#playerOfTheWeekDiv").append(playerOfTheWeek);
             /*
