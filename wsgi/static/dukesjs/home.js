@@ -51,9 +51,9 @@ $(document).ready(function(){
             var playerOfTheWeek = '';
             playerOfTheWeek = playerOfTheWeek + "<table cellspacing='0px'><tr>";
             playerOfTheWeek = playerOfTheWeek + "<td rowspan='2'><img  src='"+bowlerImage+"'  class='image' width='75px' height='75px'/></td>";
-            playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+bowler.PlayerId+">"+ bowler.FirstName +" "+bowler.LastName+"</a></h3></td>";
+            playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+bowler.PlayerId+">"+ bowler.FirstName +" "+bowler.LastName+"</a></h3></td></tr>";
             playerOfTheWeek = playerOfTheWeek + "<tr><td>("+bowler.Overs +"-"+ bowler.Maidens+"-"+bowler.Runs+"-"+bowler.Wickets+")</td></tr>";
-            playerOfTheWeek = playerOfTheWeek + "</tr></table>";
+            playerOfTheWeek = playerOfTheWeek + "</table>";
             $("#playerOfTheWeekDiv").append(playerOfTheWeek);
             /*
 			$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
