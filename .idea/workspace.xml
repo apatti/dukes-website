@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/home.html" afterPath="$PROJECT_DIR$/wsgi/static/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -66,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13513513" vertical-offset="540" max-vertical-offset="1770">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1770">
               <caret line="40" column="151" selection-start-line="40" selection-start-column="151" selection-end-line="40" selection-end-column="151" />
               <folding>
                 <element signature="e#3014#4694#0" expanded="false" />
@@ -78,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5686274" vertical-offset="1144" max-vertical-offset="1755">
-              <caret line="85" column="74" selection-start-line="85" selection-start-column="74" selection-end-line="85" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.54198474" vertical-offset="57" max-vertical-offset="1920">
+              <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -170,8 +170,8 @@
         <option value="$PROJECT_DIR$/../apatti_opencv/contours/contoursRemoval.py" />
         <option value="$PROJECT_DIR$/../apatti_ml/kaggle/bag_of_words/BagOfWords.py" />
         <option value="$PROJECT_DIR$/../apatti_ml/neural_networks/network.py" />
-        <option value="$PROJECT_DIR$/wsgi/static/home.html" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
+        <option value="$PROJECT_DIR$/wsgi/static/home.html" />
       </list>
     </option>
   </component>
@@ -585,7 +585,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3079179" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3079179" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.398827" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1047,22 +1047,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5686274" vertical-offset="1144" max-vertical-offset="1755">
-          <caret line="85" column="74" selection-start-line="85" selection-start-column="74" selection-end-line="85" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1770">
+          <caret line="40" column="151" selection-start-line="40" selection-start-column="151" selection-end-line="40" selection-end-column="151" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3014#4694#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13513513" vertical-offset="540" max-vertical-offset="1770">
-          <caret line="40" column="151" selection-start-line="40" selection-start-column="151" selection-end-line="40" selection-end-column="151" />
+        <state vertical-scroll-proportion="0.54198474" vertical-offset="57" max-vertical-offset="1920">
+          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
           <folding>
-            <element signature="e#3014#4694#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

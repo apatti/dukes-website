@@ -16,6 +16,17 @@
     <script type="text/javascript" src="dukesjs/constants.js"></script>
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="dukesjs/restive.min.js"></script>
+    <!-- Configure Restive.JS -->
+    <script>
+        $( document ).ready(function() {
+            $('body').restive({
+                breakpoints: ['10000'],
+                classes: ['nb'],
+                turbo_classes: 'is_mobile=mobi,is_phone=phone,is_tablet=tablet,is_portrait=portrait,is_landscape=landscape'
+            });
+        });
+    </script>
 	<script type="text/javascript" src="dukesjs/header.js"></script>
     <script type="text/javascript" src="primeui.js"></script>
 	
