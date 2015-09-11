@@ -77,14 +77,19 @@ $(document).ready(function(){
 
     function getPlayerRecord(playerId)
     {
-        $.get("http://www.dukesxi.co/users/tca/"+playerId,function(momData,status){
-				var results = JSON.stringify(momData.user.results[0]);
-				var userData = $.parseJSON(results);
-                return userData;
-			})
-            .fail(function(){
-                return null;
-            });
+        var result = null;
+        var scriptUrl = "http://www.dukesxi.co/users/tca/"+playerId;
+        $.ajax({
+        url: scriptUrl,
+        type: 'get',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            result = JSON.stringify(data.user.results[0])
+            result = $.parseJSON(result);
+        }
+        });
+        return result;
     }
 
 	function upcomingMatch(){
