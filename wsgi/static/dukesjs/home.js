@@ -5,17 +5,17 @@ $(document).ready(function(){
 	$.get("http://tennisballcricket.com/bestteamplayers/184",function(data,status){
 			var tca_id ='';
 			var mom='';
-			var pData = $.parseJSON(data);
+			var pData = $.parseJSON(JSON.stringify(data));
 			tca_id = pData.MOM;
-			mom = pData.name;
-			updatePlayerOfTheWeekDiv(tca_id,mom);
+			//mom = pData.name;
+			updatePlayerOfTheWeekDiv(tca_id);
 		});
 		
-		updatePlayerOfTheWeekDiv = function(tca_id , mom ){
+		updatePlayerOfTheWeekDiv = function(tca_id){
 			$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
 				var results = JSON.stringify(momData.user.results[0]);		
 				var userData = $.parseJSON(results);
-				
+				mom = userData.name;
 				var playerOfTheWeek = '';
 				if(userData['imagelink']==undefined)
                     userData['imagelink']="images/defaultuser.png";
