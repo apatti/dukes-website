@@ -6,15 +6,17 @@ $(document).ready(function(){
 			var tca_id ='';
 			var mom='';
 			var pData = $.parseJSON(JSON.stringify(data));
-			tca_id = pData[0].MOM;
+			tca_id = pData[0].MoM;
+            batsman = pData[0].Batsman;
 			//mom = pData.name;
-			updatePlayerOfTheWeekDiv(tca_id);
+			updatePlayerOfTheWeekDiv(tca_id,batsman);
 		});
 		
-		updatePlayerOfTheWeekDiv = function(tca_id){
+		updatePlayerOfTheWeekDiv = function(tca_id,batsman){
 			$.get("http://www.dukesxi.co/users/tca/"+tca_id,function(momData,status){
 				var results = JSON.stringify(momData.user.results[0]);		
 				var userData = $.parseJSON(results);
+
 				mom = userData.name;
 				var playerOfTheWeek = '';
 				if(userData['imagelink']==undefined)
@@ -24,7 +26,6 @@ $(document).ready(function(){
 				playerOfTheWeek = playerOfTheWeek + "<td><img  src='"+userData['imagelink']+"'  class='image' width='75px' height='75px'/></td>";
 				playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+tca_id+">"+ mom +"</a></h3></td>";
 				playerOfTheWeek = playerOfTheWeek + "</tr></table>";
-				
 				
 				$("#playerOfTheWeekDiv").append(playerOfTheWeek);
 				
