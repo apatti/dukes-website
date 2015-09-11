@@ -6,7 +6,7 @@ $(document).ready(function(){
 			var tca_id ='';
 			var mom='';
 			var pData = $.parseJSON(JSON.stringify(data));
-			tca_id = pData.MOM;
+			tca_id = pData[0].MOM;
 			//mom = pData.name;
 			updatePlayerOfTheWeekDiv(tca_id);
 		});
