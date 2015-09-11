@@ -29,7 +29,17 @@ $(document).ready(function(){
 				
 				$("#playerOfTheWeekDiv").append(playerOfTheWeek);
 				
-			});
+			})
+                .always(function(batsman){
+                    battingRecord = batsman.FirstName+" "+batsman.LastName+" "+batsman.RunScored+" ("+batsman.BallFaced+")";
+                    var playerOfTheWeek = '';
+                    playerOfTheWeek = playerOfTheWeek + "<table><tr>";
+				    playerOfTheWeek = playerOfTheWeek + "<td><img  src='images/defaultuser.png'  class='image' width='75px' height='75px'/></td>";
+				    playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ battingRecord +"</a></h3></td>";
+				    playerOfTheWeek = playerOfTheWeek + "</tr></table>";
+                    $("#playerOfTheWeekDiv").append(playerOfTheWeek);
+
+                });
 		};
 		upcomingMatch();
 	});
