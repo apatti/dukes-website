@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/home.html" afterPath="$PROJECT_DIR$/wsgi/static/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -66,13 +67,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.527027" vertical-offset="696" max-vertical-offset="1560">
-              <caret line="91" column="22" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="1560">
+              <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
               <folding>
-                <element signature="e#2048#3728#0" expanded="false" />
+                <element signature="e#2080#3760#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33333334" vertical-offset="1144" max-vertical-offset="1755">
+              <caret line="85" column="74" selection-start-line="85" selection-start-column="74" selection-end-line="85" selection-end-column="74" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -158,8 +171,8 @@
         <option value="$PROJECT_DIR$/../apatti_opencv/contours/contoursRemoval.py" />
         <option value="$PROJECT_DIR$/../apatti_ml/kaggle/bag_of_words/BagOfWords.py" />
         <option value="$PROJECT_DIR$/../apatti_ml/neural_networks/network.py" />
-        <option value="$PROJECT_DIR$/wsgi/static/home.html" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
+        <option value="$PROJECT_DIR$/wsgi/static/home.html" />
       </list>
     </option>
   </component>
@@ -1017,14 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.646438" vertical-offset="490" max-vertical-offset="1755">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../apatti_opencv/contours/contoursRemoval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55813956" vertical-offset="0" max-vertical-offset="435">
@@ -1045,10 +1050,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.527027" vertical-offset="696" max-vertical-offset="1560">
-          <caret line="91" column="22" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="1560">
+          <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
           <folding>
-            <element signature="e#2048#3728#0" expanded="false" />
+            <element signature="e#2080#3760#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="1144" max-vertical-offset="1755">
+          <caret line="85" column="74" selection-start-line="85" selection-start-column="74" selection-end-line="85" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

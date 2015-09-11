@@ -21,7 +21,7 @@ $(document).ready(function(){
 				if(userData['imagelink']==undefined)
                     userData['imagelink']="images/defaultuser.png";
 				//var username ="pram.gottiganti";
-				playerOfTheWeek = playerOfTheWeek + "<table><tr>";
+				playerOfTheWeek = playerOfTheWeek + "<H2>MoM</H2><br/><table><tr>";
 				playerOfTheWeek = playerOfTheWeek + "<td><img  src='"+userData['imagelink']+"'  class='image' width='75px' height='75px'/></td>";
 				playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+tca_id+">"+ mom +"</a></h3></td>";
 				playerOfTheWeek = playerOfTheWeek + "</tr></table>";
@@ -35,8 +35,8 @@ $(document).ready(function(){
                 batsmanImage=batsmanData['imagelink'];
             }
             var playerOfTheWeek = '';
-            playerOfTheWeek = playerOfTheWeek + "<table><tr>";
-            playerOfTheWeek = playerOfTheWeek + "<td><img  src='images/defaultuser.png'  class='image' width='75px' height='75px'/></td>";
+            playerOfTheWeek = playerOfTheWeek + "<H2>Batsman</H2><br/><table><tr>";
+            playerOfTheWeek = playerOfTheWeek + "<td><img  src='"+batsmanImage+"'  class='image' width='75px' height='75px'/></td>";
             playerOfTheWeek = playerOfTheWeek + "<td><h3><a href=/player.html?pid="+batsman.PlayerId+">"+ batsman.FirstName +" "+batsman.LastName+"</a></h3><p>";
             playerOfTheWeek = playerOfTheWeek + "("+batsman.RunScored +" of "+ batsman.BallFaced+")</p></td>";
             playerOfTheWeek = playerOfTheWeek + "</tr></table>";
@@ -87,7 +87,7 @@ $(document).ready(function(){
         success: function(data) {
             result = JSON.stringify(data.user.results[0])
             result = $.parseJSON(result);
-        }
+            }
         });
         return result;
     }
