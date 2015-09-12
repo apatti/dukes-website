@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js" afterPath="$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" afterPath="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -44,20 +44,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.125" vertical-offset="30" max-vertical-offset="1275">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.64285713" vertical-offset="870" max-vertical-offset="1290">
+              <caret line="76" column="87" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="responsiveslides.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="responsiveslides.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54916066" vertical-offset="4976" max-vertical-offset="6000">
+            <state vertical-scroll-proportion="-19.333334" vertical-offset="4683" max-vertical-offset="6000">
               <caret line="347" column="51" selection-start-line="347" selection-start-column="51" selection-end-line="347" selection-end-column="51" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -184,8 +184,8 @@
         <option value="$PROJECT_DIR$/../apatti_ml/neural_networks/network.py" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
         <option value="$PROJECT_DIR$/wsgi/static/home.html" />
-        <option value="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
         <option value="$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js" />
+        <option value="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
       </list>
     </option>
   </component>
@@ -1095,21 +1095,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125" vertical-offset="30" max-vertical-offset="1275">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54916066" vertical-offset="4976" max-vertical-offset="6000">
+        <state vertical-scroll-proportion="-19.333334" vertical-offset="4683" max-vertical-offset="6000">
           <caret line="347" column="51" selection-start-line="347" selection-start-column="51" selection-end-line="347" selection-end-column="51" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64285713" vertical-offset="870" max-vertical-offset="1290">
+          <caret line="76" column="87" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
+          <folding />
         </state>
       </provider>
     </entry>
