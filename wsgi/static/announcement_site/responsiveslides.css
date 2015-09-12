@@ -140,6 +140,13 @@ p {
   font: 600 18px/24px;
 }
 
+p,h3,h4,pre {
+  text-align: left;
+  max-width: 540px;
+  margin: 0 auto 20px;
+  }
+
+
 html {
   background: #fff;
   }
@@ -198,4 +205,18 @@ body {
   left: auto;
   background-position: right 50%;
   right: 0;
+  }
+
+.footer {
+  font-size: 11px;
+  }
+
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font: 24px/50px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  .callbacks_nav {
+    top: 47%;
+    }
   }

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" afterPath="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css" afterPath="$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,11 +43,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64285713" vertical-offset="870" max-vertical-offset="1290">
+            <state vertical-scroll-proportion="-11.25" vertical-offset="870" max-vertical-offset="1290">
               <caret line="76" column="87" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="responsiveslides.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9324324" vertical-offset="2901" max-vertical-offset="3405">
+              <caret line="221" column="3" selection-start-line="221" selection-start-column="3" selection-end-line="221" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -136,16 +145,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wsgi/static/player.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.375" vertical-offset="675" max-vertical-offset="1410">
-              <caret line="84" column="7" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -186,6 +185,7 @@
         <option value="$PROJECT_DIR$/wsgi/static/home.html" />
         <option value="$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js" />
         <option value="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
+        <option value="$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css" />
       </list>
     </option>
   </component>
@@ -681,13 +681,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wsgi/polls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1530">
-          <caret line="88" column="91" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/adminpoll.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
@@ -1107,8 +1100,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64285713" vertical-offset="870" max-vertical-offset="1290">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="870" max-vertical-offset="1290">
           <caret line="76" column="87" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9324324" vertical-offset="2901" max-vertical-offset="3405">
+          <caret line="221" column="3" selection-start-line="221" selection-start-column="3" selection-end-line="221" selection-end-column="3" />
           <folding />
         </state>
       </provider>
