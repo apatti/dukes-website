@@ -345,6 +345,9 @@
             var idx = $slide.index($visibleClass),
               prevIdx = idx - 1,
               nextIdx = idx + 1 < length ? index + 1 : 0;
+              if (idx==0)
+                return;
+
 
             // Go to slide
             slideTo($(this)[0] === $prev[0] ? prevIdx : nextIdx);
