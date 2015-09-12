@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css" afterPath="$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" afterPath="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,20 +44,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.25" vertical-offset="870" max-vertical-offset="1290">
-              <caret line="76" column="87" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.64285713" vertical-offset="870" max-vertical-offset="1290">
+              <caret line="76" column="75" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="responsiveslides.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="responsiveslides.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9324324" vertical-offset="2901" max-vertical-offset="3405">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2961" max-vertical-offset="3405">
               <caret line="221" column="3" selection-start-line="221" selection-start-column="3" selection-end-line="221" selection-end-column="3" />
               <folding />
             </state>
@@ -184,8 +185,8 @@
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/home.js" />
         <option value="$PROJECT_DIR$/wsgi/static/home.html" />
         <option value="$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js" />
-        <option value="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
         <option value="$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css" />
+        <option value="$PROJECT_DIR$/wsgi/static/announcement_site/index.html" />
       </list>
     </option>
   </component>
@@ -1098,18 +1099,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25" vertical-offset="870" max-vertical-offset="1290">
-          <caret line="76" column="87" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2961" max-vertical-offset="3405">
+          <caret line="221" column="3" selection-start-line="221" selection-start-column="3" selection-end-line="221" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/responsiveslides.css">
+    <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9324324" vertical-offset="2901" max-vertical-offset="3405">
-          <caret line="221" column="3" selection-start-line="221" selection-start-column="3" selection-end-line="221" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.64285713" vertical-offset="870" max-vertical-offset="1290">
+          <caret line="76" column="75" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
           <folding />
         </state>
       </provider>
