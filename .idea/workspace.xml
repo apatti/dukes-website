@@ -57,8 +57,8 @@
       <file leaf-file-name="responsiveslides.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7290168" vertical-offset="4931" max-vertical-offset="6000">
-              <caret line="349" column="14" selection-start-line="349" selection-start-column="14" selection-end-line="349" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.54916066" vertical-offset="4976" max-vertical-offset="6000">
+              <caret line="347" column="51" selection-start-line="347" selection-start-column="51" selection-end-line="347" selection-end-column="51" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -1105,8 +1105,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/announcement_site/scripts/responsiveslides.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7290168" vertical-offset="4931" max-vertical-offset="6000">
-          <caret line="349" column="14" selection-start-line="349" selection-start-column="14" selection-end-line="349" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.54916066" vertical-offset="4976" max-vertical-offset="6000">
+          <caret line="347" column="51" selection-start-line="347" selection-start-column="51" selection-end-line="347" selection-end-column="51" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
