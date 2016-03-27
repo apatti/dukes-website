@@ -7,9 +7,9 @@ import os
 mongodb = os.environ['MONGODB_STRING']
  
 def getPollMailMessage(question):
-    message = "Enter your vote today! A new poll has been created for the DukesXI group:"
-    message = message + "\n%s"%question
-    message = message + "\n\nTo vote, please visit the following web page:\nhttp://www.dukesxi.co/poll.html  \n\nThanks, DukesXI Management"
+    message = '<div style="margin-bottom:3px;">Enter your vote today! A new poll has been created for the DukesXI group:</div>'
+    message += '<div style="margin-bottom:3px;">'+question+'</div>'
+    message += '<div style="margin-bottom:5px;">To vote, please visit the following web page:http://www.dukesxi.co/poll.html </div><div>Thanks, DukesXI Management</div>'
     return message
 
 
@@ -29,6 +29,7 @@ def createPoll(pollObj,optObj,sendMailTo):
         connection.getresponse().read()
     
     message = getPollMailMessage(pollObj["question"])
+    message = mail.mailMessage(message,"Poll for "+pollObj["question"],"Dukes Management")
     if sendMailTo == 0:
         mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
 
@@ -114,21 +115,18 @@ def closePoll(poll_id):
     
     polldocument = db.polls.find_one({"_id":poll_id},["question"])
     admins = getUserHelper("isAdmin",True)
-    return [x["email"] for x in admins]
-    #sendPollCloseMail(pollUsers,polldocument["question"]+' poll closed')
+    #return [x["email"] for x in admins]
+    sendPollCloseMail(pollUsers,polldocument["question"]+' poll closed')
     pass 
 
 def sendPollCloseMail(pollUsers,title):
     admins = getUserHelper("isAdmin",True)
-    adminEmails = [x["email"] for x in admins]
+    adminEmails = ",".join([x["email"] for x in admins])
     messageBody =""
     for polloption in pollUsers:
         messageBody +='<div><div style="margin-bottom:3px;font-weight:bold">'+polloption+'</div>'
         for user in pollUsers[polloption]:
             messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
     messageBody += '</div>'
-
-    message ='<html><body style="margin:0"><div style="text-align: center;background-color: #eee;width:100%;margin:0;padding:30px 0;font-family:Helvetica Neue Light, Lucida Grande, Helvetica, Arial;font-size: 12px;"><div style="width:96%;max-width:660px;margin:0 auto;"><table style="color:#000;background-color: #eee;margin: 10px auto; border: none;border-collapse: collapse;width: 100%;"><tbody><tr><td style="width:15%;text-align: left;"><img style="width: 80px;height: 80px;" src="http://www.dukesxi.co/images/Dukes+logo+red.jpg"></td><td style="width:85%;text-align: left;"><h1 style="font-size: 22px;padding-bottom: 5px;font-weight: bold;margin:0;">'+title+'</h1><div style="color: #689;">Message initiated by <span style="font-weight: bold;"> Dukes XI Web Service</div></td></tr></tbody></table><table style="color:#000;background-color:#fff;margin:10px auto;border:none;border-collapse:collapse;width:100%;"><tbody><tr><td style="text-align: left;font-size: 14px;padding: 30px;height: 400px;vertical-align: top;">'
-    message += messageBody;
-    message +='</td></tr></tbody></table></div></div></body></html>'
-    mail.send_html_mail_to(message,"ashwin.patti@gmail.com","ashwin.patti@gmail.com","Poll "+title+" closed")
+    message = mail.mailMessage(messageBody,"Poll for "+title+" closed","Dukesxi Web Service")
+    mail.send_html_mail_to(message,adminEmails,"ashwin.patti@gmail.com","Poll for "+title+" closed")
