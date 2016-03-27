@@ -123,7 +123,7 @@ def sendPollCloseMail(pollUsers):
         messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
     messageBody += '</div>'
     messageBody ='<div style="margin-bottom:3px;font-weight:bold">Not Available:'
-    for user in pollUsers['NotAvailable']:
+    for user in pollUsers['Not Available']:
         messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
     messageBody += '</div>'
 
