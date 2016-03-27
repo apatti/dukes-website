@@ -108,5 +108,8 @@ def closePoll(poll_id):
     db = client.dukesxi
     db.polls.update_one({"_id":poll_id},{"$set":{"isClosed":1}})
     usersCursor = db.polloptions.find({"pollid":poll_id},["users","text"])
-    return usersCursor
+    pollUsers = {}
+    for users in usersCursor:
+        pollUsers[users["text"]]=users["users"]
+    return pollUsers
     pass 
