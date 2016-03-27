@@ -78,7 +78,7 @@ def takePoll(poll_id,username,userid,optid,prev_optid):
     if not prev_optid or prev_optid != '':
         #handle the old option.
         #TODO: Should handle this properly later on.
-        print 'Removing '+username+' from '+prev_optid
+        #print 'Removing '+username+' from '+prev_optid
         connection.request('PUT','/1/classes/polloptions/%s'%prev_optid,json.dumps({"users":{"__op":"Remove","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
         connection.getresponse().read()
     
@@ -93,7 +93,7 @@ def getPolls():
     connection.connect()
     connection.request('GET','/1/classes/polls','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
     pollsObj = json.loads(connection.getresponse().read()).get("results");
-    print pollsObj
+    #print pollsObj
     for pollObj in pollsObj:
         connection.connect()
         params = urllib.urlencode({"where":json.dumps({"pollid":pollObj.get("objectId")})})
