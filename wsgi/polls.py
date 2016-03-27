@@ -1,8 +1,11 @@
 import json,httplib,urllib
 from dukesuser import getUserSkill
 import dukesMail as mail
+from pymongo import MongoClient
+import os
 
-
+mongodb = os.environ['MONGODB_STRING']
+ 
 def getPollMailMessage(question):
     message = "Enter your vote today! A new poll has been created for the DukesXI group:"
     message = message + "\n%s"%question
@@ -100,3 +103,7 @@ def getPolls():
     return pollsObj
 
 
+def closePoll(poll_id):
+    client = MongoClient(mongodb)
+    db = client.dukesxi
+    return db.polls.find_one({"_id": poll_id})

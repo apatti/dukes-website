@@ -2,7 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
-from polls import createPoll,getPoll,takePoll,getPolls,deletePoll
+from polls import createPoll,getPoll,takePoll,getPolls,deletePoll,closePoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import getIplUsers, getIplUserTeam, getNextBidder, saveIPLUser, getIplUser, getIplUserDroppableTeam
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
@@ -113,6 +113,11 @@ def deletePollApi(poll_id):
 def getAllPolls():
     return json.dumps(getPolls()),200
 
+@app.route('/polls/<poll_id>/close',methods=['PUT'])
+def closePollApi(poll_id):
+    result = closePoll(poll_id)
+    return jsonify({'result':result}),200
+
 @app.route('/polls/<poll_id>',methods=['PUT'])
 def takePollApi(poll_id):
     if not request.get_json:
@@ -124,7 +129,6 @@ def takePollApi(poll_id):
     reqObj = request.get_json(force=True)
     result = takePoll(poll_id,reqObj.get("username"),reqObj.get("userId"),reqObj.get("current_option_id"),reqObj.get("prev_option_id"))
     return jsonify({'result':result}),201
-
 
 
 @app.route('/playingteam',methods=['POST'])
