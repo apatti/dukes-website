@@ -1,6 +1,10 @@
 import json,httplib,urllib
 import urllib2
 import requests
+from pymongo import MongoClient
+import os
+
+mongodb = os.environ['MONGODB_STRING']
 
 def saveUser(userObj):
     connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -65,3 +69,12 @@ def getUserSkill(user):
 def send_mail(message,to,cc,subject):
     print "Sending mail to %s" % to
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>","to":to,"cc":cc,"subject":subject,"text":message})
+
+def getUserHelper(key,value):
+    client = MongoClient(mongodb)
+    db = client.dukesxi
+    userCursor = db.user.find({key:value})
+    users = []
+    for user in userCursor:
+        users.extend(user)
+    return users

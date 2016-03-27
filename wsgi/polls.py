@@ -1,5 +1,5 @@
 import json,httplib,urllib
-from dukesuser import getUserSkill
+from dukesuser import getUserSkill,getUserHelper
 import dukesMail as mail
 from pymongo import MongoClient
 import os
@@ -107,9 +107,14 @@ def closePoll(poll_id):
     client = MongoClient(mongodb)
     db = client.dukesxi
     db.polls.update_one({"_id":poll_id},{"$set":{"isClosed":1}})
-    usersCursor = db.polloptions.find({"pollid":poll_id},["users","text"])
+    pollCursor = db.polloptions.find({"pollid":poll_id},["users","text"])
     pollUsers = {}
-    for users in usersCursor:
+    for users in pollCursor:
         pollUsers[users["text"]]=users["users"]
-    return pollUsers
+    
+    admins = getUserHelper("isAdmin",True)
+    return admins
     pass 
+
+
+
