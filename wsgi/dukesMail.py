@@ -8,6 +8,10 @@ def send_mail_to(message,to,cc,subject):
     print "Sending mail to %s" % to
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>","to":to,"cc":cc,"subject":subject,"text":message})
 
+def send_html_mail_to(message,to,cc,subject):
+    print "Sending mail to %s" % to
+    requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>","to":to,"cc":cc,"subject":subject,"html":message})
+
 def send_mail_all(message,cc,subject):
     params = urllib.urlencode({"where":json.dumps({"tca_associated": 1}), "keys": "email"})
     connection.connect()
