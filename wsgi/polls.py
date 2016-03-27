@@ -119,12 +119,14 @@ def closePoll(poll_id):
 
 def sendPollCloseMail(pollUsers,title):
     admins = getUserHelper("isAdmin",True)
-    messageBody ='<div><div style="margin-bottom:3px;font-weight:bold">Available:</div>'
-    for user in pollUsers['Available']:
-        messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
-    messageBody +='<div style="margin-bottom:3px;font-weight:bold">Not Available:</div>'
-    for user in pollUsers['Not Available']:
-        messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
+    #messageBody ='<div><div style="margin-bottom:3px;font-weight:bold">Available:</div>'
+    for polloption in pollUsers:
+        messageBody ='<div><div style="margin-bottom:3px;font-weight:bold">'+polloption+'</div>'
+        for user in pollUsers[polloption]:
+            messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
+    #messageBody +='<div style="margin-bottom:3px;font-weight:bold">Not Available:</div>'
+    #for user in pollUsers['Not Available']:
+    #    messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
     messageBody += '</div>'
 
     message ='<html><body style="margin:0"><div style="text-align: center;background-color: #eee;width:100%;margin:0;padding:30px 0;font-family:Helvetica Neue Light, Lucida Grande, Helvetica, Arial;font-size: 12px;"><div style="width:96%;max-width:660px;margin:0 auto;"><table style="color:#000;background-color: #eee;margin: 10px auto; border: none;border-collapse: collapse;width: 100%;"><tbody><tr><td style="width:15%;text-align: left;"><img style="width: 80px;height: 80px;" src="http://www.dukesxi.co/images/Dukes+logo+red.jpg"></td><td style="width:85%;text-align: left;"><h1 style="font-size: 22px;padding-bottom: 5px;font-weight: bold;margin:0;">Poll'+title+' closed</h1><div style="color: #689;">Message initiated by <span style="font-weight: bold;"> Dukes XI Web Service</div></td></tr></tbody></table><table style="color:#000;background-color:#fff;margin:10px auto;border:none;border-collapse:collapse;width:100%;"><tbody><tr><td style="text-align: left;font-size: 14px;padding: 30px;height: 400px;vertical-align: top;">'
