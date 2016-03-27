@@ -17,6 +17,7 @@ from umpiring import getUmpireList
 from betting import getBet,placeBet,getBets
 from scoreCardUploader import getScoreCard
 from nextgamedetails import NextGame
+from bson.json_util import dumps
 
 app = Flask(__name__,static_url_path='')
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -115,7 +116,7 @@ def getAllPolls():
 
 @app.route('/polls/open',methods=['GET'])
 def getOpenPollsApi():
-    return json.dumps(getOpenPolls()),200
+    return dumps(getOpenPolls()),200
 
 @app.route('/polls/<poll_id>/close',methods=['PUT'])
 def closePollApi(poll_id):
