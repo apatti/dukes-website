@@ -76,5 +76,5 @@ def getUserHelper(key,value):
     userCursor = db.user.find({key:value})
     users = []
     for user in userCursor:
-        users.append(user["email"])
+        users.append(user)
     return users
