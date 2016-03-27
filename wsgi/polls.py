@@ -104,6 +104,16 @@ def getPolls():
     return pollsObj
 
 
+def getOpenPolls():
+    client = MongoClient(mongodb)
+    db = client.dukesxi
+    pollCursor = db.polls.find({"isClosed":0})
+    openPoll= []
+    for poll in pollCursor:
+        openPoll.append(poll)
+    
+    return openPoll
+
 def closePoll(poll_id):
     client = MongoClient(mongodb)
     db = client.dukesxi

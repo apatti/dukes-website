@@ -2,7 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
-from polls import createPoll,getPoll,takePoll,getPolls,deletePoll,closePoll
+from polls import createPoll,getPoll,takePoll,getPolls,deletePoll,closePoll,getOpenPolls
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import getIplUsers, getIplUserTeam, getNextBidder, saveIPLUser, getIplUser, getIplUserDroppableTeam
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
@@ -112,6 +112,10 @@ def deletePollApi(poll_id):
 @app.route('/polls',methods=['GET'])
 def getAllPolls():
     return json.dumps(getPolls()),200
+
+@app.route('/polls/open',methods=['GET'])
+def getOpenPollsApi():
+    return json.dumps(getOpenPolls()),200
 
 @app.route('/polls/<poll_id>/close',methods=['PUT'])
 def closePollApi(poll_id):
