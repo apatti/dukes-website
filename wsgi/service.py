@@ -116,7 +116,7 @@ def getAllPolls():
 @app.route('/polls/<poll_id>/close',methods=['PUT'])
 def closePollApi(poll_id):
     result = closePoll(poll_id)
-    return make_response(jsonify({'result':'OK'}),200)
+    return make_response(jsonify({'result':result}),200)
 
 @app.route('/polls/<poll_id>',methods=['PUT'])
 def takePollApi(poll_id):
