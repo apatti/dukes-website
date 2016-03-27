@@ -106,5 +106,5 @@ def getPolls():
 def closePoll(poll_id):
     client = MongoClient(mongodb)
     db = client.dukesxi
-    result = db.polls.update_one({"_id":poll_id},{"$set":{"isClosed":1}})
-    return 
+    db.polls.update_one({"_id":poll_id},{"$set":{"isClosed":1}})
+    return pass 
