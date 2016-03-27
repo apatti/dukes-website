@@ -115,13 +115,11 @@ def getAllPolls():
 
 @app.route('/polls/<poll_id>/close',methods=['PUT'])
 def closePollApi(poll_id):
-    print "CLOSE"
     result = closePoll(poll_id)
-    return jsonify({'result':result}),200
+    return 200
 
 @app.route('/polls/<poll_id>',methods=['PUT'])
 def takePollApi(poll_id):
-    print "TAKE"
     if not request.get_json:
         abort(400)
 
