@@ -1,5 +1,4 @@
 
- 
 $(document).ready(function(){
 
 	$.get("http://tennisballcricket.com/bestteamplayers/184",function(data,status){

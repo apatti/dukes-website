@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../apatti_ml/kaggle/bag_of_words/.idea/bag_of_words.iml" filepath="$PROJECT_DIR$/../apatti_ml/kaggle/bag_of_words/.idea/bag_of_words.iml" />
       <module fileurl="file://$PROJECT_DIR$/../apatti_opencv/contours/.idea/contours.iml" filepath="$PROJECT_DIR$/../apatti_opencv/contours/.idea/contours.iml" />
+      <module fileurl="file://$USER_HOME$/devilscricket/cricket/.idea/cricket.iml" filepath="$USER_HOME$/devilscricket/cricket/.idea/cricket.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/dukes11.iml" filepath="$PROJECT_DIR$/.idea/dukes11.iml" />
       <module fileurl="file://$PROJECT_DIR$/../apatti_ml/neural_networks/.idea/neural_networks.iml" filepath="$PROJECT_DIR$/../apatti_ml/neural_networks/.idea/neural_networks.iml" />
     </modules>

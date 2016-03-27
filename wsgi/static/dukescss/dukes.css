@@ -1,4 +1,15 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
 
+.navbar-right {
+    padding-right: 19px;
+}
+body {
+  min-height: 2000px;
+}
 	.player_img{
 		float:left;
 		height:130px;		
