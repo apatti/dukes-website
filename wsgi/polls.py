@@ -113,8 +113,9 @@ def closePoll(poll_id):
         pollUsers[users["text"]]=users["users"]
     
     polldocument = db.polls.find_one({"_id":poll_id},["question"])
+    print polldocument
     #admins = getUserHelper("isAdmin",True)
-    sendPollCloseMail(pollUsers,polldocument.question)
+    sendPollCloseMail(pollUsers,polldocument["question"])
     pass 
 
 def sendPollCloseMail(pollUsers,title):
