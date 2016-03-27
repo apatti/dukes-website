@@ -114,13 +114,13 @@ def closePoll(poll_id):
     
     polldocument = db.polls.find_one({"_id":poll_id},["question"])
     admins = getUserHelper("isAdmin",True)
-    return [x.email for x in admins]
+    return [x["email"] for x in admins]
     #sendPollCloseMail(pollUsers,polldocument["question"]+' poll closed')
     pass 
 
 def sendPollCloseMail(pollUsers,title):
     admins = getUserHelper("isAdmin",True)
-    adminEmails = [x.email for x in admins]
+    adminEmails = [x["email"] for x in admins]
     messageBody =""
     for polloption in pollUsers:
         messageBody +='<div><div style="margin-bottom:3px;font-weight:bold">'+polloption+'</div>'
