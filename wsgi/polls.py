@@ -9,7 +9,7 @@ mongodb = os.environ['MONGODB_STRING']
 def getPollMailMessage(question):
     message = '<div style="margin-bottom:3px;font-weight:bold;">Enter your vote today! A new poll has been created for the DukesXI group:</div><hr>'
     message += '<p><div style="margin-bottom:3px;">'+question+'</div></p>'
-    message += '<div style="margin-bottom:5px;">To vote, please visit the following web page:http://www.dukesxi.co/poll.html </div><br/><br/><p><div style="margin-bottom:5px;">Thanks, DukesXI Management</div></p>'
+    message += '<div style="margin-bottom:5px;">To vote, please visit the following web page:http://www.dukesxi.co/poll.html </div><br/><br/><p><div style="margin-bottom:5px;">Thanks,<br/>DukesXI Management</div></p>'
     return message
 
 
