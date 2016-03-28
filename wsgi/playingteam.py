@@ -12,12 +12,12 @@ def getPlayingTeamMessage(playingTeamObj):
             message += '<li>'+str(index)+"."+user+'</li>'
             index=index+1
 
-        message += '</ol></p></div><div><div style="margin-bottom:3px;font-weight:bold;">Venue:</div>%s' % playingTeamObj.get("ground")
-        message += '<div style="margin-bottom:3px;font-weight:bold;">Date:</div> %s' % playingTeamObj.get("gamedate")
-        message += '<div style="margin-bottom:3px;font-weight:bold;">Time:</div> %s' % playingTeamObj.get("time")
-        message += '<div style="margin-bottom:3px;">%s '% playingTeamObj.get("message")
+        message += '</ol></p></div><div><div style="margin-bottom:3px;font-weight:bold;">Venue:</div>'+playingTeamObj.get("ground")
+        message += '<div style="margin-bottom:3px;font-weight:bold;">Date:</div> ' + playingTeamObj.get("gamedate")
+        message += '<div style="margin-bottom:3px;font-weight:bold;">Time:</div> ' + playingTeamObj.get("time")
+        message += '<div style="margin-bottom:3px;"> '+ playingTeamObj.get("message")
         message += '</div><p><br/><br/>--<br/>Dukes XI Management</p>'
-
+	print message
         return message
 
 def createPlayingTeam(playingTeamObj):
