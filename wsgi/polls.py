@@ -133,12 +133,13 @@ def sendPollCloseMail(pollUsers,title):
     admins = getUserHelper("isAdmin",True)
     adminEmails = ",".join([x["email"] for x in admins])
     messageBody =""
+    print pollUsers
     for polloption in pollUsers:
         messageBody +='<div><div style="margin-bottom:3px;font-weight:bold">'+polloption+'</div>'
         for user in pollUsers[polloption]:
-            messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
+            print user
+            messageBody += '<div style="margin-bottom:5px">'+user+'</div>'
         messageBody += '</div>'
-    print messageBody
     message = mail.mailMessage(messageBody,"Poll closed - "+title,"Dukesxi Web Service")
     print message
     #mail.send_html_mail_to(message,adminEmails,"ashwin.patti@gmail.com","Poll closed - "+title)
