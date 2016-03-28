@@ -43,8 +43,7 @@ function closePoll()
 		$.ajax({
 			    type: "PUT",
 			    contentType:'application/json',
-			    url: '/poll/'+pollid,
-			    data: jsonObj,
+			    url: '/polls/'+pollid+"/closed",
 			    dataType: 'json',
 			    success: function(msg) {
 			        alert("Poll is closed");
