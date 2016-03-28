@@ -6,18 +6,17 @@ import requests
 import dukesMail as mail
 
 def getPlayingTeamMessage(playingTeamObj):
-        message=""
-        message=message+"Please find the playing XI:\n"
+        message='<div style="margin-bottom:3px;font-weight:bold;">Please find the playing XI:</div><hr><p><div><ol>'
         index = 1
         for user in playingTeamObj.get("team"):
-            message = message+"\t"+str(index)+"."+user+"\n"
+            message += '<li>'+str(index)+"."+user+'</li>'
             index=index+1
 
-        message=message+"\nVenue:\n\t\t%s\n" % playingTeamObj.get("ground")
-        message = message+"Date:\t\t%s\n" % playingTeamObj.get("gamedate")
-        message = message+"Time:\t\t%s\n" % playingTeamObj.get("time")
-        message = message+"\n%s\n" % playingTeamObj.get("message")
-        message = message+"\n--\nDukes XI Management"
+        message += '</ol></p></div><div><div style="margin-bottom:3px;font-weight:bold;">Venue:</div>%s' % playingTeamObj.get("ground")
+        message += '<div style="margin-bottom:3px;font-weight:bold;">Date:</div> %s' % playingTeamObj.get("gamedate")
+        message += '<div style="margin-bottom:3px;font-weight:bold;">Time:</div> %s' % playingTeamObj.get("time")
+        message += '<div style="margin-bottom:3px;">%s '% playingTeamObj.get("message")
+        message += '</div><p><br/><br/>--<br/>Dukes XI Management</p>'
 
         return message
 
@@ -28,8 +27,9 @@ def createPlayingTeam(playingTeamObj):
     result = json.loads(connection.getresponse().read())
 
     message = getPlayingTeamMessage(playingTeamObj)
+    message = mail.mailMessage(message,"Playing XI for next game","Dukes Management")
     print message
-    mail.send_mail_cricket(message, "ashwin.patti@gmail.com", "Playing XI")
+    #mail.send_mail_cricket(message, "ashwin.patti@gmail.com", "Playing XI")
 
     return "ok"
 
