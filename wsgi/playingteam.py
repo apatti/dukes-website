@@ -11,11 +11,11 @@ def getPlayingTeamMessage(playingTeamObj):
             message += '<li>'+user+'</li>'
 	ground = playingTeamObj.get("ground").replace('\n','<br />')    
 	teamMessage = playingTeamObj.get("message").replace('\n','<br />')
-        message += '</ol></p></div><div><div style="margin-bottom:3px;font-weight:bold;">Venue:</div>'+ground
-        message += '<div style="margin-bottom:3px;font-weight:bold;">Date:</div> ' + playingTeamObj.get("gamedate")
-        message += '<div style="margin-bottom:3px;font-weight:bold;">Time:</div> ' + playingTeamObj.get("time")
-        message += '<div style="margin-bottom:3px;"> '+ teamMessage
-        message += '</div><p><br/><br/>--<br/>Dukes XI Management</p>'
+        message += '</ol></p></div><hr><div><div style="margin-bottom:3px;font-weight:bold;">Venue:<span style="font-weight:normal;">'+ground+'</span></div>'
+        message += '<div style="margin-bottom:3px;font-weight:bold;">Date:<span style="font-weight:normal;"> ' + playingTeamObj.get("gamedate")+'</span></div>'
+        message += '<div style="margin-bottom:3px;font-weight:bold;">Time:<span style="font-weight:normal;"> ' + playingTeamObj.get("time")+'</span></div>'
+        message += '<div style="margin-bottom:3px;"> '+ teamMessage 
+        message += '</div><hr><p><br/><br/>--<br/>Dukes XI Management</p>'
 	
         return message
 
@@ -27,8 +27,8 @@ def createPlayingTeam(playingTeamObj):
 
     message = getPlayingTeamMessage(playingTeamObj)
     message = mail.mailMessage(message,"Playing XI for next game","Dukes Management")
-    print message
-    #mail.send_mail_cricket(message, "ashwin.patti@gmail.com", "Playing XI")
+    #print message
+    mail.send_mail_cricket(message, "ashwin.patti@gmail.com", "Playing XI")
 
     return "ok"
 
