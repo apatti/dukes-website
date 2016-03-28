@@ -29,7 +29,7 @@ def createPoll(pollObj,optObj,sendMailTo):
         connection.getresponse().read()
     
     message = getPollMailMessage(pollObj["question"])
-    message = mail.mailMessage(message,"Poll for "+pollObj["question"],"Dukes Management")
+    message = mail.mailMessage(message,"Poll created - "+pollObj["question"],"Dukes Management")
     if sendMailTo == 0:
         mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
 
@@ -126,7 +126,7 @@ def closePoll(poll_id):
     polldocument = db.polls.find_one({"_id":poll_id},["question"])
     admins = getUserHelper("isAdmin",True)
     #return [x["email"] for x in admins]
-    sendPollCloseMail(pollUsers,polldocument["question"]+' poll closed')
+    sendPollCloseMail(pollUsers,polldocument["question"])
     pass 
 
 def sendPollCloseMail(pollUsers,title):
@@ -137,6 +137,6 @@ def sendPollCloseMail(pollUsers,title):
         messageBody +='<div><div style="margin-bottom:3px;font-weight:bold">'+polloption+'</div>'
         for user in pollUsers[polloption]:
             messageBody += '<div style="margin-bottom:5px>'+user+'</div>'
-    messageBody += '</div>'
-    message = mail.mailMessage(messageBody,"Poll for "+title+" closed","Dukesxi Web Service")
-    mail.send_html_mail_to(message,adminEmails,"ashwin.patti@gmail.com","Poll for "+title+" closed")
+        messageBody += '</div>'
+    message = mail.mailMessage(messageBody,"Poll closed - "+title,"Dukesxi Web Service")
+    mail.send_html_mail_to(message,adminEmails,"ashwin.patti@gmail.com","Poll closed - "+title)
