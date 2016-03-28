@@ -7,17 +7,16 @@ import dukesMail as mail
 
 def getPlayingTeamMessage(playingTeamObj):
         message='<div style="margin-bottom:3px;font-weight:bold;">Please find the playing XI:</div><hr><p><div><ol>'
-        index = 1
         for user in playingTeamObj.get("team"):
-            message += '<li>'+str(index)+"."+user+'</li>'
-            index=index+1
-
-        message += '</ol></p></div><div><div style="margin-bottom:3px;font-weight:bold;">Venue:</div>'+playingTeamObj.get("ground")
+            message += '<li>'+user+'</li>'
+	ground = playingTeamObj.get("ground").replace('\n','<br />')    
+	teamMessage = playingTeamObj.get("message").replace('\n','<br />')
+        message += '</ol></p></div><div><div style="margin-bottom:3px;font-weight:bold;">Venue:</div>'+ground
         message += '<div style="margin-bottom:3px;font-weight:bold;">Date:</div> ' + playingTeamObj.get("gamedate")
         message += '<div style="margin-bottom:3px;font-weight:bold;">Time:</div> ' + playingTeamObj.get("time")
-        message += '<div style="margin-bottom:3px;"> '+ playingTeamObj.get("message")
+        message += '<div style="margin-bottom:3px;"> '+ teamMessage
         message += '</div><p><br/><br/>--<br/>Dukes XI Management</p>'
-	print message
+	
         return message
 
 def createPlayingTeam(playingTeamObj):
