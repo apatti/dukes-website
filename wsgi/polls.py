@@ -7,9 +7,9 @@ import os
 mongodb = os.environ['MONGODB_STRING']
  
 def getPollMailMessage(question):
-    message = '<div style="margin-bottom:3px;">Enter your vote today! A new poll has been created for the DukesXI group:</div>'
-    message += '<div style="margin-bottom:3px;">'+question+'</div>'
-    message += '<div style="margin-bottom:5px;">To vote, please visit the following web page:http://www.dukesxi.co/poll.html </div><div>Thanks, DukesXI Management</div>'
+    message = '<div style="margin-bottom:3px;font-weight:bold;">Enter your vote today! A new poll has been created for the DukesXI group:</div><hr>'
+    message += '<p><div style="margin-bottom:3px;">'+question+'</div></p>'
+    message += '<div style="margin-bottom:5px;">To vote, please visit the following web page:http://www.dukesxi.co/poll.html </div><br/><br/><p><div style="margin-bottom:5px;">Thanks, DukesXI Management</div></p>'
     return message
 
 
@@ -133,13 +133,10 @@ def sendPollCloseMail(pollUsers,title):
     admins = getUserHelper("isAdmin",True)
     adminEmails = ",".join([x["email"] for x in admins])
     messageBody =""
-    print pollUsers
     for polloption in pollUsers:
-        messageBody +='<div><div style="margin-bottom:3px;font-weight:bold">'+polloption+'</div>'
+        messageBody +='<div><div style="margin-bottom:3px;font-weight:bold">'+polloption+'</div><hr>'
         for user in pollUsers[polloption]:
-            print user
             messageBody += '<div style="margin-bottom:5px">'+user+'</div>'
-        messageBody += '</div>'
+        messageBody += '</div><br/>'
     message = mail.mailMessage(messageBody,"Poll closed - "+title,"Dukesxi Web Service")
-    print message
-    #mail.send_html_mail_to(message,adminEmails,"ashwin.patti@gmail.com","Poll closed - "+title)
+    mail.send_html_mail_to(message,adminEmails,"ashwin.patti@gmail.com","Poll closed - "+title)
