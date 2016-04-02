@@ -10,7 +10,7 @@ app.config(['$routeProvider',
 	    function($routeProvider){
 		   $routeProvider.
 		       when('/home',{
-			       templateUrl: 'partials/dukes-home.html',
+			       templateUrl: 'dukes-home.html',
 				   //controller: 'homeCtrl'
 				   });
 	       }]);
