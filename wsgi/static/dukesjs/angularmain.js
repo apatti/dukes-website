@@ -3,17 +3,15 @@
  */
 
 var app = angular.module('dukesCricketApp',['ui.bootstrap',
-					    'ngRoute','dukesControllers'
-]);
+					    'ngRoute']);
 
-app.config(['$routeProvider',
-	    function($routeProvider){
+app.config(function($routeProvider){
 		   $routeProvider.
 		       when('/home',{
 			       templateUrl: 'dukes-home.html',
 				   //controller: 'homeCtrl'
 				   });
-	       }]);
+	       });
 
 var homeCtrl = angular.module('dukesControllers',[]);
 
