@@ -2,8 +2,7 @@
  * Created by apatti on 10/14/15.
  */
 
-var app = angular.module('dukesCricketApp',['ui.bootstrap',
-					    'ngRoute']);
+var app = angular.module('dukesCricketApp',['ngRoute','ui.bootstrap']);
 
 app.config(function($routeProvider){
 		   $routeProvider.
