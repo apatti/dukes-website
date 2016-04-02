@@ -6,7 +6,7 @@ var app = angular.module('dukesCricketApp',['ui.bootstrap',
 					    'ngRoute','dukesControllers'
 ]);
 
-app.config(['$routeProvide',
+app.config(['$routeProvider',
 	    function($routeProvider){
 		   $routeProvider.
 		       when('/home',{
