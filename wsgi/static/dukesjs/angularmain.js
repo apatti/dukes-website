@@ -10,7 +10,8 @@ app.config(function($routeProvider){
 		       when('/home',{
 			       templateUrl: 'dukes-home.html',
 				   //controller: 'homeCtrl'
-				   });
+				   })
+		       .otherwise({redirectTo:"/google.com"});
 	       });
 
 var homeCtrl = angular.module('dukesControllers',[]);
