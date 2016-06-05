@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/angularmain.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/angularmain.js" />
-    </list>
+    <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="" />
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
