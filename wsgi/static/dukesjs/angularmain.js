@@ -7,7 +7,7 @@ var app = angular.module('dukesCricketApp',['ngRoute']);
 app.config(function($routeProvider){
 		   $routeProvider.
 		       when('/home',{
-			       templateUrl: '/dukes-home.html',
+			       templateUrl: '/dukes-home.html'
 				   //controller: 'homeCtrl'
 				   })
 		       .otherwise({redirectTo:"/google.com"});
