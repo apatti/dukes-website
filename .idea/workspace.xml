@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/service.py" afterPath="$PROJECT_DIR$/wsgi/service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +38,8 @@
       <file leaf-file-name="service.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75" vertical-offset="5340" max-vertical-offset="6120">
-              <caret line="377" column="37" selection-start-line="377" selection-start-column="37" selection-end-line="377" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.25" vertical-offset="5550" max-vertical-offset="6120">
+              <caret line="377" column="61" selection-start-line="377" selection-start-column="61" selection-end-line="377" selection-end-column="61" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -49,7 +50,7 @@
       <file leaf-file-name="polls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/polls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2310">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1230" max-vertical-offset="2310">
               <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -1039,7 +1040,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/polls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2310">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1230" max-vertical-offset="2310">
           <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1049,8 +1050,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75" vertical-offset="5340" max-vertical-offset="6120">
-          <caret line="377" column="37" selection-start-line="377" selection-start-column="37" selection-end-line="377" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.25" vertical-offset="5550" max-vertical-offset="6120">
+          <caret line="377" column="61" selection-start-line="377" selection-start-column="61" selection-end-line="377" selection-end-column="61" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
