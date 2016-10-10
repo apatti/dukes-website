@@ -2,7 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
-from polls import createPoll,getPoll,takePoll,getPolls,deletePoll,closePoll,getOpenPolls
+from polls import createPoll,getPoll,takePoll,getPolls,deletePoll,closePoll,getOpenPolls,createFbPoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import getIplUsers, getIplUserTeam, getNextBidder, saveIPLUser, getIplUser, getIplUserDroppableTeam
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
@@ -367,6 +367,10 @@ def insertIplFantasyScoreApi():
 def saveIplUserApi(username):
     reqObj = request.get_json(force=True)
     return jsonify({'user':saveIPLUser(username,reqObj.get("iplteam"),reqObj.get("email"))}),201
+
+@app.route('/test',methods=['GET'])
+def testFb():
+    return createFbPoll()
 
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():

@@ -8,5 +8,7 @@
     <orderEntry type="module" module-name="contours" />
     <orderEntry type="module" module-name="neural_networks" />
     <orderEntry type="module" module-name="cricket" />
+    <orderEntry type="module" module-name="mnist_basic" />
+    <orderEntry type="module" module-name="monkeyLearn" />
   </component>
 </module>

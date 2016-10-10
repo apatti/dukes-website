@@ -3,8 +3,10 @@ from dukesuser import getUserSkill,getUserHelper
 import dukesMail as mail
 from pymongo import MongoClient
 import os
+from firebase import firebase
 
 mongodb = os.environ['MONGODB_STRING']
+fb = firebase.FirebaseApplication('https://dukes-cricket.firebaseio.com',None)
  
 def getPollMailMessage(question):
     message = '<div style="margin-bottom:3px;font-weight:bold;">Enter your vote today! A new poll has been created for the DukesXI group:</div><hr>'
@@ -12,6 +14,8 @@ def getPollMailMessage(question):
     message += '<div style="margin-bottom:5px;">To vote, please visit the following web page:http://www.dukesxi.co/poll.html </div><br/><br/><p><div style="margin-bottom:5px;">Thanks,<br/>DukesXI Management</div></p>'
     return message
 
+def createFbPoll():
+    return fb.post('/polls',{'id':1},{'print':'pretty'},{'X_FANCY_HEADER':'DUKES XI'})
 
 def createPoll(pollObj,optObj,sendMailTo):
     connection = httplib.HTTPSConnection('api.parse.com',443)

@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/../apatti_opencv/contours/.idea/contours.iml" filepath="$PROJECT_DIR$/../apatti_opencv/contours/.idea/contours.iml" />
       <module fileurl="file://$USER_HOME$/devilscricket/cricket/.idea/cricket.iml" filepath="$USER_HOME$/devilscricket/cricket/.idea/cricket.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/dukes11.iml" filepath="$PROJECT_DIR$/.idea/dukes11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../apatti_ml/deeplearning/tensorflow/mnist_basic/.idea/mnist_basic.iml" filepath="$PROJECT_DIR$/../apatti_ml/deeplearning/tensorflow/mnist_basic/.idea/mnist_basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../apatti_ml/sentimentalAnalysis/monkeyLearn/.idea/monkeyLearn.iml" filepath="$PROJECT_DIR$/../apatti_ml/sentimentalAnalysis/monkeyLearn/.idea/monkeyLearn.iml" />
       <module fileurl="file://$PROJECT_DIR$/../apatti_ml/neural_networks/.idea/neural_networks.iml" filepath="$PROJECT_DIR$/../apatti_ml/neural_networks/.idea/neural_networks.iml" />
     </modules>
   </component>
