@@ -14,8 +14,8 @@ def getPollMailMessage(question):
     message += '<div style="margin-bottom:5px;">To vote, please visit the following web page:http://www.dukesxi.co/poll.html </div><br/><br/><p><div style="margin-bottom:5px;">Thanks,<br/>DukesXI Management</div></p>'
     return message
 
-def createFbPoll():
-    result = fb.post('/testpolls',{'id':1},params={'print': 'pretty'})
+def createFbPoll(pollObj):
+    result = fb.post('/testpolls',pollObj,params={'print': 'pretty'})
     print result
     return result
 

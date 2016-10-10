@@ -370,6 +370,13 @@ def saveIplUserApi(username):
 
 @app.route('/test',methods=['GET'])
 def testFb():
+    pollObj ={}
+    pollObj["username"]="username"
+    pollObj["question"] = "question"
+    pollObj["closeMethod"] = "closeMethod"
+    pollObj["endDate"] = "endDate"
+    #pollObj["options"]=reqObj.get("options")
+    pollObj["isClosed"]=0
     return jsonify(createFbPoll()),201
 
 @app.route('/gallery/',methods=['GET'])
