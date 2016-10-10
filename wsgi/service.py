@@ -370,7 +370,7 @@ def saveIplUserApi(username):
 
 @app.route('/test',methods=['GET'])
 def testFb():
-    return createFbPoll()
+    return createFbPoll(),201
 
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
