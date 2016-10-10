@@ -375,7 +375,7 @@ def testFb():
     pollObj["question"] = "question"
     pollObj["closeMethod"] = "closeMethod"
     pollObj["endDate"] = "endDate"
-    #pollObj["options"]=reqObj.get("options")
+    pollObj["options"]=["available", "notavailable"]
     pollObj["isClosed"]=0
     return jsonify(createFbPoll(pollObj)),201
 
