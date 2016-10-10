@@ -15,7 +15,7 @@ def getPollMailMessage(question):
     return message
 
 def createFbPoll():
-    return fb.post('/polls',1,{'id':1},params={'print':'pretty'},{'X_FANCY_HEADER':'DUKES XI'})
+    return fb.put('/polls',1,{'id':1},params={'print': 'pretty'})
 
 def createPoll(pollObj,optObj,sendMailTo):
     connection = httplib.HTTPSConnection('api.parse.com',443)
