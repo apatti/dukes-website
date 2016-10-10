@@ -15,7 +15,7 @@ def getPollMailMessage(question):
     return message
 
 def createFbPoll(pollObj):
-    result = fb.post('/testpolls',pollObj,params={'print': 'pretty'})
+    result = fb.put('/testpolls',pollObj["question"],pollObj,params={'print': 'pretty'})
     print result
     return result
 
