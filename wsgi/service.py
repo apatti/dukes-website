@@ -377,7 +377,7 @@ def testFb():
     pollObj["endDate"] = "endDate"
     #pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]=0
-    return jsonify(createFbPoll()),201
+    return jsonify(createFbPoll(pollObj)),201
 
 @app.route('/gallery/',methods=['GET'])
 def getGalleryApi():
