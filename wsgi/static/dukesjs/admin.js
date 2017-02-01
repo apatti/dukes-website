@@ -6,9 +6,9 @@ $(document).bind('login_complete',loggedIn);
  function loggedIn(){
      var userData=$.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
      $.get(DOMAIN_NAME+"/users/"+userData.id,function(data,status){
-	     if(data.user.results[0].isAdmin==1)
+	     if(data.user.isAdmin==1)
 		 {
-		     userName=data.user.results[0].name;
+		     userName=data.user.name;
 		     pollCreation();
 		     selectTeam();
 		     closePoll();
