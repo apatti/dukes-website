@@ -4,67 +4,64 @@ import requests
 from pymongo import MongoClient
 import os
 
-mongodb = os.environ['MONGODB_STRING']
+if 'MONGODB_STRING' in os.environ:
+    mongodb = os.environ['MONGODB_STRING']
+else:
+    mongodb = 'mongodb://dukesadmin:duke511@ds051665.mlab.com:51665/dukesxi'
+
+def getdbObject():
+    client = MongoClient(mongodb)
+    db = client.dukesxi
+    return db
 
 def saveUser(userObj):
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    connection.request('POST','/1/classes/user',json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
+    db = getdbObject()
     if userObj["tca_associated"] == "-1" :
         name=userObj["name"]
         send_mail("%s is requesting to join the Dukes XI Cricket Team" % (name),"cricketadmin@dukesxi.co",userObj.get("email"),"Permission to join Dukes XI Cricket Team")
-    return result
+    user_id = db.user.insert_one(userObj)
+    return user_id
 
 def getUser(userName):
-    result = queryUser("username",userName)
-    return result
+    db = getdbObject()
+    user = db.user.find_one({"username":userName})
+    return user
 
 def getUsers():
-    #r = requests.get('http://www.tennisballcricket.org/cricket_module/mobile_service.php?action=getTeamPlayers&tid=184')
-    #tcaUsers = json.loads(r.text)
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    #params = urllib.urlencode({"where":json.dumps({key:value})})
-    connection.request('GET','/1/classes/user','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    return result
+    db = getdbObject()
+    users = list(db.user.find())
+    return users
 
 def getUserUsingTCAID(tca_id):
-    result = queryUser("tca_id",tca_id)
+    db = getdbObject()
+    result = db.user.find_one({"tca_id":tca_id})
     return result
 
 def updateUser(userName,userObj,associate):
-    existingUser = getUser(userName)
-    if not existingUser.get("results"):
-        abort(404)
-    userid = existingUser.get("results")[0].get("objectId")
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    connection.request('PUT','/1/classes/user/%s' % userid,json.dumps(userObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    if associate == "1" :
-        name=existingUser.get("results")[0].get("name")
+    db = getdbObject()
+    updateResult = db.user.replace_one({"username":userName},userObj,upsert=False)
+
+    if associate == "1"  and updateResult.modified_count>0:
+        name=userObj.get("name")
         tca_id=userObj.get("tca_id")
         send_mail("%s is requesting to associate TCA ID %s with his user id %s" % (name,tca_id,userName),"cricketadmin@dukesxi.co",userObj.get("email"),"Permission to assoicate TCA ID with user id")
 
-    return result
+    return updateResult.modified_count
+
 
 def queryUser(key,value):
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    params = urllib.urlencode({"where":json.dumps({key:value})})
-    connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    return result
+    client = MongoClient(mongodb)
+    db = client.dukesxi
+    users = list(db.user.find({key:value}))
+    return users
                   
 def getUserSkill(user):
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    params = urllib.urlencode({"where":json.dumps({"username":user}),"keys":"tca_skillset"})
-    connection.request('GET','/1/classes/user?%s' % params, '',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    return result.get("results")[0].get("tca_skillset")
+    db = getdbObject()
+    user = db.user.find_one({"username":user})
+    if user is not None:
+        return user["tca_skillset"]
+
+    return None
 
 def send_mail(message,to,cc,subject):
     print "Sending mail to %s" % to

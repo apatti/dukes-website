@@ -1,11 +1,10 @@
 import json,httplib,urllib
 from dukesuser import getUserSkill,getUserHelper
 import dukesMail as mail
-from pymongo import MongoClient
-import os
 from firebase import firebase
+import dbutil
+from bson.objectid import ObjectId
 
-mongodb = os.environ['MONGODB_STRING']
 fb = firebase.FirebaseApplication('https://dukes-cricket.firebaseio.com',None)
  
 def getPollMailMessage(question):
@@ -20,42 +19,22 @@ def createFbPoll(pollObj):
     return result
 
 def createPoll(pollObj,optObj,sendMailTo):
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    connection.request('POST','/1/classes/polls',json.dumps(pollObj),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    pollId = result.get("objectId")
-    if not pollId:
-        abort(400)
-    #poll is created, populate the options table.
-    for option in optObj:
-        option["pollid"] = pollId
-        connection.connect()
-        connection.request('POST','/1/classes/polloptions',json.dumps(option),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-        connection.getresponse().read()
-    
+    db = dbutil.getdbObject()
+    pollId = db.polls.insert_one(pollObj).inserted_id
+
     message = getPollMailMessage(pollObj["question"])
     message = mail.mailMessage(message,"Poll created - "+pollObj["question"],"Dukes Management")
     if sendMailTo == 0:
         mail.send_mail_cricket(message,"ashwin.patti@gmail.com","New poll for DukesXI Cricket Team")
 
-    return pollId
+    return str(pollId)
 
 def getPoll(poll_id):
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    connection.request('GET','/1/classes/polls/%s'%poll_id,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Con\
-tent-Type": "application/json"})
-    pollObj = json.loads(connection.getresponse().read())
-    
-    params = urllib.urlencode({"where":json.dumps({"pollid":poll_id})})
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    options = json.loads(connection.getresponse().read())
-    pollObj["options"]=options.get("results")
-
+    db = dbutil.getdbObject()
+    pollObj = db.polls.find_one({"_id":ObjectId(poll_id)})
+    pollObj['_id'] = str(pollObj['_id'])
     return pollObj
+
 
 def deletePoll(poll_id):
     connection = httplib.HTTPSConnection('api.parse.com',443)
@@ -79,58 +58,44 @@ tent-Type": "application/json"})
 def takePoll(poll_id,username,userid,optid,prev_optid):
     userskill = getUserSkill(userid)
     username= username + " (" + userskill + ")"
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    if not prev_optid or prev_optid != '':
-        #handle the old option.
-        #TODO: Should handle this properly later on.
-        #print 'Removing '+username+' from '+prev_optid
-        connection.request('PUT','/1/classes/polloptions/%s'%prev_optid,json.dumps({"users":{"__op":"Remove","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-        connection.getresponse().read()
-    
-    connection.request('PUT','/1/classes/polloptions/%s'%optid,json.dumps({"users":{"__op":"AddUnique","objects":[username]}}),{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"}) 
-    result = json.loads(connection.getresponse().read())
-    
-    return result
+    db = dbutil.getdbObject()
+    if prev_optid is not None and prev_optid != '':
+        db.polls.update_one({"_id":ObjectId(poll_id)},{"$pull": {prev_optid:username}})
+
+    updateResult = db.polls.update_one({"_id":ObjectId(poll_id)},{"$addToSet": {optid:username}})
+    return updateResult.modified_count
 
 
 def getPolls():
-    connection = httplib.HTTPSConnection('api.parse.com',443)
-    connection.connect()
-    connection.request('GET','/1/classes/polls','',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    pollsObj = json.loads(connection.getresponse().read()).get("results");
-    #print pollsObj
-    for pollObj in pollsObj:
-        connection.connect()
-        params = urllib.urlencode({"where":json.dumps({"pollid":pollObj.get("objectId")})})
-        connection.request('GET','/1/classes/polloptions?%s'%params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-        options = json.loads(connection.getresponse().read())
-        pollObj["options"]=options.get("results")
-    
-    return pollsObj
+    db = dbutil.getdbObject()
+    polls = list(db.polls.find())
+    for poll in polls:
+        poll["_id"] = str(poll["_id"])
+    return list(polls)
 
 
 def getOpenPolls():
-    client = MongoClient(mongodb)
-    db = client.dukesxi
+    db = dbutil.getdbObject()
     pollCursor = db.polls.find({"isClosed":0})
-    openPoll= []
-    for poll in pollCursor:
-        openPoll.append(poll)
-    
-    return openPoll
+    if pollCursor is None:
+        return []
+    else:
+        polls = list(pollCursor)
+        for poll in polls:
+            poll["_id"] = str(poll["_id"])
+
+        return polls
 
 def closePoll(poll_id):
-    client = MongoClient(mongodb)
-    db = client.dukesxi
-    db.polls.update_one({"_id":poll_id},{"$set":{"isClosed":1}})
-    pollCursor = db.polloptions.find({"pollid":poll_id},["users","text"])
+    db = dbutil.getdbObject()
+    db.polls.update_one({"_id":ObjectId(poll_id)},{"$set":{"isClosed":1}})
+    pollCursor = db.polloptions.find({"pollid":ObjectId(poll_id)},["users","text"])
     pollUsers = {}
     for users in pollCursor:
         pollUsers[users["text"]]=users["users"]
     
-    polldocument = db.polls.find_one({"_id":poll_id},["question"])
-    admins = getUserHelper("isAdmin",True)
+    polldocument = db.polls.find_one({"_id":ObjectId(poll_id)},["question"])
+    #admins = getUserHelper("isAdmin",True)
     #return [x["email"] for x in admins]
     sendPollCloseMail(pollUsers,polldocument["question"])
     pass 

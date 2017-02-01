@@ -44,8 +44,8 @@ def insertUserApi():
     userObj["email"] = reqObj.get("email")
     userObj["tca_associated"]=reqObj.get("tca_associated")
     result = getUser(userObj["username"])
-    if not result.get("results"):
-        result = saveUser(userObj)
+    if result is None:
+        result = saveUser(userObj.copy())
         return jsonify({'result':userObj}),201
 
     return jsonify({'result':result}),200
@@ -58,7 +58,7 @@ def getUsersApi():
 @app.route('/users/<username>',methods=['GET'])
 def getUserApi(username):
     result = getUser(username)    
-    if not result.get('results'):
+    if result is None:
         abort(404) #TODO: Add custom exceptions and error handlers
     else:
         return jsonify({'user':result}),200
@@ -66,7 +66,7 @@ def getUserApi(username):
 @app.route('/users/tca/<tca_id>',methods=['GET'])
 def getUserTcaId(tca_id):
     result = getUserUsingTCAID(tca_id)
-    if not result.get('results'):
+    if result is None:
         abort(404)
     else:
         return jsonify({'user':result}),200
@@ -77,8 +77,10 @@ def updateUserApi(username):
     reqObj = request.get_json(force=True)
     associate = request.args.get('associate')
     result = updateUser(username,reqObj,associate)
-    
-    return jsonify({'user':result}),201
+    if result==0:
+        abort(404)
+    else:
+        return jsonify({'modifiedCount':result}),201
 
 @app.route('/team/stats',methods=['GET'])
 def getTeamStats():
@@ -95,10 +97,9 @@ def createPollApi():
     pollObj["question"] = reqObj.get("question")
     pollObj["closeMethod"] = reqObj.get("closeMethod")
     pollObj["endDate"] = reqObj.get("endDate")
-    #pollObj["options"]=reqObj.get("options")
+    pollObj["options"]=reqObj.get("options")
     pollObj["isClosed"]=0
     print pollObj
-    print reqObj.get("options")
     result = createPoll(pollObj,reqObj.get("options"),reqObj.get("sendmailto"))
     return jsonify({'id':result}),201
 
@@ -133,7 +134,7 @@ def takePollApi(poll_id):
         abort(404)
     reqObj = request.get_json(force=True)
     result = takePoll(poll_id,reqObj.get("username"),reqObj.get("userId"),reqObj.get("current_option_id"),reqObj.get("prev_option_id"))
-    return jsonify({'result':result}),201
+    return jsonify({'modified_count':result}),201
 
 
 @app.route('/playingteam',methods=['POST'])
