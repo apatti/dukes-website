@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/service.py" afterPath="$PROJECT_DIR$/wsgi/service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/dukesMail.py" afterPath="$PROJECT_DIR$/wsgi/dukesMail.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
@@ -21,6 +21,7 @@
     <SUITE FILE_PATH="coverage/dukes11$MNist.coverage" NAME="MNist Coverage Results" MODIFIED="1466477189536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../apatti_ml/deeplearning/tensorflow/mnist_basic" />
     <SUITE FILE_PATH="coverage/dukes11$Senti.coverage" NAME="Senti Coverage Results" MODIFIED="1469934424606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../apatti_ml/sentimentalAnalysis/monkeyLearn" />
     <SUITE FILE_PATH="coverage/dukes11$Contours.coverage" NAME="Contours Coverage Results" MODIFIED="1433923780469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../apatti_opencv/contours" />
+    <SUITE FILE_PATH="coverage/dukes11$dukes.coverage" NAME="dukes Coverage Results" MODIFIED="1485948694384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wsgi" />
     <SUITE FILE_PATH="coverage/dukes11$BoW.coverage" NAME="BoW Coverage Results" MODIFIED="1434267636107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../apatti_ml/kaggle/bag_of_words" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -35,13 +36,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="service.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="service.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25" vertical-offset="5550" max-vertical-offset="6120">
-              <caret line="377" column="24" selection-start-line="377" selection-start-column="24" selection-end-line="377" selection-end-column="24" />
+            <state vertical-scroll-proportion="-9.407408" vertical-offset="1276" max-vertical-offset="6135">
+              <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dukesuser.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wsgi/dukesuser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="450" max-vertical-offset="1245">
+              <caret line="48" column="38" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,8 +63,35 @@
       <file leaf-file-name="polls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/polls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="2310">
-              <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+            <state vertical-scroll-proportion="-10.592592" vertical-offset="14" max-vertical-offset="1395">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#300#756#0" expanded="false" />
+                <element signature="e#789#908#0" expanded="false" />
+                <element signature="e#1365#1509#0" expanded="false" />
+                <element signature="e#3232#3376#0" expanded="false" />
+                <element signature="e#3403#3655#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.185185" vertical-offset="10" max-vertical-offset="2835">
+              <caret line="10" column="32" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dukesMail.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wsgi/dukesMail.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5463183" vertical-offset="175" max-vertical-offset="765">
+              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -59,10 +99,54 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="poll.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/poll.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="4485">
+              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+              <folding>
+                <marker date="1485950523000" expanded="true" signature="1297:1325" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="1390:1429" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="1467:1479" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="2372:2425" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="3479:3491" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="3989:4017" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="5195:5223" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="5306:5345" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="5383:5395" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="6584:6608" placeholder="..." />
+                <marker date="1485950523000" expanded="true" signature="12739:12750" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbutil.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wsgi/dbutil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#22#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="playingteam.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wsgi/playingteam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="home_m.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/static/home_m.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0" vertical-offset="387" max-vertical-offset="1020">
+            <state vertical-scroll-proportion="0.0" vertical-offset="387" max-vertical-offset="1020">
               <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
               <folding />
             </state>
@@ -82,11 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/team.js" />
-        <option value="$PROJECT_DIR$/wsgi/static/player.html" />
-        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/player.js" />
-        <option value="$PROJECT_DIR$/wsgi/nextgamedetails.py" />
-        <option value="$PROJECT_DIR$/../apatti_opencv/contours/contoursRemoval.py" />
         <option value="$PROJECT_DIR$/../apatti_ml/kaggle/bag_of_words/BagOfWords.py" />
         <option value="$PROJECT_DIR$/../apatti_ml/neural_networks/network.py" />
         <option value="$PROJECT_DIR$/wsgi/static/home.html" />
@@ -131,8 +210,13 @@
         <option value="$PROJECT_DIR$/../apatti_ml/deeplearning/tensorflow/mnist_basic/mnist.py" />
         <option value="$PROJECT_DIR$/../apatti_ml/sentimentalAnalysis/monkeyLearn/dataAggregator.py" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/wsgi/polls.py" />
+        <option value="$PROJECT_DIR$/wsgi/dukesuser.py" />
+        <option value="$PROJECT_DIR$/wsgi/dbutil.py" />
         <option value="$PROJECT_DIR$/wsgi/service.py" />
+        <option value="$PROJECT_DIR$/wsgi/polls.py" />
+        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/admin.js" />
+        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/poll.js" />
+        <option value="$PROJECT_DIR$/wsgi/dukesMail.py" />
       </list>
     </option>
   </component>
@@ -171,6 +255,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -203,13 +288,52 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dukes11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dukes11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dukes11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dukes11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dukesjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../apatti_ml/sentimentalAnalysis/monkeyLearn/dataAggregator.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
@@ -233,7 +357,7 @@
       <recent name="$PROJECT_DIR$/wsgi/static/images" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Senti">
+  <component name="RunManager" selected="Python.dukes">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -466,6 +590,28 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
+    <configuration default="false" name="dukes" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wsgi" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dukes11" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wsgi/service.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="Devils" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -510,11 +656,12 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.Contours" />
       <item index="1" class="java.lang.String" itemvalue="Python.Senti" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Devils" />
-      <item index="3" class="java.lang.String" itemvalue="Python.MNist" />
+      <item index="2" class="java.lang.String" itemvalue="Python.dukes" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Devils" />
+      <item index="4" class="java.lang.String" itemvalue="Python.MNist" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -528,6 +675,31 @@
       <option name="number" value="Default" />
       <updated>1394078044150</updated>
     </task>
+    <task id="LOCAL-00001" summary="mongo shift">
+      <created>1485949440264</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1485949440264</updated>
+    </task>
+    <task id="LOCAL-00002" summary="mongo shift">
+      <created>1485949651180</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1485949651180</updated>
+    </task>
+    <task id="LOCAL-00003" summary="mongo shift">
+      <created>1485950376660</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1485950376660</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mongo shift">
+      <created>1485950538366</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1485950538366</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -554,25 +726,26 @@
     <frame x="4" y="23" width="1276" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270073" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30656934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20907618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32751092" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3051095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21880065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2536946" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39854014" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3973799" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -591,6 +764,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="mongo shift" />
+    <option name="LAST_COMMIT_MESSAGE" value="mongo shift" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,7 +816,7 @@
           <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="87" />
+      <option name="time" value="99" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -650,69 +825,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/devilscricket/cricket/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/devilscricket/cricket/static/fantasypoints.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="447">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/devilscricket/cricket/static/fantasyrules.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1617646" vertical-offset="0" max-vertical-offset="1380">
-          <caret line="86" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/devilscricket/cricket/static/playerpoints.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="447">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/betting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="510">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/devilscricket/cricket/static/views/signupsuccessful.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
-          <caret line="2" column="68" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/dukesuser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9375" vertical-offset="0" max-vertical-offset="1065">
-          <caret line="26" column="17" selection-start-line="21" selection-start-column="4" selection-end-line="26" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/iplplayers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.43378997" vertical-offset="285" max-vertical-offset="2220">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/devilscricket/cricket/static/views/teams.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="465">
-          <caret line="5" column="78" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/devilscricket/cricket/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
@@ -870,13 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Python/2.7/lib/python/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="21397" max-vertical-offset="27345">
-          <caret line="1460" column="0" selection-start-line="1460" selection-start-column="0" selection-end-line="1460" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/devilscricket/cricket/points.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1282" max-vertical-offset="1740">
@@ -893,31 +998,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../apatti_ml/deeplearning/tensorflow/mnist_basic/mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47945204" vertical-offset="0" max-vertical-offset="720">
-          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../apatti_ml/neural_networks/network.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38812786" vertical-offset="0" max-vertical-offset="657">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/devilscricket/cricket/static/scripts/devilsjs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7215">
           <caret line="307" column="11" selection-start-line="307" selection-start-column="11" selection-end-line="307" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-            <element signature="e#1723#2008#0" expanded="false" />
-            <element signature="e#5250#5476#0" expanded="false" />
-            <element signature="e#7102#7272#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -926,7 +1010,7 @@
         <state vertical-scroll-proportion="0.7204969" vertical-offset="796" max-vertical-offset="1440">
           <caret line="97" column="32" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="32" />
           <folding>
-            <element signature="e#22#81#0" expanded="true" />
+            <element signature="e#22#81#0" expanded="false" />
             <element signature="e#1504#1526#0" expanded="false" />
             <element signature="e#1626#1654#0" expanded="false" />
             <element signature="e#1720#1813#0" expanded="false" />
@@ -942,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19354838" vertical-offset="0" max-vertical-offset="620">
           <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -950,7 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.123222746" vertical-offset="222" max-vertical-offset="855">
           <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -958,9 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41095892" vertical-offset="45" max-vertical-offset="1875">
           <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#23#49#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -968,7 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="4012" max-vertical-offset="6825">
           <caret line="293" column="0" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -976,9 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2109375" vertical-offset="0" max-vertical-offset="840">
           <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -994,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.375" vertical-offset="825" max-vertical-offset="1920">
           <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1002,7 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.484375" vertical-offset="735" max-vertical-offset="1125">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,7 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.185185" vertical-offset="625" max-vertical-offset="5880">
           <caret line="66" column="25" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,7 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="657">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,34 +1097,151 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26845637" vertical-offset="0" max-vertical-offset="447">
           <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/home_m.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="387" max-vertical-offset="1020">
+        <state vertical-scroll-proportion="0.0" vertical-offset="387" max-vertical-offset="1020">
           <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/polls.py">
+    <entry file="file://$PROJECT_DIR$/wsgi/playingteam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="2310">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/selectteam.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/joinus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Python/2.7/lib/python/site-packages/werkzeug/debug/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3316062" vertical-offset="1177" max-vertical-offset="2775">
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3316062" vertical-offset="3232" max-vertical-offset="8700">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/dbutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/dukesuser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="450" max-vertical-offset="1245">
+          <caret line="48" column="38" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="38" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Python/2.7/lib/python/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="26737" max-vertical-offset="27345">
+          <caret line="1816" column="0" selection-start-line="1816" selection-start-column="0" selection-end-line="1816" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.185185" vertical-offset="10" max-vertical-offset="2835">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/poll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="4485">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding>
+            <marker date="1485950523000" expanded="true" signature="1297:1325" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="1390:1429" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="1467:1479" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="2372:2425" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="3479:3491" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="3989:4017" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="5195:5223" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="5306:5345" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="5383:5395" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="6584:6608" placeholder="..." />
+            <marker date="1485950523000" expanded="true" signature="12739:12750" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/polls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.592592" vertical-offset="14" max-vertical-offset="1395">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#300#756#0" expanded="false" />
+            <element signature="e#789#908#0" expanded="false" />
+            <element signature="e#1365#1509#0" expanded="false" />
+            <element signature="e#3232#3376#0" expanded="false" />
+            <element signature="e#3403#3655#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25" vertical-offset="5550" max-vertical-offset="6120">
-          <caret line="377" column="24" selection-start-line="377" selection-start-column="24" selection-end-line="377" selection-end-column="24" />
+        <state vertical-scroll-proportion="-9.407408" vertical-offset="1276" max-vertical-offset="6135">
+          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/dukesMail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5463183" vertical-offset="175" max-vertical-offset="765">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
