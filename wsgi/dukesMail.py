@@ -1,8 +1,7 @@
 import json,httplib,urllib
 import urllib2
 import requests
-
-connection = httplib.HTTPSConnection('api.parse.com',443)
+import dbutil
 
 def send_mail_to(message,to,cc,subject):
     print "Sending mail to %s" % to
@@ -14,27 +13,24 @@ def send_html_mail_to(message,to,cc,subject):
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>","to":to,"cc":cc,"subject":subject,"html":message})
 
 def send_mail_all(message,cc,subject):
-    params = urllib.urlencode({"where":json.dumps({"tca_associated": 1}), "keys": "email"})
-    connection.connect()
-    connection.request('GET','/1/classes/user?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    emailList =",".join([res['email'] for res in result.get("results")])
+    db = dbutil.getdbObject()
+    emailCursor = db.users.find({"tca_associated":1},["email"])
+
+    emailList =",".join([res['email'] for res in emailCursor])
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"text":message})
     
 def send_mail_cricket(message,cc,subject):
-    params = urllib.urlencode({"where":json.dumps({"tca_associated": 1}), "keys": "email"})
-    connection.connect()
-    connection.request('GET','/1/classes/user?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    emailList =",".join([res['email'] for res in result.get("results")])
+    db = dbutil.getdbObject()
+    emailCursor = db.users.find({"tca_associated":1},["email"])
+    emailList =",".join([res['email'] for res in emailCursor])
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"html":message})
 
 def send_mail_ipl(message,cc,subject):
-    params = urllib.urlencode({"where":json.dumps({"iplAccess": True}), "keys": "email"})
-    connection.connect()
-    connection.request('GET','/1/classes/user?%s' % params,'',{"X-Parse-Application-Id": "ioGYGcXuXi2DRyPYnTLB6lTC5DSPtiLbOhAU9P1M","X-Parse-REST-API-Key": "3yuAKMX4bz8QouVmfWBODyleTV5GzD3yhn2yYzYo","Content-Type": "application/json"})
-    result = json.loads(connection.getresponse().read())
-    emailList =",".join([res['email'] for res in result.get("results")])
+    db = dbutil.getdbObject()
+    emailCursor = db.users.find({"iplAccess":1},["email"])
+
+    emailList =",".join([res['email'] for res in emailCursor])
+
     emailList="ashwin.patti@gmail.com"
     print emailList
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes IPL Fantasy <cricketteam@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"text":""})
