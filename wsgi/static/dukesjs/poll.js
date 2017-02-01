@@ -48,8 +48,8 @@ $(document).bind('login_complete', loggedIn);
 							//dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 var usersTable = "<table>";
 							//get the list of users who took poll fot this option
-							 if(opData[optionId]){
-								var u = JSON.stringify(opData[optionId]);
+							 if(pData[optionId]){
+								var u = JSON.stringify(pData[optionId]);
 								var uData = $.parseJSON(u);	
 								var userCount = 0;
 								$.each( uData,function () {
@@ -65,19 +65,19 @@ $(document).bind('login_complete', loggedIn);
                                  usersTable = usersTable + "</table>";
 								//dropDownStr = dropDownStr +"</select>";
 
-                                 var dialogId = this['_id'] + optionId+"Dialog";
+                                 var dialogId = objId + optionId+"Dialog";
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
                                 dropDownStr = dropDownStr + usersTable;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
 
-                                dropDownStr = dropDownStr +"<div id='"+this['_id'] + optionId+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
+                                dropDownStr = dropDownStr +"<div id='"+objId + optionId+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
 							 
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ this['_id'] + '&'+ optionId +"' value='objectId="+ this['_id'] + '&pollid='+ optionId +"' previousValue ='"+previousOptionId+"' class='"+optionId+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";
-							 localPollStr = localPollStr +"<td style='background-color: burlywood;'><label for='"+this['_id']+"'>"+this['text']+"</label></td>";
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ objId + '&'+ optionId +"' value='objectId="+ objId + '&pollid='+ optionId +"' previousValue ='"+previousOptionId+"' class='"+optionId+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";
+							 localPollStr = localPollStr +"<td style='background-color: burlywood;'><label for='"+objId+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
 							 
@@ -97,7 +97,7 @@ $(document).bind('login_complete', loggedIn);
 					}else{
 						// Closed Polls
 
-                        var objId = this['_id'] ;
+                        var objId = objId ;
                         var closePollStr = "";
                         closePollStr = closePollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
                         closePollStr = closePollStr + "<table><th style='background-color: gainsboro;'>";
@@ -108,15 +108,15 @@ $(document).bind('login_complete', loggedIn);
                             var dropDownStr ='';
                             var hasPollTaken='no';
                             var checkedValue =false;
-                            var optionId = this['_id'];
+                            var optionId = this[text];
 
                             /* create Users DropDown*/
 
                             var usersTable = "<table>";
                             usersTable = usersTable+ "<th>"+this['text']+"</th>";
                             //get the list of users who took poll fot this option
-                            if(this['users']){
-                                var u = JSON.stringify(this['users']);
+                            if(opData[optionId]){
+                                var u = JSON.stringify(opData[optionId]);
                                 var uData = $.parseJSON(u);
                                 var userCount = 0;
                                 $.each( uData,function () {
