@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/dukesMail.py" afterPath="$PROJECT_DIR$/wsgi/dukesMail.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/poll.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/poll.js" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dukesMail.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dukesMail.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/dukesMail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.783848" vertical-offset="0" max-vertical-offset="735">
+            <state vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="735">
               <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -99,23 +98,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="poll.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="poll.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/poll.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="4485">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.9287411" vertical-offset="659" max-vertical-offset="4485">
+              <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
               <folding>
-                <marker date="1485950523000" expanded="true" signature="1297:1325" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="1390:1429" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="1467:1479" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="2372:2425" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="3479:3491" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="3989:4017" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="5195:5223" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="5306:5345" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="5383:5395" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="6584:6608" placeholder="..." />
-                <marker date="1485950523000" expanded="true" signature="12739:12750" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="1292:1320" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="1385:1424" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="1462:1474" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="2362:2415" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="3459:3471" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="3969:3997" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="5170:5198" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="5281:5320" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="5358:5370" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="6554:6578" placeholder="..." />
+                <marker date="1485951309000" expanded="true" signature="12704:12715" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -215,8 +214,8 @@
         <option value="$PROJECT_DIR$/wsgi/service.py" />
         <option value="$PROJECT_DIR$/wsgi/polls.py" />
         <option value="$PROJECT_DIR$/wsgi/static/dukesjs/admin.js" />
-        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/poll.js" />
         <option value="$PROJECT_DIR$/wsgi/dukesMail.py" />
+        <option value="$PROJECT_DIR$/wsgi/static/dukesjs/poll.js" />
       </list>
     </option>
   </component>
@@ -1191,26 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/poll.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="4485">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <marker date="1485950523000" expanded="true" signature="1297:1325" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="1390:1429" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="1467:1479" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="2372:2425" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="3479:3491" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="3989:4017" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="5195:5223" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="5306:5345" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="5383:5395" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="6584:6608" placeholder="..." />
-            <marker date="1485950523000" expanded="true" signature="12739:12750" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/polls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.592592" vertical-offset="14" max-vertical-offset="1395">
@@ -1238,10 +1217,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/dukesMail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.783848" vertical-offset="0" max-vertical-offset="735">
+        <state vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="735">
           <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/poll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9287411" vertical-offset="659" max-vertical-offset="4485">
+          <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+          <folding>
+            <marker date="1485951309000" expanded="true" signature="1292:1320" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="1385:1424" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="1462:1474" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="2362:2415" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="3459:3471" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="3969:3997" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="5170:5198" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="5281:5320" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="5358:5370" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="6554:6578" placeholder="..." />
+            <marker date="1485951309000" expanded="true" signature="12704:12715" placeholder="..." />
           </folding>
         </state>
       </provider>

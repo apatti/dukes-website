@@ -31,7 +31,7 @@ $(document).bind('login_complete', loggedIn);
 					
 					//Open Polls
 					if(this['isClosed'] == 0 ){
-						var objId = this['objectId'] ;
+						var objId = this['_id'] ;
 						var localPollStr = "";
 						localPollStr = localPollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
 						localPollStr = localPollStr + "<table><th style='background-color: gainsboro;'>";
@@ -42,7 +42,7 @@ $(document).bind('login_complete', loggedIn);
 							var dropDownStr ='';
 							var hasPollTaken='no';
 							var checkedValue =false;
-							var optionId = this['objectId'];
+							var optionId = this['_id'];
 							
 							/* create Users DropDown*/
 							//dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
@@ -65,13 +65,13 @@ $(document).bind('login_complete', loggedIn);
                                  usersTable = usersTable + "</table>";
 								//dropDownStr = dropDownStr +"</select>";
 
-                                 var dialogId = this['objectId'] + this['pollid']+"Dialog";
+                                 var dialogId = this['_id'] + this['pollid']+"Dialog";
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
                                 dropDownStr = dropDownStr + usersTable;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
 
-                                dropDownStr = dropDownStr +"<div id='"+this['objectId'] + this['pollid']+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
+                                dropDownStr = dropDownStr +"<div id='"+this['_id'] + this['pollid']+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
@@ -97,7 +97,7 @@ $(document).bind('login_complete', loggedIn);
 					}else{
 						// Closed Polls
 
-                        var objId = this['objectId'] ;
+                        var objId = this['_id'] ;
                         var closePollStr = "";
                         closePollStr = closePollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
                         closePollStr = closePollStr + "<table><th style='background-color: gainsboro;'>";
@@ -108,7 +108,7 @@ $(document).bind('login_complete', loggedIn);
                             var dropDownStr ='';
                             var hasPollTaken='no';
                             var checkedValue =false;
-                            var optionId = this['objectId'];
+                            var optionId = this['_id'];
 
                             /* create Users DropDown*/
 
@@ -219,7 +219,7 @@ function updatePollDetails(pollId,noOfPolls ){
 	
 		//Open Polls
 		if(pData['isClosed'] == 0 ){
-			var objId = pData['objectId'] ;
+			var objId = pData['_id'] ;
 			var updateProllStr = "";
 			updateProllStr = updateProllStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
 			updateProllStr = updateProllStr + "<table><tr>";
