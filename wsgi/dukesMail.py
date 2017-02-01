@@ -23,7 +23,6 @@ def send_mail_cricket(message,cc,subject):
     print "Sending mail to cricket!"
     db = dbutil.getdbObject()
     emailCursor = db.users.find({"tca_associated":1},["email"])
-    print len(emailCursor)
     emailList =",".join([res['email'] for res in emailCursor])
     print "Sending it to:"+emailList
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"html":message})
