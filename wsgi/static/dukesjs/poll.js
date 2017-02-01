@@ -7,8 +7,8 @@ $(document).bind('login_complete', loggedIn);
  function loggedIn(){
      var userData = JSON.parse(localStorage.getItem('USER_GOOGLE_INFO'));
      $.get("http://www.dukesxi.co/users/"+userData.username,function(data,status){
-         userName=data.user.results[0].email.substr(0,data.user.results[0].email.indexOf('@'));
-	 userId=data.user.results[0].username;
+         userName=data.user.email.substr(0,data.user.email.indexOf('@'));
+	 userId=data.user.username;
          polling();
      })
          .fail(function(){
