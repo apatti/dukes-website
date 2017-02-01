@@ -42,14 +42,14 @@ $(document).bind('login_complete', loggedIn);
 							var dropDownStr ='';
 							var hasPollTaken='no';
 							var checkedValue =false;
-							var optionId = this['_id'];
+							var optionId = this['text'];
 							
 							/* create Users DropDown*/
 							//dropDownStr = dropDownStr + "<select id='basic' name='basic' class='"+this['pollid']+"'>";
 							 var usersTable = "<table>";
 							//get the list of users who took poll fot this option
-							 if(this['users']){
-								var u = JSON.stringify(this['users']);
+							 if(opData[optionId]){
+								var u = JSON.stringify(opData[optionId]);
 								var uData = $.parseJSON(u);	
 								var userCount = 0;
 								$.each( uData,function () {
@@ -65,19 +65,19 @@ $(document).bind('login_complete', loggedIn);
                                  usersTable = usersTable + "</table>";
 								//dropDownStr = dropDownStr +"</select>";
 
-                                 var dialogId = this['_id'] + this['pollid']+"Dialog";
+                                 var dialogId = this['_id'] + optionId+"Dialog";
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
                                 dropDownStr = dropDownStr + usersTable;
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
 
-                                dropDownStr = dropDownStr +"<div id='"+this['_id'] + this['pollid']+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
+                                dropDownStr = dropDownStr +"<div id='"+this['_id'] + optionId+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
 							 
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ this['objectId'] + '&'+ this['pollid'] +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +"' previousValue ='"+previousOptionId+"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";	
-							 localPollStr = localPollStr +"<td style='background-color: burlywood;'><label for='"+this['objectId']+"'>"+this['text']+"</label></td>";
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ this['_id'] + '&'+ optionId +"' value='objectId="+ this['objectId'] + '&pollid='+ this['pollid'] +"' previousValue ='"+previousOptionId+"' class='"+this['pollid']+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";
+							 localPollStr = localPollStr +"<td style='background-color: burlywood;'><label for='"+this['_id']+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
 							 
