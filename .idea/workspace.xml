@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2709aaab-0d81-4b5b-a52c-05d7c76e802e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/static/dukesjs/poll.js" afterPath="$PROJECT_DIR$/wsgi/static/dukesjs/poll.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dukes11.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,20 +102,20 @@
       <file leaf-file-name="poll.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/poll.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9287411" vertical-offset="659" max-vertical-offset="4485">
-              <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.03348214" vertical-offset="1155" max-vertical-offset="4485">
+              <caret line="78" column="270" selection-start-line="78" selection-start-column="270" selection-end-line="78" selection-end-column="270" />
               <folding>
-                <marker date="1485951309000" expanded="true" signature="1292:1320" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="1385:1424" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="1462:1474" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="2362:2415" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="3459:3471" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="3969:3997" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="5170:5198" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="5281:5320" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="5358:5370" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="6554:6578" placeholder="..." />
-                <marker date="1485951309000" expanded="true" signature="12704:12715" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="1292:1320" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="1385:1424" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="1462:1474" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="2369:2422" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="3454:3466" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="3935:3963" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="5131:5159" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="5242:5281" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="5319:5331" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="6515:6539" placeholder="..." />
+                <marker date="1485984276000" expanded="true" signature="12665:12676" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -698,7 +699,13 @@
       <option name="project" value="LOCAL" />
       <updated>1485950538366</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="mongo shift">
+      <created>1485982950882</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1485982950882</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1227,20 +1234,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/static/dukesjs/poll.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9287411" vertical-offset="659" max-vertical-offset="4485">
-          <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.03348214" vertical-offset="1155" max-vertical-offset="4485">
+          <caret line="78" column="270" selection-start-line="78" selection-start-column="270" selection-end-line="78" selection-end-column="270" />
           <folding>
-            <marker date="1485951309000" expanded="true" signature="1292:1320" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="1385:1424" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="1462:1474" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="2362:2415" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="3459:3471" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="3969:3997" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="5170:5198" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="5281:5320" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="5358:5370" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="6554:6578" placeholder="..." />
-            <marker date="1485951309000" expanded="true" signature="12704:12715" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="1292:1320" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="1385:1424" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="1462:1474" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="2369:2422" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="3454:3466" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="3935:3963" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="5131:5159" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="5242:5281" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="5319:5331" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="6515:6539" placeholder="..." />
+            <marker date="1485984276000" expanded="true" signature="12665:12676" placeholder="..." />
           </folding>
         </state>
       </provider>
