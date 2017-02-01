@@ -14,22 +14,21 @@ def send_html_mail_to(message,to,cc,subject):
 
 def send_mail_all(message,cc,subject):
     db = dbutil.getdbObject()
-    emailCursor = db.users.find({"tca_associated":1},["email"])
+    emailCursor = db.user.find({"tca_associated":1},["email"])
 
     emailList =",".join([res['email'] for res in emailCursor])
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"text":message})
     
 def send_mail_cricket(message,cc,subject):
-    print "Sending mail to cricket!"
     db = dbutil.getdbObject()
-    emailCursor = db.users.find({"tca_associated":1},["email"])
+    emailCursor = db.user.find({"tca_associated":1},["email"])
     emailList =",".join([res['email'] for res in emailCursor])
     print "Sending it to:"+emailList
     requests.post("https://api.mailgun.net/v2/dukesxi.co/messages",auth=("api","key-6juj8th780z4bbbf1jpl7ffpx5z34wa9"),data={"from":"Dukes XI <cricketteam@dukesxi.co>", "to":emailList,"cc":cc,"subject":subject,"html":message})
 
 def send_mail_ipl(message,cc,subject):
     db = dbutil.getdbObject()
-    emailCursor = db.users.find({"iplAccess":1},["email"])
+    emailCursor = db.user.find({"iplAccess":1},["email"])
 
     emailList =",".join([res['email'] for res in emailCursor])
 
