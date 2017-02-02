@@ -176,8 +176,8 @@ $(document).bind('login_complete', loggedIn);
 				var rr =  $("input[type=radio][class*='"+this.id+"']:checked")	.val();
 				var str = rr.split('&');
 				
-				currentRadio = (str[0].split('='))[1];;
-				pollid = (str[1].split('='))[1];
+				currentRadio = (str[1].split('='))[1];;
+				pollid = (str[0].split('='))[1];
 								
 					previousOptionId = $(this).attr('previousOption');
 					//alert('current_option_id :'+currentRadio +',prev_option_id:'+previousOptionId+',username:'+fbUserName);
