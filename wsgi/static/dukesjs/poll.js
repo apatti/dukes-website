@@ -76,7 +76,8 @@ $(document).bind('login_complete', loggedIn);
 							/* */
 							 localPollStr = localPollStr + "<tr>";
 							 
-							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ objId + '&'+ optionId +"' value='objectId="+ objId + '&pollid='+ optionId +"' previousValue ='"+previousOptionId+"' class='"+optionId+" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";
+							 localPollStr = localPollStr + "<td><input type='radio' name='rd"+ noOfPolls +"' id='objectId="+ objId + '&'+ optionId +"' value='objectId="+ objId +
+                                            '&pollid='+ optionId +"' previousValue ='"+previousOptionId+"' class='objectId="+objId + '&' +optionId +" pollRadio' yourSelection='"+hasPollTaken+"'/></td>";
 							 localPollStr = localPollStr +"<td style='background-color: burlywood;'><label for='"+objId+"'>"+this['text']+"</label></td>";
 							 
 							 localPollStr = localPollStr + "<td>" + dropDownStr + "</td>";
