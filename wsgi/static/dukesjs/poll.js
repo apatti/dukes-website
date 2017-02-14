@@ -109,7 +109,7 @@ $(document).bind('login_complete', loggedIn);
                             var dropDownStr ='';
                             var hasPollTaken='no';
                             var checkedValue =false;
-                            var optionId = this[text];
+                            var optionId = this["text"];
 
                             /* create Users DropDown*/
 
