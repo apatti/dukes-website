@@ -89,15 +89,18 @@ def getOpenPolls():
 def closePoll(poll_id):
     db = dbutil.getdbObject()
     db.polls.update_one({"_id":ObjectId(poll_id)},{"$set":{"isClosed":1}})
-    pollCursor = db.polloptions.find({"pollid":ObjectId(poll_id)},["users","text"])
+    pollCursor = db.polls.find({"_id":ObjectId(poll_id)})
+    options = []
+    for option in pollCursor["options"]:
+        options.append(option['text'])
+
     pollUsers = {}
-    for users in pollCursor:
-        pollUsers[users["text"]]=users["users"]
-    
-    polldocument = db.polls.find_one({"_id":ObjectId(poll_id)},["question"])
+    for option in options:
+        pollUsers[option]=pollCursor[option]
+
     #admins = getUserHelper("isAdmin",True)
     #return [x["email"] for x in admins]
-    sendPollCloseMail(pollUsers,polldocument["question"])
+    sendPollCloseMail(pollUsers,pollCursor["question"])
     pass 
 
 def sendPollCloseMail(pollUsers,title):
