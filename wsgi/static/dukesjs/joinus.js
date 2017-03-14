@@ -15,7 +15,7 @@ var userData="";
 function loggedIn(){
     userData = $.parseJSON(localStorage.getItem('USER_GOOGLE_INFO'));
         $.get("http://www.dukesxi.co/users/"+userData.id,function(data,status){
-            setProfileUIData(data.user.results[0]);
+            setProfileUIData(data.user);
      })
         .fail(function(){
              setProfileUIData(userData);
