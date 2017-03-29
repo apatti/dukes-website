@@ -42,6 +42,7 @@ def fixId(user):
 def getUserUsingTCAID(tca_id):
     db = getdbObject()
     result = db.user.find_one({"tca_id":tca_id})
+    print result
     return result
 
 def updateUser(userName,userObj,associate):
