@@ -31,7 +31,13 @@ def getUser(userName):
 def getUsers():
     db = getdbObject()
     users = list(db.user.find())
+    users = [fixId(u) for u in users]
+
     return users
+
+def fixId(user):
+    user['_id'] = str(user['_id'])
+    return user
 
 def getUserUsingTCAID(tca_id):
     db = getdbObject()
