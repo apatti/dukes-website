@@ -98,7 +98,7 @@ $(document).ready(function(){
         dataType: 'json',
         async: false,
         success: function(data) {
-            result = JSON.stringify(data.user.results[0])
+            result = JSON.stringify(data.user)
             result = $.parseJSON(result);
             }
         });

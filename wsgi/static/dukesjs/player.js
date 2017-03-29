@@ -29,7 +29,7 @@ var playerId = getParameterByName('pid');
         });
 		
 	$.get("http://www.dukesxi.co/users/tca/"+playerId,function(data,status){
-				var results = JSON.stringify(data.user.results[0]);		
+				var results = JSON.stringify(data.user);
 				var userData = $.parseJSON(results);
                 if(userData['imagelink']==undefined)
                     userData['imagelink']="images/defaultuser.png";
