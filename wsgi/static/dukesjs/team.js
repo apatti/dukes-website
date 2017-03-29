@@ -22,7 +22,7 @@ $(document).ready(function(){
 });
 function updatedImages(){
 $.get("http://www.dukesxi.co/users/",function(data,status){							
-				var rr = JSON.stringify(data.users.results);
+				var rr = JSON.stringify(data.users);
 				var aa = $.parseJSON(rr);
 				$.each(aa, function() {	
 					var divId = this.tca_id;
