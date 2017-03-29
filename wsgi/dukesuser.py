@@ -42,7 +42,7 @@ def fixId(user):
 def getUserUsingTCAID(tca_id):
 
     db = getdbObject()
-    result = db.user.find_one({"tca_id":str(tca_id)})
+    result = db.user.find_one({"tca_id":tca_id})
     result['_id'] = str(result['_id'])
     return result
 
