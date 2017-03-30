@@ -98,7 +98,7 @@ $(document).bind('login_complete', loggedIn);
 					}else{
 						// Closed Polls
 
-                        var objId = objId ;
+                        var objId = this['_id'] ;
                         var closePollStr = "";
                         closePollStr = closePollStr + "<div id="+objId+" class='pollDivCSS' style='margin-bottom:20px' title='Poll"+noOfPolls+"'>";
                         closePollStr = closePollStr + "<table><th style='background-color: gainsboro;'>";
@@ -116,7 +116,7 @@ $(document).bind('login_complete', loggedIn);
                             var usersTable = "<table>";
                             usersTable = usersTable+ "<th>"+this['text']+"</th>";
                             //get the list of users who took poll fot this option
-                            if(opData[optionId]){
+                            if(pData[optionId]){
                                 var u = JSON.stringify(opData[optionId]);
                                 var uData = $.parseJSON(u);
                                 var userCount = 0;
