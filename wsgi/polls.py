@@ -87,6 +87,7 @@ def getOpenPolls():
         return polls
 
 def closePoll(poll_id):
+    print "Close poll:"+poll_id
     db = dbutil.getdbObject()
     db.polls.update_one({"_id":ObjectId(poll_id)},{"$set":{"isClosed":1}})
     pollCursor = db.polls.find({"_id":ObjectId(poll_id)})
