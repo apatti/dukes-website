@@ -65,7 +65,7 @@ $(document).bind('login_complete', loggedIn);
                                  usersTable = usersTable + "</table>";
 								//dropDownStr = dropDownStr +"</select>";
 
-                                 var dialogId = objId + optionId+"Dialog";
+                                 var dialogId = objId +"_" +optionId+"Dialog";
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
                                 dropDownStr = dropDownStr + usersTable;
                                 dropDownStr = dropDownStr + "</div>";
