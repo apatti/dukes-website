@@ -87,11 +87,11 @@ def getOpenPolls():
         return polls
 
 def closePoll(poll_id):
-    print "Close poll:"+poll_id
     db = dbutil.getdbObject()
     db.polls.update_one({"_id":ObjectId(poll_id)},{"$set":{"isClosed":1}})
-    pollCursor = db.polls.find({"_id":ObjectId(poll_id)})
+    pollCursor = db.polls.find_one({"_id":ObjectId(poll_id)})
     options = []
+    #polls = list(pollCursor)
     for option in pollCursor["options"]:
         options.append(option['text'])
 
