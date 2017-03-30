@@ -114,5 +114,5 @@ def sendPollCloseMail(pollUsers,title):
             messageBody += '<div style="margin-bottom:5px">'+user+'</div>'
         messageBody += '</div><br/>'
     message = mail.mailMessage(messageBody,"Poll closed - "+title,"Dukesxi Web Service")
-    
+
     mail.send_html_mail_to(message,adminEmails,"ashwin.patti@gmail.com","Poll closed - "+title)

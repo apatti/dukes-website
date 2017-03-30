@@ -67,8 +67,8 @@ function selectTeam()
         {
             if(this['isClosed']==1)
             {
-                $("#selectpoll").append('<option id="'+this.objectId+'">'+this.question+'</option>');
-                polldata[this.objectId]=this["options"];
+                $("#selectpoll").append('<option id="'+this['_id']+'">'+this.question+'</option>');
+                polldata[this['_id']]=this["options"];
             }
         });
         $("#selectpoll").change(function()
