@@ -117,7 +117,7 @@ $(document).bind('login_complete', loggedIn);
                             usersTable = usersTable+ "<th>"+this['text']+"</th>";
                             //get the list of users who took poll fot this option
                             if(pData[optionId]){
-                                var u = JSON.stringify(opData[optionId]);
+                                var u = JSON.stringify(pData[optionId]);
                                 var uData = $.parseJSON(u);
                                 var userCount = 0;
                                 $.each( uData,function () {
