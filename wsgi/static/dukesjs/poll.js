@@ -71,7 +71,7 @@ $(document).bind('login_complete', loggedIn);
                                 dropDownStr = dropDownStr + "</div>";
                                  //<a href='#' onClick='openUsersDialog('"+this['pollid'] +"Dialog')></a>("+uData.length+")
 
-                                dropDownStr = dropDownStr +"<div id='"+objId + optionId+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
+                                dropDownStr = dropDownStr +"<div id='"+objId +"_"+ optionId+"' class='forDialog'>( "+"<a href='#' style='color: blue;'>"+ uData.length +"</a>"+" )</div>";
 							}
 							/* */
 							 localPollStr = localPollStr + "<tr>";
