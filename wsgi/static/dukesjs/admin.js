@@ -76,17 +76,17 @@ function selectTeam()
             var pollid=$(this).children(":selected").attr("id");
             if(pollid!="default")
             {
-                polldata[pollid][0].users.sort();
-                polldata[pollid][1].users.sort();
+                polldata[pollid].users.sort();
+                //polldata[pollid][1].users.sort();
                 $.each(polldata[pollid],function()
                 {
-                   if(this['text']=='Available')
-                   {
+                   //if(this['text']=='Available')
+                   //{
                        for(var index=0;index<this.users.length;index++)
                        {
                            $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+this.users[index]+'">'+this.users[index]+'</td></tr>')
                        }
-                   }
+                   //}
                 });
             }
         });
