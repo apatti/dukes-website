@@ -65,7 +65,7 @@ $(document).bind('login_complete', loggedIn);
                                  usersTable = usersTable + "</table>";
 								//dropDownStr = dropDownStr +"</select>";
 
-                                 var dialogId = objId +"_" +optionId.replace(/\s/g, "")+"Dialog";
+                                 var dialogId = objId +"_" +optionId.replace(/\s/g, "")+"_Dialog";
                                 dropDownStr = dropDownStr +"<div id="+dialogId+" class='userDialog'>";
                                 dropDownStr = dropDownStr + usersTable;
                                 dropDownStr = dropDownStr + "</div>";
@@ -153,7 +153,7 @@ $(document).bind('login_complete', loggedIn);
 			});
             $('.forDialog').click(function (){
 
-                var dialogId = $(this).attr('id')+"Dialog";
+                var dialogId = $(this).attr('id').replace(/\s/g, "")+"_Dialog";//optionId.replace(/\s/g, "")+"_Dialog";
                 $( '#'+dialogId ).dialog( "open" );
             });
 
