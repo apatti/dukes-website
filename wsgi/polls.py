@@ -99,6 +99,8 @@ def closePoll(poll_id):
     for option in options:
         pollUsers[option]=pollCursor[option]
 
+    print "Sending mail!!"
+    print pollUsers
     #admins = getUserHelper("isAdmin",True)
     #return [x["email"] for x in admins]
     sendPollCloseMail(pollUsers,pollCursor["question"])
