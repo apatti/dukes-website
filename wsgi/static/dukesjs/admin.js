@@ -76,13 +76,13 @@ function selectTeam()
             var pollid=$(this).children(":selected").attr("id");
             if(pollid!="default")
             {
-                polldata[pollid].users.sort();
+                polldata[pollid].sort();
                 //polldata[pollid][1].users.sort();
                 $.each(polldata[pollid],function()
                 {
                    //if(this['text']=='Available')
                    //{
-                       for(var index=0;index<this.users.length;index++)
+                       for(var index=0;index<this.length;index++)
                        {
                            $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+this.users[index]+'">'+this.users[index]+'</td></tr>')
                        }
