@@ -82,10 +82,10 @@ function selectTeam()
                 {
                    //if(this['text']=='Available')
                    //{
-                       for(var index=0;index<this.length;index++)
-                       {
-                           $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+this.users[index]+'">'+this.users[index]+'</td></tr>')
-                       }
+                       //for(var index=0;index<this.length;index++)
+                       //{
+                    $("#availableplayers").append('<tr><td><input type="checkbox" name="playing" value="'+this+'">'+this+'</td></tr>')
+                       //}
                    //}
                 });
             }
