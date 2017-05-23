@@ -12,6 +12,7 @@ $(document).bind('login_complete',loggedIn);
 		     pollCreation();
 		     selectTeam();
 		     closePoll();
+             addPlayerToPoll();
 		     $('#adminTabPanel').show();
 		     $('#noPermission').hide();
 		 }
@@ -26,6 +27,23 @@ $(document).bind('login_complete',loggedIn);
 		 $('#noPermission').show();
 	     });
  }
+
+function addPlayerToPoll()
+{
+    $.get("http://www.dukesxi.co/polls",function(data,status){
+        var dd=$.parseJSON(data);
+	    var polldata={};
+	    $("#closepoll").append('<option id="default">Select the poll</option>');
+	    $.each(dd,function()
+		   {
+		       $("#closepoll").append('<option id="'+this._id+'">'+this.question+'</option>');
+		   });
+        $("#addPlayerBtn").click(function()
+        {
+
+        });
+    });
+}
 
 function closePoll()
 {

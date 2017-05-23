@@ -25,6 +25,8 @@ def saveUser(userObj):
 def getUser(userName):
     db = getdbObject()
     user = db.user.find_one({"username":userName})
+    if user is None:
+        return None
     user['_id'] = str(user['_id'])
     return user
 

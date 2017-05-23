@@ -65,6 +65,11 @@ def takePoll(poll_id,username,userid,optid,prev_optid):
     updateResult = db.polls.update_one({"_id":ObjectId(poll_id)},{"$addToSet": {optid:username}})
     return updateResult.modified_count
 
+def addPlayerToPoll(poll_id,username,userskill):
+    username= username + " (" + userskill + ")"
+    db = dbutil.getdbObject()
+    updateResult = db.polls.update_one({"_id":ObjectId(poll_id)},{"$addToSet": {"Available":username}})
+    return updateResult.modified_count
 
 def getPolls():
     db = dbutil.getdbObject()

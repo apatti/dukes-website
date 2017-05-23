@@ -2,7 +2,7 @@ from flask import Flask,jsonify,make_response,request,abort
 import json,httplib,urllib,os
 from dukesuser import getUser,saveUser,updateUser,getUserUsingTCAID,getUsers
 from teamstats import getTeamWL
-from polls import createPoll,getPoll,takePoll,getPolls,deletePoll,closePoll,getOpenPolls,createFbPoll
+from polls import createPoll,getPoll,takePoll,getPolls,deletePoll,closePoll,getOpenPolls,createFbPoll,addPlayerToPoll
 from superbowl import getSuperBowl,insertSuperBowl
 from ipluser import getIplUsers, getIplUserTeam, getNextBidder, saveIPLUser, getIplUser, getIplUserDroppableTeam
 from playingteam import createPlayingTeam, getPlayingTeam, getGamesMeta
@@ -135,6 +135,19 @@ def takePollApi(poll_id):
     reqObj = request.get_json(force=True)
     result = takePoll(poll_id,reqObj.get("username"),reqObj.get("userId"),reqObj.get("current_option_id"),reqObj.get("prev_option_id"))
     return jsonify({'modified_count':result}),201
+
+@app.route('/polls/<poll_id>/addPlayer',methods=['PUT'])
+def addPlayerPollApi(poll_id):
+    if not request.get_json:
+        abort(400)
+
+    result = getPoll(poll_id)
+    if result.get('code'):
+        abort(404)
+    reqObj = request.get_json(force=True)
+    result = addPlayerPollApi(poll_id,reqObj.get("username"),reqObj.get("userskill"))
+    return jsonify({'modified_count':result}),201
+
 
 
 @app.route('/playingteam',methods=['POST'])
